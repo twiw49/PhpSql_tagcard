@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tag Cards | Insert</title>
+  <style>
+
+  </style>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Tag Card</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="index.html">SEARCH</a></li>
+          <li class="active"><a href="insert.html">INSERT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="form-group">
+      <label for="content">Contetnt:</label>
+      <textarea class="form-control" rows="5" id="content"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="add_tag">Tag:</label>
+      <input type="text" class="form-control" name="tag" id="add_tag" onkeydown="captureReturnKey(event)">
+      <p></p>
+      <div id="tag-group"></div>
+    </div>
+    <input type="submit" class="btn btn-success form-control" id="insert" value="Insert">
+    <div id="flash"></div>
+    <div id="show"></div>
+  </div>
+  <script>
+  $('#content').focus();
+
+  function captureReturnKey(e) {
+    if (e.keyCode == 13 && e.srcElement.value !== '') {
+      var tagBtn = document.createElement('input');
+      tagBtn.setAttribute("type", "button");
+      tagBtn.setAttribute("class", "btn btn-primary active selected_tag");
+      tagBtn.setAttribute("value", e.srcElement.value);
+      tagBtn.style.borderRadius = 0;
+      tagBtn.style.outline = "1px solid white";
+      tagBtn.readOnly = true;
+      document.getElementById('tag-group').appendChild(tagBtn);
+      e.srcElement.value = "";
+    }
+  };
+
+  $(function() {
+    $("#insert").click(function() {
+      var content = $("#content").val();
+      var tag = $(".selected_tag")
+        .map(function() {
+          return this.value;
+        })
+        .get();
+
+      var dataString = {
+        insert: true,
+        content: content,
+        tag: tag
+      };
+
+      if (content == '' || tag == '') {
+        alert('Content or Tag is Empty!');
+        $("#content").focus();
+      } else {
+        $("#flash").show();
+        $("#flash").fadeIn(400).html('<span class="load">Loading..</span>');
+        $.ajax({
+          type: "POST",
+          url: "sql/insert_sql.php",
+          data: dataString,
+          cache: true,
+          success: function(html) {
+            $("#show").text(html);
+            $("#flash").hide();
+            $('#content').val('').focus();
+            $(".selected_tag").remove();
+          }
+        });
+      }
+    });
+  });
+  </script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+</html>

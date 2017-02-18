@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tag Cards | Search</title>
+  <style>
+
+  </style>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Tag Card</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="active"><a href="index.html">SEARCH</a></li>
+          <li><a href="insert.html">INSERT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <input type="text" class="form-control" name="search" id="search" placeholder="Write your Keyword" onkeyup="typeInput(event)">
+          <ul class="list-group" id="alltags">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12" id="searchResult">
+      </div>
+    </div>
+  </div>
+  <script>
+  $('#search').focus();
+
+  $(document).ready(function() {
+        $.ajax({
+          url: "https://api.infermedica.com/v2/info",
+          type: "POST",
+          data: $(this).serialize(),
+          dataType: "json",
+          success: function(data) {
+            // 삽입 후 데이터베이스 정보를 새로 불러와 화면에 표시
+            myOutput();
+          }
+        })
+      };
+
+      (function loadAllTags() {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+          if (xhr.status === 200) { // 서버의 응답이 정상이면
+            document.getElementById('alltags').innerHTML = xhr.responseText;
+          }
+        };
+        xhr.open("GET", "sql/loadAllTags_sql.php", true);
+        xhr.send();
+      })();
+
+      function filterTags(q) {
+        var ul = document.getElementById("alltags");
+        var li = ul.getElementsByTagName("li");
+        for (var i = 0; i < li.length; i++) {
+          if (li[i].firstChild.nodeValue.toUpperCase().indexOf(q) > -1 && q !== '') {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      };
+
+      function searchDatabase(str) {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+          if (xhr.status === 200) { // 서버의 응답이 정상이면
+            // Deserializing (String → Object)
+            responseObject = JSON.parse(xhr.responseText);
+            document.getElementById("search").value = '';
+            filterTags();
+          }
+        };
+        xhr.open("GET", "sql/search_sql.php?q=" + str, true); /* 3번째 parameter : 비동기화 여부 */
+        xhr.send();
+      };
+
+      function typeInput(e) {
+        var query = document.getElementById("search").value.toUpperCase();
+        if (e.keyCode == 13) {
+          searchDatabase(query);
+        } else {
+          filterTags(query);
+        }
+      };
+  </script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+</html>
