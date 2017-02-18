@@ -1,37 +1,24 @@
 <?php
-foreach ($tags as $tag) {
-	$tag = mysqli_real_escape_string($conn, $tag);
-  $sql = "INSERT INTO `tag` (`id`, `name`) VALUES (NULL, '{$tag}');";
-  if (!mysqli_query($conn, $sql)) {
-    $id_query = "SELECT * FROM `tag` WHERE `name` = '{$tag}';";
-    $result = mysqli_query($conn, $id_query);
-    $row = mysqli_fetch_array($result);
-    $new_tag_id = $row['id'];
-  } else {
-    $new_tag_id = mysqli_insert_id($conn);
-  }
-
-  $sql = "INSERT INTO `rel_tagcard` (`card_id`, `tag_id`) VALUES ('{$new_card_id}', '{$new_tag_id}');";
-  $result = mysqli_query($conn, $sql);
-}
-
-$sql = "SELECT `id` FROM `tag`";
+$sql = "SELECT * FROM `tag`;";
 $result = mysqli_query($conn, $sql);
-$tag_array = array();
-while($row = mysqli_fetch_array($result)) {
-  array_push($tag_array, $row['id']);
-};
 
 $tag_card_array = array();
-foreach ($tag_array as $tag_item) {
-  $sql = "SELECT `card_id` FROM `rel_tagcard` WHERE `tag_id` = '{$tag_item}';";
-  $result = mysqli_query($conn, $sql);
+while($row = mysqli_fetch_array($result)) {
+  $tag_id = $row['id'];
+
+  $sql = "SELECT * FROM `rel_tagcard` WHERE `tag_id` = '{$tag_id}'";
+  $res = mysqli_query($conn, $sql);
+
+  $count = mysqli_num_rows($res);
+  $sql_count = "UPDATE `tag` SET `card_count` = '{$count}' WHERE `tag`.`id` = '{$tag_id}';";
+  $res_count = mysqli_query($conn, $sql_count);
+
   $card_array = array();
-  while($row = mysqli_fetch_array($result)) {
-    array_push($card_array, $row['card_id']);
+  while($row_0 = mysqli_fetch_array($res)) {
+    array_push($card_array, $row_0['card_id']);
   };
-  $tag_card_array[$tag_item] = $card_array;
-}
+  $tag_card_array[$tag_id] = $card_array;
+};
 
 $tag_tag_array = array();
 foreach ($tag_card_array as $tag_item => $tag_card_item) {

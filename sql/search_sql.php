@@ -5,7 +5,7 @@ if (!$conn) {
   die('Could not connect: ' . mysqli_error($conn));
 }
 
-$q = mysqli_real_escape_string($conn, $_GET['q']);
+$q = mysqli_real_escape_string($conn, $_POST['q']);
 
 function sqlResult ($conn, $table, $column, $value, $search) {
   $sql = "SELECT * FROM `$table` WHERE `$column` = '{$value}'";
@@ -21,16 +21,16 @@ $tag_id = sqlResult($conn, 'tag', 'name', $tag_name, 'id');
 /* cards */
 $cards = array();
 $sql = "SELECT * FROM `rel_tagcard` WHERE `tag_id` = '{$tag_id}'";
-$result1 = mysqli_query($conn, $sql);
-while($row1 = mysqli_fetch_array($result1)) {
-    $card_id = $row1['card_id'];
+$result = mysqli_query($conn, $sql);
+while($row = mysqli_fetch_array($result)) {
+    $card_id = $row['card_id'];
     $card_content = sqlResult($conn, 'card', 'id', $card_id, 'content');
 
     $tags = array();
-    $sql = "SELECT * FROM `rel_tagcard` WHERE `card_id` = '{$card_id}'";
-    $result3 = mysqli_query($conn, $sql);
-    while($row3 = mysqli_fetch_array($result3)) {
-        $tags_id = $row3['tag_id'];
+    $sql_ = "SELECT * FROM `rel_tagcard` WHERE `card_id` = '{$card_id}'";
+    $result_ = mysqli_query($conn, $sql_);
+    while($row_ = mysqli_fetch_array($result_)) {
+        $tags_id = $row_['tag_id'];
         $tags_name = sqlResult($conn, 'tag', 'id', $tags_id, 'name');
 
         $t = array();
@@ -47,19 +47,19 @@ while($row1 = mysqli_fetch_array($result1)) {
 };
 
 /* with_tags */
-$sql = "SELECT * FROM `rel_tagtag` WHERE `tag_id` = '{$tag_id}' ORDER BY `count` DESC";
-$result = mysqli_query($conn, $sql);
+$sql_0 = "SELECT * FROM `rel_tagtag` WHERE `tag_id` = '{$tag_id}' ORDER BY `with_count` DESC";
+$result_0 = mysqli_query($conn, $sql_0);
 
 $with_tags = array();
-while($row = mysqli_fetch_array($result)) {
-    $with_tag_id = $row['with_tag_id'];
-    $count = $row['count'];
+while($row_0 = mysqli_fetch_array($result_0)) {
+    $with_tag_id = $row_0['with_tag_id'];
+    $with_count = $row_0['with_count'];
     $with_tag_name = sqlResult($conn, 'tag', 'id', $with_tag_id, 'name');
 
     $z = array();
     $z['with_tag_id'] = $with_tag_id;
     $z['with_tag_name'] = $with_tag_name;
-    $z['count'] = $count;
+    $z['with_count'] = $with_count;
     $with_tags[] = $z;
 }
 
@@ -70,5 +70,4 @@ $r['cards'] = $cards;
 $r['with_tags'] = $with_tags;
 
 echo json_encode($r);
-
 ?>

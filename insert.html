@@ -16,8 +16,6 @@
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -54,62 +52,64 @@
     <div id="flash"></div>
     <div id="show"></div>
   </div>
-  <script>
-  $('#content').focus();
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  function captureReturnKey(e) {
-    if (e.keyCode == 13 && e.srcElement.value !== '') {
-      var tagBtn = document.createElement('input');
-      tagBtn.setAttribute("type", "button");
-      tagBtn.setAttribute("class", "btn btn-primary active selected_tag");
-      tagBtn.setAttribute("value", e.srcElement.value);
-      tagBtn.style.borderRadius = 0;
-      tagBtn.style.outline = "1px solid white";
-      tagBtn.readOnly = true;
-      document.getElementById('tag-group').appendChild(tagBtn);
-      e.srcElement.value = "";
+<script>
+$('#content').focus();
+
+function captureReturnKey(e) {
+  if (e.keyCode == 13 && e.srcElement.value !== '') {
+    var tagBtn = document.createElement('input');
+    tagBtn.setAttribute("type", "button");
+    tagBtn.setAttribute("class", "btn btn-primary active selected_tag");
+    tagBtn.setAttribute("value", e.srcElement.value);
+    tagBtn.style.borderRadius = 0;
+    tagBtn.style.outline = "1px solid white";
+    tagBtn.readOnly = true;
+    document.getElementById('tag-group').appendChild(tagBtn);
+    e.srcElement.value = "";
+  }
+};
+
+$(document).ready(function() {
+  $("#insert").click(function() {
+    var content = $("#content").val();
+    var tag = $(".selected_tag")
+      .map(function() {
+        return this.value;
+      })
+      .get();
+
+    var dataString = {
+      insert: true,
+      content: content,
+      tag: tag
+    };
+
+    if (content == '' || tag == '') {
+      alert('Content or Tag is Empty!');
+      $("#content").focus();
+    } else {
+      $("#flash").show();
+      $("#flash").fadeIn(400).html('<span class="load">Loading..</span>');
+      $.ajax({
+        type: "POST",
+        url: "sql/insert_sql.php",
+        data: dataString,
+        cache: true,
+        success: function(html) {
+          $("#show").text(html);
+          $("#flash").hide();
+          $('#content').val('').focus();
+          $(".selected_tag").remove();
+        }
+      });
     }
-  };
-
-  $(function() {
-    $("#insert").click(function() {
-      var content = $("#content").val();
-      var tag = $(".selected_tag")
-        .map(function() {
-          return this.value;
-        })
-        .get();
-
-      var dataString = {
-        insert: true,
-        content: content,
-        tag: tag
-      };
-
-      if (content == '' || tag == '') {
-        alert('Content or Tag is Empty!');
-        $("#content").focus();
-      } else {
-        $("#flash").show();
-        $("#flash").fadeIn(400).html('<span class="load">Loading..</span>');
-        $.ajax({
-          type: "POST",
-          url: "sql/insert_sql.php",
-          data: dataString,
-          cache: true,
-          success: function(html) {
-            $("#show").text(html);
-            $("#flash").hide();
-            $('#content').val('').focus();
-            $(".selected_tag").remove();
-          }
-        });
-      }
-    });
   });
-  </script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+});
+</script>
 </body>
-
 </html>
