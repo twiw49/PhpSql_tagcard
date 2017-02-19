@@ -30,12 +30,12 @@ while($row = mysqli_fetch_array($result)) {
     $sql_ = "SELECT * FROM `rel_tagcard` WHERE `card_id` = '{$card_id}'";
     $result_ = mysqli_query($conn, $sql_);
     while($row_ = mysqli_fetch_array($result_)) {
-        $tags_id = $row_['tag_id'];
-        $tags_name = sqlResult($conn, 'tag', 'id', $tags_id, 'name');
+        $t_id = $row_['tag_id'];
+        $t_name = sqlResult($conn, 'tag', 'id', $t_id, 'name');
 
         $t = array();
-        $t['id'] = $tags_id;
-        $t['name'] = $tags_name;
+        $t['id'] = $t_id;
+        $t['name'] = $t_name;
         $tags[] = $t;
     };
 
@@ -60,7 +60,8 @@ while($row_0 = mysqli_fetch_array($result_0)) {
     $sql_1 = "SELECT * FROM `rel_tagtag` WHERE `tag_id` = '{$with_tag_id}';";
     $result_1 = mysqli_query($conn, $sql_1);
     while($row_1 = mysqli_fetch_array($result_1)) {
-        array_push($with_with_tags, $row_1['with_tag_id']);
+        $w = sqlResult($conn, 'tag', 'id', $row_1['with_tag_id'], 'name');
+        array_push($with_with_tags, $w);
     }
 
     $z = array();

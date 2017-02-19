@@ -117,8 +117,23 @@
     }
   };
 
-  function filterWithTags() {
+  function filterWithTags(with_tags) {
+    var a = document.getElementsByClassName("tag_checkbox");
+    for (var i = 0; i < a.length; i++) {
+      a[i].parentNode.style.display = '';
+    }
 
+    var w = with_tags;
+    var s = selected;
+    for (var i = 0; i < w.length; i++) {
+      for (var j = 0; j < s.length; j++) {
+        if (w[i].with_with_tags.indexOf(s[j]) == -1) {
+          var t = document.getElementById(w[i].with_tag_name);
+          t.parentNode.style.display = "none";
+        }
+      }
+    }
+    var s = selected;
   };
 
   function makeTagCheckbox(with_tag) {
@@ -148,7 +163,7 @@
     for (var i = 0; i < t.length; i++) {
       t[i].addEventListener("change", function(e) {
         filterCards(e.target.id, e.target.checked);
-        filterWithTags();
+        filterWithTags(tag.with_tags);
       });
       if (t[i].id.toUpperCase() == tag.tag_name.toUpperCase()) {
         t[i].checked = true;
@@ -216,7 +231,6 @@
         showWithTags(data);
         showCards(data);
         filterCards(data.tag_name, true);
-        console.log(data);
       })
       .fail(function(xhr, status) {
         console.log(xhr);
