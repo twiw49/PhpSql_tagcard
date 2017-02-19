@@ -5,7 +5,7 @@ if (!$conn) {
   die('Could not connect: ' . mysqli_error($conn));
 }
 
-$q = mysqli_real_escape_string($conn, $_POST['q']);
+$q = htmlspecialchars($_POST['q']);
 
 function sqlResult ($conn, $table, $column, $value, $search) {
   $sql = "SELECT * FROM `$table` WHERE `$column` = '{$value}'";

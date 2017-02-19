@@ -2,26 +2,36 @@
   border-radius: 0px;
 }
 
+#alltags {
+	max-height: 200px;
+	overflow-y: scroll;
+}
+
+#withTagContainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.withTag {
+	margin-right: 5px;
+}
+
 .form-group input[type="checkbox"] {
     display: none;
 }
-
 .form-group input[type="checkbox"] + .btn-group > label span {
     width: 15px;
 }
-
 .form-group input[type="checkbox"] + .btn-group > label span:first-child {
     display: none;
 }
-
 .form-group input[type="checkbox"] + .btn-group > label span:last-child {
     display: inline-block;
 }
-
 .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
     display: inline-block;
 }
-
 .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
     display: none;
 }

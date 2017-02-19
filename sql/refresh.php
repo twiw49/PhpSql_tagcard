@@ -38,7 +38,7 @@ foreach ($tag_card_array as $tag_item => $tag_card_item) {
 
 foreach ($tag_tag_array as $tag_item => $with_tags) {
 	foreach ($with_tags as $with_tag => $count) {
-		$sql = "INSERT INTO `rel_tagtag` (`tag_id`, `with_tag_id`, `count`) VALUES ('{$tag_item}', '{$with_tag}', '{$count}');";
+		$sql = "INSERT INTO `rel_tagtag` (`tag_id`, `with_tag_id`, `with_count`) VALUES ('{$tag_item}', '{$with_tag}', '{$count}');";
 		$result = mysqli_query($conn, $sql);
 	}
 }

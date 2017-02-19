@@ -31,8 +31,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-left">
-          <li class="active"><a href="index.html">SEARCH</a></li>
-          <li><a href="insert.html">INSERT</a></li>
+          <li class="active"><a href="index.html">Search</a></li>
+          <li><a href="insert.html">Insert</a></li>
         </ul>
       </div>
     </div>
@@ -41,75 +41,163 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="form-group">
-          <input type="text" class="form-control" name="search" id="search" placeholder="Write your Keyword" onkeyup="typeInput(event)">
+          <input type="text" class="form-control" id="search" placeholder="Write your Keyword" autocomplete="off">
           <ul class="list-group" id="alltags">
           </ul>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12" id="searchResult">
+      <div class="col-xs-12" id="withTagContainer">
       </div>
     </div>
+    <div class="row">
+      <div class="col-xs-12 cards">
+        <div class="panel-group" id="cardContainer">
+        </div>
+      </div>
   </div>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<script>
-$(document).ready(function() {
-  $('#search').focus();
-
-  $.get("sql/loadAllTags_sql.php", function(data, status) {
-    $("#alltags").html(data);
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script>
+  $(document).ready(function() {
+    $('#search').focus();
+    $.get("sql/loadAllTags_sql.php", function(data, status) {
+      $("#alltags").html(data);
+    });
+    $("#search").keyup(function(event) {
+      typeInput(event);
+    })
   });
-});
 
-function filterTags(q) {
-  var ul = document.getElementById("alltags");
-  var li = ul.getElementsByTagName("li");
-  for (var i = 0; i < li.length; i++) {
-    if (li[i].firstChild.nodeValue.toUpperCase().indexOf(q) > -1 && q !== '') {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
+  var cardTags;
+  var selected;
+
+  function filterTags(q) {
+    var ul = document.getElementById("alltags");
+    var li = ul.getElementsByTagName("li");
+    for (var i = 0; i < li.length; i++) {
+      if (li[i].firstChild.nodeValue.toUpperCase().indexOf(q) > -1 && q !== '') {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
     }
-  }
-};
-
-function searchDatabase(str) {
-  var vars = {
-    q: str
   };
 
-  $.ajax({
-    type: "POST",
-    url: "sql/search_sql.php",
-    data: vars,
-    dataType: 'json'
-  })
-  .done(function(data,status,xhr) {
-    console.log(data);
-    $("#searchResult").text(data);
-    $("#search").val('');
-     filterTags();
-  })
-  .fail(function(xhr, status) {
-    console.log(xhr);
-    console.log(status);
-  })
-};
 
-function typeInput(e) {
-  var query = document.getElementById("search").value.toUpperCase();
-  if (e.keyCode == 13) {
-    searchDatabase(query);
-  } else {
-    filterTags(query);
+  function filterCards(id, checked) {
+    var t = document.getElementsByClassName("tagSelected");
+    if (checked) {
+      selected.push(id);
+    } else {
+      selected.splice(selected.indexOf(id),1);
+    }
+
+    var cardPanel = document.getElementsByClassName("cardPanel");
+    for (var i = 0; i < cardPanel.length; i++) {
+      cardPanel[i].style.display = "";
+    }
+
+    for (var i = 0; i < cardPanel.length; i++) {
+      cardTags = [];
+      var $c = $(cardPanel[i].lastChild).find('input');
+      $.each($c, function(i,l) {
+        cardTags.push(l.value.toUpperCase());
+      })
+
+      for (var j = 0; j < selected.length; j++) {
+        var s = selected[j].toUpperCase();
+        if (cardTags.indexOf(s) == -1) {
+          cardPanel[i].style.display = "none";
+        }
+      }
+    }
   }
-};
-</script>
+
+  function makeTagCheckbox(withtag) {
+    var h = '<div class="form-group withTag"><input class="tagSelected" type="checkbox" id="' + withtag['with_tag_name'] + '"value=' + withtag['with_tag_id'] + '><div class="btn-group"><label for="' + withtag['with_tag_name'] + '" class="btn btn-info"><span class="glyphicon glyphicon-ok"></span><span> </span></label><label for="' + withtag['with_tag_name'] + '" class="btn btn-default active">' + withtag['with_tag_name'] + '</label></div></div>'
+    var $t = $(h);
+    $t.appendTo("#withTagContainer");
+  };
+
+  function showWithTags(tag) {
+    for (var i = 0; i < tag.with_tags.length; i++) {
+      makeTagCheckbox(tag.with_tags[i]);
+    }
+    selected = [];
+    var t = document.getElementsByClassName("tagSelected");
+    for (var i = 0; i < t.length; i++) {
+      t[i].addEventListener("change", function(e) {
+        filterCards(e.target.id, e.target.checked);
+      });
+      if (t[i].id.toUpperCase() == tag.tag_name.toUpperCase()) {
+        t[i].checked = true;
+        t[i].disabled = true;
+        t[i].nextSibling.firstChild.className = "btn btn-danger";
+      }
+    }
+  };
+
+  function makeCardPanel(card) {
+    var h = '<div class="panel panel-default cardPanel" style="display:none"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#cardContainer" href="#' + card.id + '">' + card.content + '</a></h4></div><div id="' + card.id + '" class="panel-collapse collapse"><div class="panel-body">' + card.content + '</div></div></div>';
+    var $h = $(h);
+    $h.appendTo("#cardContainer");
+
+    for (var i = 0; i < card.tags.length; i++) {
+      var b = document.createElement('input');
+      b.setAttribute("type", "button");
+      b.setAttribute("class", "btn btn-primary active");
+      b.setAttribute("value", card.tags[i]['name']);
+      b.style.borderRadius = 0;
+      b.style.outline = "1px solid white";
+      b.readOnly = true;
+      document.getElementById(card.id).appendChild(b);
+    }
+  };
+
+  function showCards(tag) {
+    for (var i = 0; i < tag.cards.length; i++) {
+      makeCardPanel(tag.cards[i]);
+    }
+  };
+
+  function searchDatabase(str) {
+    var vars = {
+      q: str
+    };
+    $.ajax({
+        type: "POST",
+        url: "sql/search_sql.php",
+        data: vars,
+        dataType: 'json'
+      })
+      .done(function(data, status, xhr) {
+        $("#search").val('');
+        filterTags();
+        showWithTags(data);
+        showCards(data);
+        filterCards(data.tag_name, true);
+      })
+      .fail(function(xhr, status) {
+        console.log(xhr);
+        console.log(status);
+      })
+  };
+
+  function typeInput(e) {
+    var q = document.getElementById("search").value.toUpperCase();
+    if (e.keyCode == 13) {
+      $("#withTagContainer").empty();
+      $("#cardContainer").empty();
+      searchDatabase(q);
+    } else {
+      filterTags(q);
+    }
+  };
+  </script>
 </body>
+
 </html>
