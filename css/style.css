@@ -2,18 +2,18 @@
   border-radius: 0px;
 }
 
-#alltags {
+#all_tags {
 	max-height: 200px;
 	overflow-y: scroll;
 }
 
-#withTagContainer {
+#with_tag_container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
-.withTag {
+.with_tag {
 	margin-right: 5px;
 }
 

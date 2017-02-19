@@ -46,7 +46,7 @@
       <label for="add_tag">Tag:</label>
       <input type="text" class="form-control" id="add_tag" onkeydown="captureReturnKey(event)" autocomplete="off">
       <p></p>
-      <div id="tag-group"></div>
+      <div id="tag_group"></div>
     </div>
     <input type="submit" class="btn btn-success form-control" id="insert" value="Insert" autocomplete="off">
     <div id="flash"></div>
@@ -60,18 +60,18 @@
 <script>
 $(document).ready(function() {
   $('#content').focus();
-})
+});
 
 function captureReturnKey(e) {
   if (e.keyCode == 13 && e.srcElement.value !== '') {
-    var tagBtn = document.createElement('input');
-    tagBtn.setAttribute("type", "button");
-    tagBtn.setAttribute("class", "btn btn-primary active selected_tag");
-    tagBtn.setAttribute("value", e.srcElement.value);
-    tagBtn.style.borderRadius = 0;
-    tagBtn.style.outline = "1px solid white";
-    tagBtn.readOnly = true;
-    document.getElementById('tag-group').appendChild(tagBtn);
+    var b = document.createElement('input');
+    b.setAttribute("type", "button");
+    b.setAttribute("class", "btn btn-primary active tag_selected");
+    b.setAttribute("value", e.srcElement.value.toUpperCase());
+    b.style.borderRadius = 0;
+    b.style.outline = "1px solid white";
+    b.readOnly = true;
+    document.getElementById('tag_group').appendChild(b);
     e.srcElement.value = "";
   }
 };
@@ -79,20 +79,20 @@ function captureReturnKey(e) {
 $(document).ready(function() {
   $("#insert").click(function() {
     var content = $("#content").val();
-    var tag = $(".selected_tag")
+    var tags = $(".tag_selected")
       .map(function() {
-        return this.value;
+        return this.value.toUpperCase();
       })
       .get();
-      console.log(tag);
+    console.log(tags);
 
     var dataString = {
       insert: true,
       content: content,
-      tag: tag
+      tags: tags
     };
 
-    if (content == '' || tag == '') {
+    if (content == '' || tags == '') {
       alert('Content or Tag is Empty!');
       $("#content").focus();
     } else {
@@ -107,7 +107,7 @@ $(document).ready(function() {
           $("#show").text(html);
           $("#flash").hide();
           $('#content').val('').focus();
-          $(".selected_tag").remove();
+          $(".tag_selected").remove();
         }
       });
     }

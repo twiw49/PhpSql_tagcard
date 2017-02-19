@@ -4,7 +4,7 @@
   /* Insert Submit */
   if(isset($_POST['insert'])){
     $content = htmlspecialchars($_POST['content']);
-    $tags = $_POST['tag'];
+    $tags = $_POST['tags'];
 
     $sql = "INSERT INTO `card` (`id`, `content`) VALUES (NULL, '{$content}');";
     $result = mysqli_query($conn, $sql);
@@ -14,8 +14,8 @@
       $tag = htmlspecialchars($tag);
       $sql = "INSERT INTO `tag` (`id`, `name`) VALUES (NULL, '{$tag}');";
       if (!mysqli_query($conn, $sql)) {
-        $id_query = "SELECT * FROM `tag` WHERE `name` = '{$tag}';";
-        $result = mysqli_query($conn, $id_query);
+        $find_id = "SELECT * FROM `tag` WHERE `name` = '{$tag}';";
+        $result = mysqli_query($conn, $find_id);
         $row = mysqli_fetch_array($result);
         $new_tag_id = $row['id'];
       } else {

@@ -53,13 +53,21 @@ $result_0 = mysqli_query($conn, $sql_0);
 $with_tags = array();
 while($row_0 = mysqli_fetch_array($result_0)) {
     $with_tag_id = $row_0['with_tag_id'];
-    $with_count = $row_0['with_count'];
     $with_tag_name = sqlResult($conn, 'tag', 'id', $with_tag_id, 'name');
+    $with_count = $row_0['with_count'];
+
+    $with_with_tags = array();
+    $sql_1 = "SELECT * FROM `rel_tagtag` WHERE `tag_id` = '{$with_tag_id}';";
+    $result_1 = mysqli_query($conn, $sql_1);
+    while($row_1 = mysqli_fetch_array($result_1)) {
+        array_push($with_with_tags, $row_1['with_tag_id']);
+    }
 
     $z = array();
     $z['with_tag_id'] = $with_tag_id;
     $z['with_tag_name'] = $with_tag_name;
     $z['with_count'] = $with_count;
+    $z['with_with_tags'] = $with_with_tags;
     $with_tags[] = $z;
 }
 
