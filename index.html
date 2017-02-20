@@ -79,9 +79,11 @@
         .prev('.panel-heading')
         .find('.more-less')
         .toggleClass('glyphicon-plus glyphicon-minus');
-    }
+    };
     $('.panel-group').on('hidden.bs.collapse', toggleIcon);
     $('.panel-group').on('shown.bs.collapse', toggleIcon);
+
+
   });
 
   var card_tags, selected;
@@ -103,22 +105,22 @@
       q: str
     };
     $.ajax({
-        type: "POST",
-        url: "sql/search_sql.php",
-        data: vars,
-        dataType: 'json'
-      })
-      .done(function(data, status, xhr) {
-        $("#search").val('');
-        filterTags();
-        showWithTags(data);
-        showCards(data);
-        filterCards(data.tag_name, true);
-      })
-      .fail(function(xhr, status) {
-        console.log(xhr);
-        console.log(status);
-      })
+      type: "POST",
+      url: "sql/search_sql.php",
+      data: vars,
+      dataType: 'json'
+    })
+    .done(function(data, status, xhr) {
+      $("#search").val('');
+      filterTags();
+      showWithTags(data);
+      showCards(data);
+      filterCards(data.tag_name, true);
+    })
+    .fail(function(xhr, status) {
+      console.log(xhr);
+      console.log(status);
+    })
   };
 
   function filterTags(q) {
@@ -142,8 +144,9 @@
           <span class="glyphicon glyphicon-ok"></span>\
           <span> </span>\
         </label>\
-        <label for="' + with_tag['with_tag_name'] + '" class="btn btn-default active">' + with_tag['with_tag_name'] + '\
-        </label>\
+        <label for="' + with_tag['with_tag_name'] + '" class="btn btn-default active">' +
+      with_tag['with_tag_name'] +
+      '</label>\
       </div>\
     </div>';
     var $t = $(h);
@@ -154,13 +157,22 @@
     for (var i = 0; i < tag.with_tags.length; i++) {
       makeTagCheckbox(tag.with_tags[i]);
     }
+
+    // with_tag 체크 여부에 따른 반응 설정
     selected = [];
     var t = document.getElementsByClassName("tag_checkbox");
     for (var i = 0; i < t.length; i++) {
       t[i].addEventListener("change", function(e) {
         filterCards(e.target.id, e.target.checked);
         filterWithTags();
+        if (e.target.checked) {
+          e.target.nextSibling.firstChild.className += ' active';
+        } else {
+          e.target.nextSibling.firstChild.className = 'btn btn-info'
+        }
       });
+
+      // 검색 입력된 태그는 btn-danger, active, checked, disalbed로 처리해줌
       if (t[i].id.toUpperCase() == tag.tag_name.toUpperCase()) {
         t[i].checked = true;
         t[i].disabled = true;
@@ -265,6 +277,30 @@
     li_content.className = 'list-group-item';
     li_content.textContent = card.content;
     $(li_content).appendTo("#" + card.id + ".panel-collapse > ul");
+
+    // card content에 eventListener를 설정함
+    var card_ul = document.getElementById(card.id);
+    // attach event listener to whole container
+    card_ul.addEventListener('click', function(e) {
+      console.log(e.target);
+      if (e.target && e.target.nodeName == 'INPUT') {
+        var item = e.target;
+        var r = confirm('Do you want to remove ' + item.value + ' tag from this case?');
+        if (r) {
+          var tag_name = item.value;
+          var card_id = e.target.parentNode.parentNode.parentNode.id;
+          var vars = {
+            q: 'tag_delete',
+            tag_name: tag_name,
+            card_id: card_id
+          };
+          $.post('sql/update_sql.php', vars, function(data) {
+            console.log('Tag deleted!');
+            console.log(data);
+          })
+        };
+      }
+    });
   };
 
   function showCards(tag) {

@@ -45,6 +45,7 @@
   border-radius: 0;
   box-shadow: none;
   border-color: #EEEEEE;
+  margin-top: 5px !important;
 }
 
 .panel-default > .panel-heading {

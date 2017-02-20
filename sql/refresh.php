@@ -39,13 +39,13 @@ foreach ($tag_card_array as $tag => $tag_cards) {
   }
 }
 
+$s_t = "TRUNCATE rel_tagtag;";
+$r_t = mysqli_query($conn, $s_t);
 foreach ($tag_tag_array as $tag => $with_tags) {
 	foreach ($with_tags as $with_tag => $with_count) {
 		echo $tag.' '.$with_tag.' '.$with_count.' ////// ';
 		$sql = "INSERT INTO `rel_tagtag` (`tag_id`, `with_tag_id`, `with_count`)
-		VALUES ('{$tag}', '{$with_tag}', '{$with_count}')
-		ON DUPLICATE KEY UPDATE
-  	`with_count` = '{$with_count}';";
+		VALUES ('{$tag}', '{$with_tag}', '{$with_count}');";
 		$result = mysqli_query($conn, $sql);
 	}
 }
