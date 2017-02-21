@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 cards">
+      <div class="col-xs-12">
         <div class="panel-group" id="card_container">
         </div>
       </div>
@@ -70,8 +70,16 @@
       $("#all_tags").html(data);
     });
 
-    $("#search").keyup(function(event) {
-      typeInput(event);
+    $("#search").keyup(function(e) {
+      var q = this.value.toUpperCase();
+      q = $.trim(q);
+      if (e.keyCode == 13) {
+        $("#with_tag_container").empty();
+        $("#card_container").empty();
+        searchDatabase(q, '', []);
+      } else {
+        filterTag(q);
+      }
     });
 
     function toggleIcon(e) {
@@ -82,48 +90,11 @@
     };
     $('.panel-group').on('hidden.bs.collapse', toggleIcon);
     $('.panel-group').on('shown.bs.collapse', toggleIcon);
-
-
   });
 
-  var card_tags, selected;
+  var q_str, c_selected_t, selected_t_global;
 
-  function typeInput(e) {
-    var q = document.getElementById("search").value.toUpperCase();
-    q = $.trim(q);
-    if (e.keyCode == 13) {
-      $("#with_tag_container").empty();
-      $("#card_container").empty();
-      searchDatabase(q);
-    } else {
-      filterTags(q);
-    }
-  };
-
-  function searchDatabase(str) {
-    var vars = {
-      q: str
-    };
-    $.ajax({
-      type: "POST",
-      url: "sql/search_sql.php",
-      data: vars,
-      dataType: 'json'
-    })
-    .done(function(data, status, xhr) {
-      $("#search").val('');
-      filterTags();
-      showWithTags(data);
-      showCards(data);
-      filterCards(data.tag_name, true);
-    })
-    .fail(function(xhr, status) {
-      console.log(xhr);
-      console.log(status);
-    })
-  };
-
-  function filterTags(q) {
+  function filterTag(q) {
     var ul = document.getElementById("all_tags");
     var li = ul.getElementsByTagName("li");
     for (var i = 0; i < li.length; i++) {
@@ -135,59 +106,80 @@
     }
   };
 
-  function makeTagCheckbox(with_tag) {
+  function searchDatabase(str, in_card, selected_t) {
+    q_str = str;
+    var vars = {
+      q: str
+    };
+    $.ajax({
+      type: "POST",
+      url: "sql/search_sql.php",
+      data: vars,
+      dataType: 'json'
+    })
+    .done(function(data, status, xhr) {
+      $("#search").val('');
+      filterTag();
+      showWithTag(data, selected_t);
+      showCards(data, in_card, selected_t);
+      filterCard(data.tag_name, true, selected_t);
+    })
+    .fail(function(xhr, status) {
+      console.log(xhr);
+      console.log(status);
+    })
+  };
+
+  function makeWithTag(with_tag, tag_name, selected_t) {
     var h = '\
-    <div class="form-group with_tag">\
-      <input class="tag_checkbox" type="checkbox" id="' + with_tag['with_tag_name'] + '">' +
+    <div class="form-group with_tag">' +
+      '<input class="tag_checkbox" type="checkbox" id="' + with_tag['with_tag_name'] + '">' +
       '<div class="btn-group">' +
-      '<label for="' + with_tag['with_tag_name'] + '" class="btn btn-info">\
-          <span class="glyphicon glyphicon-ok"></span>\
-          <span> </span>\
-        </label>\
-        <label for="' + with_tag['with_tag_name'] + '" class="btn btn-default active">' +
-      with_tag['with_tag_name'] +
-      '</label>\
-      </div>\
-    </div>';
+        '<label for="' + with_tag['with_tag_name'] + '" class="btn btn-info">' +
+          '<span class="glyphicon glyphicon-ok"></span>' +
+          '<span> </span>' +
+        '</label>' +
+        '<label for="' + with_tag['with_tag_name'] + '" class="btn btn-default active">' +
+          with_tag['with_tag_name'] +
+        '</label>' +
+      '</div>' +
+    '</div>';
+
     var $t = $(h);
+    var t_ele = $t[0];
+
+    if (with_tag['with_tag_name'].toUpperCase() == tag_name.toUpperCase()) {
+      t_ele.firstChild.nextSibling.firstChild.className = 'btn btn-danger active';
+      t_ele.firstChild.checked = true;
+      t_ele.firstChild.disabled = true;
+    }
+
+    if (selected_t.indexOf(with_tag['with_tag_name']) !== -1) {
+      t_ele.firstChild.nextSibling.firstChild.className = 'btn btn-info active';
+      t_ele.firstChild.checked = true;
+    }
+
+    $t.change(function() {
+      if (this.firstChild.checked) {
+        this.firstChild.nextSibling.firstChild.className += ' active';
+        selected_t.push(this.firstChild.id);
+      } else {
+        this.firstChild.nextSibling.firstChild.className = 'btn btn-info'
+        selected_t.splice(selected_t.indexOf(this.firstChild.id), 1);
+      }
+      filterCard(this.firstChild.id, this.firstChild.checked, selected_t);
+      filterWithTag();
+    });
     $t.appendTo("#with_tag_container");
   };
 
-  function showWithTags(tag) {
+  function showWithTag(tag, selected_t) {
     for (var i = 0; i < tag.with_tags.length; i++) {
-      makeTagCheckbox(tag.with_tags[i]);
-    }
-
-    // with_tag 체크 여부에 따른 반응 설정
-    selected = [];
-    var t = document.getElementsByClassName("tag_checkbox");
-    for (var i = 0; i < t.length; i++) {
-      t[i].addEventListener("change", function(e) {
-        filterCards(e.target.id, e.target.checked);
-        filterWithTags();
-        if (e.target.checked) {
-          e.target.nextSibling.firstChild.className += ' active';
-        } else {
-          e.target.nextSibling.firstChild.className = 'btn btn-info'
-        }
-      });
-
-      // 검색 입력된 태그는 btn-danger, active, checked, disalbed로 처리해줌
-      if (t[i].id.toUpperCase() == tag.tag_name.toUpperCase()) {
-        t[i].checked = true;
-        t[i].disabled = true;
-        t[i].nextSibling.firstChild.className = "btn btn-danger active";
-      }
+      makeWithTag(tag.with_tags[i], tag.tag_name, selected_t);
     }
   };
 
-  function filterCards(name, checked) {
-    if (checked) {
-      selected.push(name);
-    } else {
-      selected.splice(selected.indexOf(name), 1);
-    }
-
+  function filterCard(name, checked, selected_t) {
     // card panel 일단 모두 보이게 함
     var c = document.getElementsByClassName("card_panel");
     for (var i = 0; i < c.length; i++) {
@@ -201,9 +193,8 @@
       $.each($c_i, function(ind, ele) {
         card_tags.push(ele.value.toUpperCase());
       })
-
-      for (var j = 0; j < selected.length; j++) {
-        var s = selected[j].toUpperCase();
+      for (var j = 0; j < selected_t.length; j++) {
+        var s = selected_t[j].toUpperCase();
         if (card_tags.indexOf(s) == -1) {
           c[i].style.display = "none";
           break;
@@ -212,7 +203,7 @@
     }
   };
 
-  function filterWithTags() {
+  function filterWithTag() {
     /* with_tag들을 모두 안 보이게 처리 */
     var t = document.getElementsByClassName('tag_checkbox');
     for (var i = 0; i < t.length; i++) {
@@ -220,28 +211,31 @@
     }
 
     /* 보여지는 카드들만 선택해서, 그 카드들의 tag들을 모음 */
-    var c_selected_t = [];
+    c_selected_t = {};
     var c = document.getElementsByClassName("card_panel");
     for (var i = 0; i < c.length; i++) {
       if ($(c[i]).css('display') !== 'none') {
         var $c_i = $(c[i]).find('input');
         $.each($c_i, function(ind, ele) {
-          if (c_selected_t.indexOf(ele.value) == -1) {
-            c_selected_t.push(ele.value);
+          if (ele.value in c_selected_t) {
+            c_selected_t[ele.value] += 1;
+          } else {
+            c_selected_t[ele.value] = 1;
           }
         })
       }
     }
+    console.log(c_selected_t);
 
     /* with_tag들 중에서 보여지는 카드들의 태그에 속해있는 것만 보이게 처리 */
     for (var i = 0; i < t.length; i++) {
-      if (c_selected_t.indexOf(t[i].id) !== -1) {
+      if (t[i].id in c_selected_t) {
         t[i].parentNode.style.display = '';
       }
     }
   };
 
-  function makeCardPanel(card) {
+  function makeCard(card, in_card, selected_t) {
     var h = '\
     <div class="panel panel-default card_panel" style="display:none">\
       <div class="panel-heading">\
@@ -257,6 +251,10 @@
       </div>\
     </div>';
     $(h).appendTo("#card_container");
+
+    if (in_card) {
+      $(".collapse#" + in_card).addClass('in');
+    }
 
     var li_tag = document.createElement('li');
     li_tag.className = "list-group-item";
@@ -282,7 +280,6 @@
     var card_ul = document.getElementById(card.id);
     // attach event listener to whole container
     card_ul.addEventListener('click', function(e) {
-      console.log(e.target);
       if (e.target && e.target.nodeName == 'INPUT') {
         var item = e.target;
         var r = confirm('Do you want to remove ' + item.value + ' tag from this case?');
@@ -294,18 +291,29 @@
             tag_name: tag_name,
             card_id: card_id
           };
-          $.post('sql/update_sql.php', vars, function(data) {
-            console.log('Tag deleted!');
-            console.log(data);
-          })
+          $.ajax({
+              type: "POST",
+              url: "sql/update_sql.php",
+              data: vars
+            })
+            .done(function() {
+              $("#with_tag_container").empty();
+              $("#card_container").empty();
+              if (c_selected_t[item.value] <= 1) {
+                selected_t.splice(selected_t.indexOf(item.value), 1);
+              } else {
+                c_selected_t[item.value] -= 1;
+              }
+              searchDatabase(q_str, card_id, selected_t);
+            })
         };
       }
     });
   };
 
-  function showCards(tag) {
+  function showCards(tag, in_card, selected_t) {
     for (var i = 0; i < tag.cards.length; i++) {
-      makeCardPanel(tag.cards[i]);
+      makeCard(tag.cards[i], in_card, selected_t);
     }
   };
   </script>

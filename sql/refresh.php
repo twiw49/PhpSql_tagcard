@@ -29,9 +29,7 @@ foreach ($tag_card_array as $tag => $tag_cards) {
     while($row = mysqli_fetch_array($result)) {
   		$with_tag = $row['tag_id'];
       if (array_key_exists($with_tag, $tag_tag_array[$tag])) {
-      	echo $tag_tag_array[$tag][$with_tag];
         $tag_tag_array[$tag][$with_tag] += 1;
-        echo $tag_tag_array[$tag][$with_tag];
       } else {
         $tag_tag_array[$tag][$with_tag] = 1;
       }
@@ -43,10 +41,16 @@ $s_t = "TRUNCATE rel_tagtag;";
 $r_t = mysqli_query($conn, $s_t);
 foreach ($tag_tag_array as $tag => $with_tags) {
 	foreach ($with_tags as $with_tag => $with_count) {
-		echo $tag.' '.$with_tag.' '.$with_count.' ////// ';
 		$sql = "INSERT INTO `rel_tagtag` (`tag_id`, `with_tag_id`, `with_count`)
 		VALUES ('{$tag}', '{$with_tag}', '{$with_count}');";
 		$result = mysqli_query($conn, $sql);
 	}
 }
 ?>
+
+<!--
+TRUNCATE card;
+TRUNCATE rel_tagcard;
+TRUNCATE rel_tagtag;
+TRUNCATE tag;
+-->
