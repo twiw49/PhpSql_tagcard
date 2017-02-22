@@ -9,12 +9,14 @@
   <style>
 
   </style>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- bootstrap-theme -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
   <!-- font-awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- typeahead -->
+  <link rel="stylesheet" href="bower_components/jquery-typeahead/dist/jquery.typeahead.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -40,15 +42,26 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div class="form-group">
-          <input type="text" class="form-control" id="search" placeholder="Write your Keyword" autocomplete="off">
-          <ul class="list-group" id="all_tags">
-          </ul>
-        </div>
+        <form onsubmit="return false;">
+          <div class="typeahead__container">
+            <div class="typeahead__field">
+              <span class="typeahead__query">
+                <input class="search_query" placeholder="Search" autocomplete="off">
+            </span>
+              <span class="typeahead__button">
+                <button type="submit">
+                    <i class="typeahead__search-icon"></i>
+                </button>
+            </span>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12" id="with_tag_container">
+      <div class="col-xs-12">
+        <div id="with_tag_container">
+        </div>
       </div>
     </div>
     <div class="row">
@@ -58,263 +71,138 @@
       </div>
     </div>
   </div>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- jQuery -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- bootstrap -->
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- typeahead -->
+  <script src="bower_components/jquery-typeahead/dist/jquery.typeahead.min.js"></script>
   <script>
+  if (!Array.prototype.has) {
+    Array.prototype.has = function(val) {
+      if (this.indexOf(val) !== -1) {
+        return true;
+      }
+      return false;
+    }
+  };
+
   $(document).ready(function() {
-    $('#search').focus();
-
-    $.get("sql/load_all_tags_sql.php", function(data, status) {
-      $("#all_tags").html(data);
-    });
-
-    $("#search").keyup(function(e) {
-      var q = this.value.toUpperCase();
-      q = $.trim(q);
-      if (e.keyCode == 13) {
-        $("#with_tag_container").empty();
-        $("#card_container").empty();
-        searchDatabase(q, '', []);
-      } else {
-        filterTag(q);
+    $('.search_query').focus();
+    $.typeahead({
+      input: '.search_query',
+      minLength: 1,
+      offset: false,
+      hint: true,
+      source: {
+        ajax: {
+          type: "POST",
+          url: "sql/load_all_tags_sql.php"
+        }
+      },
+      callback: {
+        onClick: function(node, a, item, event) {
+          var query = this.query;
+          searchDatabase(query, [query]);
+        },
+        onSubmit: function(node, form, item, event) {
+          var query = this.query;
+          searchDatabase(query, [query]);
+        }
       }
     });
-
-    function toggleIcon(e) {
-      $(e.target)
-        .prev('.panel-heading')
-        .find('.more-less')
-        .toggleClass('glyphicon-plus glyphicon-minus');
-    };
-    $('.panel-group').on('hidden.bs.collapse', toggleIcon);
-    $('.panel-group').on('shown.bs.collapse', toggleIcon);
   });
 
-  var q_str, c_selected_t, selected_t_global;
-
-  function filterTag(q) {
-    var ul = document.getElementById("all_tags");
-    var li = ul.getElementsByTagName("li");
-    for (var i = 0; i < li.length; i++) {
-      if (li[i].firstChild.nodeValue.toUpperCase().indexOf(q) > -1 && q !== '') {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
-  };
-
-  function searchDatabase(str, in_card, selected_t) {
-    q_str = str;
+  function searchDatabase(q_tag, selected_tags) {
     var vars = {
-      q: str
+      q: q_tag
     };
     $.ajax({
-      type: "POST",
-      url: "sql/search_sql.php",
-      data: vars,
-      dataType: 'json'
-    })
-    .done(function(data, status, xhr) {
-      $("#search").val('');
-      filterTag();
-      showWithTag(data, selected_t);
-      showCards(data, in_card, selected_t);
-      filterCard(data.tag_name, true, selected_t);
-    })
-    .fail(function(xhr, status) {
-      console.log(xhr);
-      console.log(status);
-    })
-  };
-
-  function makeWithTag(with_tag, tag_name, selected_t) {
-    var h = '\
-    <div class="form-group with_tag">' +
-      '<input class="tag_checkbox" type="checkbox" id="' + with_tag['with_tag_name'] + '">' +
-      '<div class="btn-group">' +
-        '<label for="' + with_tag['with_tag_name'] + '" class="btn btn-info">' +
-          '<span class="glyphicon glyphicon-ok"></span>' +
-          '<span> </span>' +
-        '</label>' +
-        '<label for="' + with_tag['with_tag_name'] + '" class="btn btn-default active">' +
-          with_tag['with_tag_name'] +
-        '</label>' +
-      '</div>' +
-    '</div>';
-
-    var $t = $(h);
-    var t_ele = $t[0];
-
-    if (with_tag['with_tag_name'].toUpperCase() == tag_name.toUpperCase()) {
-      t_ele.firstChild.nextSibling.firstChild.className = 'btn btn-danger active';
-      t_ele.firstChild.checked = true;
-      t_ele.firstChild.disabled = true;
-    }
-
-    if (selected_t.indexOf(with_tag['with_tag_name']) !== -1) {
-      t_ele.firstChild.nextSibling.firstChild.className = 'btn btn-info active';
-      t_ele.firstChild.checked = true;
-    }
-
-    $t.change(function() {
-      if (this.firstChild.checked) {
-        this.firstChild.nextSibling.firstChild.className += ' active';
-        selected_t.push(this.firstChild.id);
-      } else {
-        this.firstChild.nextSibling.firstChild.className = 'btn btn-info'
-        selected_t.splice(selected_t.indexOf(this.firstChild.id), 1);
-      }
-      filterCard(this.firstChild.id, this.firstChild.checked, selected_t);
-      filterWithTag();
-    });
-    $t.appendTo("#with_tag_container");
-  };
-
-  function showWithTag(tag, selected_t) {
-    for (var i = 0; i < tag.with_tags.length; i++) {
-      makeWithTag(tag.with_tags[i], tag.tag_name, selected_t);
-    }
-  };
-
-  function filterCard(name, checked, selected_t) {
-    // card panel 일단 모두 보이게 함
-    var c = document.getElementsByClassName("card_panel");
-    for (var i = 0; i < c.length; i++) {
-      c[i].style.display = "";
-    }
-
-    // card panel 중 조건에 부합하지 않는 것은 display:none 설정
-    for (var i = 0; i < c.length; i++) {
-      card_tags = [];
-      var $c_i = $(c[i]).find('input');
-      $.each($c_i, function(ind, ele) {
-        card_tags.push(ele.value.toUpperCase());
+        type: "POST",
+        url: "sql/search_sql.php",
+        data: vars,
+        dataType: 'json'
       })
-      for (var j = 0; j < selected_t.length; j++) {
-        var s = selected_t[j].toUpperCase();
-        if (card_tags.indexOf(s) == -1) {
-          c[i].style.display = "none";
+      .done(function(data) {
+        modifyData(data, selected_tags);
+      })
+      .fail(function(xhr) {
+        console.log(xhr);
+      })
+  };
+
+  function modifyData(data, selected_tags) {
+    // 주요 변수들 관계
+    // q_tag (single tag)
+    // selected_tags (single or multiple tag(s))
+    // with_tags_selected (selected_tags 모두와 동시에 태깅된 태그들)
+    // with_tags_all (q_tag와 동시에 태깅된 태그들)
+
+    // 주요 변수들 define
+    var q_tag = data.tag_name;
+    var selected_tags = selected_tags;
+    var with_tags_selected = {};
+    var with_tags_all = data.with_tags;
+    var cards = data.cards;
+
+    // cards에 property 부여하기
+    for (var i = 0; i < cards.length; i++) {
+      var c = cards[i];
+      var c_content = c.content;
+      var c_tags = c.tags;
+
+      // 1. selected
+      c.selected = false;
+      for (var j = 0; j < selected_tags.length; j++) {
+        if (c_tags.has(selected_tags[j])) {
+          c.selected = true;
           break;
         }
       }
-    }
-  };
 
-  function filterWithTag() {
-    /* with_tag들을 모두 안 보이게 처리 */
-    var t = document.getElementsByClassName('tag_checkbox');
-    for (var i = 0; i < t.length; i++) {
-      t[i].parentNode.style.display = "none";
-    }
-
-    /* 보여지는 카드들만 선택해서, 그 카드들의 tag들을 모음 */
-    c_selected_t = {};
-    var c = document.getElementsByClassName("card_panel");
-    for (var i = 0; i < c.length; i++) {
-      if ($(c[i]).css('display') !== 'none') {
-        var $c_i = $(c[i]).find('input');
-        $.each($c_i, function(ind, ele) {
-          if (ele.value in c_selected_t) {
-            c_selected_t[ele.value] += 1;
-          } else {
-            c_selected_t[ele.value] = 1;
-          }
-        })
+      // 2. with_tags_selected
+      for (var j = 0; j < c_tags.length; j++) {
+        if (c_tags[j] in with_tags_selected) {
+          with_tags_selected[c_tags[j]] += 1;
+        } else {
+          with_tags_selected[c_tags[j]] = 1;
+        }
       }
     }
-    console.log(c_selected_t);
 
-    /* with_tag들 중에서 보여지는 카드들의 태그에 속해있는 것만 보이게 처리 */
-    for (var i = 0; i < t.length; i++) {
-      if (t[i].id in c_selected_t) {
-        t[i].parentNode.style.display = '';
+    // with_tags_all에 property 부여하기
+    for (var i = 0; i < with_tags_all.length; i++) {
+      var w_tag = with_tags_all[i];
+
+      // 1. q_tag (검색창을 통해 입력된 값)
+      if (w_tag.name == q_tag) {
+        w_tag.query = true;
+      } else {
+        w_tag.query = false;
+      }
+
+      // 2. selected_tags (체크박스를 통해 선택된 태그들의 이름을 배열에 저장한 값)
+      if (selected_tags.has(w_tag.name)) {
+        w_tag.selected = true;
+      } else {
+        w_tag.selected = false;
       }
     }
+
+    console.log(with_tags_all);
+    console.log(cards);
+    console.log(with_tags_selected);
+
+    drawTag(with_tags_all);
+    drawCard(cards);
+  }
+
+  function drawTag(with_tags_all) {
+
   };
 
-  function makeCard(card, in_card, selected_t) {
-    var h = '\
-    <div class="panel panel-default card_panel" style="display:none">\
-      <div class="panel-heading">\
-        <h4 class="panel-title">\
-          <a data-toggle="collapse" data-parent="#card_container" href="#' + card.id + '">\
-            <i class="more-less glyphicon glyphicon-plus"></i>' + card.content + '\
-          </a>\
-        </h4>\
-      </div>\
-      <div id="' + card.id + '" class="panel-collapse collapse">\
-        <ul class="list-group">\
-        </ul>\
-      </div>\
-    </div>';
-    $(h).appendTo("#card_container");
+  function drawCard(cards) {
 
-    if (in_card) {
-      $(".collapse#" + in_card).addClass('in');
-    }
-
-    var li_tag = document.createElement('li');
-    li_tag.className = "list-group-item";
-    li_tag.style.padding = "0";
-    for (var i = 0; i < card.tags.length; i++) {
-      var b = document.createElement('input');
-      b.setAttribute("type", "button");
-      b.setAttribute("class", "btn btn-primary active");
-      b.setAttribute("value", card.tags[i]['name']);
-      b.style.borderRadius = 0;
-      b.style.outline = "1px solid white";
-      b.readOnly = true;
-      $(b).appendTo(li_tag);
-    }
-    $(li_tag).appendTo("#" + card.id + ".panel-collapse > ul");
-
-    var li_content = document.createElement('li');
-    li_content.className = 'list-group-item';
-    li_content.textContent = card.content;
-    $(li_content).appendTo("#" + card.id + ".panel-collapse > ul");
-
-    // card content에 eventListener를 설정함
-    var card_ul = document.getElementById(card.id);
-    // attach event listener to whole container
-    card_ul.addEventListener('click', function(e) {
-      if (e.target && e.target.nodeName == 'INPUT') {
-        var item = e.target;
-        var r = confirm('Do you want to remove ' + item.value + ' tag from this case?');
-        if (r) {
-          var tag_name = item.value;
-          var card_id = e.target.parentNode.parentNode.parentNode.id;
-          var vars = {
-            q: 'tag_delete',
-            tag_name: tag_name,
-            card_id: card_id
-          };
-          $.ajax({
-              type: "POST",
-              url: "sql/update_sql.php",
-              data: vars
-            })
-            .done(function() {
-              $("#with_tag_container").empty();
-              $("#card_container").empty();
-              if (c_selected_t[item.value] <= 1) {
-                selected_t.splice(selected_t.indexOf(item.value), 1);
-              } else {
-                c_selected_t[item.value] -= 1;
-              }
-              searchDatabase(q_str, card_id, selected_t);
-            })
-        };
-      }
-    });
-  };
-
-  function showCards(tag, in_card, selected_t) {
-    for (var i = 0; i < tag.cards.length; i++) {
-      makeCard(tag.cards[i], in_card, selected_t);
-    }
   };
   </script>
 </body>

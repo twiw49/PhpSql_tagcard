@@ -33,10 +33,7 @@ while($row = mysqli_fetch_array($result)) {
         $t_id = $row_['tag_id'];
         $t_name = sqlResult($conn, 'tag', 'id', $t_id, 'name');
 
-        $t = array();
-        $t['id'] = $t_id;
-        $t['name'] = $t_name;
-        $tags[] = $t;
+        array_push($tags, $t_name);
     };
 
     $y = array();
@@ -65,9 +62,9 @@ while($row_0 = mysqli_fetch_array($result_0)) {
     }
 
     $z = array();
-    $z['with_tag_id'] = $with_tag_id;
-    $z['with_tag_name'] = $with_tag_name;
-    $z['with_count'] = $with_count;
+    $z['id'] = $with_tag_id;
+    $z['name'] = $with_tag_name;
+    $z['q_with_count'] = $with_count;
     $z['with_with_tags'] = $with_with_tags;
     $with_tags[] = $z;
 }

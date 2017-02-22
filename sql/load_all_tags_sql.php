@@ -1,9 +1,14 @@
 <?php
+header('Content-Type: application/json');
+
 include("db.php");
 
 $sql = "SELECT * FROM `tag` ORDER BY `card_count` DESC;";
 $result = mysqli_query($conn, $sql);
+$arr = array();
 while($row = mysqli_fetch_array($result)) {
-  echo "<li class='list-group-item' style='display:none'>".$row['name']."<span class='badge'>".$row['card_count']."</span></li>";
+  array_push($arr, $row['name']);
 };
+
+echo json_encode($arr);
 ?>

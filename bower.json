@@ -1,0 +1,23 @@
+{
+  "name": "PhpSql_tagcard",
+  "homepage": "https://github.com/twiw49/PhpSql_tagcard",
+  "authors": [
+    "twiw49 <twiw49@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery-typeahead": "^2.7.6"
+  }
+}

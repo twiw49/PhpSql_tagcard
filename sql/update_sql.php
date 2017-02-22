@@ -9,7 +9,7 @@ if ($_POST['q'] == 'tag_delete') {
 	$r_id = mysqli_query($conn, $s_id);
 	$row = mysqli_fetch_array($r_id);
 	$tag_id = $row['id'];
-	$tag_count = $row['card_count'];
+	$tag_count = $row['count'];
 
 	if ($tag_count == 0) {
 		$s_del_t = "DELETE FROM `tag` WHERE `tag`.`name` = '{$tag_name}';";
