@@ -1,43 +1,58 @@
+[v-cloak] {
+  display: none;
+}
+
+.typeahead__list {
+  max-height: 290px;
+  overflow-y: auto;
+  padding: 0;
+}
+
 .navbar {
   border-radius: 0px;
 }
 
-#all_tags {
-  max-height: 200px;
-  overflow-y: scroll;
-}
-
 #with_tag_container {
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .with_tag {
-  margin-right: 5px;
+  margin-right: 1rem;
+}
+
+.panel-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.panel-title>div {
+  flex-shrink: 0;
 }
 
 .form-group input[type="checkbox"] {
   display: none;
 }
 
-.form-group input[type="checkbox"] + .btn-group > label span {
+.form-group input[type="checkbox"]+.btn-group>label span {
   width: 15px;
 }
 
-.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+.form-group input[type="checkbox"]+.btn-group>label span:first-child {
   display: none;
 }
 
-.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+.form-group input[type="checkbox"]+.btn-group>label span:last-child {
   display: inline-block;
 }
 
-.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+.form-group input[type="checkbox"]:checked+.btn-group>label span:first-child {
   display: inline-block;
 }
 
-.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+.form-group input[type="checkbox"]:checked+.btn-group>label span:last-child {
   display: none;
 }
 
@@ -48,7 +63,7 @@
   margin-top: 5px !important;
 }
 
-.panel-default > .panel-heading {
+.panel-default>.panel-heading {
   padding: 0;
   border-radius: 0;
   color: #212121;
@@ -60,13 +75,36 @@
   font-size: 14px;
 }
 
-.panel-title > a {
-  display: block;
+.panel-title>a {
+  width: 100%;
   padding: 15px;
   text-decoration: none;
 }
 
-.more-less {
-  float: right;
-  color: #212121;
+.editToggle {
+  display: none;
+}
+
+.updateBtn {
+  margin-right: 0.5rem;
+  position: relative;
+  top: 6px;
+  display: none;
+}
+
+.updateBtn button {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-image: none;
+  border: 0;
+}
+
+pre {
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  top: 80px;
 }

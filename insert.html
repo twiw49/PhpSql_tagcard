@@ -5,113 +5,580 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tag Cards | Insert</title>
-  <style>
-
-  </style>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <!-- font-awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Tag Card | Insert</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/jquery-typeahead/dist/jquery.typeahead.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">Tag Card</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="index.html">SEARCH</a></li>
-          <li class="active"><a href="insert.html">INSERT</a></li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- navbar -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Tag Card</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNav">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="index.html">Search</a></li>
+        <li class="active"><a href="insert.html">Insert</a></li>
+      </ul>
     </div>
   </nav>
   <div class="container">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" autocomplete="off">
+    </div>
     <div class="form-group">
       <label for="content">Contetnt:</label>
       <textarea class="form-control" rows="5" id="content"></textarea>
     </div>
     <div class="form-group">
-      <label for="add_tag">Tag:</label>
-      <input type="text" class="form-control" id="add_tag" onkeyup="captureReturnKey(event)" autocomplete="off">
-      <p></p>
-      <div id="tag_group"></div>
+      <form onsubmit="return false;">
+        <div class="typeahead__container">
+          <div class="typeahead__field symptom_field">
+            <span class="typeahead__query">
+              <input class="symptom_query" placeholder="Symptom" autocomplete="off">
+            </span>
+            <span class="typeahead__button">
+              <button type="submit">
+                  <i class="typeahead__search-icon"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+      <div id="symptom"></div>
+    </div>
+    <div class="form-group">
+      <form onsubmit="return false;">
+        <div class="typeahead__container">
+          <div class="typeahead__field">
+            <span class="typeahead__query">
+              <input class="risk_factor_query" placeholder="Risk Factor" autocomplete="off">
+            </span>
+            <span class="typeahead__button">
+              <button type="submit">
+                  <i class="typeahead__search-icon"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+      <div id="risk_factor"></div>
+    </div>
+    <div class="form-group">
+      <form onsubmit="return false;">
+        <div class="typeahead__container">
+          <div class="typeahead__field">
+            <span class="typeahead__query">
+              <input class="lab_query" placeholder="Lab test" autocomplete="off">
+            </span>
+            <span class="typeahead__button">
+              <button type="submit">
+                  <i class="typeahead__search-icon"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+      <div id="lab"></div>
+    </div>
+    <div class="form-group">
+      <form onsubmit="return false;">
+        <div class="typeahead__container">
+          <div class="typeahead__field">
+            <span class="typeahead__query">
+              <input class="disease_query" placeholder="Disease" autocomplete="off">
+            </span>
+            <span class="typeahead__button">
+              <button type="submit">
+                  <i class="typeahead__search-icon"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+      <div id="disease"></div>
     </div>
     <input type="submit" class="btn btn-success form-control" id="insert" value="Insert" autocomplete="off">
     <div id="flash"></div>
     <div id="show"></div>
   </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<script>
-$(document).ready(function() {
-  $('#content').focus();
-});
-
-function captureReturnKey(e) {
-  if (e.keyCode == 13 && e.srcElement.value !== '') {
-    var b = document.createElement('input');
-    b.setAttribute("type", "button");
-    b.setAttribute("class", "btn btn-primary active tag_selected");
-    b.setAttribute("value", e.srcElement.value.toUpperCase());
-    b.style.borderRadius = 0;
-    b.style.outline = "1px solid white";
-    b.readOnly = true;
-    document.getElementById('tag_group').appendChild(b);
-    e.srcElement.value = "";
-  }
-};
-
-$(document).ready(function() {
-  $("#insert").click(function() {
-    var content = $.trim($("#content").val());
-    var tags = $(".tag_selected")
-      .map(function() {
-        return $.trim(this.value.toUpperCase());
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/jquery-typeahead/dist/jquery.typeahead.min.js"></script>
+  <script src="bower_components/vue/dist/vue.min.js"></script>
+  <script>
+    function captureReturnKey(query, selector, btn) {
+      var b = document.createElement('input');
+      b.setAttribute("type", "button");
+      b.setAttribute("class", "btn active tag_selected " + btn);
+      b.setAttribute("value", query);
+      b.style.borderRadius = 0;
+      b.style.outline = "1px solid white";
+      b.readOnly = true;
+      b.addEventListener("click", function() {
+        this.parentNode.removeChild(this);
       })
-      .get();
-
-    var dataString = {
-      insert: true,
-      content: content,
-      tags: tags
+      document.getElementById(selector).appendChild(b);
     };
 
-    if (content == '' || tags == '') {
-      alert('Content or Tag is Empty!');
-      $("#content").focus();
-    } else {
-      $("#flash").show();
-      $("#flash").fadeIn(400).html('<span class="load">Loading..</span>');
-      $.ajax({
-        type: "POST",
-        url: "sql/insert_sql.php",
-        data: dataString,
-        cache: true,
-        success: function(html) {
-          $("#show").text(html);
-          $("#flash").hide();
-          $('#content').val('').focus();
-          $(".tag_selected").remove();
+    $(document).ready(function() {
+      $('#title').focus();
+
+      var url = "medicalAPI/apimedic/issues.json";
+      $.getJSON(url, function(data) {
+        console.log(data[0]);
+        $.ajax({
+          type: "POST",
+          url: "sql/apimedicData.php",
+          data: {
+            q: "issues",
+            myData: JSON.stringify(data)
+          }
+        })
+      })
+
+      //symptom
+      $.typeahead({
+        input: '.symptom_query',
+        minLength: 0,
+        searchOnFocus: true,
+        highlight: true,
+        maxItem: 200,
+        offset: false,
+        hint: true,
+        source: {
+          ajax: {
+            type: "GET",
+            url: "sql/load_data_symptom.php"
+          }
+        },
+        callback: {
+          onClick: function(node, a, item, event) {
+            var query = this.item.display;
+            captureReturnKey(query, 'symptom', 'btn-primary');
+            this.item.display = '';
+          },
+          onSubmit: function(node, form, item, event) {
+            var query = this.query.toUpperCase();
+            captureReturnKey(query, 'symptom', 'btn-primary');
+            this.item.display = '';
+          }
         }
       });
-    }
-  });
-});
-</script>
+
+      //risk factor
+      $.typeahead({
+        input: '.risk_factor_query',
+        minLength: 0,
+        searchOnFocus: true,
+        maxItem: 200,
+        offset: false,
+        hint: true,
+        source: {
+          ajax: {
+            type: "GET",
+            url: "sql/load_data_risk_factor.php"
+          }
+        },
+        callback: {
+          onClick: function(node, a, item, event) {
+            var query = this.item.display;
+            captureReturnKey(query, 'risk_factor', 'btn-info');
+            this.item.display = '';
+          },
+          onSubmit: function(node, form, item, event) {
+            var query = this.query.toUpperCase();
+            captureReturnKey(query, 'risk_factor', 'btn-info');
+            this.item.display = '';
+          }
+        }
+      });
+
+      //lab
+      $.typeahead({
+        input: '.lab_query',
+        minLength: 0,
+        searchOnFocus: true,
+        maxItem: 200,
+        offset: false,
+        order: 'asc',
+        hint: true,
+        group: true,
+        dropdownFilter: "All",
+        maxItemPerGroup: 100,
+        template: "{{display}} <small style='color:#999;float:right;'>{{group}}</small>",
+        emptyTemplate: "No result for {{query}}",
+        debug: true,
+        source: {
+          "Biochemistry": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Biochemistry"
+            }
+          },
+          "Arterial blood gas": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Arterial_blood_gas"
+            }
+          },
+          "Blood count": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Blood_count"
+            }
+          },
+          "Cerebrospinal fluid": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Cerebrospinal_fluid"
+            }
+          },
+          "Coagulation system": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Coagulation_system"
+            }
+          },
+          "Genetic testing": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Genetic_testing"
+            }
+          },
+          "Hormones": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Hormones"
+            }
+          },
+          "Immunology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Immunology"
+            }
+          },
+          "Microbiology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Microbiology"
+            }
+          },
+          "Parasitology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Parasitology"
+            }
+          },
+          "Toxicology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Toxicology"
+            }
+          },
+          "Tumor markers": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Tumor_markers"
+            }
+          },
+          "Urine": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Urine"
+            }
+          },
+          "Other": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_lab.php",
+              path: "data.Other"
+            }
+          }
+        },
+        callback: {
+          onClick: function(node, a, item, event) {
+            var query = this.item.display;
+            captureReturnKey(query, 'lab', 'btn-warning');
+            this.item.display = '';
+          },
+          onSubmit: function(node, form, item, event) {
+            var query = this.query.toUpperCase();
+            captureReturnKey(query, 'lab', 'btn-warning');
+            this.item.display = '';
+          }
+        }
+      });
+
+      //disease
+      $.typeahead({
+        input: '.disease_query',
+        minLength: 0,
+        searchOnFocus: true,
+        maxItem: 1000,
+        offset: false,
+        hint: true,
+        group: true,
+        dropdownFilter: "All",
+        maxItemPerGroup: 100,
+        template: "{{display}} <small style='color:#999;float:right;'>{{group}}</small>",
+        emptyTemplate: "No result for {{query}}",
+        debug: true,
+        source: {
+          "Allergology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Allergology",
+              success: function(data) {
+                console.log(data);
+              }
+            }
+          },
+          "Aniology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Aniology"
+            }
+          },
+          "Cardiology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Cardiology"
+            }
+          },
+          "Dentistry": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Dentistry"
+            }
+          },
+          "Dermatology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Dermatology"
+            }
+          },
+          "Diabetology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Diabetology"
+            }
+          },
+          "Endocrinology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Endocrinology"
+            }
+          },
+          "Gastroenterology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Gastroenterology"
+            }
+          },
+          "Gynecology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Gynecology"
+            }
+          },
+          "Hematology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Hematology"
+            }
+          },
+          "Infectiology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Infectiology"
+            }
+          },
+          "Internal Medicine": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Internal_medicine"
+            }
+          },
+          "Laryngology/ENT": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Laryngology/ENT"
+            }
+          },
+          "Nephrology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Nephrology"
+            }
+          },
+          "Neurology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Neurology"
+            }
+          },
+          "Oncology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Oncology"
+            }
+          },
+          "Ophthalmology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Ophthalmology"
+            }
+          },
+          "Orthopedics": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Orthopedics"
+            }
+          },
+          "Other": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Other"
+            }
+          },
+          "Psychiatry": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Psychiatry"
+            }
+          },
+          "Pulmonology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Pulmonology"
+            }
+          },
+          "Rheumatology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Rheumatology"
+            }
+          },
+          "Surgery": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Surgery"
+            }
+          },
+          "Toxicology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Toxicology"
+            }
+          },
+          "Traumatology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Traumatology"
+            }
+          }
+        },
+        callback: {
+          onClick: function(node, a, item, event) {
+            var query = this.item.display;
+            captureReturnKey(query, 'disease', 'btn-danger');
+            this.item.display = '';
+          },
+          onSubmit: function(node, form, item, event) {
+            var query = this.query.toUpperCase();
+            captureReturnKey(query, 'disease', 'btn-danger');
+            this.item.display = '';
+          }
+        }
+      });
+
+      $("#insert").click(function() {
+        var title = $.trim($("#title").val());
+        var content = $.trim($("#content").val());
+        var tags = $(".tag_selected")
+          .map(function() {
+            return $.trim(this.value.toUpperCase());
+          })
+          .get();
+
+        var dataString = {
+          insert: true,
+          title: title,
+          content: content,
+          tags: tags
+        };
+
+        if (content == '' || tags == '') {
+          alert('Content or Tag is Empty!');
+          $("#content").focus();
+        } else {
+          $("#flash").show();
+          $("#flash").fadeIn(400).html('<span class="load">Loading..</span>');
+          $.ajax({
+            type: "POST",
+            url: "sql/insert_sql.php",
+            data: dataString,
+            cache: true,
+            success: function(html) {
+              $("#show").text(html);
+              $("#flash").hide();
+              $('#content').val('').focus();
+              $(".tag_selected").remove();
+            }
+          });
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>

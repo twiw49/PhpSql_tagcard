@@ -5,205 +5,429 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tag Cards | Search</title>
-  <style>
-
-  </style>
-  <!-- bootstrap -->
+  <title>Tag Card | Search</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- bootstrap-theme -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-  <!-- font-awesome -->
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- typeahead -->
   <link rel="stylesheet" href="bower_components/jquery-typeahead/dist/jquery.typeahead.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">Tag Card</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNav">
-        <ul class="nav navbar-nav navbar-left">
-          <li class="active"><a href="index.html">Search</a></li>
-          <li><a href="insert.html">Insert</a></li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- navbar -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Tag Card</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNav">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="active"><a href="index.html">Search</a></li>
+        <li><a href="insert.html">Insert</a></li>
+      </ul>
     </div>
   </nav>
   <div class="container">
+    <!-- search -->
     <div class="row">
       <div class="col-xs-12">
         <form onsubmit="return false;">
           <div class="typeahead__container">
             <div class="typeahead__field">
               <span class="typeahead__query">
-                <input class="search_query" placeholder="Search" autocomplete="off">
-            </span>
+                <input class="search_query" placeholder="Write your Keyword!" autocomplete="off">
+              </span>
               <span class="typeahead__button">
                 <button type="submit">
                     <i class="typeahead__search-icon"></i>
                 </button>
-            </span>
+              </span>
             </div>
           </div>
         </form>
       </div>
     </div>
+    <!-- with tag container -->
     <div class="row">
       <div class="col-xs-12">
         <div id="with_tag_container">
+          <div class="form-group with_tag" v-show="tag.c_selected" v-for="tag in with_tags" v-cloak>
+            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+            <div class="btn-group">
+              <label :for="tag.name" :class="tagClass(tag)">
+                <span class="glyphicon glyphicon-ok"></span>
+                <span> </span>
+              </label>
+              <label class="btn btn-default active" :for="tag.name">{{ tag.name }}</label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <!-- card container -->
     <div class="row">
       <div class="col-xs-12">
         <div class="panel-group" id="card_container">
+          <div class="panel panel-default" :class="card.id" v-show="card.selected" v-for="card in cards" v-cloak>
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#card_container" :href="cardUrl(card.id)">
+                  <!-- card title -->
+                  {{ card.content }}
+                </a>
+                <!-- update Buttons -->
+                <div class="btn-group updateBtn">
+                  <button type="button" class="btn btn-default editToggle" @click="editComplete(card, $event)">
+                    <i class="update glyphicon glyphicon-ok"></i>
+                  </button>
+                  <button type="button" class="btn btn-default"  @click="editCard(card, $event)">
+                    <i class="update glyphicon glyphicon-edit"></i>
+                  </button>
+                  <button type="button" class="btn btn-default" @click="deleteCard(card, $event)">
+                    <i class="update glyphicon glyphicon-trash"></i>
+                  </button>
+                </div>
+              </h4>
+            </div>
+            <div :id="card.id" class="panel-collapse collapse">
+              <ul class="list-group">
+                <!-- tags -->
+                <div>
+                  <button class="btn btn-primary active" style="borderRadius: 0; outline: 1px solid white; fontSize: 1.5rem;" readOnly v-for="tag in card.tags_info" @click.stop="tagDelete(tag, card)">{{ tag.name }} <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.3rem;"></span></button>
+                </div>
+                <div>
+                  <input type="text" id="tagAdd" class="btn btn-success active" @keyup.enter="tagAdd(card, $event)" style="borderRadius:0;width:100px;">
+                </div>
+                <li class="list-group-item">
+                  <!-- card content -->
+                  <pre class="editToggleShow">{{ card.content }}</pre>
+                  <!-- edit -->
+                  <textarea rows="10" v-text="card.content" class="form-control editToggle"></textarea>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- jQuery -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <!-- bootstrap -->
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- typeahead -->
   <script src="bower_components/jquery-typeahead/dist/jquery.typeahead.min.js"></script>
+  <script src="bower_components/vue/dist/vue.min.js"></script>
   <script>
-  if (!Array.prototype.has) {
-    Array.prototype.has = function(val) {
-      if (this.indexOf(val) !== -1) {
-        return true;
-      }
-      return false;
-    }
-  };
+    $(document).ready(function() {
+      $('.search_query').focus();
 
-  $(document).ready(function() {
-    $('.search_query').focus();
-    $.typeahead({
-      input: '.search_query',
-      minLength: 1,
-      offset: false,
-      hint: true,
-      source: {
-        ajax: {
-          type: "POST",
-          url: "sql/load_all_tags_sql.php"
-        }
-      },
-      callback: {
-        onClick: function(node, a, item, event) {
-          var query = this.query;
-          searchDatabase(query, [query]);
+      // serch_query
+      $.typeahead({
+        input: '.search_query',
+        minLength: 1,
+        offset: false,
+        hint: true,
+        group: true,
+        source: {
+          "ale": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_tags.php"
+            }
+          }
         },
-        onSubmit: function(node, form, item, event) {
-          var query = this.query;
-          searchDatabase(query, [query]);
+        callback: {
+          onClick: function(node, a, item, event) {
+            var query = this.item.display;
+            searchDatabase(query, [query], '');
+            $('.collapse').collapse('hide');
+          },
+          onSubmit: function(node, form, item, event) {
+            var query = this.query.toUpperCase();
+            searchDatabase(query, [query], '');
+            $('.collapse').collapse('hide');
+          }
+        }
+      });
+
+      function toggleCard(e) {
+        $(e.target)
+          .prev('.panel-heading')
+          .find('.updateBtn')
+          .toggle();
+      };
+      $('.panel-group').on('hide.bs.collapse', toggleCard);
+      $('.panel-group').on('show.bs.collapse', toggleCard);
+
+      /* infermedica
+          $.ajax({
+              type: 'GET',
+              url: "https://api.infermedica.com/v2/symptoms",
+              headers: {
+                "Accept": "application/json",
+                "App-Id": "38109532",
+                "App-Key": "09c8e28729551740f9994f05b6b29a62",
+                "Dev-Mode": "true"
+              },
+              dataType: 'json'
+            })
+            .done(function(data, status, xhr) {
+              $.ajax({
+                  type: 'POST',
+                  url: "sql/infermedicaData.php",
+                  data: {
+                    'q': "symptoms",
+                    'myData': JSON.stringify(data)
+                  }
+                })
+                .done(function(data) {
+                  console.log(data);
+                })
+            })
+      */
+    })
+
+
+    function searchDatabase(q_tag, selected_tags, old_data) {
+      if (!q_tag) {
+        for (var i = 0; i < old_data.with_tags.length; i++) {
+          if (old_data.with_tags[i].query) {
+            var q_tag = old_data.with_tags[i].name;
+          }
+        }
+      }
+
+      if (!selected_tags) {
+        var selected_tags = [];
+        for (var i = 0; i < old_data.with_tags.length; i++) {
+          if (old_data.with_tags[i].selected) {
+            selected_tags.push(old_data.with_tags[i].name);
+          }
+        }
+      }
+
+      var vars = {
+        q: q_tag
+      };
+      $.ajax({
+          type: "POST",
+          url: "sql/search_sql.php",
+          data: vars,
+          dataType: 'json'
+        })
+        .done(function(data, message, xhr) {
+          modifyData(data, selected_tags);
+          console.log(xhr.responseText);
+          console.log(q_tag);
+          console.log(selected_tags);
+        })
+        .fail(function(xhr) {
+          console.log(xhr);
+        })
+    };
+
+    function modifyData(data, selected_tags) {
+      // 주요 변수들 관계
+      // q_tag (single tag)
+      // selected_tags (single or multiple tag(s))
+      // with_tags_selected (selected_tags 모두와 동시에 태깅된 태그들)
+      // with_tags_all (q_tag와 동시에 태깅된 태그들)
+
+      // 주요 변수들 define
+      var q_tag = data.tag_name;
+      if (selected_tags) {
+        var selected_tags = selected_tags
+      } else {
+        var selected_tags = [];
+        for (var i = 0; i < data.with_tags.length; i++) {
+          if (data.with_tags[i].selected) {
+            selected_tags.push(data.with_tags[i].name);
+          }
+        }
+      }
+
+      var with_tags_selected = {};
+      var with_tags_all = data.with_tags;
+      var cards = data.cards;
+
+      // cards에 property 부여하기
+      for (var i = 0; i < cards.length; i++) {
+        var c = cards[i];
+        var c_content = c.content;
+        var c_tags = c.tags;
+        // 1. selected
+        c.selected = true;
+        for (var j = 0; j < selected_tags.length; j++) {
+          if (!c_tags.includes(selected_tags[j])) {
+            c.selected = false;
+            break;
+          }
+        }
+        // 2. with_tags_selected
+        if (c.selected) {
+          for (var j = 0; j < c_tags.length; j++) {
+            if (c_tags[j] in with_tags_selected) {
+              with_tags_selected[c_tags[j]] += 1;
+            } else {
+              with_tags_selected[c_tags[j]] = 1;
+            }
+          }
+        }
+      }
+
+      // with_tags_all에 property 부여하기
+      for (var i = 0; i < with_tags_all.length; i++) {
+        var w_tag = with_tags_all[i];
+        // 1. q_tag (검색창을 통해 입력된 값)
+        if (w_tag.name == q_tag) {
+          w_tag.query = true;
+        } else {
+          w_tag.query = false;
+        }
+        // 2. selected_tags (체크박스를 통해 선택된 태그들의 이름을 배열에 저장한 값)
+        if (selected_tags.includes(w_tag.name)) {
+          w_tag.selected = true;
+        } else {
+          w_tag.selected = false;
+        }
+        // 3. with_tags_selected
+        if (w_tag.name in with_tags_selected) {
+          w_tag.c_selected = true;
+        } else {
+          w_tag.c_selected = false;
+        }
+      }
+
+      tagVue.tagUpdate(data, with_tags_all);
+      cardVue.cardUpdate(data, cards);
+    };
+
+    var tagVue = new Vue({
+      el: "#with_tag_container",
+      data: {
+        with_tags: '',
+        data: ''
+      },
+      methods: {
+        tagUpdate: function(data, with_tags_all) {
+          this.with_tags = with_tags_all;
+          this.data = data;
+        },
+        tagClass: function(tag) {
+          if (tag.query) {
+            return 'btn btn-danger active';
+          } else {
+            if (tag.selected) {
+              return 'btn btn-info active';
+            }
+            return 'btn btn-info';
+          }
+        },
+        tagCheck: function(tag, event) {
+          tag.selected = event.srcElement.checked;
+          modifyData(this.data, '');
         }
       }
     });
-  });
 
-  function searchDatabase(q_tag, selected_tags) {
-    var vars = {
-      q: q_tag
-    };
-    $.ajax({
-        type: "POST",
-        url: "sql/search_sql.php",
-        data: vars,
-        dataType: 'json'
-      })
-      .done(function(data) {
-        modifyData(data, selected_tags);
-      })
-      .fail(function(xhr) {
-        console.log(xhr);
-      })
-  };
-
-  function modifyData(data, selected_tags) {
-    // 주요 변수들 관계
-    // q_tag (single tag)
-    // selected_tags (single or multiple tag(s))
-    // with_tags_selected (selected_tags 모두와 동시에 태깅된 태그들)
-    // with_tags_all (q_tag와 동시에 태깅된 태그들)
-
-    // 주요 변수들 define
-    var q_tag = data.tag_name;
-    var selected_tags = selected_tags;
-    var with_tags_selected = {};
-    var with_tags_all = data.with_tags;
-    var cards = data.cards;
-
-    // cards에 property 부여하기
-    for (var i = 0; i < cards.length; i++) {
-      var c = cards[i];
-      var c_content = c.content;
-      var c_tags = c.tags;
-
-      // 1. selected
-      c.selected = false;
-      for (var j = 0; j < selected_tags.length; j++) {
-        if (c_tags.has(selected_tags[j])) {
-          c.selected = true;
-          break;
+    var cardVue = new Vue({
+      el: "#card_container",
+      data: {
+        cards: '',
+        data: ''
+      },
+      methods: {
+        cardUpdate: function(data, cards) {
+          this.cards = cards;
+          this.data = data;
+        },
+        cardUrl: function(cardId) {
+          return '#' + cardId;
+        },
+        tagDelete: function(tag, card) {
+          var old_data = this.data;
+          var r = confirm('Do you want to remove ' + tag.id + ' tag from this case?');
+          if (r) {
+            var vars = {
+              q: 'tag_delete',
+              tag_name: tag.name,
+              card_id: card.id
+            };
+            $.ajax({
+                type: "POST",
+                url: "sql/update_sql.php",
+                data: vars
+              })
+              .done(function() {
+                searchDatabase('', '', old_data);
+              })
+          }
+        },
+        tagAdd: function(card, event) {
+          var old_data = this.data;
+          var vars = {
+            q: 'tag_add',
+            tag_name: event.srcElement.value.toUpperCase(),
+            card_id: card.id
+          };
+          $.ajax({
+              type: "POST",
+              url: "sql/update_sql.php",
+              data: vars
+            })
+            .done(function() {
+              searchDatabase('', '', old_data);
+            })
+          event.srcElement.value = '';
+        },
+        editCard: function(card, event) {
+          $('.' + card.id + ' .editToggle').toggle();
+          $('.' + card.id + ' .editToggleShow').toggle();
+        },
+        editComplete: function(card, event) {
+          var old_data = this.data;
+          var r = confirm('Do you want to edit this card?');
+          if (r) {
+            var vars = {
+              q: 'card_edit',
+              card_id: card.id,
+              card_content: $("#" + card.id + " textarea")[0].value
+            };
+            $.ajax({
+                type: "POST",
+                url: "sql/update_sql.php",
+                data: vars
+              })
+              .done(function() {
+                searchDatabase('', '', old_data);
+                $('.' + card.id + ' .editToggle').toggle();
+                $('.' + card.id + ' .editToggleShow').toggle();
+              })
+          }
+        },
+        deleteCard: function(card, event) {
+          var old_data = this.data;
+          var r = confirm('Do you want to remove this card?');
+          if (r) {
+            var vars = {
+              q: 'card_delete',
+              card_id: card.id
+            };
+            $.ajax({
+                type: "POST",
+                url: "sql/update_sql.php",
+                data: vars
+              })
+              .done(function() {
+                searchDatabase('', '', old_data);
+                $('.collapse').collapse('hide');
+              })
+          }
         }
       }
-
-      // 2. with_tags_selected
-      for (var j = 0; j < c_tags.length; j++) {
-        if (c_tags[j] in with_tags_selected) {
-          with_tags_selected[c_tags[j]] += 1;
-        } else {
-          with_tags_selected[c_tags[j]] = 1;
-        }
-      }
-    }
-
-    // with_tags_all에 property 부여하기
-    for (var i = 0; i < with_tags_all.length; i++) {
-      var w_tag = with_tags_all[i];
-
-      // 1. q_tag (검색창을 통해 입력된 값)
-      if (w_tag.name == q_tag) {
-        w_tag.query = true;
-      } else {
-        w_tag.query = false;
-      }
-
-      // 2. selected_tags (체크박스를 통해 선택된 태그들의 이름을 배열에 저장한 값)
-      if (selected_tags.has(w_tag.name)) {
-        w_tag.selected = true;
-      } else {
-        w_tag.selected = false;
-      }
-    }
-
-    console.log(with_tags_all);
-    console.log(cards);
-    console.log(with_tags_selected);
-
-    drawTag(with_tags_all);
-    drawCard(cards);
-  }
-
-  function drawTag(with_tags_all) {
-
-  };
-
-  function drawCard(cards) {
-
-  };
+    });
   </script>
 </body>
 
