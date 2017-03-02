@@ -134,17 +134,20 @@
     $(document).ready(function() {
       $('#title').focus();
 
-      var url = "medicalAPI/apimedic/issues.json";
+      var url = "medicalAPI/apimedic/location_symptoms_girl.json";
       $.getJSON(url, function(data) {
         console.log(data[0]);
         $.ajax({
-          type: "POST",
-          url: "sql/apimedicData.php",
-          data: {
-            q: "issues",
-            myData: JSON.stringify(data)
-          }
-        })
+            type: "POST",
+            url: "sql/apimedicData.php",
+            data: {
+              q: "symp",
+              myData: JSON.stringify(data)
+            }
+          })
+          .done(function(data) {
+            console.log(data);
+          })
       })
 
       //symptom

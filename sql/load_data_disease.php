@@ -10,7 +10,7 @@ while ($row_ = mysqli_fetch_array($r)) {
     $cate_id = $row_['id'];
     $cate_name = $row_['name'];
 
-    $sql = "SELECT * FROM `disease` WHERE `categories` = '{$cate_id}';";
+    $sql = "SELECT * FROM `disease` WHERE `category` = '{$cate_id}';";
     $result = mysqli_query($conn, $sql);
     $arr = array();
     while ($row = mysqli_fetch_array($result)) {

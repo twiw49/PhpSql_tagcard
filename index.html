@@ -161,32 +161,31 @@
       $('.panel-group').on('hide.bs.collapse', toggleCard);
       $('.panel-group').on('show.bs.collapse', toggleCard);
 
-      /* infermedica
-          $.ajax({
-              type: 'GET',
-              url: "https://api.infermedica.com/v2/symptoms",
-              headers: {
-                "Accept": "application/json",
-                "App-Id": "38109532",
-                "App-Key": "09c8e28729551740f9994f05b6b29a62",
-                "Dev-Mode": "true"
-              },
-              dataType: 'json'
-            })
-            .done(function(data, status, xhr) {
-              $.ajax({
-                  type: 'POST',
-                  url: "sql/infermedicaData.php",
-                  data: {
-                    'q': "symptoms",
-                    'myData': JSON.stringify(data)
-                  }
-                })
-                .done(function(data) {
-                  console.log(data);
-                })
-            })
-      */
+      //  infermedica
+      //     $.ajax({
+      //         type: 'GET',
+      //         url: "https://api.infermedica.com/v2/symptoms",
+      //         headers: {
+      //           "Accept": "application/json",
+      //           "App-Id": "38109532",
+      //           "App-Key": "09c8e28729551740f9994f05b6b29a62",
+      //           "Dev-Mode": "true"
+      //         },
+      //         dataType: 'json'
+      //       })
+      //       .done(function(data, status, xhr) {
+      //         $.ajax({
+      //             type: 'POST',
+      //             url: "sql/infermedicaData.php",
+      //             data: {
+      //               'q': "symptoms",
+      //               'myData': JSON.stringify(data)
+      //             }
+      //           })
+      //           .done(function(data) {
+      //             console.log(data);
+      //           })
+      //       })
     })
 
 
@@ -211,6 +210,7 @@
       var vars = {
         q: q_tag
       };
+
       $.ajax({
           type: "POST",
           url: "sql/search_sql.php",
