@@ -6,7 +6,7 @@ $tag_card_array = array();
 while ($row = mysqli_fetch_array($result)) {
     $tag_id = $row['id'];
 
-    $sql = "SELECT * FROM `rel_tagcard` WHERE `tag_id` = '{$tag_id}'";
+    $sql = "SELECT * FROM `tag_card` WHERE `tag_id` = '{$tag_id}'";
     $res = mysqli_query($conn, $sql);
 
     $card_count = mysqli_num_rows($res);
@@ -29,7 +29,7 @@ $tag_tag_array = array();
 foreach ($tag_card_array as $tag => $tag_cards) {
     $tag_tag_array[$tag] = array();
     foreach ($tag_cards as $card) {
-        $sql = "SELECT * FROM `rel_tagcard` WHERE `card_id` = '{$card}';";
+        $sql = "SELECT * FROM `tag_card` WHERE `card_id` = '{$card}';";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result)) {
             $with_tag = $row['tag_id'];
@@ -42,11 +42,11 @@ foreach ($tag_card_array as $tag => $tag_cards) {
     }
 }
 
-$s_t = "TRUNCATE rel_tagtag;";
+$s_t = "TRUNCATE tag_tag;";
 $r_t = mysqli_query($conn, $s_t);
 foreach ($tag_tag_array as $tag => $with_tags) {
     foreach ($with_tags as $with_tag => $with_count) {
-        $sql = "INSERT INTO `rel_tagtag` (`tag_id`, `with_tag_id`, `with_count`)
+        $sql = "INSERT INTO `tag_tag` (`tag_id`, `with_tag_id`, `with_count`)
 		VALUES ('{$tag}', '{$with_tag}', '{$with_count}');";
         $result = mysqli_query($conn, $sql);
     }

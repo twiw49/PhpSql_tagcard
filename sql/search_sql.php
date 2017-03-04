@@ -21,7 +21,7 @@ $tag_id = sqlResult($conn, 'tag', 'name', $tag_name, 'id');
 
 /* cards */
 $cards = array();
-$sql = "SELECT * FROM `rel_tagcard` WHERE `tag_id` = '{$tag_id}'";
+$sql = "SELECT * FROM `tag_card` WHERE `tag_id` = '{$tag_id}'";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_array($result)) {
     $card_id = $row['card_id'];
@@ -29,7 +29,7 @@ while ($row = mysqli_fetch_array($result)) {
 
     $tags_ele = array();
     $tags_info = array();
-    $sql_ = "SELECT * FROM `rel_tagcard` WHERE `card_id` = '{$card_id}'";
+    $sql_ = "SELECT * FROM `tag_card` WHERE `card_id` = '{$card_id}'";
     $result_ = mysqli_query($conn, $sql_);
     while ($row_ = mysqli_fetch_array($result_)) {
         $t_id = $row_['tag_id'];
@@ -51,7 +51,7 @@ while ($row = mysqli_fetch_array($result)) {
 };
 
 /* with_tags */
-$sql_0 = "SELECT * FROM `rel_tagtag` WHERE `tag_id` = '{$tag_id}' ORDER BY `with_count` DESC";
+$sql_0 = "SELECT * FROM `tag_tag` WHERE `tag_id` = '{$tag_id}' ORDER BY `with_count` DESC";
 $result_0 = mysqli_query($conn, $sql_0);
 
 $with_tags = array();
@@ -61,7 +61,7 @@ while ($row_0 = mysqli_fetch_array($result_0)) {
     $with_count = $row_0['with_count'];
 
     $with_with_tags = array();
-    $sql_1 = "SELECT * FROM `rel_tagtag` WHERE `tag_id` = '{$with_tag_id}';";
+    $sql_1 = "SELECT * FROM `tag_tag` WHERE `tag_id` = '{$with_tag_id}';";
     $result_1 = mysqli_query($conn, $sql_1);
     while ($row_1 = mysqli_fetch_array($result_1)) {
         $w = sqlResult($conn, 'tag', 'id', $row_1['with_tag_id'], 'name');

@@ -10,7 +10,7 @@ if ($_POST['q'] == 'disease') {
         $prevalence = $item -> prevalence;
         $acuteness = $item -> acuteness;
         $severity = $item -> severity;
-        $sex_filter = $item -> sex_filter;
+        $filter_sex = $item -> filter_sex;
 
     /* INSERT
         $s_cate = "INSERT INTO `d_category` (`id`,`name`) VALUES(NULL, '{$category}');";
@@ -46,12 +46,12 @@ if ($_POST['q'] == 'disease') {
         $row = mysqli_fetch_array($r_sev);
         $sev_id = $row['id'];
 
-        $s_sex = "SELECT * FROM `sex_filter` WHERE `name` LIKE '{$sex_filter}';";
+        $s_sex = "SELECT * FROM `filter_sex` WHERE `name` LIKE '{$filter_sex}';";
         $r_sex = mysqli_query($conn, $s_sex);
         $row = mysqli_fetch_array($r_sex);
         $sex_id = $row['id'];
 
-        $s_dis = "INSERT INTO `disease` (`id`, `name`, `category`, `prevalence`, `acuteness`, `severity`, `sex_filter`) VALUES ('{$id}', '{$name}', '{$cate_id}', '{$pre_id}', '{$acu_id}', '{$sev_id}', '{$sex_id}');";
+        $s_dis = "INSERT INTO `disease` (`id`, `name`, `category`, `prevalence`, `acuteness`, `severity`, `filter_sex`) VALUES ('{$id}', '{$name}', '{$cate_id}', '{$pre_id}', '{$acu_id}', '{$sev_id}', '{$sex_id}');";
         $r_dis = mysqli_query($conn, $s_dis);
     }
 } elseif ($_POST['q'] == "lab") {
@@ -92,16 +92,16 @@ if ($_POST['q'] == 'disease') {
                 $child_relation = $child -> parent_relation;
 
                 /*
-                $s = "INSERT INTO `s_rel_type` (`id`, `name`) VALUES (null, '{$parent_relation}');";
+                $s = "INSERT INTO `symp_family_type` (`id`, `name`) VALUES (null, '{$parent_relation}');";
                 $r = mysqli_query($conn, $s);
                 */
 
-                $s_child_rel_type = "SELECT * FROM `s_rel_type` WHERE `name` LIKE '{$child_relation}';";
+                $s_child_rel_type = "SELECT * FROM `symp_family_type` WHERE `name` LIKE '{$child_relation}';";
                 $r_child_rel_type = mysqli_query($conn, $s_child_rel_type);
                 $row = mysqli_fetch_array($r_child_rel_type);
                 $child_rel_type_id = $row['id'];
 
-                $s_child = "INSERT INTO `s_rel` (`parent_id`, `child_id`, `relation`) VALUES ('{$id}', '{$child_id}', '{$child_rel_type_id}');";
+                $s_child = "INSERT INTO `symp_family` (`parent_id`, `child_id`, `relation`) VALUES ('{$id}', '{$child_id}', '{$child_rel_type_id}');";
                 $r_child = mysqli_query($conn, $s_child);
             }
             $hasChild = 1;
@@ -112,25 +112,25 @@ if ($_POST['q'] == 'disease') {
         $parent_id = $item -> parent_id;
         if ($parent_id) {
             $parent_relation = $item -> parent_relation;
-            $s_parent_rel_type = "SELECT * FROM `s_rel_type` WHERE `name` LIKE '{$parent_relation}';";
+            $s_parent_rel_type = "SELECT * FROM `symp_family_type` WHERE `name` LIKE '{$parent_relation}';";
             $r_parent_rel_type = mysqli_query($conn, $s_parent_rel_type);
             $row = mysqli_fetch_array($r_parent_rel_type);
             $parent_rel_type_id = $row['id'];
 
-            $s_parent = "INSERT INTO `s_rel` (`parent_id`, `child_id`, `relation`) VALUES ('{$parent_id}', '{$id}', '{$parent_rel_type_id}');";
+            $s_parent = "INSERT INTO `symp_family` (`parent_id`, `child_id`, `relation`) VALUES ('{$parent_id}', '{$id}', '{$parent_rel_type_id}');";
             $r_parent = mysqli_query($conn, $s_parent);
             $hasParent = 1;
         } else {
             $hasParent = 0;
         }
 
-        $sex_filter = $item -> sex_filter;
-        $s_sex = "SELECT * FROM `sex_filter` WHERE `name` LIKE '{$sex_filter}';";
+        $filter_sex = $item -> filter_sex;
+        $s_sex = "SELECT * FROM `filter_sex` WHERE `name` LIKE '{$filter_sex}';";
         $r_sex = mysqli_query($conn, $s_sex);
         $row = mysqli_fetch_array($r_sex);
         $sex_id = $row['id'];
 
-        $s_total = "INSERT INTO `symptom` (`id`, `name`, `image_source`, `image_url`, `hasChild`, `hasParent`, `sex_filter`) VALUES ('{$id}', '{$name}', '{$image_source}', '{$image_url}', '{$hasChild}', '{$hasParent}', '{$sex_id}');";
+        $s_total = "INSERT INTO `symptom` (`id`, `name`, `image_source`, `image_url`, `hasChild`, `hasParent`, `filter_sex`) VALUES ('{$id}', '{$name}', '{$image_source}', '{$image_url}', '{$hasChild}', '{$hasParent}', '{$sex_id}');";
         $r_total = mysqli_query($conn, $s_total);
     }
 }

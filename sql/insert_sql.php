@@ -22,7 +22,7 @@
               $new_tag_id = mysqli_insert_id($conn);
           }
 
-          $sql = "INSERT INTO `rel_tagcard` (`card_id`, `tag_id`) VALUES ('{$new_card_id}', '{$new_tag_id}');";
+          $sql = "INSERT INTO `tag_card` (`card_id`, `tag_id`) VALUES ('{$new_card_id}', '{$new_tag_id}');";
           $result = mysqli_query($conn, $sql);
       }
   }

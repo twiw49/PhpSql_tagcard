@@ -8,6 +8,7 @@ $result = mysqli_query($conn, $sql);
 $arr = array();
 while ($row = mysqli_fetch_array($result)) {
     $r = $row['name'];
+    $r = $r.'  //  '.$row['id'];
     array_push($arr, $r);
 };
 

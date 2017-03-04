@@ -134,15 +134,28 @@
     $(document).ready(function() {
       $('#title').focus();
 
-      var url = "medicalAPI/apimedic/location_symptoms_girl.json";
+      var url = "medicalAPI/apimedic/location_symptoms_total.json";
       $.getJSON(url, function(data) {
         console.log(data[0]);
+        var newRow = [];
+        var updateRow = [];
+        for (var i = 0; i < data.length; i++) {
+          if (typeof data[i].newID == 'number') {
+            newRow.push(data[i]);
+          } else {
+            updateRow.push(data[i]);
+          }
+        }
+        console.log(newRow[0]);
+
         $.ajax({
             type: "POST",
             url: "sql/apimedicData.php",
             data: {
-              q: "symp",
-              myData: JSON.stringify(data)
+              q: "update",
+              totalRow: JSON.stringify(data),
+              newRow: JSON.stringify(newRow),
+              updateRow: JSON.stringify(updateRow)
             }
           })
           .done(function(data) {

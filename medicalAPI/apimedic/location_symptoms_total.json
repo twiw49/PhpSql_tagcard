@@ -1,5 +1,6 @@
 [{
     "ID": 9,
+    "newID": "s_21",
     "Name": "Headache",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -7,10 +8,12 @@
       22
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "두통"
+    ]
+  }, {
     "ID": 10,
+    "newID": "s_13",
     "Name": "Abdominal pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -19,11 +22,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      " Stomach ache"
+      "Stomach ache",
+      "복통"
     ]
-  },
-  {
+  }, {
     "ID": 11,
+    "newID": "s_98",
     "Name": "Fever",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -34,11 +38,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Temperature"
+      "Temperature",
+      "열"
     ]
-  },
-  {
+  }, {
     "ID": 12,
+    "newID": 12,
     "Name": "Pain in the limbs",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -55,11 +60,12 @@
       "Ache all over",
       "Diffuse muscle aches",
       "Aching limbs",
-      "Pain in the extremities"
+      "Pain in the extremities",
+      "몸살"
     ]
-  },
-  {
+  }, {
     "ID": 13,
+    "newID": 13,
     "Name": "Sore throat",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -67,10 +73,13 @@
       24
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "목앓이",
+      "인후통"
+    ]
+  }, {
     "ID": 14,
+    "newID": 14,
     "Name": "Runny nose",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -78,10 +87,12 @@
       24
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "코감기"
+    ]
+  }, {
     "ID": 15,
+    "newID": "s_102",
     "Name": "Cough",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -92,10 +103,12 @@
       31
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "기침"
+    ]
+  }, {
     "ID": 16,
+    "newID": 16,
     "Name": "Tiredness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -108,11 +121,12 @@
     "Synonyms": [
       "Feeling of weakness",
       "Fatigue",
-      "Weakness"
+      "Weakness",
+      "피로"
     ]
-  },
-  {
+  }, {
     "ID": 17,
+    "newID": "s_50",
     "Name": "Chest pain",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -120,10 +134,13 @@
       31
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "흉통",
+      "가슴통증"
+    ]
+  }, {
     "ID": 21,
+    "newID": 21,
     "Name": "Itching of skin",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -134,11 +151,12 @@
     "Synonyms": [
       "Itch",
       "Pruritus",
-      "Skin itching"
+      "Skin itching",
+      "피부가려움증"
     ]
-  },
-  {
+  }, {
     "ID": 22,
+    "newID": "s_285",
     "Name": "Weight loss",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -146,10 +164,12 @@
       47
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "체중감소"
+    ]
+  }, {
     "ID": 23,
+    "newID": "s_226",
     "Name": "Weight gain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -158,11 +178,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Increase in weight"
+      "Increase in weight",
+      "체중증가"
     ]
-  },
-  {
+  }, {
     "ID": 24,
+    "newID": 24,
     "Name": "Blackhead",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -174,11 +195,12 @@
     "ProfName": "",
     "Synonyms": [
       "Blackheads",
-      "Comedones"
+      "Comedones",
+      "여드름"
     ]
-  },
-  {
+  }, {
     "ID": 25,
+    "newID": "s_548",
     "Name": "Skin nodules",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -187,11 +209,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Papula"
+      "Papula",
+      "피부결절"
     ]
-  },
-  {
+  }, {
     "ID": 26,
+    "newID": "s_241",
     "Name": "Skin lesion",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -202,11 +225,12 @@
     "Synonyms": [
       "Pimple",
       "Small blister",
-      "Pustule"
+      "Pustule",
+      "피부병변"
     ]
-  },
-  {
+  }, {
     "ID": 27,
+    "newID": "s_44",
     "Name": "Joint pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -218,10 +242,12 @@
       49
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "관절통"
+    ]
+  }, {
     "ID": 28,
+    "newID": "s_331",
     "Name": "Stuffy nose",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -231,11 +257,12 @@
     "ProfName": "",
     "Synonyms": [
       "Blocked nose",
-      "Nasal congestion"
+      "Nasal congestion",
+      "코막힘"
     ]
-  },
-  {
+  }, {
     "ID": 29,
+    "newID": "s_88",
     "Name": "Shortness of breath",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -245,11 +272,12 @@
     "ProfName": "",
     "Synonyms": [
       "Dyspnea",
-      "Breathlessness"
+      "Breathlessness",
+      "호흡곤란"
     ]
-  },
-  {
+  }, {
     "ID": 30,
+    "newID": "s_474",
     "Name": "Wheezing",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -259,10 +287,13 @@
       31
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "쌕쌕거림",
+      "천명"
+    ]
+  }, {
     "ID": 31,
+    "newID": "s_609",
     "Name": "Chest tightness",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -272,11 +303,13 @@
     "ProfName": "",
     "Synonyms": [
       "Tightness in chest",
-      "Oppressive feeling in the chest"
+      "Oppressive feeling in the chest",
+      "가슴답답",
+      "Breast tightness"
     ]
-  },
-  {
+  }, {
     "ID": 33,
+    "newID": "s_492",
     "Name": "Eye redness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -284,10 +317,13 @@
       23
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Red eye",
+      "눈충혈"
+    ]
+  }, {
     "ID": 34,
+    "newID": "s_248",
     "Name": "Skin wheal",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -296,11 +332,13 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Hives"
+      "Hives",
+      "두드러기",
+      "Itching blisters or wheals"
     ]
-  },
-  {
+  }, {
     "ID": 35,
+    "newID": "s_1433",
     "Name": "Lip swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -312,11 +350,13 @@
       "Angiooedema",
       "Angioedema",
       "Quincke's edema",
-      "Swollen lip"
+      "Swollen lip",
+      "Edema, lip",
+      "입술부종"
     ]
-  },
-  {
+  }, {
     "ID": 37,
+    "newID": "s_110",
     "Name": "Palpitations",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -325,11 +365,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Palpitations"
+      "Palpitations",
+      "두근거림"
     ]
-  },
-  {
+  }, {
     "ID": 38,
+    "newID": "s_1429",
     "Name": "Nosebleed",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -338,11 +379,13 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Epistaxis"
+      "Epistaxis",
+      "비출혈",
+      "코피"
     ]
-  },
-  {
+  }, {
     "ID": 39,
+    "newID": 39,
     "Name": "Increased urine quantity",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -351,10 +394,12 @@
       37
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "오줌량증가"
+    ]
+  }, {
     "ID": 40,
+    "newID": "s_310",
     "Name": "Increased thirst",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -365,11 +410,13 @@
     "ProfName": "",
     "Synonyms": [
       "Polydipsia",
-      "Chronic thirst"
+      "Chronic thirst",
+      "갈증",
+      "목마름"
     ]
-  },
-  {
+  }, {
     "ID": 43,
+    "newID": 43,
     "Name": "Stupor",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -387,9 +434,9 @@
       "Feeling of lightheadness",
       "Feeling of lightheadedness"
     ]
-  },
-  {
+  }, {
     "ID": 44,
+    "newID": "s_156",
     "Name": "Nausea",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -403,10 +450,12 @@
       47
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "구역감"
+    ]
+  }, {
     "ID": 45,
+    "newID": "s_338",
     "Name": "Heartburn",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -421,9 +470,9 @@
     "Synonyms": [
       "Pyrosis"
     ]
-  },
-  {
+  }, {
     "ID": 46,
+    "newID": 46,
     "Name": "Burning in the throat",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -432,9 +481,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 47,
+    "newID": 47,
     "Name": "Joylessness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -445,9 +494,9 @@
     "Synonyms": [
       "Listlessness"
     ]
-  },
-  {
+  }, {
     "ID": 48,
+    "newID": 48,
     "Name": "Bloated feeling in the stomach",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -456,11 +505,13 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Feeling full"
+      "Feeling full",
+      "배부름",
+      "포만감"
     ]
-  },
-  {
+  }, {
     "ID": 49,
+    "newID": "s_137",
     "Name": "Cravings",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -471,11 +522,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Binge eating"
+      "Binge eating",
+      "폭식"
     ]
-  },
-  {
+  }, {
     "ID": 50,
+    "newID": "s_8",
     "Name": "Diarrhea",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -487,11 +539,12 @@
     "Synonyms": [
       "Diarrhoea",
       "Loose stool",
-      "Watery stool"
+      "Watery stool",
+      "설사"
     ]
-  },
-  {
+  }, {
     "ID": 52,
+    "newID": "s_917",
     "Name": "Sleeplessness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -502,11 +555,13 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Insomnia"
+      "Insomnia",
+      "Sleep disorder, Insomnia",
+      "불면증"
     ]
-  },
-  {
+  }, {
     "ID": 53,
+    "newID": "s_631",
     "Name": "Difficulty to concentrate",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -516,10 +571,13 @@
       47
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Impaired concentration",
+      "집중력저하"
+    ]
+  }, {
     "ID": 54,
+    "newID": "s_284",
     "Name": "Reduced appetite",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -530,10 +588,13 @@
       36
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Diminished appetite",
+      "식욕저하"
+    ]
+  }, {
     "ID": 57,
+    "newID": "s_188",
     "Name": "Going black before the eyes",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -547,9 +608,9 @@
       "Fainting",
       "Faint"
     ]
-  },
-  {
+  }, {
     "ID": 59,
+    "newID": "s_215",
     "Name": "Frequent urination",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -559,9 +620,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 60,
+    "newID": "s_118",
     "Name": "Sensitivity to cold",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -571,11 +632,12 @@
     "ProfName": "",
     "Synonyms": [
       "Feeling cold",
-      "Cold intolerance"
+      "Cold intolerance",
+      "Cold sensitivity"
     ]
-  },
-  {
+  }, {
     "ID": 61,
+    "newID": "s_229",
     "Name": "Skin redness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -588,9 +650,9 @@
       "Red skin",
       "Red colored skin"
     ]
-  },
-  {
+  }, {
     "ID": 62,
+    "newID": 62,
     "Name": "Formation of blisters on a skin area",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -607,9 +669,9 @@
       "Formation of blisters on an area of skin",
       "Blisters"
     ]
-  },
-  {
+  }, {
     "ID": 63,
+    "newID": 63,
     "Name": "Non-healing skin wound",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -618,9 +680,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 64,
+    "newID": 64,
     "Name": "Sputum",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -630,10 +692,12 @@
       25
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "가래"
+    ]
+  }, {
     "ID": 65,
+    "newID": 65,
     "Name": "Irregular mole",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -642,9 +706,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 66,
+    "newID": "s_494",
     "Name": "Visual field loss",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -652,10 +716,12 @@
       23
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Visual field narrowing"
+    ]
+  }, {
     "ID": 68,
+    "newID": "s_320",
     "Name": "Vision impairment",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -668,9 +734,9 @@
       "Impaired vision",
       "Vision loss"
     ]
-  },
-  {
+  }, {
     "ID": 69,
+    "newID": 69,
     "Name": "Sensitivity to glare",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -679,9 +745,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 70,
+    "newID": 70,
     "Name": "Impaired light-dark adaptation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -690,9 +756,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 71,
+    "newID": "s_207",
     "Name": "Double vision",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -703,9 +769,9 @@
     "Synonyms": [
       "Diplopia"
     ]
-  },
-  {
+  }, {
     "ID": 72,
+    "newID": 72,
     "Name": "Halo",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -714,9 +780,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 73,
+    "newID": "s_1563",
     "Name": "Itching eyes",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -725,9 +791,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 75,
+    "newID": 75,
     "Name": "Burning eyes",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -736,9 +802,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 76,
+    "newID": "s_201",
     "Name": "Feeling of foreign body in the eye",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -746,10 +812,12 @@
       23
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Stinging conjunctivae, feeling of sand under eyelid"
+    ]
+  }, {
     "ID": 77,
+    "newID": "s_500",
     "Name": "Blurred vision",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -760,9 +828,9 @@
     "Synonyms": [
       "Distorted vision"
     ]
-  },
-  {
+  }, {
     "ID": 78,
+    "newID": "s_407",
     "Name": "Ringing in the ear",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -776,9 +844,9 @@
       "Ringing in the ears",
       "Ear noise"
     ]
-  },
-  {
+  }, {
     "ID": 79,
+    "newID": 79,
     "Name": "Difficult defecation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -791,9 +859,9 @@
       "Difficult evacuation of the bowels",
       "Obstipation"
     ]
-  },
-  {
+  }, {
     "ID": 80,
+    "newID": 80,
     "Name": "Hard defecation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -802,9 +870,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 81,
+    "newID": 81,
     "Name": "Incomplete defecation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -815,9 +883,9 @@
     "Synonyms": [
       "Incomplete evacuation of the bowels"
     ]
-  },
-  {
+  }, {
     "ID": 82,
+    "newID": 82,
     "Name": "Less than 3 defecations per week",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -828,9 +896,9 @@
     "Synonyms": [
       "Less than 3 times passing stool"
     ]
-  },
-  {
+  }, {
     "ID": 83,
+    "newID": 83,
     "Name": "Fatty defecation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -839,9 +907,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 84,
+    "newID": "s_525",
     "Name": "Foul smelling defecation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -850,9 +918,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 85,
+    "newID": "s_646",
     "Name": "Mood swings",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -863,9 +931,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 86,
+    "newID": 86,
     "Name": "Feeling of pressure in the ear",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -874,9 +942,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 87,
+    "newID": "s_47",
     "Name": "Earache",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -889,9 +957,9 @@
       "Ear pain",
       "Pain in the ear"
     ]
-  },
-  {
+  }, {
     "ID": 88,
+    "newID": "s_255",
     "Name": "Itching in the ear",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -903,9 +971,9 @@
       "Itch in the ear",
       "Pruritus"
     ]
-  },
-  {
+  }, {
     "ID": 89,
+    "newID": "s_408",
     "Name": "Cold feet",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -913,10 +981,12 @@
       44
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "cold feet and toes"
+    ]
+  }, {
     "ID": 90,
+    "newID": 90,
     "Name": "Impaired hearing",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -924,10 +994,12 @@
       24
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Hearing loss"
+    ]
+  }, {
     "ID": 91,
+    "newID": 91,
     "Name": "Changes in the nails",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -939,9 +1011,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 92,
+    "newID": 92,
     "Name": "Early satiety",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -950,9 +1022,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 93,
+    "newID": "s_96",
     "Name": "Difficulty in swallowing",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -962,11 +1034,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Dysphagia"
+      "Dysphagia",
+      "Discomfort while swallowing"
     ]
-  },
-  {
+  }, {
     "ID": 94,
+    "newID": "s_503",
     "Name": "Cramps",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -978,11 +1051,12 @@
     "ProfName": "",
     "Synonyms": [
       "Spasms",
-      "Tetany"
+      "Tetany",
+      "Muscle cramps"
     ]
-  },
-  {
+  }, {
     "ID": 95,
+    "newID": "s_715",
     "Name": "Sneezing",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -990,10 +1064,12 @@
       24
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Sneeze"
+    ]
+  }, {
     "ID": 96,
+    "newID": "s_252",
     "Name": "Itching in the nose",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1003,11 +1079,12 @@
     "ProfName": "",
     "Synonyms": [
       "Itch in the nose",
-      "Pruritus"
+      "Pruritus",
+      "Itching of nose or throat"
     ]
-  },
-  {
+  }, {
     "ID": 97,
+    "newID": "s_692",
     "Name": "Mouth ulcers",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1015,10 +1092,12 @@
       25
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Blisters and sores in the mouth"
+    ]
+  }, {
     "ID": 98,
+    "newID": "s_95",
     "Name": "Difficulty in speaking",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -1032,11 +1111,12 @@
       "Difficulty talking",
       "Trouble speaking",
       "Trouble talking",
-      "Dysarthria"
+      "Dysarthria",
+      "Discomfort while speaking"
     ]
-  },
-  {
+  }, {
     "ID": 101,
+    "newID": "s_305",
     "Name": "Vomiting",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1047,9 +1127,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 102,
+    "newID": 102,
     "Name": "Sensitivity to noise",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1058,9 +1138,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 103,
+    "newID": "s_38",
     "Name": "Pain radiating to the leg",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1073,12 +1153,11 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Pain in the leg",
-      "Pain in leg"
+      "Pain in lower limb, radiation from buttock through back of thigh to knee"
     ]
-  },
-  {
+  }, {
     "ID": 104,
+    "newID": "s_1190",
     "Name": "Back pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1089,11 +1168,13 @@
     "Synonyms": [
       "Pain in back",
       "Dorsalgia",
-      "Backache"
+      "Backache",
+      "요통",
+      "허리통증"
     ]
-  },
-  {
+  }, {
     "ID": 105,
+    "newID": "s_332",
     "Name": "Yellow colored skin",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1108,10 +1189,10 @@
       "Yellowish skin",
       "Yellow skin"
     ]
-  },
-  {
+  }, {
     "ID": 106,
-    "Name": "Yellowish discoloration of the white part of the eye",
+    "newID": 106,
+    "Name": "Yellowish discoloration of the white part of the eye ",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
       6,
@@ -1121,9 +1202,9 @@
     "Synonyms": [
       "Yellow colored eyes"
     ]
-  },
-  {
+  }, {
     "ID": 107,
+    "newID": "s_368",
     "Name": "Burning sensation when urinating",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1132,10 +1213,12 @@
       37
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Burning during urination"
+    ]
+  }, {
     "ID": 108,
+    "newID": "s_611",
     "Name": "Dark urine",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1149,9 +1232,9 @@
       "Discolored urine",
       "Unusual color of urine"
     ]
-  },
-  {
+  }, {
     "ID": 109,
+    "newID": "s_39",
     "Name": "Painful urination",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1160,10 +1243,12 @@
       37
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Pain while urinating"
+    ]
+  }, {
     "ID": 110,
+    "newID": "s_355",
     "Name": "Genital warts",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1172,10 +1257,12 @@
       37
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Warts in genital area"
+    ]
+  }, {
     "ID": 114,
+    "newID": "s_143",
     "Name": "Nervousness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1188,11 +1275,12 @@
     "Synonyms": [
       "Stress",
       "Feeling of tension",
-      "Irritability"
+      "Irritability",
+      "Weepiness"
     ]
-  },
-  {
+  }, {
     "ID": 115,
+    "newID": "s_1455",
     "Name": "Tremor at rest",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1205,11 +1293,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Tremble at rest"
+      "Tremble at rest",
+      "Tremor, resting"
     ]
-  },
-  {
+  }, {
     "ID": 116,
+    "newID": 116,
     "Name": "Underweight",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1218,9 +1307,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 118,
+    "newID": 118,
     "Name": "Difficulty with movement",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1234,9 +1323,9 @@
       "Physical inactivity",
       "Hypokinesia"
     ]
-  },
-  {
+  }, {
     "ID": 119,
+    "newID": 119,
     "Name": "Muscle stiffness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1247,9 +1336,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 120,
+    "newID": "s_317",
     "Name": "Impaired balance",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1260,11 +1349,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Loss of balance"
+      "Loss of balance",
+      "Impaired balance and gait"
     ]
-  },
-  {
+  }, {
     "ID": 121,
+    "newID": 121,
     "Name": "Hoarseness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1273,9 +1363,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 122,
+    "newID": "s_1259",
     "Name": "Hiccups",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1287,9 +1377,9 @@
     "Synonyms": [
       "Singultus"
     ]
-  },
-  {
+  }, {
     "ID": 124,
+    "newID": "s_417",
     "Name": "Skin rash",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1297,10 +1387,12 @@
       46
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Rash"
+    ]
+  }, {
     "ID": 125,
+    "newID": "s_146",
     "Name": "Forgetfulness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1308,10 +1400,12 @@
       22
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Forgets names of close friends and family"
+    ]
+  }, {
     "ID": 126,
+    "newID": "s_1030",
     "Name": "Difficulty in finding words",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1323,11 +1417,12 @@
     "Synonyms": [
       "Word-finding disorder",
       "Anomia",
-      "Amnesic aphasia"
+      "Amnesic aphasia",
+      "Anomic aphasia"
     ]
-  },
-  {
+  }, {
     "ID": 128,
+    "newID": "s_222",
     "Name": "Disorientation regarding time or place",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -1339,11 +1434,12 @@
     "ProfName": "",
     "Synonyms": [
       "Confusion",
-      "Temporal or local disorientation"
+      "Temporal or local disorientation",
+      "Disorientation"
     ]
-  },
-  {
+  }, {
     "ID": 129,
+    "newID": "s_959",
     "Name": "Problems with the sense of touch in the face",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1354,11 +1450,12 @@
     "Synonyms": [
       "Sensory disturbances in the face",
       "Dysesthesia in the face",
-      "Dysaesthesia in the face"
+      "Dysaesthesia in the face",
+      "Sensory loss involving the face"
     ]
-  },
-  {
+  }, {
     "ID": 130,
+    "newID": 130,
     "Name": "Problems with the sense of touch in the feet",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1371,9 +1468,9 @@
       "Dysesthesia in the feet",
       "Dysaesthesia in the feet"
     ]
-  },
-  {
+  }, {
     "ID": 131,
+    "newID": "s_311",
     "Name": "Increased appetite",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1385,9 +1482,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 132,
+    "newID": "s_1454",
     "Name": "Tremor on movement",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1400,11 +1497,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Tremble on movement"
+      "Tremble on movement",
+      "Tremor, kinetic"
     ]
-  },
-  {
+  }, {
     "ID": 133,
+    "newID": 133,
     "Name": "Night cough",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1416,9 +1514,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 134,
+    "newID": 134,
     "Name": "Crusting",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1427,9 +1525,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 135,
+    "newID": 135,
     "Name": "Mouth pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1442,9 +1540,9 @@
       "Pain in mouth",
       "Burning in mouth"
     ]
-  },
-  {
+  }, {
     "ID": 136,
+    "newID": "s_1483",
     "Name": "Neck pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1453,9 +1551,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 137,
+    "newID": "s_488",
     "Name": "Oversensitivity to light",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1467,9 +1565,9 @@
       "Light sensitivity",
       "Photophobia"
     ]
-  },
-  {
+  }, {
     "ID": 138,
+    "newID": "s_216",
     "Name": "Sweating",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1480,9 +1578,9 @@
     "Synonyms": [
       "Perspiration"
     ]
-  },
-  {
+  }, {
     "ID": 139,
+    "newID": 139,
     "Name": "Cold sweats",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1492,9 +1590,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 140,
+    "newID": 140,
     "Name": "Paralysis",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1507,9 +1605,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 142,
+    "newID": "s_1620",
     "Name": "Pain in the calves",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1517,10 +1615,12 @@
       43
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Pain in lower limb, calf"
+    ]
+  }, {
     "ID": 143,
+    "newID": 143,
     "Name": "Leg ulcer",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1532,9 +1632,9 @@
       "Open sore",
       "Ulcus cruris"
     ]
-  },
-  {
+  }, {
     "ID": 144,
+    "newID": 144,
     "Name": "Unconsciousness, short",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -1549,9 +1649,9 @@
       "Short unconsciousness",
       "Syncope"
     ]
-  },
-  {
+  }, {
     "ID": 145,
+    "newID": 145,
     "Name": "Feeling of tension in the legs",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1562,9 +1662,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 146,
+    "newID": 146,
     "Name": "Leg cramps",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1580,9 +1680,9 @@
       "Muscle cramps",
       "Leg muscle cramps"
     ]
-  },
-  {
+  }, {
     "ID": 147,
+    "newID": "s_1124",
     "Name": "Ankle swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1592,11 +1692,12 @@
     "ProfName": "",
     "Synonyms": [
       "Ankle edema",
-      "Swollen ankle"
+      "Swollen ankle",
+      "Sweeling of the dorsal side (top) of the feet and around ankles"
     ]
-  },
-  {
+  }, {
     "ID": 148,
+    "newID": 148,
     "Name": "Hand swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1607,9 +1708,9 @@
     "Synonyms": [
       "Swollen hand"
     ]
-  },
-  {
+  }, {
     "ID": 149,
+    "newID": "s_1067",
     "Name": "Hot flushes",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1618,10 +1719,13 @@
       47
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Sudden face flushing",
+      "얼굴화끈거림"
+    ]
+  }, {
     "ID": 150,
+    "newID": "s_1209",
     "Name": "Pallor",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1630,11 +1734,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Paleness"
+      "Paleness",
+      "Skin pallor, sudden"
     ]
-  },
-  {
+  }, {
     "ID": 151,
+    "newID": "s_542",
     "Name": "Dry skin",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1643,9 +1748,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 152,
+    "newID": "s_121",
     "Name": "Hair loss",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1654,9 +1759,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 153,
+    "newID": 153,
     "Name": "Fast, deepened breathing",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1673,9 +1778,9 @@
       "Fast breathing",
       "Hyperventilation"
     ]
-  },
-  {
+  }, {
     "ID": 154,
+    "newID": 154,
     "Name": "Flatulence",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1686,9 +1791,9 @@
     "Synonyms": [
       "Wind"
     ]
-  },
-  {
+  }, {
     "ID": 155,
+    "newID": "s_612",
     "Name": "Pain in the bones",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1700,10 +1805,12 @@
       49
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Bone pain"
+    ]
+  }, {
     "ID": 156,
+    "newID": "s_1715",
     "Name": "Bone fracture",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1718,11 +1825,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Fracture"
+      "Fracture",
+      "Pathologic fractures"
     ]
-  },
-  {
+  }, {
     "ID": 157,
+    "newID": 157,
     "Name": "Overweight",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1733,9 +1841,9 @@
     "Synonyms": [
       "Obesity"
     ]
-  },
-  {
+  }, {
     "ID": 160,
+    "newID": "s_690",
     "Name": "Urge to urinate",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1744,10 +1852,12 @@
       37
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Urinary urgency"
+    ]
+  }, {
     "ID": 161,
+    "newID": "s_182",
     "Name": "Urination during the night",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1759,9 +1869,9 @@
     "Synonyms": [
       "Nocturia"
     ]
-  },
-  {
+  }, {
     "ID": 163,
+    "newID": "s_689",
     "Name": "Decreased urine stream",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1775,9 +1885,9 @@
       "Decreased urinary output",
       "Decreased urine output"
     ]
-  },
-  {
+  }, {
     "ID": 164,
+    "newID": "s_696",
     "Name": "Feeling of residual urine",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1786,10 +1896,12 @@
       37
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Urinary retention"
+    ]
+  }, {
     "ID": 165,
+    "newID": "s_691",
     "Name": "Delayed start to urination",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1798,10 +1910,12 @@
       37
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Trouble beginning urination"
+    ]
+  }, {
     "ID": 166,
+    "newID": 166,
     "Name": "Vision impairment for near objects",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1822,9 +1936,9 @@
       "Vision loss for near objects",
       "Vision impairment for close objects"
     ]
-  },
-  {
+  }, {
     "ID": 167,
+    "newID": 167,
     "Name": "Limited mobility of the back",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1838,9 +1952,9 @@
       "Limited back mobility",
       "Back stiffness"
     ]
-  },
-  {
+  }, {
     "ID": 168,
+    "newID": 168,
     "Name": "Muscular weakness in the arm",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1851,9 +1965,9 @@
     "Synonyms": [
       "Muscle weakness in the arm"
     ]
-  },
-  {
+  }, {
     "ID": 169,
+    "newID": 169,
     "Name": "Swollen glands on the neck",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1866,9 +1980,9 @@
       "Enlarged lymph nodes on the neck",
       "Enlarged glands on the neck"
     ]
-  },
-  {
+  }, {
     "ID": 170,
+    "newID": "s_177",
     "Name": "Cheek swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1879,9 +1993,9 @@
     "Synonyms": [
       "Swollen cheek"
     ]
-  },
-  {
+  }, {
     "ID": 172,
+    "newID": "s_369",
     "Name": "Purulent discharge from the urethra",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1889,10 +2003,12 @@
       38
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Discharge from urethra"
+    ]
+  }, {
     "ID": 174,
+    "newID": 174,
     "Name": "Lower abdominal pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1900,9 +2016,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 175,
+    "newID": "s_81",
     "Name": "Chills",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1916,9 +2032,9 @@
       "Shivering",
       "Shivering attack"
     ]
-  },
-  {
+  }, {
     "ID": 176,
+    "newID": 176,
     "Name": "Bleeding in the conjunctiva of the eye",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1927,9 +2043,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 177,
+    "newID": "s_1142",
     "Name": "Muscle pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1945,9 +2061,9 @@
     "Synonyms": [
       "Myalgia"
     ]
-  },
-  {
+  }, {
     "ID": 178,
+    "newID": 178,
     "Name": "Limited mobility of the fingers",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1958,9 +2074,9 @@
     "Synonyms": [
       "Limited finger mobility"
     ]
-  },
-  {
+  }, {
     "ID": 179,
+    "newID": 179,
     "Name": "Stomach burning",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1972,9 +2088,9 @@
       "Burning abdominal pain",
       "Burning stomach ache"
     ]
-  },
-  {
+  }, {
     "ID": 180,
+    "newID": "s_71",
     "Name": "Black stools",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -1983,9 +2099,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 181,
+    "newID": 181,
     "Name": "Vomiting blood",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -1996,9 +2112,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 183,
+    "newID": 183,
     "Name": "Side pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2009,9 +2125,9 @@
     "Synonyms": [
       "Flank pain"
     ]
-  },
-  {
+  }, {
     "ID": 184,
+    "newID": 184,
     "Name": "Hardening of the skin",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2023,9 +2139,9 @@
       "Hardening of skin",
       "Induration"
     ]
-  },
-  {
+  }, {
     "ID": 185,
+    "newID": 185,
     "Name": "Stress-related leg pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2034,9 +2150,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 186,
+    "newID": 186,
     "Name": "Hand pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2046,9 +2162,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 187,
+    "newID": 187,
     "Name": "Wound",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2057,9 +2173,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 188,
+    "newID": "s_1558",
     "Name": "Abdominal guarding",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2070,9 +2186,9 @@
     "Synonyms": [
       "Hard belly"
     ]
-  },
-  {
+  }, {
     "ID": 189,
+    "newID": "s_1393",
     "Name": "Painful defecation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2081,9 +2197,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 190,
+    "newID": "s_112",
     "Name": "Blood in stool",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2092,9 +2208,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 191,
+    "newID": "s_1494",
     "Name": "Rebound tenderness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2103,9 +2219,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 192,
+    "newID": "s_218",
     "Name": "Bulging abdominal wall",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2116,11 +2232,12 @@
     "Synonyms": [
       "Abdomen deformity",
       "Stomach deformity",
-      "Stomach bump"
+      "Stomach bump",
+      "Increased abdominal girth"
     ]
-  },
-  {
+  }, {
     "ID": 193,
+    "newID": "s_174",
     "Name": "Joint swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2132,11 +2249,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Swollen joint"
+      "Swollen joint",
+      "Edema, joint"
     ]
-  },
-  {
+  }, {
     "ID": 194,
+    "newID": 194,
     "Name": "Joint effusion",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2149,9 +2267,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 195,
+    "newID": 195,
     "Name": "Limited mobility of the leg",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2165,9 +2283,9 @@
       "Limited leg mobility",
       "Leg stiffness"
     ]
-  },
-  {
+  }, {
     "ID": 196,
+    "newID": "s_11",
     "Name": "Hip pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2176,11 +2294,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Pain in the hips"
+      "Pain in the hips",
+      "Pain in one or both hips"
     ]
-  },
-  {
+  }, {
     "ID": 197,
+    "newID": 197,
     "Name": "Immobilization",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2193,9 +2312,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 198,
+    "newID": 198,
     "Name": "Joint instability",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2208,9 +2327,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 200,
+    "newID": "s_1449",
     "Name": "Numbness of the hands",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2222,9 +2341,9 @@
       "Going to sleep of the hands",
       "Impaired sense of feeling in the hands"
     ]
-  },
-  {
+  }, {
     "ID": 201,
+    "newID": "s_518",
     "Name": "Tingling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2238,11 +2357,12 @@
     "ProfName": "",
     "Synonyms": [
       "Paresthesia",
-      "Pins and needles feeling"
+      "Pins and needles feeling",
+      "Body tingling"
     ]
-  },
-  {
+  }, {
     "ID": 202,
+    "newID": 202,
     "Name": "Muscular atrophy of the arm",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2251,9 +2371,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 203,
+    "newID": 203,
     "Name": "Pain on swallowing",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2263,9 +2383,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 204,
+    "newID": "s_1304",
     "Name": "Increased salivation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2273,10 +2393,12 @@
       25
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Excessive saliva production"
+    ]
+  }, {
     "ID": 205,
+    "newID": "s_428",
     "Name": "Lockjaw",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2286,11 +2408,12 @@
     "ProfName": "",
     "Synonyms": [
       "Limited mouth opening",
-      "Trismus"
+      "Trismus",
+      "Jaw locking when opening mouth"
     ]
-  },
-  {
+  }, {
     "ID": 206,
+    "newID": "s_208",
     "Name": "Hearing loss",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2298,9 +2421,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 207,
+    "newID": "s_370",
     "Name": "Dizziness",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -2313,9 +2436,9 @@
     "Synonyms": [
       "Vertigo"
     ]
-  },
-  {
+  }, {
     "ID": 208,
+    "newID": "s_621",
     "Name": "Eye lid swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2326,9 +2449,9 @@
     "Synonyms": [
       "Swollen eye lid"
     ]
-  },
-  {
+  }, {
     "ID": 209,
+    "newID": 209,
     "Name": "Eye lids sticking together",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2337,9 +2460,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 210,
+    "newID": 210,
     "Name": "Loss of eye lashes",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2348,9 +2471,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 211,
+    "newID": "s_122",
     "Name": "Tears",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2366,9 +2489,9 @@
       "Tear flow",
       "Epiphora"
     ]
-  },
-  {
+  }, {
     "ID": 213,
+    "newID": 213,
     "Name": "Vision impairment for far objects",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2389,9 +2512,9 @@
       "Vision loss for far objects",
       "Vision impairment for distant objects"
     ]
-  },
-  {
+  }, {
     "ID": 214,
+    "newID": "s_1470",
     "Name": "Flaking skin",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2402,11 +2525,12 @@
     "Synonyms": [
       "Scaling of skin",
       "Flaking",
-      "Desquamation"
+      "Desquamation",
+      "Skin desquamation"
     ]
-  },
-  {
+  }, {
     "ID": 215,
+    "newID": 215,
     "Name": "Moist and softened skin",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2417,9 +2541,9 @@
     "Synonyms": [
       "Softened skin"
     ]
-  },
-  {
+  }, {
     "ID": 216,
+    "newID": "s_1310",
     "Name": "Discoloration of nails",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2430,10 +2554,12 @@
       45
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Brown nail discoloration"
+    ]
+  }, {
     "ID": 217,
+    "newID": "s_1650",
     "Name": "Skin thickening",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2445,9 +2571,9 @@
       "Hyperkeratosis",
       "Thickening of skin"
     ]
-  },
-  {
+  }, {
     "ID": 218,
+    "newID": 218,
     "Name": "Coarsening of the skin structure",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2456,9 +2582,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 219,
+    "newID": "s_478",
     "Name": "Face pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2467,11 +2593,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Pain in the face"
+      "Pain in the face",
+      "Facial pain"
     ]
-  },
-  {
+  }, {
     "ID": 220,
+    "newID": 220,
     "Name": "Increased touch sensitivity",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2480,9 +2607,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 221,
+    "newID": 221,
     "Name": "Numbness in the arm",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2491,11 +2618,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Impaired sense of feeling in the arm"
+      "Impaired sense of feeling in the arm",
+      "Numbness in one or both upper limbs"
     ]
-  },
-  {
+  }, {
     "ID": 222,
+    "newID": 222,
     "Name": "Testicular pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2504,17 +2632,19 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 228,
+    "newID": "s_104",
     "Name": "Cough with sputum",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Cough, productive"
+    ]
+  }, {
     "ID": 230,
+    "newID": "s_323",
     "Name": "Joint redness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2527,10 +2657,12 @@
       45
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Erythema, and warmth of skin overlying joint"
+    ]
+  }, {
     "ID": 231,
+    "newID": 231,
     "Name": "Leg swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2541,9 +2673,9 @@
     "Synonyms": [
       "Swollen leg"
     ]
-  },
-  {
+  }, {
     "ID": 232,
+    "newID": "s_290",
     "Name": "Marked veins",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2552,11 +2684,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Increased marked veins"
+      "Increased marked veins",
+      "Visible and palpable enlarged vein"
     ]
-  },
-  {
+  }, {
     "ID": 233,
+    "newID": "s_116",
     "Name": "Bloody cough",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -2571,9 +2704,9 @@
       "Coughing up blood",
       "Hemoptysis"
     ]
-  },
-  {
+  }, {
     "ID": 234,
+    "newID": "s_418",
     "Name": "Stiff neck",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2585,9 +2718,9 @@
       "Neck stiffness",
       "Meningismus"
     ]
-  },
-  {
+  }, {
     "ID": 235,
+    "newID": 235,
     "Name": "Memory gap",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2595,9 +2728,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 236,
+    "newID": 236,
     "Name": "Swelling in the genital area",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2607,9 +2740,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 238,
+    "newID": "s_583",
     "Name": "Anxiety",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2619,10 +2752,12 @@
       47
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "General anxiety"
+    ]
+  }, {
     "ID": 239,
+    "newID": 239,
     "Name": "Bold area among hair on the head",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2631,9 +2766,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 240,
+    "newID": "s_234",
     "Name": "Blue spot on skin",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2642,11 +2777,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Hematoma"
+      "Hematoma",
+      "Bruises"
     ]
-  },
-  {
+  }, {
     "ID": 241,
+    "newID": 241,
     "Name": "Sleepiness with spontaneous falling asleep",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -2656,10 +2792,12 @@
       47
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Nacrolepsy"
+    ]
+  }, {
     "ID": 242,
+    "newID": 242,
     "Name": "Eye blinking",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2669,9 +2807,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 243,
+    "newID": 243,
     "Name": "Tick",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2682,9 +2820,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 244,
+    "newID": 244,
     "Name": "Drooping eyelid",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2696,9 +2834,9 @@
     "Synonyms": [
       "Ptosis"
     ]
-  },
-  {
+  }, {
     "ID": 245,
+    "newID": 245,
     "Name": "Flaking skin on the head",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2708,9 +2846,9 @@
     "Synonyms": [
       "Scaling of skin on the head"
     ]
-  },
-  {
+  }, {
     "ID": 246,
+    "newID": "s_1156",
     "Name": "Facial paralysis",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2720,9 +2858,9 @@
     "Synonyms": [
       "Bell's palsy"
     ]
-  },
-  {
+  }, {
     "ID": 247,
+    "newID": 247,
     "Name": "Itching on head",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2736,9 +2874,9 @@
       "Itching on head",
       "Pruritus"
     ]
-  },
-  {
+  }, {
     "ID": 248,
+    "newID": 248,
     "Name": "Swollen glands in the armpits",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2753,9 +2891,9 @@
       "Enlarged lymph nodes in the armpits",
       "Enlarged glands in the armpits"
     ]
-  },
-  {
+  }, {
     "ID": 249,
+    "newID": 249,
     "Name": "Swollen glands in the groin",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2768,9 +2906,9 @@
       "Enlarged lymph nodes in the groin",
       "Enlarged glands in the groin"
     ]
-  },
-  {
+  }, {
     "ID": 250,
+    "newID": 250,
     "Name": "Breathing-related pains",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2779,9 +2917,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 251,
+    "newID": 251,
     "Name": "Pain radiating to the arm",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2797,9 +2935,9 @@
       "Pain in arm",
       "Pain in shoulders"
     ]
-  },
-  {
+  }, {
     "ID": 252,
+    "newID": "s_1084",
     "Name": "Muscular atrophy in the leg",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2807,10 +2945,12 @@
       49
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Interosseous muscles atrophy, feet"
+    ]
+  }, {
     "ID": 253,
+    "newID": 253,
     "Name": "Muscular weakness in the leg",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2821,9 +2961,9 @@
     "Synonyms": [
       "Muscle weakness in the leg"
     ]
-  },
-  {
+  }, {
     "ID": 254,
+    "newID": "s_1343",
     "Name": "Numbness in the leg",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2832,11 +2972,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Impaired sense of feeling in the leg"
+      "Impaired sense of feeling in the leg",
+      "Numbness in one or both lower limbs"
     ]
-  },
-  {
+  }, {
     "ID": 255,
+    "newID": 255,
     "Name": "Foot pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2847,9 +2988,9 @@
     "Synonyms": [
       "Pain in the feet"
     ]
-  },
-  {
+  }, {
     "ID": 256,
+    "newID": "s_581",
     "Name": "Knee pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2858,11 +2999,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Pain in the knees"
+      "Pain in the knees",
+      "Joint pain, knee"
     ]
-  },
-  {
+  }, {
     "ID": 257,
+    "newID": 257,
     "Name": "Involuntary movements",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2876,9 +3018,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 258,
+    "newID": "s_1163",
     "Name": "Protrusion of the eyes",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2886,10 +3028,13 @@
       23
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Bulging Eyes",
+      "Exophthalmos, Proptosis"
+    ]
+  }, {
     "ID": 260,
+    "newID": "s_1536",
     "Name": "Curvature of the spine",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2897,10 +3042,12 @@
       33
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Spine asymmetry"
+    ]
+  }, {
     "ID": 262,
+    "newID": 262,
     "Name": "Increased drive",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2909,9 +3056,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 263,
+    "newID": "s_53",
     "Name": "Lower-back pain",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2923,11 +3070,12 @@
       "Low-back pain",
       "Lower back pain",
       "Lumbago",
-      "Waist pain"
+      "Waist pain",
+      "Back pain, lumbar"
     ]
-  },
-  {
+  }, {
     "ID": 264,
+    "newID": "s_1467",
     "Name": "Shiny red tongue",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2935,10 +3083,13 @@
       25
     ],
     "ProfName": "",
-    "Synonyms": []
-  },
-  {
+    "Synonyms": [
+      "Glossitis",
+      "Strawberry tongue"
+    ]
+  }, {
     "ID": 265,
+    "newID": 265,
     "Name": "Uncontrolled defecation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2947,9 +3098,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 266,
+    "newID": 266,
     "Name": "Malposition of the testicles",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2958,9 +3109,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 267,
+    "newID": "s_1174",
     "Name": "Swelling of the testicles",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2969,11 +3120,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Swollen testicles"
+      "Swollen testicles",
+      "Enlarged testicle"
     ]
-  },
-  {
+  }, {
     "ID": 268,
+    "newID": "s_253",
     "Name": "Itching or burning in the genital area",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2984,11 +3136,12 @@
     "ProfName": "",
     "Synonyms": [
       "Itching in the genital area",
-      "Burning in the genital area"
+      "Burning in the genital area",
+      "Vaginal itching and burning"
     ]
-  },
-  {
+  }, {
     "ID": 269,
+    "newID": 269,
     "Name": "Scalp redness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -2997,9 +3150,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 270,
+    "newID": 270,
     "Name": "Double vision, acute-onset",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3011,9 +3164,9 @@
       "Acute Diplopia",
       "Vision double acute"
     ]
-  },
-  {
+  }, {
     "ID": 272,
+    "newID": "s_247",
     "Name": "Dry mouth",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3024,9 +3177,9 @@
     "Synonyms": [
       "Xerostomia"
     ]
-  },
-  {
+  }, {
     "ID": 273,
+    "newID": 273,
     "Name": "Dry eyes",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3035,9 +3188,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 287,
+    "newID": "s_493",
     "Name": "Eye pain",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -3046,9 +3199,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 288,
+    "newID": 288,
     "Name": "Burning nose",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3058,9 +3211,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 970,
+    "newID": 970,
     "Name": "Facial swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3075,9 +3228,9 @@
       "Face swelling",
       "Big face"
     ]
-  },
-  {
+  }, {
     "ID": 971,
+    "newID": 971,
     "Name": "Arm swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3090,10 +3243,10 @@
     "Synonyms": [
       "Swollen arm"
     ]
-  },
-  {
+  }, {
     "ID": 972,
-    "Name": "Weakness or numbness on right or left side of body",
+    "newID": 972,
+    "Name": "Weakness or numbness on right or left side of body ",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
       7,
@@ -3115,13 +3268,11 @@
       "Numbness on right side of body",
       "Numbness on left side of body",
       "Weakness or numbness in face",
-      "Weakness or numbness in the face",
-      "Weakness in face",
-      "Numbness in face"
+      "Weakness or numbness in the face"
     ]
-  },
-  {
+  }, {
     "ID": 973,
+    "newID": 973,
     "Name": "Itching in the mouth or throat",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3133,9 +3284,9 @@
       "Itch in the mouth or throat",
       "Pruritus"
     ]
-  },
-  {
+  }, {
     "ID": 974,
+    "newID": 974,
     "Name": "Aggressiveness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3146,9 +3297,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 975,
+    "newID": 975,
     "Name": "Sadness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3159,9 +3310,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 976,
+    "newID": "s_686",
     "Name": "Hallucination",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3174,9 +3325,9 @@
     "Synonyms": [
       "Delusion"
     ]
-  },
-  {
+  }, {
     "ID": 977,
+    "newID": "s_673",
     "Name": "Tongue swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3185,11 +3336,12 @@
     ],
     "ProfName": "",
     "Synonyms": [
-      "Swollen tongue"
+      "Swollen tongue",
+      "Tongue enlargement"
     ]
-  },
-  {
+  }, {
     "ID": 978,
+    "newID": "s_556",
     "Name": "Cold hands",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3198,9 +3350,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 979,
+    "newID": "s_10",
     "Name": "Brittleness of nails",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3217,9 +3369,9 @@
       "Onychorrhexis",
       "Onychoschisis"
     ]
-  },
-  {
+  }, {
     "ID": 980,
+    "newID": "s_200",
     "Name": "Tongue burning",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3230,9 +3382,9 @@
     "Synonyms": [
       "Burning tongue"
     ]
-  },
-  {
+  }, {
     "ID": 981,
+    "newID": "s_145",
     "Name": "Agitation",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3250,25 +3402,9 @@
       "Psychomotor agitation",
       "Unrest"
     ]
-  },
-  {
-    "ID": 982,
-    "Name": "Feeling faint",
-    "HasRedFlag": false,
-    "HealthSymptomLocationIDs": [
-      6,
-      22,
-      17,
-      47
-    ],
-    "ProfName": "",
-    "Synonyms": [
-      "Fainting",
-      "Feel faint"
-    ]
-  },
-  {
+  }, {
     "ID": 983,
+    "newID": 983,
     "Name": "Morning stiffness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3277,9 +3413,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 984,
+    "newID": 984,
     "Name": "Absence of a pulse",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -3299,9 +3435,9 @@
       "Acrotism",
       "Pulselessness"
     ]
-  },
-  {
+  }, {
     "ID": 985,
+    "newID": "s_1720",
     "Name": "Heart murmur",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3313,9 +3449,9 @@
       "Abnormal heart sound",
       "Cardiac murmur"
     ]
-  },
-  {
+  }, {
     "ID": 986,
+    "newID": 986,
     "Name": "Irregular heartbeat",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -3326,9 +3462,9 @@
     "Synonyms": [
       "Arrhythmia"
     ]
-  },
-  {
+  }, {
     "ID": 987,
+    "newID": "s_650",
     "Name": "Muscle weakness",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3345,9 +3481,9 @@
       "Muscular weakness",
       "Myasthenia"
     ]
-  },
-  {
+  }, {
     "ID": 988,
+    "newID": 988,
     "Name": "Trouble understanding speech",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -3357,9 +3493,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 989,
+    "newID": "s_309",
     "Name": "Distended abdomen",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3370,11 +3506,12 @@
     "Synonyms": [
       "Distended stomach",
       "Abdominal distension",
-      "Stomach bloating"
+      "Stomach bloating",
+      "Bloating"
     ]
-  },
-  {
+  }, {
     "ID": 990,
+    "newID": 990,
     "Name": "Pain of the anus",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3385,9 +3522,9 @@
     "Synonyms": [
       "Anal pain"
     ]
-  },
-  {
+  }, {
     "ID": 991,
+    "newID": "s_553",
     "Name": "Blue colored skin",
     "HasRedFlag": true,
     "HealthSymptomLocationIDs": [
@@ -3408,9 +3545,9 @@
       "Bluish skin",
       "Blue skin"
     ]
-  },
-  {
+  }, {
     "ID": 992,
+    "newID": 992,
     "Name": "Limited mobility of the ankle",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3422,9 +3559,9 @@
     "Synonyms": [
       "Limited ankle mobility"
     ]
-  },
-  {
+  }, {
     "ID": 993,
+    "newID": 993,
     "Name": "Hip deformity",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3435,9 +3572,9 @@
     "Synonyms": [
       "Hip joint deformity"
     ]
-  },
-  {
+  }, {
     "ID": 994,
+    "newID": 994,
     "Name": "Knee deformity",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3448,9 +3585,9 @@
     "Synonyms": [
       "Knee joint deformity"
     ]
-  },
-  {
+  }, {
     "ID": 995,
+    "newID": 995,
     "Name": "Finger deformity",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3461,9 +3598,9 @@
     "Synonyms": [
       "Finger joint deformity"
     ]
-  },
-  {
+  }, {
     "ID": 996,
+    "newID": 996,
     "Name": "Ankle deformity",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3474,9 +3611,9 @@
     "Synonyms": [
       "Ankle joint deformity"
     ]
-  },
-  {
+  }, {
     "ID": 997,
+    "newID": 997,
     "Name": "Toe deformity",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3487,9 +3624,9 @@
     "Synonyms": [
       "Toe joint deformity"
     ]
-  },
-  {
+  }, {
     "ID": 998,
+    "newID": 998,
     "Name": "Back deformity",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3498,9 +3635,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 999,
+    "newID": "s_249",
     "Name": "Itching of the anus",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3511,11 +3648,12 @@
     "Synonyms": [
       "Anal itching",
       "Itchy rectum",
-      "Itching of the rectum"
+      "Itching of the rectum",
+      "Itching around anus"
     ]
-  },
-  {
+  }, {
     "ID": 1000,
+    "newID": 1000,
     "Name": "Limited mobility of the hip",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3526,9 +3664,9 @@
     "Synonyms": [
       "Hip stiffness"
     ]
-  },
-  {
+  }, {
     "ID": 1001,
+    "newID": 1001,
     "Name": "Scar",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3537,9 +3675,9 @@
     ],
     "ProfName": "",
     "Synonyms": []
-  },
-  {
+  }, {
     "ID": 1002,
+    "newID": 1002,
     "Name": "Foot swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3551,9 +3689,9 @@
     "Synonyms": [
       "Swollen foot"
     ]
-  },
-  {
+  }, {
     "ID": 1003,
+    "newID": 1003,
     "Name": "Toe swelling",
     "HasRedFlag": false,
     "HealthSymptomLocationIDs": [
@@ -3564,6 +3702,132 @@
     "ProfName": "",
     "Synonyms": [
       "Swollen toe"
+    ]
+  }, {
+    "ID": 173,
+    "newID": "S_64",
+    "Name": "Purulent discharge from the vagina",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      38
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Vaginal discharge with unpleasant odor"
+    ]
+  },
+  {
+    "ID": 113,
+    "newID": 113,
+    "Name": "Impairment of male potency",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      38
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Male sexual dysfunction",
+      "Impotence"
+    ]
+  },
+  {
+    "ID": 162,
+    "newID": 162,
+    "Name": "Dribbling after urination",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      38,
+      37
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Post void dribbling"
+    ]
+  },
+  {
+    "ID": 286,
+    "newID": 286,
+    "Name": "Pain when chewing",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      6,
+      23,
+      25
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Jaw claudication"
+    ]
+  },
+  {
+    "ID": 112,
+    "newID": 112,
+    "Name": "Menstruation disorder",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      38
+    ],
+    "ProfName": "",
+    "Synonyms": []
+  },
+  {
+    "ID": 123,
+    "newID": 123,
+    "Name": "Missed period",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      38
+    ],
+    "ProfName": "",
+    "Synonyms": []
+  },
+  {
+    "ID": 223,
+    "newID": 223,
+    "Name": "Abdominal pain associated with menstruation ",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Painful menstruation"
+    ]
+  },
+  {
+    "ID": 261,
+    "newID": "s_300",
+    "Name": "Lump in the breast",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      31,
+      15
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Palpable mass in breast"
+    ]
+  },
+  {
+    "ID": 284,
+    "newID": "s_1217",
+    "Name": "Bleeding from vagina",
+    "HasRedFlag": false,
+    "HealthSymptomLocationIDs": [
+      16,
+      36,
+      38
+    ],
+    "ProfName": "",
+    "Synonyms": [
+      "Vaginal bleeding",
+      "Abnormal vaginal bleeding"
     ]
   }
 ]

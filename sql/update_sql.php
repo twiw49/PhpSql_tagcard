@@ -10,7 +10,7 @@ if ($_POST['q'] == 'tag_delete') {
 	$row = mysqli_fetch_array($r_id);
 	$tag_id = $row['id'];
 
-	$s_del_c = "DELETE FROM `rel_tagcard` WHERE `rel_tagcard`.`tag_id` = '{$tag_id}' AND `rel_tagcard`.`card_id` = '{$card_id}';";
+	$s_del_c = "DELETE FROM `tag_card` WHERE `tag_card`.`tag_id` = '{$tag_id}' AND `tag_card`.`card_id` = '{$card_id}';";
 	$r_del_c = mysqli_query($conn, $s_del_c);
 
 } else if ($_POST['q'] == 'card_delete') {
@@ -19,7 +19,7 @@ if ($_POST['q'] == 'tag_delete') {
 	$s_del_c = "DELETE FROM `card` WHERE `card`.`id` = '{$card_id}';";
 	$r_del_c = mysqli_query($conn, $s_del_c);
 
-	$s_del_t = "DELETE FROM `rel_tagcard` WHERE `rel_tagcard`.`card_id` = '{$card_id}';";
+	$s_del_t = "DELETE FROM `tag_card` WHERE `tag_card`.`card_id` = '{$card_id}';";
 	$r_del_t = mysqli_query($conn, $s_del_t);
 
 } else if ($_POST['q'] == 'tag_add') {
@@ -37,7 +37,7 @@ if ($_POST['q'] == 'tag_delete') {
     $new_tag_id = mysqli_insert_id($conn);
   }
 
-  $sql = "INSERT INTO `rel_tagcard` (`card_id`, `tag_id`) VALUES ('{$card_id}', '{$new_tag_id}');";
+  $sql = "INSERT INTO `tag_card` (`card_id`, `tag_id`) VALUES ('{$card_id}', '{$new_tag_id}');";
   $result = mysqli_query($conn, $sql);
 
 } else if ($_POST['q'] == 'card_edit') {
