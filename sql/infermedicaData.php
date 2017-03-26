@@ -133,4 +133,123 @@ if ($_POST['q'] == 'disease') {
         $s_total = "INSERT INTO `symptom` (`id`, `name`, `image_source`, `image_url`, `hasChild`, `hasParent`, `filter_sex`) VALUES ('{$id}', '{$name}', '{$image_source}', '{$image_url}', '{$hasChild}', '{$hasParent}', '{$sex_id}');";
         $r_total = mysqli_query($conn, $s_total);
     }
+} elseif ($_POST['q'] == 'infer') {
+    // "id": "s_177",
+    // "name": "Cheek swelling",
+    // "filter_sex": "male & female",
+    // "filter_age": "young & old",
+    // "image": [],
+    // "location": ["(Category) Head, throat & neck", "Face & eyes"],
+    // "synonym": ["Cheek swelling", "Swollen cheek"],
+    // "parent & child": [],
+    // "disease_id": ["15", "106", "180", "202", "255", "388", "449"],
+    // "disease": ["Allergy", "Epidemic parotitis", "Angioedema", "Allergy to bee or wasp venom", "Bruise", "Salivary gland stone", "Dental abscess"]
+
+    $data = json_decode($_POST['data']);
+    $r = array();
+    foreach ($data as $item) {
+        $id = $item -> id;
+        $name = $item -> name;
+        $filter_sex = $item -> sex_filter;
+        if ($filter_sex == 'both') {
+            $filter_sex = "male & female";
+        }
+        $filter_age = null;
+        $image = array();
+        if ($item -> image_source) {
+            $image['image_source'] = $item -> image_source;
+            $image['image_url'] = $item -> image_url;
+        }
+        $location = array();
+        $synonym = array();
+        $synonym[] = $name;
+        $parent_symp = array();
+        $parent_symp['id'] = $item -> parent_id;
+        $parent_symp['relation'] = $item -> parent_relation;
+        $children_symp = array();
+        $children = $item -> children;
+        foreach ($children as $child) {
+            $c = array();
+            $c['id'] = $child -> id;
+            $c['relation'] = $child -> parent_relation;
+            $children_symp[] = $c;
+        }
+
+        $i = array();
+        $i['id'] = $id;
+        $i['name'] = $name;
+        $i['filter_sex'] = $filter_sex;
+        $i['filter_age'] = $filter_age;
+        $i['image'] = $image;
+        $i['location'] = $location;
+        $i['synonym'] = $synonym;
+        $i['parent_symp'] = $parent_symp;
+        $i['children_symp'] = $children_symp;
+        $i['disease'] = array();
+
+        $r[] = $i;
+    }
+    echo json_encode($r);
+} elseif ($_POST['q'] == 'final_dis') {
+    $data = json_decode($_POST['data']);
+    foreach ($data as $item) {
+        $synonym = $item -> synonym;
+        foreach ($synonym as $name) {
+            $s_ = "SELECT * FROM `disease` WHERE `name` LIKE '{$name}';";
+            $r_ = mysqli_query($conn, $s_);
+            var_dump($r_ -> num_rows !== 0);
+            if ($r_ -> num_rows !== 0) {
+                $row = mysqli_fetch_array($r_);
+                $infer_name = $row['name'];
+                echo($infer_name);
+
+                $infer_id = $row['id'];
+                $infer_cate_id = $row['category'];
+                $s_cate = "SELECT * FROM `d_category` WHERE `id` LIKE '{$infer_cate_id}';";
+                $r_cate = mysqli_query($conn, $s_cate);
+                $row_ = mysqli_fetch_array($r_cate);
+                $infer_category_name = $row_['name'];
+
+                $sex_filter_id = $row['sex_filter'];
+                $s_sex = "SELECT * FROM `filter_sex` WHERE `id` LIKE '{$sex_filter_id}';";
+                $r_sex = mysqli_query($conn, $s_sex);
+                $row__ = mysqli_fetch_array($r_sex);
+                $sex_filter_name = $row__['name'];
+
+                $item -> assocID = $infer_id;
+                $item -> categories = $infer_category_name;
+                $item -> sex_filter = $sex_filter_name;
+            }
+        }
+    }
+    echo json_encode($data);
+} elseif ($_POST['q'] == 'symp') {
+    $data = json_decode($_POST['data']);
+    foreach ($data as $item) {
+        $parent_symp = $item -> parent_symp;
+        if ($parent_id = $parent_symp -> id) {
+            $s_ = "SELECT * FROM `symptom` WHERE `id` LIKE '{$parent_id}';";
+            $r_ = mysqli_query($conn, $s_);
+            $row = mysqli_fetch_array($r_);
+            $parent_name = $row['name'];
+            $parent_symp -> name = $parent_name;
+        } else {
+            $parent_symp -> name = null;
+        }
+        $children_symp = $item -> children_symp;
+        $name = $item -> name;
+        if (count($children_symp) > 0) {
+            foreach ($children_symp as $child) {
+                $child_id = $child -> id;
+                $s_ = "SELECT * FROM `symptom` WHERE `id` LIKE '{$child_id}';";
+                $r_ = mysqli_query($conn, $s_);
+                $row = mysqli_fetch_array($r_);
+                $child_name = $row['name'];
+                $child -> name = $child_name;
+            }
+        } else {
+            $children_symp = array();
+        }
+    }
+    echo json_encode($data);
 }

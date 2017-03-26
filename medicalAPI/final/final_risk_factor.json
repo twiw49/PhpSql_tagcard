@@ -1,0 +1,185 @@
+[{
+  "id": "p_4",
+  "name": "Age 45-55",
+  "sex_filter": "both"
+}, {
+  "id": "p_3",
+  "name": "Age above 40",
+  "sex_filter": "both"
+}, {
+  "id": "p_5",
+  "name": "Age above 60",
+  "sex_filter": "both"
+}, {
+  "id": "p_19",
+  "name": "Australia and Oceania",
+  "sex_filter": "both"
+}, {
+  "id": "p_7",
+  "name": "BMI above 30",
+  "sex_filter": "both"
+}, {
+  "id": "p_6",
+  "name": "BMI below 19",
+  "sex_filter": "both"
+}, {
+  "id": "p_69",
+  "name": "Cannabis, marijuana smoking",
+  "sex_filter": "both"
+}, {
+  "id": "p_40",
+  "name": "Carbon monoxide source",
+  "sex_filter": "both"
+}, {
+  "id": "p_17",
+  "name": "Central Africa",
+  "sex_filter": "both"
+}, {
+  "id": "p_82",
+  "name": "Contact with allergen",
+  "sex_filter": "both"
+}, {
+  "id": "p_122",
+  "name": "Contact with animals",
+  "sex_filter": "both"
+}, {
+  "id": "p_100",
+  "name": "Contact with animals, cat",
+  "sex_filter": "both"
+}, {
+  "id": "p_41",
+  "name": "Contact with insecticides",
+  "sex_filter": "both"
+}, {
+  "id": "p_99",
+  "name": "Contact with sick person, chickenpox",
+  "sex_filter": "both"
+}, {
+  "id": "p_36",
+  "name": "Contact with weed killers",
+  "sex_filter": "both"
+}, {
+  "id": "p_74",
+  "name": "Craniocerebral trauma",
+  "sex_filter": "both"
+}, {
+  "id": "p_8",
+  "name": "Diabetes",
+  "sex_filter": "both"
+}, {
+  "id": "p_15",
+  "name": "Europe",
+  "sex_filter": "both"
+}, {
+  "id": "p_38",
+  "name": "Frequent alcohol consumption",
+  "sex_filter": "both"
+}, {
+  "id": "p_10",
+  "name": "High cholesterol",
+  "sex_filter": "both"
+}, {
+  "id": "p_9",
+  "name": "Hypertension",
+  "sex_filter": "both"
+}, {
+  "id": "p_48",
+  "name": "Insect bite",
+  "sex_filter": "both"
+}, {
+  "id": "p_14",
+  "name": "Latin and South America",
+  "sex_filter": "both"
+}, {
+  "id": "p_2",
+  "name": "Man",
+  "sex_filter": "both"
+}, {
+  "id": "p_21",
+  "name": "Middle East",
+  "sex_filter": "both"
+}, {
+  "id": "p_37",
+  "name": "Mushroom consumption",
+  "sex_filter": "both"
+}, {
+  "id": "p_44",
+  "name": "NSAID or corticosteroid use",
+  "sex_filter": "both"
+}, {
+  "id": "p_13",
+  "name": "North America w/o Mexico",
+  "sex_filter": "both"
+}, {
+  "id": "p_16",
+  "name": "Northern Africa",
+  "sex_filter": "both"
+}, {
+  "id": "p_43",
+  "name": "Opioids use",
+  "sex_filter": "both"
+}, {
+  "id": "p_25",
+  "name": "Paracetamol, acetaminophen intake",
+  "sex_filter": "both"
+}, {
+  "id": "p_11",
+  "name": "Postmenopause",
+  "sex_filter": "female"
+}, {
+  "id": "p_42",
+  "name": "Pregnancy",
+  "sex_filter": "female"
+}, {
+  "id": "p_80",
+  "name": "Prior myocardial infarction",
+  "sex_filter": "both"
+}, {
+  "id": "p_138",
+  "name": "Prolonged exposure to sunlight and heat",
+  "sex_filter": "both"
+}, {
+  "id": "p_27",
+  "name": "Psychological trauma",
+  "sex_filter": "both"
+}, {
+  "id": "p_47",
+  "name": "Recent surgery",
+  "sex_filter": "both"
+}, {
+  "id": "p_20",
+  "name": "Russia, Kazakhstan and Mongolia",
+  "sex_filter": "both"
+}, {
+  "id": "p_26",
+  "name": "Salicylate intake",
+  "sex_filter": "both"
+}, {
+  "id": "p_46",
+  "name": "Sedative or hypnotic withdrawal",
+  "sex_filter": "both"
+}, {
+  "id": "p_53",
+  "name": "Skeletal trauma, limb",
+  "sex_filter": "both"
+}, {
+  "id": "p_28",
+  "name": "Smoking",
+  "sex_filter": "both"
+}, {
+  "id": "p_18",
+  "name": "Southern Africa",
+  "sex_filter": "both"
+}, {
+  "id": "p_22",
+  "name": "Southwestern Asia",
+  "sex_filter": "both"
+}, {
+  "id": "p_45",
+  "name": "Taking sleeping pills or sedatives",
+  "sex_filter": "both"
+}, {
+  "id": "p_1",
+  "name": "Woman",
+  "sex_filter": "both"
+}]

@@ -2175,7 +2175,7 @@
   },
   {
     "id": "c_39",
-    "name": "Cluster headaches (CH)",
+    "name": "Cluster headaches",
     "categories": [
       "Neurology"
     ],
@@ -3390,7 +3390,7 @@
   },
   {
     "id": "c_374",
-    "name": "Glomerulonephritis (GN)",
+    "name": "Glomerulonephritis",
     "categories": [
       "Nephrology"
     ],
@@ -7920,7 +7920,7 @@
   },
   {
     "id": "c_119",
-    "name": "Urinary tract infection (UTI)",
+    "name": "Urinary tract infection",
     "categories": [
       "Nephrology"
     ],

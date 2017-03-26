@@ -14,7 +14,7 @@ while ($row_ = mysqli_fetch_array($r)) {
     $result = mysqli_query($conn, $sql);
     $arr = array();
     while ($row = mysqli_fetch_array($result)) {
-        array_push($arr, $row['name']);
+        array_push($arr, $row['name'].' // '.$row['id']);
     };
 
     $group[$cate_name] = $arr;

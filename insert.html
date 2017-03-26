@@ -134,34 +134,121 @@
     $(document).ready(function() {
       $('#title').focus();
 
-      var url = "medicalAPI/apimedic/location_symptoms_total.json";
+      // var url = "medicalAPI/apimedic/location_symptoms_total.json";
+      // $.getJSON(url, function(data) {
+      //   console.log(data[0]);
+      //   var newRow = [];
+      //   var updateRow = [];
+      //   for (var i = 0; i < data.length; i++) {
+      //     if (typeof data[i].newID == 'number') {
+      //       newRow.push(data[i]);
+      //     } else {
+      //       updateRow.push(data[i]);
+      //     }
+      //   }
+      //   console.log(newRow[0]);
+      //
+      //   $.ajax({
+      //       type: "POST",
+      //       url: "sql/apimedicData.php",
+      //       data: {
+      //         q: "update",
+      //         totalRow: JSON.stringify(data),
+      //         newRow: JSON.stringify(newRow),
+      //         updateRow: JSON.stringify(updateRow)
+      //       }
+      //     })
+      //     .done(function(data) {
+      //       console.log(data);
+      //     })
+      // })
+
+      // var url = "medicalAPI/final/final_dis.json";
+      // $.getJSON(url, function(data) {
+      //   console.log(data);
+      //   $.ajax({
+      //       type: "POST",
+      //       url: "sql/infermedicaData.php",
+      //       data: {
+      //         q: "final_dis",
+      //         data: JSON.stringify(data)
+      //       }
+      //     })
+      //     .done(function(data) {
+      //       console.log(data);
+      //     })
+      // })
+
+      var url = "medicalAPI/final/final_symptom.json";
       $.getJSON(url, function(data) {
-        console.log(data[0]);
-        var newRow = [];
-        var updateRow = [];
         for (var i = 0; i < data.length; i++) {
-          if (typeof data[i].newID == 'number') {
-            newRow.push(data[i]);
-          } else {
-            updateRow.push(data[i]);
+          for (var j = 0; j < data[i]['disease'].length; j++) {
+            var item = data[i]['disease'][j];
+            var url_ = "medicalAPI/final/final_disease.json";
+            $.ajax({
+              url: url_,
+              async: false,
+              type: "GET",
+              success: function(data_) {
+                // console.log(item);
+                for (var k = 0; k < data_.length; k++) {
+                  if (item.name == data_[k].name) {
+                    console.log (item.id == data_[k].id);
+                    return;
+                  }
+                  if (k == data_.length - 1) {
+                    console.log('no!!');
+                    console.log(item.name);
+                  }
+                }
+              }
+            })
           }
         }
-        console.log(newRow[0]);
-
-        $.ajax({
-            type: "POST",
-            url: "sql/apimedicData.php",
-            data: {
-              q: "update",
-              totalRow: JSON.stringify(data),
-              newRow: JSON.stringify(newRow),
-              updateRow: JSON.stringify(updateRow)
-            }
-          })
-          .done(function(data) {
-            console.log(data);
-          })
+        // $.ajax({
+        //     type: "POST",
+        //     url: "sql/infermedicaData.php",
+        //     data: {
+        //       q: "symp",
+        //       data: JSON.stringify(data)
+        //     }
+        //   })
+        //   .done(function(data) {
+        //     console.log(data);
+        //   })
       })
+
+      // var url = "medicalAPI/final/final_symptom.json";
+      // $.getJSON(url, function(data) {
+      //   for (var i = 0; i < data.length; i++) {
+      //     for (var j = 0; j < data[i]['disease'].length; j++) {
+      //       var item = data[i]['disease'][j];
+      //       var url_ = "medicalAPI/final/final_disease.json";
+      //       $.ajax({
+      //         url: url_,
+      //         async: false,
+      //         type: "GET",
+      //         success: function(data_) {
+      //           for (var k = 0; k < data_.length; k++) {
+      //             if (item.id.toString() == data_[k].id) {
+      //               if (data_[k]['name'] !== data[i]['name']) {
+      //                 console.log(data_[k]['name']);
+      //                 console.log(data[i]['name']);
+      //                 item.name = data_[k]['name'];
+      //                 return;
+      //               }
+      //             }
+      //             if (k == data_.length - 1) {
+      //               console.log('no!!');
+      //               console.log(item);
+      //             }
+      //           }
+      //         }
+      //       })
+      //     }
+      //   }
+      //   console.log(JSON.stringify(data));
+      // })
 
       //symptom
       $.typeahead({
@@ -225,13 +312,13 @@
         input: '.lab_query',
         minLength: 0,
         searchOnFocus: true,
-        maxItem: 200,
+        maxItem: 2000,
         offset: false,
         order: 'asc',
         hint: true,
         group: true,
         dropdownFilter: "All",
-        maxItemPerGroup: 100,
+        maxItemPerGroup: 1000,
         template: "{{display}} <small style='color:#999;float:right;'>{{group}}</small>",
         emptyTemplate: "No result for {{query}}",
         debug: true,
@@ -368,17 +455,14 @@
             ajax: {
               type: "GET",
               url: "sql/load_data_disease.php",
-              path: "data.Allergology",
-              success: function(data) {
-                console.log(data);
-              }
+              path: "data.Allergology"
             }
           },
-          "Aniology": {
+          "Angiology": {
             ajax: {
               type: "GET",
               url: "sql/load_data_disease.php",
-              path: "data.Aniology"
+              path: "data.Angiology"
             }
           },
           "Cardiology": {
@@ -448,7 +532,7 @@
             ajax: {
               type: "GET",
               url: "sql/load_data_disease.php",
-              path: "data.Internal_medicine"
+              path: "data.Internal_Medicine"
             }
           },
           "Laryngology/ENT": {
@@ -540,6 +624,20 @@
               type: "GET",
               url: "sql/load_data_disease.php",
               path: "data.Traumatology"
+            }
+          },
+          "Urology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Urology"
+            }
+          },
+          "Venereology": {
+            ajax: {
+              type: "GET",
+              url: "sql/load_data_disease.php",
+              path: "data.Venereology"
             }
           }
         },

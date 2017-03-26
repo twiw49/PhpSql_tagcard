@@ -1,1681 +1,1681 @@
 [{
-    "ID": 130,
-    "Name": "Abdominal hernia"
+    "id": 130,
+    "name": "Abdominal hernia"
   },
   {
-    "ID": 170,
-    "Name": "Abortion"
+    "id": 170,
+    "name": "Abortion"
   },
   {
-    "ID": 456,
-    "Name": "Abscess of the tonsils"
+    "id": 456,
+    "name": "Abscess of the tonsils"
   },
   {
-    "ID": 577,
-    "Name": "Absence seizure"
+    "id": 577,
+    "name": "Absence seizure"
   },
   {
-    "ID": 584,
-    "Name": "Accidental injury"
+    "id": 584,
+    "name": "Accidental injury"
   },
   {
-    "ID": 515,
-    "Name": "Accident-related bone fracture"
+    "id": 515,
+    "name": "Accident-related bone fracture"
   },
   {
-    "ID": 509,
-    "Name": "Accumulation of fluid in the scrotum"
+    "id": 509,
+    "name": "Accumulation of fluid in the scrotum"
   },
   {
-    "ID": 171,
-    "Name": "Achilles tendon tear"
+    "id": 171,
+    "name": "Achilles tendon tear"
   },
   {
-    "ID": 27,
-    "Name": "Acne"
+    "id": 27,
+    "name": "Acne"
   },
   {
-    "ID": 113,
-    "Name": "Acute inflammation of lung"
+    "id": 113,
+    "name": "Acute inflammation of lung"
   },
   {
-    "ID": 582,
-    "Name": "Age-related issues"
+    "id": 582,
+    "name": "Age-related issues"
   },
   {
-    "ID": 580,
-    "Name": "Alcohol consumption"
+    "id": 580,
+    "name": "Alcohol consumption"
   },
   {
-    "ID": 202,
-    "Name": "Allergy to bee or wasp venom"
+    "id": 202,
+    "name": "Allergy to bee or wasp venom"
   },
   {
-    "ID": 66,
-    "Name": "Alzheimer type dementia"
+    "id": 66,
+    "name": "Alzheimer type dementia"
   },
   {
-    "ID": 519,
-    "Name": "Anal abscess"
+    "id": 519,
+    "name": "Anal abscess"
   },
   {
-    "ID": 341,
-    "Name": "Anal vein thrombosis"
+    "id": 341,
+    "name": "Anal vein thrombosis"
   },
   {
-    "ID": 182,
-    "Name": "Aneurysm of the main artery"
+    "id": 182,
+    "name": "Aneurysm of the main artery"
   },
   {
-    "ID": 134,
-    "Name": "Ankle injury"
+    "id": 134,
+    "name": "Ankle injury"
   },
   {
-    "ID": 48,
-    "Name": "Anorexia"
+    "id": 48,
+    "name": "Anorexia"
   },
   {
-    "ID": 192,
-    "Name": "Arthrosis"
+    "id": 192,
+    "name": "Arthrosis"
   },
   {
-    "ID": 454,
-    "Name": "Auditory vertigo"
+    "id": 454,
+    "name": "Auditory vertigo"
   },
   {
-    "ID": 585,
-    "Name": "Autoimmune disease"
+    "id": 585,
+    "name": "Autoimmune disease"
   },
   {
-    "ID": 102,
-    "Name": "Back pain"
+    "id": 102,
+    "name": "Back pain"
   },
   {
-    "ID": 199,
-    "Name": "Bacterial skin infection"
+    "id": 199,
+    "name": "Bacterial skin infection"
   },
   {
-    "ID": 601,
-    "Name": "Bad sleeping habits"
+    "id": 601,
+    "name": "Bad sleeping habits"
   },
   {
-    "ID": 198,
-    "Name": "Baker's cyst"
+    "id": 198,
+    "name": "Baker's cyst"
   },
   {
-    "ID": 310,
-    "Name": "Bekhterev's disease"
+    "id": 310,
+    "name": "Bekhterev's disease"
   },
   {
-    "ID": 334,
-    "Name": "Benign bone tumor"
+    "id": 334,
+    "name": "Benign bone tumor"
   },
   {
-    "ID": 541,
-    "Name": "Benign muscle cramps"
+    "id": 541,
+    "name": "Benign muscle cramps"
   },
   {
-    "ID": 524,
-    "Name": "Benign muscle twitching"
+    "id": 524,
+    "name": "Benign muscle twitching"
   },
   {
-    "ID": 553,
-    "Name": "Benign neoplasm of the connective tissue"
+    "id": 553,
+    "name": "Benign neoplasm of the connective tissue"
   },
   {
-    "ID": 152,
-    "Name": "Benign proliferation of uterine lining tissue"
+    "id": 152,
+    "name": "Benign proliferation of uterine lining tissue"
   },
   {
-    "ID": 99,
-    "Name": "Benign prostate enlargement"
+    "id": 99,
+    "name": "Benign prostate enlargement"
   },
   {
-    "ID": 346,
-    "Name": "Benign tumor of the adrenal medulla"
+    "id": 346,
+    "name": "Benign tumor of the adrenal medulla"
   },
   {
-    "ID": 297,
-    "Name": "Black skin cancer"
+    "id": 297,
+    "name": "Black skin cancer"
   },
   {
-    "ID": 204,
-    "Name": "Bladder cancer"
+    "id": 204,
+    "name": "Bladder cancer"
   },
   {
-    "ID": 277,
-    "Name": "Bleeding disorder"
+    "id": 277,
+    "name": "Bleeding disorder"
   },
   {
-    "ID": 542,
-    "Name": "Blistering disease"
+    "id": 542,
+    "name": "Blistering disease"
   },
   {
-    "ID": 495,
-    "Name": "Bloated belly"
+    "id": 495,
+    "name": "Bloated belly"
   },
   {
-    "ID": 586,
-    "Name": "Blood poisoning"
+    "id": 586,
+    "name": "Blood poisoning"
   },
   {
-    "ID": 128,
-    "Name": "Blood vessel expansion around anus"
+    "id": 128,
+    "name": "Blood vessel expansion around anus"
   },
   {
-    "ID": 523,
-    "Name": "Bone pain"
+    "id": 523,
+    "name": "Bone pain"
   },
   {
-    "ID": 397,
-    "Name": "Bowel incontinence"
+    "id": 397,
+    "name": "Bowel incontinence"
   },
   {
-    "ID": 273,
-    "Name": "Bowel obstruction"
+    "id": 273,
+    "name": "Bowel obstruction"
   },
   {
-    "ID": 483,
-    "Name": "Brain damage caused by metabolic disorders"
+    "id": 483,
+    "name": "Brain damage caused by metabolic disorders"
   },
   {
-    "ID": 264,
-    "Name": "Brain tumor"
+    "id": 264,
+    "name": "Brain tumor"
   },
   {
-    "ID": 218,
-    "Name": "Breakbone fever"
+    "id": 218,
+    "name": "Breakbone fever"
   },
   {
-    "ID": 291,
-    "Name": "Breast cancer"
+    "id": 291,
+    "name": "Breast cancer"
   },
   {
-    "ID": 562,
-    "Name": "Broken rib"
+    "id": 562,
+    "name": "Broken rib"
   },
   {
-    "ID": 255,
-    "Name": "Bruise"
+    "id": 255,
+    "name": "Bruise"
   },
   {
-    "ID": 49,
-    "Name": "Bulimia"
+    "id": 49,
+    "name": "Bulimia"
   },
   {
-    "ID": 253,
-    "Name": "Bunion"
+    "id": 253,
+    "name": "Bunion"
   },
   {
-    "ID": 415,
-    "Name": "Burn"
+    "id": 415,
+    "name": "Burn"
   },
   {
-    "ID": 596,
-    "Name": "Caffeine withdrawal"
+    "id": 596,
+    "name": "Caffeine withdrawal"
   },
   {
-    "ID": 613,
-    "Name": "Caries"
+    "id": 613,
+    "name": "Caries"
   },
   {
-    "ID": 295,
-    "Name": "Change in the mammary glands"
+    "id": 295,
+    "name": "Change in the mammary glands"
   },
   {
-    "ID": 196,
-    "Name": "Chemical eye burn"
+    "id": 196,
+    "name": "Chemical eye burn"
   },
   {
-    "ID": 549,
-    "Name": "Chicken skin"
+    "id": 549,
+    "name": "Chicken skin"
   },
   {
-    "ID": 81,
-    "Name": "Chickenpox"
+    "id": 81,
+    "name": "Chickenpox"
   },
   {
-    "ID": 657,
-    "Name": "Chlamydia infection"
+    "id": 657,
+    "name": "Chlamydia infection"
   },
   {
-    "ID": 505,
-    "Name": "Chlamydia infection"
+    "id": 505,
+    "name": "Chlamydia infection"
   },
   {
-    "ID": 212,
-    "Name": "Chronic inflammatory bowel disease of colon"
+    "id": 212,
+    "name": "Chronic inflammatory bowel disease of colon"
   },
   {
-    "ID": 243,
-    "Name": "Chronic muscular pain disorder"
+    "id": 243,
+    "name": "Chronic muscular pain disorder"
   },
   {
-    "ID": 64,
-    "Name": "Chronic obstructive lung disease"
+    "id": 64,
+    "name": "Chronic obstructive lung disease"
   },
   {
-    "ID": 492,
-    "Name": "Chronic pain disorder"
+    "id": 492,
+    "name": "Chronic pain disorder"
   },
   {
-    "ID": 211,
-    "Name": "Chronic tiredness syndrome"
+    "id": 211,
+    "name": "Chronic tiredness syndrome"
   },
   {
-    "ID": 210,
-    "Name": "Chronic vein insufficiency"
+    "id": 210,
+    "name": "Chronic vein insufficiency"
   },
   {
-    "ID": 529,
-    "Name": "Circular hair loss"
+    "id": 529,
+    "name": "Circular hair loss"
   },
   {
-    "ID": 283,
-    "Name": "Cirrhosis"
+    "id": 283,
+    "name": "Cirrhosis"
   },
   {
-    "ID": 92,
-    "Name": "Clot in the leg vein"
+    "id": 92,
+    "name": "Clot in the leg vein"
   },
   {
-    "ID": 31,
-    "Name": "Clouding of the eye lens"
+    "id": 31,
+    "name": "Clouding of the eye lens"
   },
   {
-    "ID": 147,
-    "Name": "Cluster headache"
+    "id": 147,
+    "name": "Cluster headache"
   },
   {
-    "ID": 348,
-    "Name": "Coccyx fistula"
+    "id": 348,
+    "name": "Coccyx fistula"
   },
   {
-    "ID": 80,
-    "Name": "Cold"
+    "id": 80,
+    "name": "Cold"
   },
   {
-    "ID": 215,
-    "Name": "Colon cancer"
+    "id": 215,
+    "name": "Colon cancer"
   },
   {
-    "ID": 149,
-    "Name": "Concussion"
+    "id": 149,
+    "name": "Concussion"
   },
   {
-    "ID": 26,
-    "Name": "Condition causing overproduction of skin cells"
+    "id": 26,
+    "name": "Condition causing overproduction of skin cells"
   },
   {
-    "ID": 579,
-    "Name": "Confusional state"
+    "id": 579,
+    "name": "Confusional state"
   },
   {
-    "ID": 558,
-    "Name": "Congenital eyelid levator weakness"
+    "id": 558,
+    "name": "Congenital eyelid levator weakness"
   },
   {
-    "ID": 53,
-    "Name": "Constipation"
+    "id": 53,
+    "name": "Constipation"
   },
   {
-    "ID": 174,
-    "Name": "Contact eczema"
+    "id": 174,
+    "name": "Contact eczema"
   },
   {
-    "ID": 532,
-    "Name": "Corneal distorsion"
+    "id": 532,
+    "name": "Corneal distorsion"
   },
   {
-    "ID": 86,
-    "Name": "Coronary heart disease"
+    "id": 86,
+    "name": "Coronary heart disease"
   },
   {
-    "ID": 311,
-    "Name": "Crohn's disease"
+    "id": 311,
+    "name": "Crohn's disease"
   },
   {
-    "ID": 460,
-    "Name": "Croup"
+    "id": 460,
+    "name": "Croup"
   },
   {
-    "ID": 390,
-    "Name": "Curvature of the spine"
+    "id": 390,
+    "name": "Curvature of the spine"
   },
   {
-    "ID": 559,
-    "Name": "Damage to the eye muscle nerves"
+    "id": 559,
+    "name": "Damage to the eye muscle nerves"
   },
   {
-    "ID": 536,
-    "Name": "Deformity of the hip joint"
+    "id": 536,
+    "name": "Deformity of the hip joint"
   },
   {
-    "ID": 535,
-    "Name": "Deformity of the knee joint"
+    "id": 535,
+    "name": "Deformity of the knee joint"
   },
   {
-    "ID": 47,
-    "Name": "Depression"
+    "id": 47,
+    "name": "Depression"
   },
   {
-    "ID": 228,
-    "Name": "Dermatitis"
+    "id": 228,
+    "name": "Dermatitis"
   },
   {
-    "ID": 155,
-    "Name": "Detached retina"
+    "id": 155,
+    "name": "Detached retina"
   },
   {
-    "ID": 17,
-    "Name": "Diabetes"
+    "id": 17,
+    "name": "Diabetes"
   },
   {
-    "ID": 588,
-    "Name": "Diabetic delayed gastric emptying"
+    "id": 588,
+    "name": "Diabetic delayed gastric emptying"
   },
   {
-    "ID": 261,
-    "Name": "Diaphragmatic hernia"
+    "id": 261,
+    "name": "Diaphragmatic hernia"
   },
   {
-    "ID": 478,
-    "Name": "Difficult dentition"
+    "id": 478,
+    "name": "Difficult dentition"
   },
   {
-    "ID": 438,
-    "Name": "Diffuse hair loss"
+    "id": 438,
+    "name": "Diffuse hair loss"
   },
   {
-    "ID": 176,
-    "Name": "Disease of the motor neurons"
+    "id": 176,
+    "name": "Disease of the motor neurons"
   },
   {
-    "ID": 340,
-    "Name": "Dislocation of kneecap"
+    "id": 340,
+    "name": "Dislocation of kneecap"
   },
   {
-    "ID": 482,
-    "Name": "Disorder causing imbalance of water in the body"
+    "id": 482,
+    "name": "Disorder causing imbalance of water in the body"
   },
   {
-    "ID": 164,
-    "Name": "Disorders of lipid metabolism"
+    "id": 164,
+    "name": "Disorders of lipid metabolism"
   },
   {
-    "ID": 183,
-    "Name": "Dissection of the aorta"
+    "id": 183,
+    "name": "Dissection of the aorta"
   },
   {
-    "ID": 316,
-    "Name": "Disseminated sclerosis"
+    "id": 316,
+    "name": "Disseminated sclerosis"
   },
   {
-    "ID": 266,
-    "Name": "Disturbed testicular descent"
+    "id": 266,
+    "name": "Disturbed testicular descent"
   },
   {
-    "ID": 223,
-    "Name": "Diverticular disease"
+    "id": 223,
+    "name": "Diverticular disease"
   },
   {
-    "ID": 431,
-    "Name": "Drug side effect"
+    "id": 431,
+    "name": "Drug side effect"
   },
   {
-    "ID": 32,
-    "Name": "Dry eye"
+    "id": 32,
+    "name": "Dry eye"
   },
   {
-    "ID": 462,
-    "Name": "Dry nasal mucosa"
+    "id": 462,
+    "name": "Dry nasal mucosa"
   },
   {
-    "ID": 100,
-    "Name": "Dry skin"
+    "id": 100,
+    "name": "Dry skin"
   },
   {
-    "ID": 224,
-    "Name": "Dupuytren's contracture"
+    "id": 224,
+    "name": "Dupuytren's contracture"
   },
   {
-    "ID": 564,
-    "Name": "Dysfunction of the esophagus"
+    "id": 564,
+    "name": "Dysfunction of the esophagus"
   },
   {
-    "ID": 330,
-    "Name": "Ear injury with foreign body"
+    "id": 330,
+    "name": "Ear injury with foreign body"
   },
   {
-    "ID": 39,
-    "Name": "Earwax blockage"
+    "id": 39,
+    "name": "Earwax blockage"
   },
   {
-    "ID": 475,
-    "Name": "Eating disorder"
+    "id": 475,
+    "name": "Eating disorder"
   },
   {
-    "ID": 91,
-    "Name": "Enlarged and twisted veins"
+    "id": 91,
+    "name": "Enlarged and twisted veins"
   },
   {
-    "ID": 287,
-    "Name": "Enlarged lymph nodes"
+    "id": 287,
+    "name": "Enlarged lymph nodes"
   },
   {
-    "ID": 477,
-    "Name": "Enlarged veins of the esophagus"
+    "id": 477,
+    "name": "Enlarged veins of the esophagus"
   },
   {
-    "ID": 236,
-    "Name": "Epileptic seizures"
+    "id": 236,
+    "name": "Epileptic seizures"
   },
   {
-    "ID": 237,
-    "Name": "Erection problems"
+    "id": 237,
+    "name": "Erection problems"
   },
   {
-    "ID": 332,
-    "Name": "Esophageal cancer"
+    "id": 332,
+    "name": "Esophageal cancer"
   },
   {
-    "ID": 333,
-    "Name": "Esophageal corrosion"
+    "id": 333,
+    "name": "Esophageal corrosion"
   },
   {
-    "ID": 227,
-    "Name": "Eversion of the eyelid"
+    "id": 227,
+    "name": "Eversion of the eyelid"
   },
   {
-    "ID": 181,
-    "Name": "Excessive feeling of fear"
+    "id": 181,
+    "name": "Excessive feeling of fear"
   },
   {
-    "ID": 608,
-    "Name": "Excessive noise exposure"
+    "id": 608,
+    "name": "Excessive noise exposure"
   },
   {
-    "ID": 97,
-    "Name": "Excessive overweight"
+    "id": 97,
+    "name": "Excessive overweight"
   },
   {
-    "ID": 557,
-    "Name": "Extreme tendency to fall asleep"
+    "id": 557,
+    "name": "Extreme tendency to fall asleep"
   },
   {
-    "ID": 581,
-    "Name": "Eye allergy"
+    "id": 581,
+    "name": "Eye allergy"
   },
   {
-    "ID": 139,
-    "Name": "Eyelid inflammation"
+    "id": 139,
+    "name": "Eyelid inflammation"
   },
   {
-    "ID": 148,
-    "Name": "Facial neuralgia"
+    "id": 148,
+    "name": "Facial neuralgia"
   },
   {
-    "ID": 452,
-    "Name": "Facial paralysis"
+    "id": 452,
+    "name": "Facial paralysis"
   },
   {
-    "ID": 575,
-    "Name": "Fainting"
+    "id": 575,
+    "name": "Fainting"
   },
   {
-    "ID": 440,
-    "Name": "Fainting after standing up"
+    "id": 440,
+    "name": "Fainting after standing up"
   },
   {
-    "ID": 502,
-    "Name": "Familial tremor"
+    "id": 502,
+    "name": "Familial tremor"
   },
   {
-    "ID": 143,
-    "Name": "Far-sightedness"
+    "id": 143,
+    "name": "Far-sightedness"
   },
   {
-    "ID": 308,
-    "Name": "Fatigue fracture of the metatarsal"
+    "id": 308,
+    "name": "Fatigue fracture of the metatarsal"
   },
   {
-    "ID": 165,
-    "Name": "Fatty tumor"
+    "id": 165,
+    "name": "Fatty tumor"
   },
   {
-    "ID": 132,
-    "Name": "Femoral neck fracture"
+    "id": 132,
+    "name": "Femoral neck fracture"
   },
   {
-    "ID": 11,
-    "Name": "Flu"
+    "id": 11,
+    "name": "Flu"
   },
   {
-    "ID": 193,
-    "Name": "Fluid accumulation in the abdomen"
+    "id": 193,
+    "name": "Fluid accumulation in the abdomen"
   },
   {
-    "ID": 349,
-    "Name": "Fluid accumulation in the chest cavity"
+    "id": 349,
+    "name": "Fluid accumulation in the chest cavity"
   },
   {
-    "ID": 217,
-    "Name": "Fluid loss"
+    "id": 217,
+    "name": "Fluid loss"
   },
   {
-    "ID": 327,
-    "Name": "Fluid-filled sacs in the kidney"
+    "id": 327,
+    "name": "Fluid-filled sacs in the kidney"
   },
   {
-    "ID": 368,
-    "Name": "Flu-related rhinitis"
+    "id": 368,
+    "name": "Flu-related rhinitis"
   },
   {
-    "ID": 320,
-    "Name": "Food allergy"
+    "id": 320,
+    "name": "Food allergy"
   },
   {
-    "ID": 321,
-    "Name": "Food intolerance"
+    "id": 321,
+    "name": "Food intolerance"
   },
   {
-    "ID": 281,
-    "Name": "Food poisoning"
+    "id": 281,
+    "name": "Food poisoning"
   },
   {
-    "ID": 470,
-    "Name": "Foreign object in the airways"
+    "id": 470,
+    "name": "Foreign object in the airways"
   },
   {
-    "ID": 461,
-    "Name": "Foreign object in the ear"
+    "id": 461,
+    "name": "Foreign object in the ear"
   },
   {
-    "ID": 455,
-    "Name": "Foreign object in the eye"
+    "id": 455,
+    "name": "Foreign object in the eye"
   },
   {
-    "ID": 468,
-    "Name": "Foreign object in the nose"
+    "id": 468,
+    "name": "Foreign object in the nose"
   },
   {
-    "ID": 481,
-    "Name": "Foreign object in the throat"
+    "id": 481,
+    "name": "Foreign object in the throat"
   },
   {
-    "ID": 238,
-    "Name": "Frostbite"
+    "id": 238,
+    "name": "Frostbite"
   },
   {
-    "ID": 144,
-    "Name": "Fungal infection"
+    "id": 144,
+    "name": "Fungal infection"
   },
   {
-    "ID": 441,
-    "Name": "Gait disorder due to old age"
+    "id": 441,
+    "name": "Gait disorder due to old age"
   },
   {
-    "ID": 55,
-    "Name": "Gall stones"
+    "id": 55,
+    "name": "Gall stones"
   },
   {
-    "ID": 246,
-    "Name": "Ganglion"
+    "id": 246,
+    "name": "Ganglion"
   },
   {
-    "ID": 507,
-    "Name": "Genital warts"
+    "id": 507,
+    "name": "Genital warts"
   },
   {
-    "ID": 107,
-    "Name": "German measles"
+    "id": 107,
+    "name": "German measles"
   },
   {
-    "ID": 312,
-    "Name": "Giant cell arteritis"
+    "id": 312,
+    "name": "Giant cell arteritis"
   },
   {
-    "ID": 448,
-    "Name": "Gilbert's disease"
+    "id": 448,
+    "name": "Gilbert's disease"
   },
   {
-    "ID": 473,
-    "Name": "Gingivostomatitis"
+    "id": 473,
+    "name": "Gingivostomatitis"
   },
   {
-    "ID": 52,
-    "Name": "Gluten intolerance"
+    "id": 52,
+    "name": "Gluten intolerance"
   },
   {
-    "ID": 234,
-    "Name": "Golfer's elbow"
+    "id": 234,
+    "name": "Golfer's elbow"
   },
   {
-    "ID": 63,
-    "Name": "Gout"
+    "id": 63,
+    "name": "Gout"
   },
   {
-    "ID": 30,
-    "Name": "Green cataract"
+    "id": 30,
+    "name": "Green cataract"
   },
   {
-    "ID": 612,
-    "Name": "Grinding of teeth"
+    "id": 612,
+    "name": "Grinding of teeth"
   },
   {
-    "ID": 85,
-    "Name": "Hardening of the walls of arteries"
+    "id": 85,
+    "name": "Hardening of the walls of arteries"
   },
   {
-    "ID": 367,
-    "Name": "Hay fever"
+    "id": 367,
+    "name": "Hay fever"
   },
   {
-    "ID": 104,
-    "Name": "Headache"
+    "id": 104,
+    "name": "Headache"
   },
   {
-    "ID": 555,
-    "Name": "Hearing loss due to old age"
+    "id": 555,
+    "name": "Hearing loss due to old age"
   },
   {
-    "ID": 87,
-    "Name": "Heart attack"
+    "id": 87,
+    "name": "Heart attack"
   },
   {
-    "ID": 432,
-    "Name": "Heart failure"
+    "id": 432,
+    "name": "Heart failure"
   },
   {
-    "ID": 654,
-    "Name": "Heart muscle disease"
+    "id": 654,
+    "name": "Heart muscle disease"
   },
   {
-    "ID": 434,
-    "Name": "Heart racing"
+    "id": 434,
+    "name": "Heart racing"
   },
   {
-    "ID": 82,
-    "Name": "Herpes"
+    "id": 82,
+    "name": "Herpes"
   },
   {
-    "ID": 46,
-    "Name": "Hiccup"
+    "id": 46,
+    "name": "Hiccup"
   },
   {
-    "ID": 16,
-    "Name": "High blood pressure"
+    "id": 16,
+    "name": "High blood pressure"
   },
   {
-    "ID": 271,
-    "Name": "High blood pressure crisis"
+    "id": 271,
+    "name": "High blood pressure crisis"
   },
   {
-    "ID": 269,
-    "Name": "Hip dysplasia"
+    "id": 269,
+    "name": "Hip dysplasia"
   },
   {
-    "ID": 512,
-    "Name": "Hip entrapment"
+    "id": 512,
+    "name": "Hip entrapment"
   },
   {
-    "ID": 508,
-    "Name": "Hirsuties coronae glandis"
+    "id": 508,
+    "name": "Hirsuties coronae glandis"
   },
   {
-    "ID": 112,
-    "Name": "HIV"
+    "id": 112,
+    "name": "HIV"
   },
   {
-    "ID": 145,
-    "Name": "Hives"
+    "id": 145,
+    "name": "Hives"
   },
   {
-    "ID": 280,
-    "Name": "Hump"
+    "id": 280,
+    "name": "Hump"
   },
   {
-    "ID": 209,
-    "Name": "Huntington's disease"
+    "id": 209,
+    "name": "Huntington's disease"
   },
   {
-    "ID": 213,
-    "Name": "Hypercortisolism"
+    "id": 213,
+    "name": "Hypercortisolism"
   },
   {
-    "ID": 15,
-    "Name": "Hypersensitivity reaction"
+    "id": 15,
+    "name": "Hypersensitivity reaction"
   },
   {
-    "ID": 94,
-    "Name": "Hyperventilation"
+    "id": 94,
+    "name": "Hyperventilation"
   },
   {
-    "ID": 556,
-    "Name": "Hypofunction of pituitary gland"
+    "id": 556,
+    "name": "Hypofunction of pituitary gland"
   },
   {
-    "ID": 445,
-    "Name": "Imbalance of body minerals"
+    "id": 445,
+    "name": "Imbalance of body minerals"
   },
   {
-    "ID": 563,
-    "Name": "Inadequate closure of the aortic valve"
+    "id": 563,
+    "name": "Inadequate closure of the aortic valve"
   },
   {
-    "ID": 220,
-    "Name": "Infection caused by corynebacterium diphtheriae"
+    "id": 220,
+    "name": "Infection caused by corynebacterium diphtheriae"
   },
   {
-    "ID": 361,
-    "Name": "Infection of kidney pelvis"
+    "id": 361,
+    "name": "Infection of kidney pelvis"
   },
   {
-    "ID": 178,
-    "Name": "Inflammation in the anal region"
+    "id": 178,
+    "name": "Inflammation in the anal region"
   },
   {
-    "ID": 494,
-    "Name": "Inflammation of a diverticulum"
+    "id": 494,
+    "name": "Inflammation of a diverticulum"
   },
   {
-    "ID": 474,
-    "Name": "Inflammation of gingiva"
+    "id": 474,
+    "name": "Inflammation of gingiva"
   },
   {
-    "ID": 547,
-    "Name": "Inflammation of hair follicles"
+    "id": 547,
+    "name": "Inflammation of hair follicles"
   },
   {
-    "ID": 436,
-    "Name": "Inflammation of heart muscle"
+    "id": 436,
+    "name": "Inflammation of heart muscle"
   },
   {
-    "ID": 530,
-    "Name": "Inflammation of inner ear labyrinth"
+    "id": 530,
+    "name": "Inflammation of inner ear labyrinth"
   },
   {
-    "ID": 517,
-    "Name": "Inflammation of outer tissue layer around bone"
+    "id": 517,
+    "name": "Inflammation of outer tissue layer around bone"
   },
   {
-    "ID": 41,
-    "Name": "Inflammation of paranasal sinuses"
+    "id": 41,
+    "name": "Inflammation of paranasal sinuses"
   },
   {
-    "ID": 518,
-    "Name": "Inflammation of the anal glands"
+    "id": 518,
+    "name": "Inflammation of the anal glands"
   },
   {
-    "ID": 126,
-    "Name": "Inflammation of the appendix"
+    "id": 126,
+    "name": "Inflammation of the appendix"
   },
   {
-    "ID": 516,
-    "Name": "Inflammation of the bone marrow"
+    "id": 516,
+    "name": "Inflammation of the bone marrow"
   },
   {
-    "ID": 83,
-    "Name": "Inflammation of the brain covering membranes"
+    "id": 83,
+    "name": "Inflammation of the brain covering membranes"
   },
   {
-    "ID": 294,
-    "Name": "Inflammation of the breast tissue"
+    "id": 294,
+    "name": "Inflammation of the breast tissue"
   },
   {
-    "ID": 153,
-    "Name": "Inflammation of the bronchi"
+    "id": 153,
+    "name": "Inflammation of the bronchi"
   },
   {
-    "ID": 208,
-    "Name": "Inflammation of the bursae"
+    "id": 208,
+    "name": "Inflammation of the bursae"
   },
   {
-    "ID": 447,
-    "Name": "Inflammation of the cornea"
+    "id": 447,
+    "name": "Inflammation of the cornea"
   },
   {
-    "ID": 229,
-    "Name": "Inflammation of the endocardium"
+    "id": 229,
+    "name": "Inflammation of the endocardium"
   },
   {
-    "ID": 235,
-    "Name": "Inflammation of the epididymis"
+    "id": 235,
+    "name": "Inflammation of the epididymis"
   },
   {
-    "ID": 38,
-    "Name": "Inflammation of the external ear canal"
+    "id": 38,
+    "name": "Inflammation of the external ear canal"
   },
   {
-    "ID": 54,
-    "Name": "Inflammation of the liver"
+    "id": 54,
+    "name": "Inflammation of the liver"
   },
   {
-    "ID": 125,
-    "Name": "Inflammation of the nail skin"
+    "id": 125,
+    "name": "Inflammation of the nail skin"
   },
   {
-    "ID": 44,
-    "Name": "Inflammation of the nose and throat"
+    "id": 44,
+    "name": "Inflammation of the nose and throat"
   },
   {
-    "ID": 119,
-    "Name": "Inflammation of the pancreas"
+    "id": 119,
+    "name": "Inflammation of the pancreas"
   },
   {
-    "ID": 437,
-    "Name": "Inflammation of the pericardium"
+    "id": 437,
+    "name": "Inflammation of the pericardium"
   },
   {
-    "ID": 501,
-    "Name": "Inflammation of the peritoneum"
+    "id": 501,
+    "name": "Inflammation of the peritoneum"
   },
   {
-    "ID": 350,
-    "Name": "Inflammation of the pleura"
+    "id": 350,
+    "name": "Inflammation of the pleura"
   },
   {
-    "ID": 504,
-    "Name": "Inflammation of the prostate"
+    "id": 504,
+    "name": "Inflammation of the prostate"
   },
   {
-    "ID": 114,
-    "Name": "Inflammation of the stomach"
+    "id": 114,
+    "name": "Inflammation of the stomach"
   },
   {
-    "ID": 538,
-    "Name": "Inflammation of the tendon"
+    "id": 538,
+    "name": "Inflammation of the tendon"
   },
   {
-    "ID": 331,
-    "Name": "Inflammation of the testes"
+    "id": 331,
+    "name": "Inflammation of the testes"
   },
   {
-    "ID": 136,
-    "Name": "Inflammation of the tonsils"
+    "id": 136,
+    "name": "Inflammation of the tonsils"
   },
   {
-    "ID": 120,
-    "Name": "Inflammation of the urethra"
+    "id": 120,
+    "name": "Inflammation of the urethra"
   },
   {
-    "ID": 503,
-    "Name": "Inflammation of vaginal mucosa"
+    "id": 503,
+    "name": "Inflammation of vaginal mucosa"
   },
   {
-    "ID": 122,
-    "Name": "Inflammation of veins"
+    "id": 122,
+    "name": "Inflammation of veins"
   },
   {
-    "ID": 76,
-    "Name": "Inflammation to the joints"
+    "id": 76,
+    "name": "Inflammation to the joints"
   },
   {
-    "ID": 14,
-    "Name": "Inflammatory disease of the airways"
+    "id": 14,
+    "name": "Inflammatory disease of the airways"
   },
   {
-    "ID": 410,
-    "Name": "Ingrown nail"
+    "id": 410,
+    "name": "Ingrown nail"
   },
   {
-    "ID": 197,
-    "Name": "Injury of the eye"
+    "id": 197,
+    "name": "Injury of the eye"
   },
   {
-    "ID": 216,
-    "Name": "Intestinal polyp"
+    "id": 216,
+    "name": "Intestinal polyp"
   },
   {
-    "ID": 411,
-    "Name": "Involuntary urination"
+    "id": 411,
+    "name": "Involuntary urination"
   },
   {
-    "ID": 231,
-    "Name": "Inward folding of eyelid"
+    "id": 231,
+    "name": "Inward folding of eyelid"
   },
   {
-    "ID": 226,
-    "Name": "Iron deficiency"
+    "id": 226,
+    "name": "Iron deficiency"
   },
   {
-    "ID": 544,
-    "Name": "Iron storage disease"
+    "id": 544,
+    "name": "Iron storage disease"
   },
   {
-    "ID": 12,
-    "Name": "Irregular heart rhythm in atria"
+    "id": 12,
+    "name": "Irregular heart rhythm in atria"
   },
   {
-    "ID": 490,
-    "Name": "Irritation of the sciatic nerve"
+    "id": 490,
+    "name": "Irritation of the sciatic nerve"
   },
   {
-    "ID": 545,
-    "Name": "Itchy skin nodule"
+    "id": 545,
+    "name": "Itchy skin nodule"
   },
   {
-    "ID": 479,
-    "Name": "Jaw fracture"
+    "id": 479,
+    "name": "Jaw fracture"
   },
   {
-    "ID": 131,
-    "Name": "Joint infection"
+    "id": 131,
+    "name": "Joint infection"
   },
   {
-    "ID": 552,
-    "Name": "Keloidal scar"
+    "id": 552,
+    "name": "Keloidal scar"
   },
   {
-    "ID": 121,
-    "Name": "Kidney inflammation"
+    "id": 121,
+    "name": "Kidney inflammation"
   },
   {
-    "ID": 324,
-    "Name": "Kidney stones"
+    "id": 324,
+    "name": "Kidney stones"
   },
   {
-    "ID": 109,
-    "Name": "Kissing disease"
+    "id": 109,
+    "name": "Kissing disease"
   },
   {
-    "ID": 614,
-    "Name": "Knee inflammation"
+    "id": 614,
+    "name": "Knee inflammation"
   },
   {
-    "ID": 276,
-    "Name": "Knee ligament injury"
+    "id": 276,
+    "name": "Knee ligament injury"
   },
   {
-    "ID": 93,
-    "Name": "Lack of blood"
+    "id": 93,
+    "name": "Lack of blood"
   },
   {
-    "ID": 60,
-    "Name": "Lack of supply of thyroid hormones"
+    "id": 60,
+    "name": "Lack of supply of thyroid hormones"
   },
   {
-    "ID": 540,
-    "Name": "Lack of vitamin B12"
+    "id": 540,
+    "name": "Lack of vitamin B12"
   },
   {
-    "ID": 96,
-    "Name": "Lack of vitamin D"
+    "id": 96,
+    "name": "Lack of vitamin D"
   },
   {
-    "ID": 214,
-    "Name": "Lacrimal gland inflammation"
+    "id": 214,
+    "name": "Lacrimal gland inflammation"
   },
   {
-    "ID": 95,
-    "Name": "Lactase deficiency"
+    "id": 95,
+    "name": "Lactase deficiency"
   },
   {
-    "ID": 250,
-    "Name": "Landry's paralysis"
+    "id": 250,
+    "name": "Landry's paralysis"
   },
   {
-    "ID": 546,
-    "Name": "Lichenoid lesion"
+    "id": 546,
+    "name": "Lichenoid lesion"
   },
   {
-    "ID": 166,
-    "Name": "Listeria infection"
+    "id": 166,
+    "name": "Listeria infection"
   },
   {
-    "ID": 108,
-    "Name": "Lockjaw"
+    "id": 108,
+    "name": "Lockjaw"
   },
   {
-    "ID": 101,
-    "Name": "Long-sightedness due to old age"
+    "id": 101,
+    "name": "Long-sightedness due to old age"
   },
   {
-    "ID": 51,
-    "Name": "Loose watery stools"
+    "id": 51,
+    "name": "Loose watery stools"
   },
   {
-    "ID": 487,
-    "Name": "Low back pain"
+    "id": 487,
+    "name": "Low back pain"
   },
   {
-    "ID": 572,
-    "Name": "Low blood pressure"
+    "id": 572,
+    "name": "Low blood pressure"
   },
   {
-    "ID": 554,
-    "Name": "Low blood sugar"
+    "id": 554,
+    "name": "Low blood sugar"
   },
   {
-    "ID": 649,
-    "Name": "Lung bleeding"
+    "id": 649,
+    "name": "Lung bleeding"
   },
   {
-    "ID": 285,
-    "Name": "Lung cancer"
+    "id": 285,
+    "name": "Lung cancer"
   },
   {
-    "ID": 351,
-    "Name": "Lung collapse"
+    "id": 351,
+    "name": "Lung collapse"
   },
   {
-    "ID": 439,
-    "Name": "Lupus"
+    "id": 439,
+    "name": "Lupus"
   },
   {
-    "ID": 79,
-    "Name": "Lyme disease"
+    "id": 79,
+    "name": "Lyme disease"
   },
   {
-    "ID": 268,
-    "Name": "Lymph cancer"
+    "id": 268,
+    "name": "Lymph cancer"
   },
   {
-    "ID": 655,
-    "Name": "Lymphatic obstruction"
+    "id": 655,
+    "name": "Lymphatic obstruction"
   },
   {
-    "ID": 141,
-    "Name": "Macular degeneration"
+    "id": 141,
+    "name": "Macular degeneration"
   },
   {
-    "ID": 336,
-    "Name": "Malignant bone tumor"
+    "id": 336,
+    "name": "Malignant bone tumor"
   },
   {
-    "ID": 357,
-    "Name": "Malignant prostate cancer"
+    "id": 357,
+    "name": "Malignant prostate cancer"
   },
   {
-    "ID": 290,
-    "Name": "Marsh fever"
+    "id": 290,
+    "name": "Marsh fever"
   },
   {
-    "ID": 105,
-    "Name": "Measles"
+    "id": 105,
+    "name": "Measles"
   },
   {
-    "ID": 404,
-    "Name": "Mediterranean anemia"
+    "id": 404,
+    "name": "Mediterranean anemia"
   },
   {
-    "ID": 298,
-    "Name": "Meningeal tumor"
+    "id": 298,
+    "name": "Meningeal tumor"
   },
   {
-    "ID": 50,
-    "Name": "Menopause"
+    "id": 50,
+    "name": "Menopause"
   },
   {
-    "ID": 489,
-    "Name": "Menstrual cramps"
+    "id": 489,
+    "name": "Menstrual cramps"
   },
   {
-    "ID": 292,
-    "Name": "Mental illness with euphoria and hyperactivity"
+    "id": 292,
+    "name": "Mental illness with euphoria and hyperactivity"
   },
   {
-    "ID": 37,
-    "Name": "Middle ear infection"
+    "id": 37,
+    "name": "Middle ear infection"
   },
   {
-    "ID": 58,
-    "Name": "Mitral regurgitation"
+    "id": 58,
+    "name": "Mitral regurgitation"
   },
   {
-    "ID": 323,
-    "Name": "Mole"
+    "id": 323,
+    "name": "Mole"
   },
   {
-    "ID": 600,
-    "Name": "Motion sickness"
+    "id": 600,
+    "name": "Motion sickness"
   },
   {
-    "ID": 106,
-    "Name": "Mumps"
+    "id": 106,
+    "name": "Mumps"
   },
   {
-    "ID": 520,
-    "Name": "Muscle soreness"
+    "id": 520,
+    "name": "Muscle soreness"
   },
   {
-    "ID": 534,
-    "Name": "Muscular weakness"
+    "id": 534,
+    "name": "Muscular weakness"
   },
   {
-    "ID": 318,
-    "Name": "Myasthenia gravis"
+    "id": 318,
+    "name": "Myasthenia gravis"
   },
   {
-    "ID": 528,
-    "Name": "Nail growth disorder"
+    "id": 528,
+    "name": "Nail growth disorder"
   },
   {
-    "ID": 347,
-    "Name": "Narrowing of foreskin"
+    "id": 347,
+    "name": "Narrowing of foreskin"
   },
   {
-    "ID": 486,
-    "Name": "Narrowing of spinal canals of the thoracic or lumbar spine"
+    "id": 486,
+    "name": "Narrowing of spinal canals of the thoracic or lumbar spine"
   },
   {
-    "ID": 57,
-    "Name": "Narrowing of the aortic valve"
+    "id": 57,
+    "name": "Narrowing of the aortic valve"
   },
   {
-    "ID": 465,
-    "Name": "Narrowing of the spinal canal in the neck"
+    "id": 465,
+    "name": "Narrowing of the spinal canal in the neck"
   },
   {
-    "ID": 322,
-    "Name": "Nasal polyp"
+    "id": 322,
+    "name": "Nasal polyp"
   },
   {
-    "ID": 565,
-    "Name": "Neoplasia of the upper digestive tract"
+    "id": 565,
+    "name": "Neoplasia of the upper digestive tract"
   },
   {
-    "ID": 135,
-    "Name": "Nerve compression in the wrist"
+    "id": 135,
+    "name": "Nerve compression in the wrist"
   },
   {
-    "ID": 522,
-    "Name": "Nerve pain"
+    "id": 522,
+    "name": "Nerve pain"
   },
   {
-    "ID": 467,
-    "Name": "Nerve root irritation of the cervical spine"
+    "id": 467,
+    "name": "Nerve root irritation of the cervical spine"
   },
   {
-    "ID": 568,
-    "Name": "Nerve root irritation of the lumbar spine"
+    "id": 568,
+    "name": "Nerve root irritation of the lumbar spine"
   },
   {
-    "ID": 506,
-    "Name": "Nerve-related bladder dysfunction"
+    "id": 506,
+    "name": "Nerve-related bladder dysfunction"
   },
   {
-    "ID": 40,
-    "Name": "Nosebleed"
+    "id": 40,
+    "name": "Nosebleed"
   },
   {
-    "ID": 561,
-    "Name": "Obsessive-compulsive disorder"
+    "id": 561,
+    "name": "Obsessive-compulsive disorder"
   },
   {
-    "ID": 167,
-    "Name": "Obstruction of a pulmonary artery"
+    "id": 167,
+    "name": "Obstruction of a pulmonary artery"
   },
   {
-    "ID": 485,
-    "Name": "Other diseases of the heart valves"
+    "id": 485,
+    "name": "Other diseases of the heart valves"
   },
   {
-    "ID": 480,
-    "Name": "Outpouching of the esophagus"
+    "id": 480,
+    "name": "Outpouching of the esophagus"
   },
   {
-    "ID": 514,
-    "Name": "Overactivity of the parathyroid glands"
+    "id": 514,
+    "name": "Overactivity of the parathyroid glands"
   },
   {
-    "ID": 61,
-    "Name": "Overproduction of thyroid hormones"
+    "id": 61,
+    "name": "Overproduction of thyroid hormones"
   },
   {
-    "ID": 602,
-    "Name": "Pain"
+    "id": 602,
+    "name": "Pain"
   },
   {
-    "ID": 498,
-    "Name": "Pancreas insufficiency"
+    "id": 498,
+    "name": "Pancreas insufficiency"
   },
   {
-    "ID": 513,
-    "Name": "Pelvic fracture"
+    "id": 513,
+    "name": "Pelvic fracture"
   },
   {
-    "ID": 189,
-    "Name": "Peripheral artery disease"
+    "id": 189,
+    "name": "Peripheral artery disease"
   },
   {
-    "ID": 140,
-    "Name": "Pink eye"
+    "id": 140,
+    "name": "Pink eye"
   },
   {
-    "ID": 302,
-    "Name": "Pleural tumor"
+    "id": 302,
+    "name": "Pleural tumor"
   },
   {
-    "ID": 443,
-    "Name": "Poisoning"
+    "id": 443,
+    "name": "Poisoning"
   },
   {
-    "ID": 138,
-    "Name": "Positional vertigo"
+    "id": 138,
+    "name": "Positional vertigo"
   },
   {
-    "ID": 446,
-    "Name": "Pregnancy"
+    "id": 446,
+    "name": "Pregnancy"
   },
   {
-    "ID": 169,
-    "Name": "Pregnancy loss"
+    "id": 169,
+    "name": "Pregnancy loss"
   },
   {
-    "ID": 603,
-    "Name": "Pregnancy-related problems"
+    "id": 603,
+    "name": "Pregnancy-related problems"
   },
   {
-    "ID": 263,
-    "Name": "Pressure on the brain"
+    "id": 263,
+    "name": "Pressure on the brain"
   },
   {
-    "ID": 599,
-    "Name": "Psychogenic issues"
+    "id": 599,
+    "name": "Psychogenic issues"
   },
   {
-    "ID": 180,
-    "Name": "Rapid swelling of the skin"
+    "id": 180,
+    "name": "Rapid swelling of the skin"
   },
   {
-    "ID": 314,
-    "Name": "Raynaud's disease"
+    "id": 314,
+    "name": "Raynaud's disease"
   },
   {
-    "ID": 146,
-    "Name": "Recurring itchy inflammation of the skin"
+    "id": 146,
+    "name": "Recurring itchy inflammation of the skin"
   },
   {
-    "ID": 551,
-    "Name": "Redness causing skin condition"
+    "id": 551,
+    "name": "Redness causing skin condition"
   },
   {
-    "ID": 381,
-    "Name": "Reflex sympathetic dystrophy"
+    "id": 381,
+    "name": "Reflex sympathetic dystrophy"
   },
   {
-    "ID": 18,
-    "Name": "Reflux disease"
+    "id": 18,
+    "name": "Reflux disease"
   },
   {
-    "ID": 511,
-    "Name": "Renal failure"
+    "id": 511,
+    "name": "Renal failure"
   },
   {
-    "ID": 364,
-    "Name": "Restless limb syndrome"
+    "id": 364,
+    "name": "Restless limb syndrome"
   },
   {
-    "ID": 365,
-    "Name": "Rheumatic fever"
+    "id": 365,
+    "name": "Rheumatic fever"
   },
   {
-    "ID": 521,
-    "Name": "Rheumatic pain in many muscles"
+    "id": 521,
+    "name": "Rheumatic pain in many muscles"
   },
   {
-    "ID": 366,
-    "Name": "Rheumatism"
+    "id": 366,
+    "name": "Rheumatism"
   },
   {
-    "ID": 36,
-    "Name": "Ringing in the ears"
+    "id": 36,
+    "name": "Ringing in the ears"
   },
   {
-    "ID": 339,
-    "Name": "Salivary gland inflammation"
+    "id": 339,
+    "name": "Salivary gland inflammation"
   },
   {
-    "ID": 388,
-    "Name": "Salivary gland stone"
+    "id": 388,
+    "name": "Salivary gland stone"
   },
   {
-    "ID": 574,
-    "Name": "Scalp infection"
+    "id": 574,
+    "name": "Scalp infection"
   },
   {
-    "ID": 376,
-    "Name": "Scarlet fever"
+    "id": 376,
+    "name": "Scarlet fever"
   },
   {
-    "ID": 315,
-    "Name": "Scheuermann's disease"
+    "id": 315,
+    "name": "Scheuermann's disease"
   },
   {
-    "ID": 543,
-    "Name": "School sores"
+    "id": 543,
+    "name": "School sores"
   },
   {
-    "ID": 194,
-    "Name": "Sebaceous cyst"
+    "id": 194,
+    "name": "Sebaceous cyst"
   },
   {
-    "ID": 386,
-    "Name": "Seborrheic eczema"
+    "id": 386,
+    "name": "Seborrheic eczema"
   },
   {
-    "ID": 168,
-    "Name": "Senility"
+    "id": 168,
+    "name": "Senility"
   },
   {
-    "ID": 604,
-    "Name": "Sexually transmitted diseases"
+    "id": 604,
+    "name": "Sexually transmitted diseases"
   },
   {
-    "ID": 68,
-    "Name": "Shaking palsy"
+    "id": 68,
+    "name": "Shaking palsy"
   },
   {
-    "ID": 656,
-    "Name": "Shingles"
+    "id": 656,
+    "name": "Shingles"
   },
   {
-    "ID": 444,
-    "Name": "Shock"
+    "id": 444,
+    "name": "Shock"
   },
   {
-    "ID": 142,
-    "Name": "Short-sightedness"
+    "id": 142,
+    "name": "Short-sightedness"
   },
   {
-    "ID": 383,
-    "Name": "Shoulder dislocation"
+    "id": 383,
+    "name": "Shoulder dislocation"
   },
   {
-    "ID": 567,
-    "Name": "Shoulder girdle compression syndrome"
+    "id": 567,
+    "name": "Shoulder girdle compression syndrome"
   },
   {
-    "ID": 67,
-    "Name": "Sick headache"
+    "id": 67,
+    "name": "Sick headache"
   },
   {
-    "ID": 150,
-    "Name": "Simultaneous malfunction of peripheral nerves"
+    "id": 150,
+    "name": "Simultaneous malfunction of peripheral nerves"
   },
   {
-    "ID": 458,
-    "Name": "Singer's nodules"
+    "id": 458,
+    "name": "Singer's nodules"
   },
   {
-    "ID": 293,
-    "Name": "Skin tags of anus"
+    "id": 293,
+    "name": "Skin tags of anus"
   },
   {
-    "ID": 65,
-    "Name": "Sleep apnea"
+    "id": 65,
+    "name": "Sleep apnea"
   },
   {
-    "ID": 379,
-    "Name": "Sleeping disorder"
+    "id": 379,
+    "name": "Sleeping disorder"
   },
   {
-    "ID": 103,
-    "Name": "Slipped disc"
+    "id": 103,
+    "name": "Slipped disc"
   },
   {
-    "ID": 43,
-    "Name": "Small sore in mouth"
+    "id": 43,
+    "name": "Small sore in mouth"
   },
   {
-    "ID": 19,
-    "Name": "Smoking"
+    "id": 19,
+    "name": "Smoking"
   },
   {
-    "ID": 20,
-    "Name": "Spastic colon"
+    "id": 20,
+    "name": "Spastic colon"
   },
   {
-    "ID": 510,
-    "Name": "Sperm cyst"
+    "id": 510,
+    "name": "Sperm cyst"
   },
   {
-    "ID": 464,
-    "Name": "Spondylosis of cervical spine"
+    "id": 464,
+    "name": "Spondylosis of cervical spine"
   },
   {
-    "ID": 537,
-    "Name": "Sprained ankle"
+    "id": 537,
+    "name": "Sprained ankle"
   },
   {
-    "ID": 395,
-    "Name": "Squint"
+    "id": 395,
+    "name": "Squint"
   },
   {
-    "ID": 606,
-    "Name": "State of stress"
+    "id": 606,
+    "name": "State of stress"
   },
   {
-    "ID": 476,
-    "Name": "Stomach bleeding"
+    "id": 476,
+    "name": "Stomach bleeding"
   },
   {
-    "ID": 289,
-    "Name": "Stomach cancer"
+    "id": 289,
+    "name": "Stomach cancer"
   },
   {
-    "ID": 84,
-    "Name": "Stomach flu"
+    "id": 84,
+    "name": "Stomach flu"
   },
   {
-    "ID": 472,
-    "Name": "Stomach irritation"
+    "id": 472,
+    "name": "Stomach irritation"
   },
   {
-    "ID": 118,
-    "Name": "Stomach ulcer"
+    "id": 118,
+    "name": "Stomach ulcer"
   },
   {
-    "ID": 488,
-    "Name": "Strain of the back muscles"
+    "id": 488,
+    "name": "Strain of the back muscles"
   },
   {
-    "ID": 463,
-    "Name": "Strain of the neck muscles"
+    "id": 463,
+    "name": "Strain of the neck muscles"
   },
   {
-    "ID": 484,
-    "Name": "Strain of the regional supporting tissue"
+    "id": 484,
+    "name": "Strain of the regional supporting tissue"
   },
   {
-    "ID": 533,
-    "Name": "Strain, sprain or weakness of the muscle tendon unit and ligaments"
+    "id": 533,
+    "name": "Strain, sprain or weakness of the muscle tendon unit and ligaments"
   },
   {
-    "ID": 353,
-    "Name": "Stress disorder after trauma"
+    "id": 353,
+    "name": "Stress disorder after trauma"
   },
   {
-    "ID": 88,
-    "Name": "Stroke"
+    "id": 88,
+    "name": "Stroke"
   },
   {
-    "ID": 450,
-    "Name": "Stye"
+    "id": 450,
+    "name": "Stye"
   },
   {
-    "ID": 272,
-    "Name": "Subconjunctival bleeding"
+    "id": 272,
+    "name": "Subconjunctival bleeding"
   },
   {
-    "ID": 137,
-    "Name": "Sudden hearing loss"
+    "id": 137,
+    "name": "Sudden hearing loss"
   },
   {
-    "ID": 175,
-    "Name": "Sudden loss of vision"
+    "id": 175,
+    "name": "Sudden loss of vision"
   },
   {
-    "ID": 391,
-    "Name": "Sunburn"
+    "id": 391,
+    "name": "Sunburn"
   },
   {
-    "ID": 550,
-    "Name": "Sun-related keratosis"
+    "id": 550,
+    "name": "Sun-related keratosis"
   },
   {
-    "ID": 124,
-    "Name": "Superficial form of cellulitis"
+    "id": 124,
+    "name": "Superficial form of cellulitis"
   },
   {
-    "ID": 29,
-    "Name": "Suspicious change of skin"
+    "id": 29,
+    "name": "Suspicious change of skin"
   },
   {
-    "ID": 396,
-    "Name": "Swelling of the thyroid gland"
+    "id": 396,
+    "name": "Swelling of the thyroid gland"
   },
   {
-    "ID": 110,
-    "Name": "Syphilis"
+    "id": 110,
+    "name": "Syphilis"
   },
   {
-    "ID": 374,
-    "Name": "Systemic disorder with granulomatous inflammation"
+    "id": 374,
+    "name": "Systemic disorder with granulomatous inflammation"
   },
   {
-    "ID": 539,
-    "Name": "Tarsal tunnel syndrome"
+    "id": 539,
+    "name": "Tarsal tunnel syndrome"
   },
   {
-    "ID": 127,
-    "Name": "Tear in the skin of anus"
+    "id": 127,
+    "name": "Tear in the skin of anus"
   },
   {
-    "ID": 203,
-    "Name": "Tear of the biceps tendon"
+    "id": 203,
+    "name": "Tear of the biceps tendon"
   },
   {
-    "ID": 469,
-    "Name": "Temporomandibular joint dysfunction"
+    "id": 469,
+    "name": "Temporomandibular joint dysfunction"
   },
   {
-    "ID": 526,
-    "Name": "Tendon sheath inflammation"
+    "id": 526,
+    "name": "Tendon sheath inflammation"
   },
   {
-    "ID": 370,
-    "Name": "Tendon tear in shoulder"
+    "id": 370,
+    "name": "Tendon tear in shoulder"
   },
   {
-    "ID": 116,
-    "Name": "Tennis elbow"
+    "id": 116,
+    "name": "Tennis elbow"
   },
   {
-    "ID": 267,
-    "Name": "Testicular cancer"
+    "id": 267,
+    "name": "Testicular cancer"
   },
   {
-    "ID": 62,
-    "Name": "Thinning bones"
+    "id": 62,
+    "name": "Thinning bones"
   },
   {
-    "ID": 230,
-    "Name": "Thyroid eye disease"
+    "id": 230,
+    "name": "Thyroid eye disease"
   },
   {
-    "ID": 78,
-    "Name": "Tick-borne encephalitis"
+    "id": 78,
+    "name": "Tick-borne encephalitis"
   },
   {
-    "ID": 449,
-    "Name": "Tooth abscess"
+    "id": 449,
+    "name": "Tooth abscess"
   },
   {
-    "ID": 151,
-    "Name": "Torsion of testes"
+    "id": 151,
+    "name": "Torsion of testes"
   },
   {
-    "ID": 531,
-    "Name": "Tourette's syndrome"
+    "id": 531,
+    "name": "Tourette's syndrome"
   },
   {
-    "ID": 407,
-    "Name": "Toxoplasmosis infection"
+    "id": 407,
+    "name": "Toxoplasmosis infection"
   },
   {
-    "ID": 403,
-    "Name": "Trigger finger"
+    "id": 403,
+    "name": "Trigger finger"
   },
   {
-    "ID": 497,
-    "Name": "Tubal and ovarian inflammation"
+    "id": 497,
+    "name": "Tubal and ovarian inflammation"
   },
   {
-    "ID": 240,
-    "Name": "Tubal pregnancy"
+    "id": 240,
+    "name": "Tubal pregnancy"
   },
   {
-    "ID": 453,
-    "Name": "Tuberculosis"
+    "id": 453,
+    "name": "Tuberculosis"
   },
   {
-    "ID": 451,
-    "Name": "Ulcer of the skin of the eyelid"
+    "id": 451,
+    "name": "Ulcer of the skin of the eyelid"
   },
   {
-    "ID": 325,
-    "Name": "Ulnar nerve entrapment"
+    "id": 325,
+    "name": "Ulnar nerve entrapment"
   },
   {
-    "ID": 412,
-    "Name": "Urinary stones in the urinary tract"
+    "id": 412,
+    "name": "Urinary stones in the urinary tract"
   },
   {
-    "ID": 59,
-    "Name": "Urinary tract infection"
+    "id": 59,
+    "name": "Urinary tract infection"
   },
   {
-    "ID": 433,
-    "Name": "Vascular inflammation"
+    "id": 433,
+    "name": "Vascular inflammation"
   },
   {
-    "ID": 566,
-    "Name": "Vertebral fracture"
+    "id": 566,
+    "name": "Vertebral fracture"
   },
   {
-    "ID": 326,
-    "Name": "Vestibular failure"
+    "id": 326,
+    "name": "Vestibular failure"
   },
   {
-    "ID": 457,
-    "Name": "Vocal cord paralysis"
+    "id": 457,
+    "name": "Vocal cord paralysis"
   },
   {
-    "ID": 609,
-    "Name": "Voice overuse"
+    "id": 609,
+    "name": "Voice overuse"
   },
   {
-    "ID": 286,
-    "Name": "Water accumulation in the lungs"
+    "id": 286,
+    "name": "Water accumulation in the lungs"
   },
   {
-    "ID": 329,
-    "Name": "Water accumulation in the tissues"
+    "id": 329,
+    "name": "Water accumulation in the tissues"
   },
   {
-    "ID": 466,
-    "Name": "Whiplash"
+    "id": 466,
+    "name": "Whiplash"
   },
   {
-    "ID": 200,
-    "Name": "White skin cancer"
+    "id": 200,
+    "name": "White skin cancer"
   },
   {
-    "ID": 345,
-    "Name": "Whooping cough"
+    "id": 345,
+    "name": "Whooping cough"
   },
   {
-    "ID": 587,
-    "Name": "Yeast infection"
+    "id": 587,
+    "name": "Yeast infection"
   },
   {
-    "ID": 248,
-    "Name": "Yellow plague"
+    "id": 248,
+    "name": "Yellow plague"
   },
   {
-    "ID": 548,
-    "Name": "Yellow skin bumps"
+    "id": 548,
+    "name": "Yellow skin bumps"
   }
 ]

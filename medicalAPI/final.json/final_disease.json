@@ -1,0 +1,2066 @@
+{
+  "id": "764",
+  "assocID": "c_764",
+  "name": "Abdominal aortic aneurysm",
+  "synonym": [
+    "Abdominal aortic anuerysm",
+    "AAA"
+  ],
+  "categories": [
+    "Surgery"
+  ],
+  "icd10_code": "I71.4",
+  "sex_filter": "both",
+  "possibleSymptoms": [
+    "Reduced appetite",
+    "Shortness of breath",
+    "Eye redness", "Sputum",
+    "Burning in the throat"
+  ],
+  "Description": "Bulges in the wall of the aorta cause aneurysms of a size up to several centimetres. The bigger an aneurysm, the greater the danger of rupturing. The rupture leads to a severe loss of blood (for example in the abdomen), and often help comes too late.",
+  "DescriptionShort": "An aortic aneurysm is a bulging section in the wall of the aorta. These bulges can occur anywhere along the aorta, but are most commonly found in the abdomen. ",
+  "MedicalCondition": "Aortic aneurysms can generally occur anywhere along the aorta, but they are most common in the abdomen. Men are affected more often than women. Up to 50% of all cases are detected during an ultrasound or a CT scan, often at a point of time when no or only unspecific symptoms could be observed. The most common symptoms are unspecific, such as back pain, digestion problems or abdominal pain, sometimes also irritations of nerves or thrombosis, if the bulge presses on nerves or blood vessels. After a rupture, patients describe strongest pain in abdomen, back or chest, quickly followed by shock.",
+  "TreatmentDescription": "Aortic aneurysms discovered by chance are measured and observed. Often, the bulge is filled with clotted blood (thrombosis). Small particles can tear from this thrombosis, block a smaller vessel behind (embolism) and lead to impaired blood circulation. If the aneurysm reaches a certain size, the risk of a spontaneous rupture is too big, so that the bulge should be treated surgically, if the patient’s condition allows. In most cases, stents will be implanted. "
+}
+
+[{
+  "id": "11",
+  "assocID": "c_33",
+  "name": "Flu",
+  "synonym": ["Flu", "Influenza"]
+}, {
+  "id": "12",
+  "assocID": "c_48",
+  "name": "Irregular heart rhythm in atria",
+  "synonym": ["Irregular heart rhythm in atria", "Atrial fibrillation", "Irregular heart rhythm involving heart chambers", "Arrhythmia in the atria"]
+}, {
+  "id": "14",
+  "assocID": "c_8",
+  "name": "Inflammatory disease of the airways",
+  "synonym": ["Inflammatory disease of the airways", "Bronchial asthma", "Asthma"]
+}, {
+  "id": "15",
+  "assocID": "",
+  "name": "Hypersensitivity reaction",
+  "synonym": ["Hypersensitivity reaction", "Allergy", "Hypersensitivity of the immune system"]
+}, {
+  "id": "16",
+  "assocID": "c_50",
+  "name": "High blood pressure",
+  "synonym": ["High blood pressure", "Hypertension"]
+}, {
+  "id": "17",
+  "assocID": "",
+  "name": "Diabetes",
+  "synonym": ["Diabetes", "Diabetes mellitus"]
+}, {
+  "id": "18",
+  "assocID": "c_101",
+  "name": "Reflux disease",
+  "synonym": ["Reflux disease", "Gastroesophageal reflux disease", "GERD"]
+}, {
+  "id": "19",
+  "assocID": "",
+  "name": "Smoking",
+  "synonym": ["Smoking", "Tobacco smoking"]
+}, {
+  "id": "20",
+  "assocID": "c_142",
+  "name": "Spastic colon",
+  "synonym": ["Spastic colon", "Irritable bowel syndrome"]
+}, {
+  "id": "26",
+  "assocID": "c_43",
+  "name": "Condition causing overproduction of skin cells",
+  "synonym": ["Condition causing overproduction of skin cells", "Psoriasis", "Condition that produces plaques of thickened scaling skin"]
+}, {
+  "id": "27",
+  "assocID": "c_111",
+  "name": "Acne",
+  "synonym": ["Acne", "Acne vulgaris"]
+}, {
+  "id": "29",
+  "assocID": "",
+  "name": "Suspicious change of skin",
+  "synonym": ["Suspicious change of skin", "Suspicious lesion of skin"]
+}, {
+  "id": "30",
+  "assocID": "",
+  "name": "Green cataract",
+  "synonym": ["Green cataract", "Glaucoma", "Green star"]
+}, {
+  "id": "31",
+  "assocID": "c_176",
+  "name": "Clouding of the eye lens",
+  "synonym": ["Clouding of the eye lens", "Cataract", "Gray cataract", "Grey cataract"]
+}, {
+  "id": "32",
+  "assocID": "",
+  "name": "Dry eye",
+  "synonym": ["Dry eye", "Keratoconjunctivitis sicca"]
+}, {
+  "id": "36",
+  "assocID": "",
+  "name": "Ringing in the ears",
+  "synonym": ["Ringing in the ears", "Tinnitus"]
+}, {
+  "id": "37",
+  "assocID": "c_130",
+  "name": "Middle ear infection",
+  "synonym": ["Middle ear infection", "Otitis media"]
+}, {
+  "id": "38",
+  "assocID": "",
+  "name": "Inflammation of the external ear canal",
+  "synonym": ["Inflammation of the external ear canal", "Otitis externa", "Swimmer's ear", "Inflammation of the outer ear and ear canal"]
+}, {
+  "id": "39",
+  "assocID": "",
+  "name": "Earwax blockage",
+  "synonym": ["Earwax blockage", "Impacted cerumen", "Earwax clog", "Cerumen impaction"]
+}, {
+  "id": "40",
+  "assocID": "",
+  "name": "Nosebleed",
+  "synonym": ["Nosebleed", "Epistaxis"]
+}, {
+  "id": "41",
+  "assocID": "",
+  "name": "Inflammation of paranasal sinuses",
+  "synonym": ["Inflammation of paranasal sinuses", "Sinusitis"]
+}, {
+  "id": "43",
+  "assocID": "",
+  "name": "Small sore in mouth",
+  "synonym": ["Small sore in mouth", "Aphthous stomatitis", "Canker sores", "Recurring oral aphthae", "Mouth ulcer"]
+}, {
+  "id": "44",
+  "assocID": "",
+  "name": "Inflammation of the nose and throat",
+  "synonym": ["Inflammation of the nose and throat", "Nasopharyngitis"]
+}, {
+  "id": "46",
+  "assocID": "",
+  "name": "Hiccup",
+  "synonym": ["Hiccup", "Singultus", "Hiccups", "Hiccough"]
+}, {
+  "id": "47",
+  "assocID": "",
+  "name": "Depression",
+  "synonym": ["Depression", "Major depressive disorder"]
+}, {
+  "id": "48",
+  "assocID": "",
+  "name": "Anorexia",
+  "synonym": ["Anorexia", "Anorexia nervosa"]
+}, {
+  "id": "49",
+  "assocID": "",
+  "name": "Bulimia",
+  "synonym": ["Bulimia", "Bulimia nervosa"]
+}, {
+  "id": "50",
+  "assocID": "",
+  "name": "Menopause",
+  "synonym": ["Menopause", "Climacteric"]
+}, {
+  "id": "51",
+  "assocID": "",
+  "name": "Loose watery stools",
+  "synonym": ["Loose watery stools", "Diarrhea", "Diarrhoea", "Gippy tummy", "Squits"]
+}, {
+  "id": "52",
+  "assocID": "",
+  "name": "Gluten intolerance",
+  "synonym": ["Gluten intolerance", "Celiac disease", "Sensitivity to gluten"]
+}, {
+  "id": "53",
+  "assocID": "",
+  "name": "Constipation",
+  "synonym": ["Constipation", "Obstipation", "Infrequent bowel movements", "Difficult bowel movements"]
+}, {
+  "id": "54",
+  "assocID": "",
+  "name": "Inflammation of the liver",
+  "synonym": ["Inflammation of the liver", "Hepatitis"]
+}, {
+  "id": "55",
+  "assocID": "",
+  "name": "Gall stones",
+  "synonym": ["Gall stones", "Cholelithiasis", "Gallstone"]
+}, {
+  "id": "57",
+  "assocID": "",
+  "name": "Narrowing of the aortic valve",
+  "synonym": ["Narrowing of the aortic valve", "Aortic stenosis", "AS", "Aortic valve stenosis"]
+}, {
+  "id": "58",
+  "assocID": "",
+  "name": "Mitral regurgitation",
+  "synonym": ["Mitral regurgitation", "Mitral valve insufficiency"]
+}, {
+  "id": "59",
+  "assocID": "",
+  "name": "Urinary tract infection",
+  "synonym": ["Urinary tract infection", "Cystitis", "UTI", "Acute cystitis", "Bladder infection"]
+}, {
+  "id": "60",
+  "assocID": "",
+  "name": "Lack of supply of thyroid hormones",
+  "synonym": ["Lack of supply of thyroid hormones", "Hypothyroidism"]
+}, {
+  "id": "61",
+  "assocID": "",
+  "name": "Overproduction of thyroid hormones",
+  "synonym": ["Overproduction of thyroid hormones", "Hyperthyroidism"]
+}, {
+  "id": "62",
+  "assocID": "",
+  "name": "Thinning bones",
+  "synonym": ["Thinning bones", "Osteoporosis"]
+}, {
+  "id": "63",
+  "assocID": "",
+  "name": "Gout",
+  "synonym": ["Gout", "Hyperuricemia"]
+}, {
+  "id": "64",
+  "assocID": "",
+  "name": "Chronic obstructive lung disease",
+  "synonym": ["Chronic obstructive lung disease", "Chronic obstructive pulmonary disease", "Smoker’s lung"]
+}, {
+  "id": "65",
+  "assocID": "",
+  "name": "Sleep apnea",
+  "synonym": ["Sleep apnea", "Sleep apnea syndrome", "Sleep apnoea"]
+}, {
+  "id": "66",
+  "assocID": "",
+  "name": "Alzheimer type dementia",
+  "synonym": ["Alzheimer type dementia", "Alzheimer's disease", "AD", "Alzheimer disease", "Alzheimer's"]
+}, {
+  "id": "67",
+  "assocID": "",
+  "name": "Sick headache",
+  "synonym": ["Sick headache", "Migraine"]
+}, {
+  "id": "68",
+  "assocID": "",
+  "name": "Shaking palsy",
+  "synonym": ["Shaking palsy", "Parkinson's disease"]
+}, {
+  "id": "76",
+  "assocID": "",
+  "name": "Inflammation to the joints",
+  "synonym": ["Inflammation to the joints", "Arthritis", "Joint inflammations"]
+}, {
+  "id": "78",
+  "assocID": "",
+  "name": "Tick-borne encephalitis",
+  "synonym": ["Tick-borne encephalitis", "Early summer meningoencephalitis"]
+}, {
+  "id": "79",
+  "assocID": "",
+  "name": "Lyme disease",
+  "synonym": ["Lyme disease", "Lyme borreliosis"]
+}, {
+  "id": "80",
+  "assocID": "",
+  "name": "Cold",
+  "synonym": ["Cold", "Common cold", "Head cold", "Head-cold"]
+}, {
+  "id": "81",
+  "assocID": "",
+  "name": "Chickenpox",
+  "synonym": ["Chickenpox", "Varicella zoster virus infection"]
+}, {
+  "id": "82",
+  "assocID": "",
+  "name": "Herpes",
+  "synonym": ["Herpes", "Herpes simplex", "Cold sore", "Fever blister"]
+}, {
+  "id": "83",
+  "assocID": "",
+  "name": "Inflammation of the brain covering membranes",
+  "synonym": ["Inflammation of the brain covering membranes", "Meningitis", "Inflammation of the cerebral membranes"]
+}, {
+  "id": "84",
+  "assocID": "",
+  "name": "Stomach flu",
+  "synonym": ["Stomach flu", "Gastroenteritis", "Gastric flu", "Stomach bug"]
+}, {
+  "id": "85",
+  "assocID": "",
+  "name": "Hardening of the walls of arteries",
+  "synonym": ["Hardening of the walls of arteries", "Arteriosclerosis"]
+}, {
+  "id": "86",
+  "assocID": "",
+  "name": "Coronary heart disease",
+  "synonym": ["Coronary heart disease", "Coronary artery disease", "CAD", "ischemic heart disease", "IHD", "atherosclerotic heart disease", "atherosclerotic cardiovascular disease"]
+}, {
+  "id": "87",
+  "assocID": "",
+  "name": "Heart attack",
+  "synonym": ["Heart attack", "Myocardial infarction", "MI", "acute myocardial infarction", "AMI"]
+}, {
+  "id": "88",
+  "assocID": "",
+  "name": "Stroke",
+  "synonym": ["Stroke", "Cerebrovascular accident", "Brain attack"]
+}, {
+  "id": "91",
+  "assocID": "",
+  "name": "Enlarged and twisted veins",
+  "synonym": ["Enlarged and twisted veins", "Varicose veins"]
+}, {
+  "id": "92",
+  "assocID": "",
+  "name": "Clot in the leg vein",
+  "synonym": ["Clot in the leg vein", "Deep vein thrombosis", "Blood clot within a deep vein"]
+}, {
+  "id": "93",
+  "assocID": "",
+  "name": "Lack of blood",
+  "synonym": ["Lack of blood", "Anemia", "Anaemia"]
+}, {
+  "id": "94",
+  "assocID": "",
+  "name": "Hyperventilation",
+  "synonym": ["Hyperventilation", "Hyperventilation syndrome", "Overbreathing"]
+}, {
+  "id": "95",
+  "assocID": "",
+  "name": "Lactase deficiency",
+  "synonym": ["Lactase deficiency", "Lactose intolerance"]
+}, {
+  "id": "96",
+  "assocID": "",
+  "name": "Lack of vitamin D",
+  "synonym": ["Lack of vitamin D", "Vitamin D deficiency"]
+}, {
+  "id": "97",
+  "assocID": "",
+  "name": "Excessive overweight",
+  "synonym": ["Excessive overweight", "Obesity", "Excessive fat accumulation that presents a risk to health"]
+}, {
+  "id": "99",
+  "assocID": "",
+  "name": "Benign prostate enlargement",
+  "synonym": ["Benign prostate enlargement", "Benign prostatic hyperplasia"]
+}, {
+  "id": "100",
+  "assocID": "",
+  "name": "Dry skin",
+  "synonym": ["Dry skin", "Xerosis cutis", "Winter itch", "Winter eczema"]
+}, {
+  "id": "101",
+  "assocID": "",
+  "name": "Long-sightedness due to old age",
+  "synonym": ["Long-sightedness due to old age", "Presbyopia", "Long-sightedness in the elderly", "Difficulties to see near objects due to old age"]
+}, {
+  "id": "102",
+  "assocID": "",
+  "name": "Back pain",
+  "synonym": ["Back pain", "Dorsalgia"]
+}, {
+  "id": "103",
+  "assocID": "",
+  "name": "Slipped disc",
+  "synonym": ["Slipped disc", "Disc herniation", "Prolapsed intervertebral disc"]
+}, {
+  "id": "104",
+  "assocID": "",
+  "name": "Headache",
+  "synonym": ["Headache", "Cephalalgia"]
+}, {
+  "id": "105",
+  "assocID": "",
+  "name": "Measles",
+  "synonym": ["Measles", "Morbilli", "Red measles"]
+}, {
+  "id": "106",
+  "assocID": "",
+  "name": "Mumps",
+  "synonym": ["Mumps", "Epidemic parotitis", "Inflammation of the parotid gland"]
+}, {
+  "id": "107",
+  "assocID": "",
+  "name": "German measles",
+  "synonym": ["German measles", "Rubella"]
+}, {
+  "id": "108",
+  "assocID": "",
+  "name": "Lockjaw",
+  "synonym": ["Lockjaw", "Tetanus"]
+}, {
+  "id": "109",
+  "assocID": "",
+  "name": "Kissing disease",
+  "synonym": ["Kissing disease", "Infectious mononucleosis", "Glandular fever"]
+}, {
+  "id": "110",
+  "assocID": "",
+  "name": "Syphilis",
+  "synonym": ["Syphilis", "Lues venerea"]
+}, {
+  "id": "112",
+  "assocID": "",
+  "name": "HIV",
+  "synonym": ["HIV", "Human immunodeficiency virus"]
+}, {
+  "id": "113",
+  "assocID": "",
+  "name": "Acute inflammation of lung",
+  "synonym": ["Acute inflammation of lung", "Pneumonia"]
+}, {
+  "id": "114",
+  "assocID": "",
+  "name": "Inflammation of the stomach",
+  "synonym": ["Inflammation of the stomach", "Gastritis"]
+}, {
+  "id": "116",
+  "assocID": "",
+  "name": "Tennis elbow",
+  "synonym": ["Tennis elbow", "Lateral epicondylitis", " "]
+}, {
+  "id": "118",
+  "assocID": "",
+  "name": "Stomach ulcer",
+  "synonym": ["Stomach ulcer", "Peptic ulcer disease", "Stomach ulcer"]
+}, {
+  "id": "119",
+  "assocID": "",
+  "name": "Inflammation of the pancreas",
+  "synonym": ["Inflammation of the pancreas", "Pancreatitis"]
+}, {
+  "id": "120",
+  "assocID": "",
+  "name": "Inflammation of the urethra",
+  "synonym": ["Inflammation of the urethra", "Urethritis", "Infection of the urethra"]
+}, {
+  "id": "121",
+  "assocID": "",
+  "name": "Kidney inflammation",
+  "synonym": ["Kidney inflammation", "Glomerulonephritis", "Inflammation of the kidneys"]
+}, {
+  "id": "122",
+  "assocID": "",
+  "name": "Inflammation of veins",
+  "synonym": ["Inflammation of veins", "Phlebitis", "Thrombophlebitis"]
+}, {
+  "id": "124",
+  "assocID": "",
+  "name": "Superficial form of cellulitis",
+  "synonym": ["Superficial form of cellulitis", "Erysipelas"]
+}, {
+  "id": "125",
+  "assocID": "",
+  "name": "Inflammation of the nail skin",
+  "synonym": ["Inflammation of the nail skin", "Paronychia", "Whitlow", "Felon"]
+}, {
+  "id": "126",
+  "assocID": "",
+  "name": "Inflammation of the appendix",
+  "synonym": ["Inflammation of the appendix", "Appendicitis"]
+}, {
+  "id": "127",
+  "assocID": "",
+  "name": "Tear in the skin of anus",
+  "synonym": ["Tear in the skin of anus", "Anal fissure"]
+}, {
+  "id": "128",
+  "assocID": "",
+  "name": "Blood vessel expansion around anus",
+  "synonym": ["Blood vessel expansion around anus", "Hemorrhoids"]
+}, {
+  "id": "130",
+  "assocID": "",
+  "name": "Hernia",
+  "synonym": ["Hernia", "Abdominal hernia"]
+}, {
+  "id": "131",
+  "assocID": "",
+  "name": "Joint infection",
+  "synonym": ["Joint infection", "Septic arthritis"]
+}, {
+  "id": "132",
+  "assocID": "",
+  "name": "Femoral neck fracture",
+  "synonym": ["Femoral neck fracture", "Fracture of the femoral neck"]
+}, {
+  "id": "134",
+  "assocID": "",
+  "name": "Ankle injury",
+  "synonym": ["Ankle injury", "Ankle joint injury"]
+}, {
+  "id": "135",
+  "assocID": "",
+  "name": "Nerve compression in the wrist",
+  "synonym": ["Nerve compression in the wrist", "Carpal tunnel syndrome", "CTS"]
+}, {
+  "id": "136",
+  "assocID": "",
+  "name": "Inflammation of the tonsils",
+  "synonym": ["Inflammation of the tonsils", "Tonsillitis"]
+}, {
+  "id": "137",
+  "assocID": "",
+  "name": "Sudden hearing loss",
+  "synonym": ["Sudden hearing loss", "Idiopathic hearing loss"]
+}, {
+  "id": "138",
+  "assocID": "",
+  "name": "Positional vertigo",
+  "synonym": ["Positional vertigo", "Benign paroxysmal positional vertigo"]
+}, {
+  "id": "139",
+  "assocID": "",
+  "name": "Eyelid inflammation",
+  "synonym": ["Eyelid inflammation", "Blepharitis"]
+}, {
+  "id": "140",
+  "assocID": "",
+  "name": "Pink eye",
+  "synonym": ["Pink eye", "Conjunctivitis", "Pink-eye", "Pinkeye"]
+}, {
+  "id": "141",
+  "assocID": "",
+  "name": "Macular degeneration",
+  "synonym": ["Macular degeneration", "Age-related macular degeneration"]
+}, {
+  "id": "142",
+  "assocID": "",
+  "name": "Short-sightedness",
+  "synonym": ["Short-sightedness", "Myopia", "Near-sightedness"]
+}, {
+  "id": "143",
+  "assocID": "",
+  "name": "Far-sightedness",
+  "synonym": ["Far-sightedness", "Hyperopia", "Longsightedness", "Farsightedness"]
+}, {
+  "id": "144",
+  "assocID": "",
+  "name": "Fungal infection",
+  "synonym": ["Fungal infection", "Mycosis"]
+}, {
+  "id": "145",
+  "assocID": "",
+  "name": "Hives",
+  "synonym": ["Hives", "Urticaria", "Nettle rash"]
+}, {
+  "id": "146",
+  "assocID": "",
+  "name": "Recurring itchy inflammation of the skin",
+  "synonym": ["Recurring itchy inflammation of the skin", "Neurodermatitis", "Chronic itchy inflammation of the skin", "Allergic skin reaction"]
+}, {
+  "id": "147",
+  "assocID": "",
+  "name": "Cluster headache",
+  "synonym": ["Cluster headache", "Bing's erythroprosopalgia"]
+}, {
+  "id": "148",
+  "assocID": "",
+  "name": "Facial neuralgia",
+  "synonym": ["Facial neuralgia", "Trigeminal neuralgia"]
+}, {
+  "id": "149",
+  "assocID": "",
+  "name": "Concussion",
+  "synonym": ["Concussion", "Mild traumatic brain injury"]
+}, {
+  "id": "150",
+  "assocID": "",
+  "name": "Simultaneous malfunction of peripheral nerves",
+  "synonym": ["Simultaneous malfunction of peripheral nerves", "Polyneuropathy"]
+}, {
+  "id": "151",
+  "assocID": "",
+  "name": "Torsion of testes",
+  "synonym": ["Torsion of testes", "Testicular torsion"]
+}, {
+  "id": "152",
+  "assocID": "",
+  "name": "Benign proliferation of uterine lining tissue",
+  "synonym": ["Benign proliferation of uterine lining tissue", "Endometriosis", "Benign proliferation of the mucous membrane of the womb", "Chocolate cyst"]
+}, {
+  "id": "153",
+  "assocID": "",
+  "name": "Inflammation of the bronchi",
+  "synonym": ["Inflammation of the bronchi", "Acute bronchitis"]
+}, {
+  "id": "155",
+  "assocID": "",
+  "name": "Detached retina",
+  "synonym": ["Detached retina", "Retinal detachment", "Retinal separation", "Detachment of the retina"]
+}, {
+  "id": "164",
+  "assocID": "",
+  "name": "Disorders of lipid metabolism",
+  "synonym": ["Disorders of lipid metabolism", "Dyslipidemia"]
+}, {
+  "id": "165",
+  "assocID": "",
+  "name": "Fatty tumor",
+  "synonym": ["Fatty tumor", "Lipoma", "Benign tumor composed of adipose tissue", "Fatty tumour"]
+}, {
+  "id": "166",
+  "assocID": "",
+  "name": "Listeria infection",
+  "synonym": ["Listeria infection", "Listeriosis"]
+}, {
+  "id": "167",
+  "assocID": "",
+  "name": "Obstruction of a pulmonary artery",
+  "synonym": ["Obstruction of a pulmonary artery", "Pulmonary embolism"]
+}, {
+  "id": "168",
+  "assocID": "",
+  "name": "Senility",
+  "synonym": ["Senility", "Dementia"]
+}, {
+  "id": "169",
+  "assocID": "",
+  "name": "Pregnancy loss",
+  "synonym": ["Pregnancy loss", "Spontaneous abortion", "Miscarriage"]
+}, {
+  "id": "170",
+  "assocID": "",
+  "name": "Abortion",
+  "synonym": ["Abortion", "Induced abortion"]
+}, {
+  "id": "171",
+  "assocID": "",
+  "name": "Achilles tendon tear",
+  "synonym": ["Achilles tendon tear", "Achilles tendon rupture", "Achilles tendon tear", "Tear of the achilles tendon"]
+}, {
+  "id": "174",
+  "assocID": "",
+  "name": "Contact eczema",
+  "synonym": ["Contact eczema", "Contact dermatitis", "Allergic skin reaction"]
+}, {
+  "id": "175",
+  "assocID": "",
+  "name": "Sudden loss of vision",
+  "synonym": ["Sudden loss of vision", "Amaurosis fugax", "Transient monocular blindness"]
+}, {
+  "id": "176",
+  "assocID": "",
+  "name": "Disease of the motor neurons",
+  "synonym": ["Disease of the motor neurons", "Amyotrophic lateral sclerosis", "ALS", "Lou Gehrig's disease", "Charcot disease", "Motor neurone disease", "MND"]
+}, {
+  "id": "178",
+  "assocID": "",
+  "name": "Inflammation in the anal region",
+  "synonym": ["Inflammation in the anal region", "Anal fistula", "Fistula-in-ano"]
+}, {
+  "id": "180",
+  "assocID": "",
+  "name": "Rapid swelling of the skin",
+  "synonym": ["Rapid swelling of the skin", "Angioedema"]
+}, {
+  "id": "181",
+  "assocID": "",
+  "name": "Excessive feeling of fear",
+  "synonym": ["Excessive feeling of fear", "Anxiety disorder", "Panic disorder", "Panic attacks"]
+}, {
+  "id": "182",
+  "assocID": "",
+  "name": "Aneurysm of the main artery",
+  "synonym": ["Aneurysm of the main artery", "Aortic aneurysm", "Excessive enlargement of the aorta", "Aneurysm of the aorta", "Aneurism of the aorta", "Aneurism of the main artery"]
+}, {
+  "id": "183",
+  "assocID": "",
+  "name": "Dissection of the aorta",
+  "synonym": ["Dissection of the aorta", "Aortic dissection"]
+}, {
+  "id": "189",
+  "assocID": "",
+  "name": "Peripheral artery disease",
+  "synonym": ["Peripheral artery disease", "Peripheral artery occlusive disease", "Artery obstruction", "Smoker’s leg"]
+}, {
+  "id": "192",
+  "assocID": "",
+  "name": "Arthrosis",
+  "synonym": ["Arthrosis", "Osteoarthritis", "OA", "Degenerative arthritis", "Degenerative joint disease", "Osteoarthrosis"]
+}, {
+  "id": "193",
+  "assocID": "",
+  "name": "Fluid accumulation in the abdomen",
+  "synonym": ["Fluid accumulation in the abdomen", "Ascites", "Peritoneal fluid excess"]
+}, {
+  "id": "194",
+  "assocID": "",
+  "name": "Sebaceous cyst",
+  "synonym": ["Sebaceous cyst", "Atheroma"]
+}, {
+  "id": "196",
+  "assocID": "",
+  "name": "Chemical eye burn",
+  "synonym": ["Chemical eye burn", "Eye corrosion"]
+}, {
+  "id": "197",
+  "assocID": "",
+  "name": "Injury of the eye",
+  "synonym": ["Injury of the eye", "Eye injury"]
+}, {
+  "id": "199",
+  "assocID": "",
+  "name": "Bacterial skin infection",
+  "synonym": ["Bacterial skin infection", "Skin infection, bacterial"]
+}, {
+  "id": "200",
+  "assocID": "",
+  "name": "White skin cancer",
+  "synonym": ["White skin cancer", "Basal-cell carcinoma"]
+}, {
+  "id": "202",
+  "assocID": "",
+  "name": "Allergy to bee or wasp venom",
+  "synonym": ["Allergy to bee or wasp venom", "Allergy, bee or wasp venom", "Allergy to bees", "Allergy to wasps"]
+}, {
+  "id": "203",
+  "assocID": "",
+  "name": "Tear of the biceps tendon",
+  "synonym": ["Tear of the biceps tendon", "Rupture of the biceps tendon"]
+}, {
+  "id": "204",
+  "assocID": "",
+  "name": "Bladder cancer",
+  "synonym": ["Bladder cancer", "Carcinoma of the bladder"]
+}, {
+  "id": "208",
+  "assocID": "",
+  "name": "Inflammation of the bursae",
+  "synonym": ["Inflammation of the bursae", "Bursitis", "Inflammation of a bursa"]
+}, {
+  "id": "209",
+  "assocID": "",
+  "name": "Huntington's disease",
+  "synonym": ["Huntington's disease", "Huntington's chorea"]
+}, {
+  "id": "210",
+  "assocID": "",
+  "name": "Chronic vein insufficiency",
+  "synonym": ["Chronic vein insufficiency", "Chronic venous insufficiency"]
+}, {
+  "id": "211",
+  "assocID": "",
+  "name": "Chronic tiredness syndrome",
+  "synonym": ["Chronic tiredness syndrome", "Chronic fatigue syndrome"]
+}, {
+  "id": "212",
+  "assocID": "",
+  "name": "Chronic inflammatory bowel disease of colon",
+  "synonym": ["Chronic inflammatory bowel disease of colon", "Ulcerative colitis"]
+}, {
+  "id": "213",
+  "assocID": "",
+  "name": "Hypercortisolism",
+  "synonym": ["Hypercortisolism", "Cushing's syndrome"]
+}, {
+  "id": "214",
+  "assocID": "",
+  "name": "Lacrimal gland inflammation",
+  "synonym": ["Lacrimal gland inflammation", "Dacrocystitis"]
+}, {
+  "id": "215",
+  "assocID": "",
+  "name": "Colon cancer",
+  "synonym": ["Colon cancer", "Colorectal cancer", "Rectal cancer", "Bowel cancer"]
+}, {
+  "id": "216",
+  "assocID": "",
+  "name": "Intestinal polyp",
+  "synonym": ["Intestinal polyp", "Benign intestinal polyp"]
+}, {
+  "id": "217",
+  "assocID": "",
+  "name": "Fluid loss",
+  "synonym": ["Fluid loss", "Dehydration"]
+}, {
+  "id": "218",
+  "assocID": "",
+  "name": "Breakbone fever",
+  "synonym": ["Breakbone fever", "Dengue fever", "Dengue"]
+}, {
+  "id": "220",
+  "assocID": "",
+  "name": "Infection caused by corynebacterium diphtheriae",
+  "synonym": ["Infection caused by corynebacterium diphtheriae", "Diphtheria"]
+}, {
+  "id": "223",
+  "assocID": "",
+  "name": "Diverticular disease",
+  "synonym": ["Diverticular disease", "Diverticulosis"]
+}, {
+  "id": "226",
+  "assocID": "",
+  "name": "Iron deficiency",
+  "synonym": ["Iron deficiency", "Hypoferremia", "Sideropenia"]
+}, {
+  "id": "227",
+  "assocID": "",
+  "name": "Eversion of the eyelid",
+  "synonym": ["Eversion of the eyelid", "Ectropion"]
+}, {
+  "id": "228",
+  "assocID": "",
+  "name": "Dermatitis",
+  "synonym": ["Dermatitis", "Eczema", "Itchy inflammation of the skin"]
+}, {
+  "id": "229",
+  "assocID": "",
+  "name": "Inflammation of the endocardium",
+  "synonym": ["Inflammation of the endocardium", "Endocarditis"]
+}, {
+  "id": "230",
+  "assocID": "",
+  "name": "Thyroid eye disease",
+  "synonym": ["Thyroid eye disease", "Endocrine ophthalmopathy"]
+}, {
+  "id": "231",
+  "assocID": "",
+  "name": "Inward folding of eyelid",
+  "synonym": ["Inward folding of eyelid", "Entropion"]
+}, {
+  "id": "235",
+  "assocID": "",
+  "name": "Inflammation of the epididymis",
+  "synonym": ["Inflammation of the epididymis", "Epididymitis"]
+}, {
+  "id": "236",
+  "assocID": "",
+  "name": "Epileptic seizures",
+  "synonym": ["Epileptic seizures", "Epilepsy"]
+}, {
+  "id": "237",
+  "assocID": "",
+  "name": "Erection problems",
+  "synonym": ["Erection problems", "Erectile dysfunction"]
+}, {
+  "id": "238",
+  "assocID": "",
+  "name": "Frostbite",
+  "synonym": ["Frostbite", "Congelatio"]
+}, {
+  "id": "240",
+  "assocID": "",
+  "name": "Tubal pregnancy",
+  "synonym": ["Tubal pregnancy", "Ectopic pregnancy"]
+}, {
+  "id": "243",
+  "assocID": "",
+  "name": "Chronic muscular pain disorder",
+  "synonym": ["Chronic muscular pain disorder", "Fibromyalgia syndrome"]
+}, {
+  "id": "246",
+  "assocID": "",
+  "name": "Ganglion",
+  "synonym": ["Ganglion", "Ganglion cyst", "Bible Cyst", "Bible Bump"]
+}, {
+  "id": "248",
+  "assocID": "",
+  "name": "Yellow plague",
+  "synonym": ["Yellow plague", "Yellow fever", "Yellow jack", "Xellow plague", "Bronze john", "Black vomit", "Yellow jack viral disease"]
+}, {
+  "id": "253",
+  "assocID": "",
+  "name": "Bunion",
+  "synonym": ["Bunion", "Hallux valgus"]
+}, {
+  "id": "255",
+  "assocID": "",
+  "name": "Bruise",
+  "synonym": ["Bruise", "Hematoma", "Collection of blood", "Contusion"]
+}, {
+  "id": "261",
+  "assocID": "",
+  "name": "Diaphragmatic hernia",
+  "synonym": ["Diaphragmatic hernia", "Hiatus hernia"]
+}, {
+  "id": "263",
+  "assocID": "",
+  "name": "Pressure on the brain",
+  "synonym": ["Pressure on the brain", "Increased intracranial pressure", "Increased pressure on the brain", "Increased pressure inside the skull"]
+}, {
+  "id": "264",
+  "assocID": "",
+  "name": "Brain tumor",
+  "synonym": ["Brain tumor", "Intracranial neoplasm"]
+}, {
+  "id": "266",
+  "assocID": "",
+  "name": "Disturbed testicular descent",
+  "synonym": ["Disturbed testicular descent", "Maldescended testis"]
+}, {
+  "id": "267",
+  "assocID": "",
+  "name": "Testicular cancer",
+  "synonym": ["Testicular cancer", "Testicular carcinoma"]
+}, {
+  "id": "268",
+  "assocID": "",
+  "name": "Lymph cancer",
+  "synonym": ["Lymph cancer", "Lymphoma", "Cancer of lymph nodes", "Cancer of the lymph nodes"]
+}, {
+  "id": "269",
+  "assocID": "",
+  "name": "Hip dysplasia",
+  "synonym": ["Hip dysplasia", "Dysplasia of the hip"]
+}, {
+  "id": "271",
+  "assocID": "",
+  "name": "High blood pressure crisis",
+  "synonym": ["High blood pressure crisis", "Hypertensive crisis"]
+}, {
+  "id": "272",
+  "assocID": "",
+  "name": "Subconjunctival bleeding",
+  "synonym": ["Subconjunctival bleeding", "Hyposphagma", "Sub-conjunctival bleeding"]
+}, {
+  "id": "273",
+  "assocID": "",
+  "name": "Bowel obstruction",
+  "synonym": ["Bowel obstruction", "Ileus", "Intestinal obstruction"]
+}, {
+  "id": "276",
+  "assocID": "",
+  "name": "Knee ligament injury",
+  "synonym": ["Knee ligament injury", "Collateral or cruciate ligament injury"]
+}, {
+  "id": "277",
+  "assocID": "",
+  "name": "Bleeding disorder",
+  "synonym": ["Bleeding disorder", "Coagulopathy", "Clotting disorder"]
+}, {
+  "id": "280",
+  "assocID": "",
+  "name": "Hump",
+  "synonym": ["Hump", "Kyphosis", "Hunchback"]
+}, {
+  "id": "281",
+  "assocID": "",
+  "name": "Food poisoning",
+  "synonym": ["Food poisoning", "Foodborne illness", "Foodborne disease"]
+}, {
+  "id": "283",
+  "assocID": "",
+  "name": "Cirrhosis",
+  "synonym": ["Cirrhosis", "Cirrhosis of liver", "Liver cirrhosis"]
+}, {
+  "id": "285",
+  "assocID": "",
+  "name": "Lung cancer",
+  "synonym": ["Lung cancer", "Lung carcinoma"]
+}, {
+  "id": "286",
+  "assocID": "",
+  "name": "Water accumulation in the lungs",
+  "synonym": ["Water accumulation in the lungs", "Pulmonary edema"]
+}, {
+  "id": "287",
+  "assocID": "",
+  "name": "Enlarged lymph nodes",
+  "synonym": ["Enlarged lymph nodes", "Lymphadenopathy", "Enlarged lymph node glands", "Swollen lymph nodes", "Lymph node swelling"]
+}, {
+  "id": "289",
+  "assocID": "",
+  "name": "Stomach cancer",
+  "synonym": ["Stomach cancer", "Gastric carcinoma"]
+}, {
+  "id": "290",
+  "assocID": "",
+  "name": "Marsh fever",
+  "synonym": ["Marsh fever", "Malaria"]
+}, {
+  "id": "291",
+  "assocID": "",
+  "name": "Breast cancer",
+  "synonym": ["Breast cancer", "Carcinoma of the breast"]
+}, {
+  "id": "292",
+  "assocID": "",
+  "name": "Mental illness with euphoria and hyperactivity",
+  "synonym": ["Mental illness with euphoria and hyperactivity", "Mania"]
+}, {
+  "id": "293",
+  "assocID": "",
+  "name": "Skin tags of anus",
+  "synonym": ["Skin tags of anus", "Anal fold", "Anal skin tags", "Skin fold around the anus"]
+}, {
+  "id": "294",
+  "assocID": "",
+  "name": "Inflammation of the breast tissue",
+  "synonym": ["Inflammation of the breast tissue", "Mastitis", "Inflammation of the breast", "Inflammation of breast tissue"]
+}, {
+  "id": "295",
+  "assocID": "",
+  "name": "Change in the mammary glands",
+  "synonym": ["Change in the mammary glands", "Mastopathy"]
+}, {
+  "id": "297",
+  "assocID": "",
+  "name": "Black skin cancer",
+  "synonym": ["Black skin cancer", "Melanoma"]
+}, {
+  "id": "298",
+  "assocID": "",
+  "name": "Meningeal tumor",
+  "synonym": ["Meningeal tumor", "Meningeoma", "Meningeal tumour"]
+}, {
+  "id": "302",
+  "assocID": "",
+  "name": "Pleural tumor",
+  "synonym": ["Pleural tumor", "Pleural mesothelioma", "Pleural tumour"]
+}, {
+  "id": "308",
+  "assocID": "",
+  "name": "Fatigue fracture of the metatarsal",
+  "synonym": ["Fatigue fracture of the metatarsal", "March fracture", "Fatigue fracture", "Stress fracture of metatarsal bone"]
+}, {
+  "id": "312",
+  "assocID": "",
+  "name": "Giant cell arteritis",
+  "synonym": ["Giant cell arteritis", "Horton's disease"]
+}, {
+  "id": "316",
+  "assocID": "",
+  "name": "Disseminated sclerosis",
+  "synonym": ["Disseminated sclerosis", "Multiple sclerosis"]
+}, {
+  "id": "318",
+  "assocID": "",
+  "name": "Myasthenia gravis",
+  "synonym": ["Myasthenia gravis", "Pseudoparalytic myasthenia gravis"]
+}, {
+  "id": "320",
+  "assocID": "",
+  "name": "Food allergy",
+  "synonym": ["Food allergy", "Allergic food hypersensitivity"]
+}, {
+  "id": "321",
+  "assocID": "",
+  "name": "Food intolerance",
+  "synonym": ["Food intolerance", "Non-allergic food hypersensitivity"]
+}, {
+  "id": "322",
+  "assocID": "",
+  "name": "Nasal polyp",
+  "synonym": ["Nasal polyp", "Benign nasal polyp"]
+}, {
+  "id": "323",
+  "assocID": "",
+  "name": "Mole",
+  "synonym": ["Mole", "Nevus", "Birthmark", "Beauty mark", "Beauty spot"]
+}, {
+  "id": "324",
+  "assocID": "",
+  "name": "Kidney stones",
+  "synonym": ["Kidney stones", "Nephrolith"]
+}, {
+  "id": "325",
+  "assocID": "",
+  "name": "Ulnar nerve entrapment",
+  "synonym": ["Ulnar nerve entrapment", "Cubital tunnel syndrome"]
+}, {
+  "id": "326",
+  "assocID": "",
+  "name": "Vestibular failure",
+  "synonym": ["Vestibular failure", "Vestibular neuronitis"]
+}, {
+  "id": "327",
+  "assocID": "",
+  "name": "Fluid-filled sacs in the kidney",
+  "synonym": ["Fluid-filled sacs in the kidney", "Renal cysts"]
+}, {
+  "id": "329",
+  "assocID": "",
+  "name": "Water accumulation in the tissues",
+  "synonym": ["Water accumulation in the tissues", "Edema", "Fluid accumulation in the tissues"]
+}, {
+  "id": "330",
+  "assocID": "",
+  "name": "Ear injury with foreign body",
+  "synonym": ["Ear injury with foreign body", "Foreign body in ear", "Foreign bodies in the ear", "Foreign object in the ear"]
+}, {
+  "id": "331",
+  "assocID": "",
+  "name": "Inflammation of the testes",
+  "synonym": ["Inflammation of the testes", "Orchitis"]
+}, {
+  "id": "332",
+  "assocID": "",
+  "name": "Esophageal cancer",
+  "synonym": ["Esophageal cancer", "Esophageal carcinoma", "Oesophageal cancer"]
+}, {
+  "id": "333",
+  "assocID": "",
+  "name": "Esophageal corrosion",
+  "synonym": ["Esophageal corrosion", "Caustic esophageal injury"]
+}, {
+  "id": "334",
+  "assocID": "",
+  "name": "Benign bone tumor",
+  "synonym": ["Benign bone tumor", "Osteoma", "Benign tumor in a bone", "Bone tumor", " benign"]
+}, {
+  "id": "336",
+  "assocID": "",
+  "name": "Malignant bone tumor",
+  "synonym": ["Malignant bone tumor", "Osteosarcoma", "Bone tumor malignant"]
+}, {
+  "id": "339",
+  "assocID": "",
+  "name": "Salivary gland inflammation",
+  "synonym": ["Salivary gland inflammation", "Sialadenitis", "Sialoadenitis", "Inflammation of a salivary gland", "Salivary gland infection"]
+}, {
+  "id": "340",
+  "assocID": "",
+  "name": "Dislocation of kneecap",
+  "synonym": ["Dislocation of kneecap", "Patellar luxation", "Trick knee", "Floating kneecap", "Dislocated kneecap"]
+}, {
+  "id": "341",
+  "assocID": "",
+  "name": "Anal vein thrombosis",
+  "synonym": ["Anal vein thrombosis", "Perianal hematoma", "Anal venous thrombosis", "External hemorroidal thrombosis"]
+}, {
+  "id": "345",
+  "assocID": "",
+  "name": "Whooping cough",
+  "synonym": ["Whooping cough", "Pertussis", "100-day cough"]
+}, {
+  "id": "346",
+  "assocID": "",
+  "name": "Benign tumor of the adrenal medulla",
+  "synonym": ["Benign tumor of the adrenal medulla", "Pheochromocytoma"]
+}, {
+  "id": "347",
+  "assocID": "",
+  "name": "Narrowing of foreskin",
+  "synonym": ["Narrowing of foreskin", "Phimosis", "Contraction of foreskin", "Stricture of foreskin"]
+}, {
+  "id": "348",
+  "assocID": "",
+  "name": "Coccyx fistula",
+  "synonym": ["Coccyx fistula", "Pilonidal cyst", "Pilonidal sinus", "Jeep´s disease"]
+}, {
+  "id": "349",
+  "assocID": "",
+  "name": "Fluid accumulation in the chest cavity",
+  "synonym": ["Fluid accumulation in the chest cavity", "Pleural effusion", "Excess fluid in the chest cavity", "Abnormal chest fluid"]
+}, {
+  "id": "350",
+  "assocID": "",
+  "name": "Inflammation of the pleura",
+  "synonym": ["Inflammation of the pleura", "Pleurisy", "Pleuritis"]
+}, {
+  "id": "351",
+  "assocID": "",
+  "name": "Lung collapse",
+  "synonym": ["Lung collapse", "Pneumothorax"]
+}, {
+  "id": "353",
+  "assocID": "",
+  "name": "Stress disorder after trauma",
+  "synonym": ["Stress disorder after trauma", "Post-traumatic stress disorder"]
+}, {
+  "id": "357",
+  "assocID": "",
+  "name": "Malignant prostate cancer",
+  "synonym": ["Malignant prostate cancer", "Carcinoma of the prostate", "Prostate cancer malignant"]
+}, {
+  "id": "361",
+  "assocID": "",
+  "name": "Infection of kidney pelvis",
+  "synonym": ["Infection of kidney pelvis", "Pyelonephritis", "Kidney infection", "Infection of the kidneys"]
+}, {
+  "id": "364",
+  "assocID": "",
+  "name": "Restless limb syndrome",
+  "synonym": ["Restless limb syndrome", "Restless legs syndrome"]
+}, {
+  "id": "365",
+  "assocID": "",
+  "name": "Rheumatic fever",
+  "synonym": ["Rheumatic fever", "Acute rheumatic fever"]
+}, {
+  "id": "366",
+  "assocID": "",
+  "name": "Rheumatism",
+  "synonym": ["Rheumatism", "Rheumatoid arthritis", "Rheumatic disorder"]
+}, {
+  "id": "367",
+  "assocID": "",
+  "name": "Hay fever",
+  "synonym": ["Hay fever", "Allergic rhinitis"]
+}, {
+  "id": "368",
+  "assocID": "",
+  "name": "Flu-related rhinitis",
+  "synonym": ["Flu-related rhinitis", "Infectious rhinitis"]
+}, {
+  "id": "370",
+  "assocID": "",
+  "name": "Tendon tear in shoulder",
+  "synonym": ["Tendon tear in shoulder", "Rotator cuff rupture", "Rotator cuff tear"]
+}, {
+  "id": "374",
+  "assocID": "",
+  "name": "Systemic disorder with granulomatous inflammation",
+  "synonym": ["Systemic disorder with granulomatous inflammation", "Sarcoidosis"]
+}, {
+  "id": "376",
+  "assocID": "",
+  "name": "Scarlet fever",
+  "synonym": ["Scarlet fever", "Scarlatina"]
+}, {
+  "id": "379",
+  "assocID": "",
+  "name": "Sleeping disorder",
+  "synonym": ["Sleeping disorder", "Somnipathy"]
+}, {
+  "id": "381",
+  "assocID": "",
+  "name": "Reflex sympathetic dystrophy",
+  "synonym": ["Reflex sympathetic dystrophy", "Complex regional pain syndrome", "Reflex sympathetic syndrome"]
+}, {
+  "id": "383",
+  "assocID": "",
+  "name": "Shoulder dislocation",
+  "synonym": ["Shoulder dislocation", "Dislocated shoulder"]
+}, {
+  "id": "386",
+  "assocID": "",
+  "name": "Seborrheic eczema",
+  "synonym": ["Seborrheic eczema", "Seborrheic dermatitis", "Dandruff"]
+}, {
+  "id": "388",
+  "assocID": "",
+  "name": "Salivary gland stone",
+  "synonym": ["Salivary gland stone", "Sialolithiasis", "Salivary stone"]
+}, {
+  "id": "390",
+  "assocID": "",
+  "name": "Curvature of the spine",
+  "synonym": ["Curvature of the spine", "Scoliosis"]
+}, {
+  "id": "391",
+  "assocID": "",
+  "name": "Sunburn",
+  "synonym": ["Sunburn", "UV erythema"]
+}, {
+  "id": "395",
+  "assocID": "",
+  "name": "Squint",
+  "synonym": ["Squint", "Strabismus", "Squinting", "Crossed eyes"]
+}, {
+  "id": "396",
+  "assocID": "",
+  "name": "Swelling of the thyroid gland",
+  "synonym": ["Swelling of the thyroid gland", "Goitre"]
+}, {
+  "id": "397",
+  "assocID": "",
+  "name": "Bowel incontinence",
+  "synonym": ["Bowel incontinence", "Fecal incontinence", "Fecal incontinence", "FI", "Faecal incontinence", "Bowel incontinence", "Anal incontinence", "Accidental bowel leakage", "Incontinence of stool"]
+}, {
+  "id": "403",
+  "assocID": "",
+  "name": "Trigger finger",
+  "synonym": ["Trigger finger", "Tendinitis stenosans", "Trigger thumb", "Trigger digit"]
+}, {
+  "id": "404",
+  "assocID": "",
+  "name": "Mediterranean anemia",
+  "synonym": ["Mediterranean anemia", "Thalassemia", "Thalassaemia"]
+}, {
+  "id": "407",
+  "assocID": "",
+  "name": "Toxoplasmosis infection",
+  "synonym": ["Toxoplasmosis infection", "Toxoplasmosis"]
+}, {
+  "id": "410",
+  "assocID": "",
+  "name": "Ingrown nail",
+  "synonym": ["Ingrown nail", "Onychocryptosis", "Unguis incarnatus", "Ingrown toenail", "Ingrowing nail"]
+}, {
+  "id": "411",
+  "assocID": "",
+  "name": "Involuntary urination",
+  "synonym": ["Involuntary urination", "Urinary incontinence", "Incontinence"]
+}, {
+  "id": "412",
+  "assocID": "",
+  "name": "Urinary stones in the urinary tract",
+  "synonym": ["Urinary stones in the urinary tract", "Urolithiasis"]
+}, {
+  "id": "415",
+  "assocID": "",
+  "name": "Burn",
+  "synonym": ["Burn", "Combustion", "Scald"]
+}, {
+  "id": "431",
+  "assocID": "",
+  "name": "Drug side effect",
+  "synonym": ["Drug side effect", "Adverse drug reaction", "Drug adverse effects", "Adverse drug effect", "Medication side effect", "Side effect"]
+}, {
+  "id": "432",
+  "assocID": "",
+  "name": "Heart failure",
+  "synonym": ["Heart failure", "Cardiac failure", "HF", "Chronic heart failure"]
+}, {
+  "id": "433",
+  "assocID": "",
+  "name": "Vascular inflammation",
+  "synonym": ["Vascular inflammation", "Vasculitis"]
+}, {
+  "id": "434",
+  "assocID": "",
+  "name": "Heart racing",
+  "synonym": ["Heart racing", "Palpitations", "Palpitation"]
+}, {
+  "id": "436",
+  "assocID": "",
+  "name": "Inflammation of heart muscle",
+  "synonym": ["Inflammation of heart muscle", "Myocarditis", "Inflammatory cardiomyopathy"]
+}, {
+  "id": "437",
+  "assocID": "",
+  "name": "Inflammation of the pericardium",
+  "synonym": ["Inflammation of the pericardium", "Pericarditis"]
+}, {
+  "id": "438",
+  "assocID": "",
+  "name": "Diffuse hair loss",
+  "synonym": ["Diffuse hair loss", "Effluvium", "Hair loss", " diffuse"]
+}, {
+  "id": "439",
+  "assocID": "",
+  "name": "Lupus",
+  "synonym": ["Lupus", "Systemic lupus erythematosus", "SLE"]
+}, {
+  "id": "440",
+  "assocID": "",
+  "name": "Fainting after standing up",
+  "synonym": ["Fainting after standing up", "Orthostatic syncope", "Passing out after standing up"]
+}, {
+  "id": "441",
+  "assocID": "",
+  "name": "Gait disorder due to old age",
+  "synonym": ["Gait disorder due to old age", "Gait abnormality due to old age", "Gait disorder in the elderly"]
+}, {
+  "id": "443",
+  "assocID": "",
+  "name": "Poisoning",
+  "synonym": ["Poisoning", "Intoxication"]
+}, {
+  "id": "444",
+  "assocID": "",
+  "name": "Shock",
+  "synonym": ["Shock", "Acute stress disorder", "Psychological shock", "Mental shock"]
+}, {
+  "id": "445",
+  "assocID": "",
+  "name": "Imbalance of body minerals",
+  "synonym": ["Imbalance of body minerals", "Electrolyte imbalance"]
+}, {
+  "id": "446",
+  "assocID": "",
+  "name": "Pregnancy",
+  "synonym": ["Pregnancy", "Gravidity", "Gestation"]
+}, {
+  "id": "447",
+  "assocID": "",
+  "name": "Inflammation of the cornea",
+  "synonym": ["Inflammation of the cornea", "Keratitis"]
+}, {
+  "id": "449",
+  "assocID": "",
+  "name": "Tooth abscess",
+  "synonym": ["Tooth abscess", "Dental abscess"]
+}, {
+  "id": "450",
+  "assocID": "",
+  "name": "Stye",
+  "synonym": ["Stye", "Hordeolum", "Sty"]
+}, {
+  "id": "451",
+  "assocID": "",
+  "name": "Ulcer of the skin of the eyelid",
+  "synonym": ["Ulcer of the skin of the eyelid", "Chalazion"]
+}, {
+  "id": "452",
+  "assocID": "",
+  "name": "Facial paralysis",
+  "synonym": ["Facial paralysis", "Facial nerve paralysis"]
+}, {
+  "id": "453",
+  "assocID": "",
+  "name": "Tuberculosis",
+  "synonym": ["Tuberculosis", "Phthisis pulmonalis"]
+}, {
+  "id": "454",
+  "assocID": "",
+  "name": "Auditory vertigo",
+  "synonym": ["Auditory vertigo", "Ménière's disease", "Vestibular vertigo", "Aural vertigo"]
+}, {
+  "id": "455",
+  "assocID": "",
+  "name": "Foreign object in the eye",
+  "synonym": ["Foreign object in the eye", "Foreign body in the eye"]
+}, {
+  "id": "456",
+  "assocID": "",
+  "name": "Abscess of the tonsils",
+  "synonym": ["Abscess of the tonsils", "Peritonsillar abscess", "PTA", "Quinsy", "Quinsey"]
+}, {
+  "id": "457",
+  "assocID": "",
+  "name": "Vocal cord paralysis",
+  "synonym": ["Vocal cord paralysis", "Vocal cord paresis"]
+}, {
+  "id": "460",
+  "assocID": "",
+  "name": "Croup",
+  "synonym": ["Croup", "Obstructive laryngitis"]
+}, {
+  "id": "461",
+  "assocID": "",
+  "name": "Foreign object in the ear",
+  "synonym": ["Foreign object in the ear", "Foreign body in ear"]
+}, {
+  "id": "462",
+  "assocID": "",
+  "name": "Dry nasal mucosa",
+  "synonym": ["Dry nasal mucosa", "Rhinitis sicca", " "]
+}, {
+  "id": "463",
+  "assocID": "",
+  "name": "Strain of the neck muscles",
+  "synonym": ["Strain of the neck muscles", "Muscle tightness in neck"]
+}, {
+  "id": "464",
+  "assocID": "",
+  "name": "Spondylosis of cervical spine",
+  "synonym": ["Spondylosis of cervical spine", "Cervical spondylosis"]
+}, {
+  "id": "465",
+  "assocID": "",
+  "name": "Narrowing of the spinal canal in the neck",
+  "synonym": ["Narrowing of the spinal canal in the neck", "Cervical spinal stenosis"]
+}, {
+  "id": "466",
+  "assocID": "",
+  "name": "Whiplash",
+  "synonym": ["Whiplash", "Whiplash injury"]
+}, {
+  "id": "467",
+  "assocID": "",
+  "name": "Nerve root irritation of the cervical spine",
+  "synonym": ["Nerve root irritation of the cervical spine", "Cervical radiculopathy"]
+}, {
+  "id": "468",
+  "assocID": "",
+  "name": "Foreign object in the nose",
+  "synonym": ["Foreign object in the nose", "Foreign body in the nose"]
+}, {
+  "id": "469",
+  "assocID": "",
+  "name": "Temporomandibular joint dysfunction",
+  "synonym": ["Temporomandibular joint dysfunction", "TMJ syndrome"]
+}, {
+  "id": "470",
+  "assocID": "",
+  "name": "Foreign object in the airways",
+  "synonym": ["Foreign object in the airways", "Pulmonary aspiration", "Foreign body in the airways"]
+}, {
+  "id": "472",
+  "assocID": "",
+  "name": "Stomach irritation",
+  "synonym": ["Stomach irritation", "Functional dyspepsia"]
+}, {
+  "id": "473",
+  "assocID": "",
+  "name": "Gingivostomatitis",
+  "synonym": ["Gingivostomatitis", "Herpetic gingivostomatitis", "Orolabial herpes"]
+}, {
+  "id": "474",
+  "assocID": "",
+  "name": "Inflammation of gingiva",
+  "synonym": ["Inflammation of gingiva", "Gingivitis"]
+}, {
+  "id": "475",
+  "assocID": "",
+  "name": "Eating disorder",
+  "synonym": ["Eating disorder", "Psychogenic eating disorders"]
+}, {
+  "id": "476",
+  "assocID": "",
+  "name": "Stomach bleeding",
+  "synonym": ["Stomach bleeding", "Gastrointestinal bleeding", "GI"]
+}, {
+  "id": "477",
+  "assocID": "",
+  "name": "Enlarged veins of the esophagus",
+  "synonym": ["Enlarged veins of the esophagus", "Esophageal varices"]
+}, {
+  "id": "478",
+  "assocID": "",
+  "name": "Difficult dentition",
+  "synonym": ["Difficult dentition", "Pericoronitis", "Wisdom teeth"]
+}, {
+  "id": "479",
+  "assocID": "",
+  "name": "Jaw fracture",
+  "synonym": ["Jaw fracture", "Mandibular fracture", "Broken jaw", "Fractures of the jaw"]
+}, {
+  "id": "480",
+  "assocID": "",
+  "name": "Outpouching of the esophagus",
+  "synonym": ["Outpouching of the esophagus", "Diverticulum of the esophagus", "Outpouching of the oesophagus"]
+}, {
+  "id": "481",
+  "assocID": "",
+  "name": "Foreign object in the throat",
+  "synonym": ["Foreign object in the throat", "Foreign body in the throat"]
+}, {
+  "id": "482",
+  "assocID": "",
+  "name": "Disorder causing imbalance of water in the body",
+  "synonym": ["Disorder causing imbalance of water in the body", "Diabetes insipidus"]
+}, {
+  "id": "483",
+  "assocID": "",
+  "name": "Brain damage caused by metabolic disorders",
+  "synonym": ["Brain damage caused by metabolic disorders", "Metabolic encephalopathy", "Toxic encephalopathy"]
+}, {
+  "id": "484",
+  "assocID": "",
+  "name": "Strain of the regional supporting tissue",
+  "synonym": ["Strain of the regional supporting tissue", "Tenseness of the regional pectoral tissue"]
+}, {
+  "id": "485",
+  "assocID": "",
+  "name": "Diseases of the heart valves",
+  "synonym": ["Diseases of the heart valves", "Valvulopathies"]
+}, {
+  "id": "486",
+  "assocID": "",
+  "name": "Narrowing of spinal canals of the thoracic or lumbar spine",
+  "synonym": ["Narrowing of spinal canals of the thoracic or lumbar spine", "Thoracic or lumbar spinal stenosis"]
+}, {
+  "id": "487",
+  "assocID": "",
+  "name": "Low back pain",
+  "synonym": ["Low back pain", "Lumbago", "LBP", "Lower back pain"]
+}, {
+  "id": "488",
+  "assocID": "",
+  "name": "Strain of the back muscles",
+  "synonym": ["Strain of the back muscles", "Muscle tightness in back"]
+}, {
+  "id": "489",
+  "assocID": "",
+  "name": "Menstrual cramps",
+  "synonym": ["Menstrual cramps", "Dysmenorrhoea"]
+}, {
+  "id": "490",
+  "assocID": "",
+  "name": "Irritation of the sciatic nerve",
+  "synonym": ["Irritation of the sciatic nerve", "Piriformis syndrome", "Sciatic nerve compression"]
+}, {
+  "id": "492",
+  "assocID": "",
+  "name": "Chronic pain disorder",
+  "synonym": ["Chronic pain disorder", "Chronic pain syndrome"]
+}, {
+  "id": "494",
+  "assocID": "",
+  "name": "Inflammation of a diverticulum",
+  "synonym": ["Inflammation of a diverticulum", "Diverticulitis", "Inflammation in diverticulum wall", "Inflammation of diverticulum"]
+}, {
+  "id": "495",
+  "assocID": "",
+  "name": "Bloated belly",
+  "synonym": ["Bloated belly", "Meteorism"]
+}, {
+  "id": "497",
+  "assocID": "",
+  "name": "Tubal and ovarian inflammation",
+  "synonym": ["Tubal and ovarian inflammation", "Pelvic inflammatory disease"]
+}, {
+  "id": "498",
+  "assocID": "",
+  "name": "Pancreas insufficiency",
+  "synonym": ["Pancreas insufficiency", "Pancreatic insufficiency"]
+}, {
+  "id": "501",
+  "assocID": "",
+  "name": "Inflammation of the peritoneum",
+  "synonym": ["Inflammation of the peritoneum", "Peritonitis"]
+}, {
+  "id": "502",
+  "assocID": "",
+  "name": "Familial tremor",
+  "synonym": ["Familial tremor", "Essential tremor", "Shaky hand syndrome"]
+}, {
+  "id": "503",
+  "assocID": "",
+  "name": "Inflammation of vaginal mucosa",
+  "synonym": ["Inflammation of vaginal mucosa", "Vaginitis"]
+}, {
+  "id": "504",
+  "assocID": "",
+  "name": "Inflammation of the prostate",
+  "synonym": ["Inflammation of the prostate", "Prostatitis", "prostatosis"]
+}, {
+  "id": "506",
+  "assocID": "",
+  "name": "Nerve-related bladder dysfunction",
+  "synonym": ["Nerve-related bladder dysfunction", "Neurogenic bladder dysfunction"]
+}, {
+  "id": "507",
+  "assocID": "",
+  "name": "Genital warts",
+  "synonym": ["Genital warts", "Condylomata acuminata", "Venereal warts", "Anal warts"]
+}, {
+  "id": "508",
+  "assocID": "",
+  "name": "Hirsuties coronae glandis",
+  "synonym": ["Hirsuties coronae glandis", "Hirsuties papillaris genitalis", "Pearly penile papules"]
+}, {
+  "id": "509",
+  "assocID": "",
+  "name": "Accumulation of fluid in the scrotum",
+  "synonym": ["Accumulation of fluid in the scrotum", "Hydrocele"]
+}, {
+  "id": "510",
+  "assocID": "",
+  "name": "Sperm cyst",
+  "synonym": ["Sperm cyst", "Spermatocele"]
+}, {
+  "id": "511",
+  "assocID": "",
+  "name": "Renal failure",
+  "synonym": ["Renal failure", "Renal insufficiency", "Kidney failure"]
+}, {
+  "id": "512",
+  "assocID": "",
+  "name": "Hip entrapment",
+  "synonym": ["Hip entrapment", "Femoroacetabular impingement"]
+}, {
+  "id": "513",
+  "assocID": "",
+  "name": "Pelvic fracture",
+  "synonym": ["Pelvic fracture", "Fracture of the pelvic ring"]
+}, {
+  "id": "514",
+  "assocID": "",
+  "name": "Overactivity of the parathyroid glands",
+  "synonym": ["Overactivity of the parathyroid glands", "Hyperparathyroidism"]
+}, {
+  "id": "515",
+  "assocID": "",
+  "name": "Accident-related bone fracture",
+  "synonym": ["Accident-related bone fracture", "Bone trauma"]
+}, {
+  "id": "516",
+  "assocID": "",
+  "name": "Inflammation of the bone marrow",
+  "synonym": ["Inflammation of the bone marrow", "Osteomyelitis"]
+}, {
+  "id": "517",
+  "assocID": "",
+  "name": "Inflammation of outer tissue layer around bone",
+  "synonym": ["Inflammation of outer tissue layer around bone", "Periostitis", "Inflammation of the periosteum", "Inflammation of outer layer of the bone"]
+}, {
+  "id": "518",
+  "assocID": "",
+  "name": "Inflammation of the anal glands",
+  "synonym": ["Inflammation of the anal glands", "Cryptitis"]
+}, {
+  "id": "519",
+  "assocID": "",
+  "name": "Anal abscess",
+  "synonym": ["Anal abscess", "Anorectal abscess", "Collection of pus in the anal region"]
+}, {
+  "id": "520",
+  "assocID": "",
+  "name": "Muscle soreness",
+  "synonym": ["Muscle soreness", "Delayed onset muscle soreness", "Sore muscles", "Stiffness after exertion", "Aching muscles", "Muscle ache", "Muscle fever"]
+}, {
+  "id": "521",
+  "assocID": "",
+  "name": "Rheumatic pain in many muscles",
+  "synonym": ["Rheumatic pain in many muscles", "Rheumatic polymyalgia"]
+}, {
+  "id": "522",
+  "assocID": "",
+  "name": "Nerve pain",
+  "synonym": ["Nerve pain", "Neuralgia"]
+}, {
+  "id": "523",
+  "assocID": "",
+  "name": "Bone pain",
+  "synonym": ["Bone pain", "Ostalgia", "Skeletal pain", "Pain in the bones"]
+}, {
+  "id": "524",
+  "assocID": "",
+  "name": "Benign muscle twitching",
+  "synonym": ["Benign muscle twitching", "Fasciculation"]
+}, {
+  "id": "526",
+  "assocID": "",
+  "name": "Tendon sheath inflammation",
+  "synonym": ["Tendon sheath inflammation", "Tenosynovitis"]
+}, {
+  "id": "528",
+  "assocID": "",
+  "name": "Nail growth disorder",
+  "synonym": ["Nail growth disorder", "Nail growth dysfunction"]
+}, {
+  "id": "529",
+  "assocID": "",
+  "name": "Circular hair loss",
+  "synonym": ["Circular hair loss", "Alopecia areata", "Hair loss", " circular"]
+}, {
+  "id": "530",
+  "assocID": "",
+  "name": "Inflammation of inner ear labyrinth",
+  "synonym": ["Inflammation of inner ear labyrinth", "Labyrinthitis", "Inflammation of the labyrinth of the inner ear"]
+}, {
+  "id": "532",
+  "assocID": "",
+  "name": "Corneal distorsion",
+  "synonym": ["Corneal distorsion", "Astigmatism", "Warping of the cornea", "Corneal curvature"]
+}, {
+  "id": "533",
+  "assocID": "",
+  "name": "Strain, sprain or weakness of the muscle tendon unit and ligaments",
+  "synonym": ["Strain, sprain or weakness of the muscle tendon unit and ligaments", "Strain or sprain injury of the muscle tendon unit and ligaments"]
+}, {
+  "id": "534",
+  "assocID": "",
+  "name": "Muscular weakness",
+  "synonym": ["Muscular weakness", "Myasthenia"]
+}, {
+  "id": "535",
+  "assocID": "",
+  "name": "Deformity of the knee joint",
+  "synonym": ["Deformity of the knee joint", "Genu varum and valgum", "Bow-leggedness", "Bandiness", "Bandy-leg", "Tibia varaknock-knee"]
+}, {
+  "id": "536",
+  "assocID": "",
+  "name": "Deformity of the hip joint",
+  "synonym": ["Deformity of the hip joint", "Coxa vara and valga"]
+}, {
+  "id": "537",
+  "assocID": "",
+  "name": "Sprained ankle",
+  "synonym": ["Sprained ankle", "Ankle sprain", "Twisted ankle", "Rolled ankle", "Floppy ankle", "Ankle ligament injury"]
+}, {
+  "id": "538",
+  "assocID": "",
+  "name": "Inflammation of the tendon",
+  "synonym": ["Inflammation of the tendon", "Tendinitis"]
+}, {
+  "id": "539",
+  "assocID": "",
+  "name": "Tarsal tunnel syndrome",
+  "synonym": ["Tarsal tunnel syndrome", "Posterior tibial neuralgia"]
+}, {
+  "id": "540",
+  "assocID": "",
+  "name": "Lack of vitamin B12",
+  "synonym": ["Lack of vitamin B12", "Vitamin B12 deficiency"]
+}, {
+  "id": "541",
+  "assocID": "",
+  "name": "Benign muscle cramps",
+  "synonym": ["Benign muscle cramps", "Benign muscle spasms"]
+}, {
+  "id": "542",
+  "assocID": "",
+  "name": "Blistering disease",
+  "synonym": ["Blistering disease", "Pemphigus vulgaris", "Chronic blistering skin disease"]
+}, {
+  "id": "543",
+  "assocID": "",
+  "name": "School sores",
+  "synonym": ["School sores", "Impetigo"]
+}, {
+  "id": "544",
+  "assocID": "",
+  "name": "Iron storage disease",
+  "synonym": ["Iron storage disease", "Hemochromatosis", "Iron overload", "Haemochromatosis"]
+}, {
+  "id": "545",
+  "assocID": "",
+  "name": "Itchy skin nodule",
+  "synonym": ["Itchy skin nodule", "Prurigo", "Itchy eruption of the skin"]
+}, {
+  "id": "546",
+  "assocID": "",
+  "name": "Lichenoid lesion",
+  "synonym": ["Lichenoid lesion", "Lichen planus", "White spot disease"]
+}, {
+  "id": "547",
+  "assocID": "",
+  "name": "Inflammation of hair follicles",
+  "synonym": ["Inflammation of hair follicles", "Folliculitis"]
+}, {
+  "id": "548",
+  "assocID": "",
+  "name": "Yellow skin bumps",
+  "synonym": ["Yellow skin bumps", "Xanthoma", "Yellow bumps under skin"]
+}, {
+  "id": "549",
+  "assocID": "",
+  "name": "Chicken skin",
+  "synonym": ["Chicken skin", "Keratosis pilaris"]
+}, {
+  "id": "550",
+  "assocID": "",
+  "name": "Sun-related keratosis",
+  "synonym": ["Sun-related keratosis", "Actinic keratosis", "Solar keratosis"]
+}, {
+  "id": "551",
+  "assocID": "",
+  "name": "Redness causing skin condition",
+  "synonym": ["Redness causing skin condition", "Rosacea"]
+}, {
+  "id": "552",
+  "assocID": "",
+  "name": "Keloidal scar",
+  "synonym": ["Keloidal scar", "Keloid", "Keloid scar", "Wound keloid", "Keloid sore"]
+}, {
+  "id": "553",
+  "assocID": "",
+  "name": "Benign neoplasm of the connective tissue",
+  "synonym": ["Benign neoplasm of the connective tissue", "Fibroma"]
+}, {
+  "id": "554",
+  "assocID": "",
+  "name": "Low blood sugar",
+  "synonym": ["Low blood sugar", "Hypoglycaemia", "Low blood glucose"]
+}, {
+  "id": "555",
+  "assocID": "",
+  "name": "Hearing loss due to old age",
+  "synonym": ["Hearing loss due to old age", "Presbycusis", "Hearing loss in the elderly"]
+}, {
+  "id": "556",
+  "assocID": "",
+  "name": "Hypofunction of pituitary gland",
+  "synonym": ["Hypofunction of pituitary gland", "Hypopituitarism"]
+}, {
+  "id": "557",
+  "assocID": "",
+  "name": "Extreme tendency to fall asleep",
+  "synonym": ["Extreme tendency to fall asleep", "Narcolepsy"]
+}, {
+  "id": "558",
+  "assocID": "",
+  "name": "Congenital eyelid levator weakness",
+  "synonym": ["Congenital eyelid levator weakness", "Congenital ptosis", "Congenital eyelid drooping", "Drooping of eyelid since birth"]
+}, {
+  "id": "559",
+  "assocID": "",
+  "name": "Damage to the eye muscle nerves",
+  "synonym": ["Damage to the eye muscle nerves", "Paralytic ptosis"]
+}, {
+  "id": "561",
+  "assocID": "",
+  "name": "Obsessive-compulsive disorder",
+  "synonym": ["Obsessive-compulsive disorder", "Obsessive-compulsive personality disorder", "OCD"]
+}, {
+  "id": "562",
+  "assocID": "",
+  "name": "Broken rib",
+  "synonym": ["Broken rib", "Rib fracture"]
+}, {
+  "id": "563",
+  "assocID": "",
+  "name": "Inadequate closure of the aortic valve",
+  "synonym": ["Inadequate closure of the aortic valve", "Aortic insufficiency", "Inadequate closure of the aortic valve of the heart", "Leaking of the aortic valve of the heart"]
+}, {
+  "id": "564",
+  "assocID": "",
+  "name": "Dysfunction of the esophagus",
+  "synonym": ["Dysfunction of the esophagus", "Achalasia", "Dysfunction of the oesophagus"]
+}, {
+  "id": "565",
+  "assocID": "",
+  "name": "Neoplasia of the upper digestive tract",
+  "synonym": ["Neoplasia of the upper digestive tract", "Neoplasia of the upper gastro-intestinal tract"]
+}, {
+  "id": "566",
+  "assocID": "",
+  "name": "Vertebral fracture",
+  "synonym": ["Vertebral fracture", "Vertebral body fracture"]
+}, {
+  "id": "567",
+  "assocID": "",
+  "name": "Shoulder girdle compression syndrome",
+  "synonym": ["Shoulder girdle compression syndrome", "Thoracic-outlet syndrome"]
+}, {
+  "id": "568",
+  "assocID": "",
+  "name": "Nerve root irritation of the lumbar spine",
+  "synonym": ["Nerve root irritation of the lumbar spine", "Lumbar radiculopathy"]
+}, {
+  "id": "572",
+  "assocID": "",
+  "name": "Low blood pressure",
+  "synonym": ["Low blood pressure", "Hypotension"]
+}, {
+  "id": "574",
+  "assocID": "",
+  "name": "Scalp infection",
+  "synonym": ["Scalp infection", "Bacterial, fungal or viral scalp infection"]
+}, {
+  "id": "575",
+  "assocID": "",
+  "name": "Fainting",
+  "synonym": ["Fainting", "Syncope vertigo", "Passing out", "Swooning"]
+}, {
+  "id": "577",
+  "assocID": "",
+  "name": "Absence seizure",
+  "synonym": ["Absence seizure", "Absence epilepsy", "Absence-epilepsy", "Petit mal seizure"]
+}, {
+  "id": "579",
+  "assocID": "",
+  "name": "Confusional state",
+  "synonym": ["Confusional state", "Delirium", "Acute confusional state"]
+}, {
+  "id": "580",
+  "assocID": "",
+  "name": "Alcohol consumption",
+  "synonym": ["Alcohol consumption", "Excessive alcohol consumption"]
+}, {
+  "id": "581",
+  "assocID": "",
+  "name": "Eye allergy",
+  "synonym": ["Eye allergy", "Allergic conjunctivitis"]
+}, {
+  "id": "582",
+  "assocID": "",
+  "name": "Age-related issues",
+  "synonym": ["Age-related issues", "Age-related health issues", "Aging", "Ageing", "Age-related medical issues"]
+}, {
+  "id": "584",
+  "assocID": "",
+  "name": "Accidental injury",
+  "synonym": ["Accidental injury", "Trauma"]
+}, {
+  "id": "585",
+  "assocID": "",
+  "name": "Autoimmune disease",
+  "synonym": ["Autoimmune disease", "Autoimmune disorders"]
+}, {
+  "id": "586",
+  "assocID": "",
+  "name": "Blood poisoning",
+  "synonym": ["Blood poisoning", "Sepsis"]
+}, {
+  "id": "587",
+  "assocID": "",
+  "name": "Yeast infection",
+  "synonym": ["Yeast infection", "Candidiasis"]
+}, {
+  "id": "588",
+  "assocID": "",
+  "name": "Diabetic delayed gastric emptying",
+  "synonym": ["Diabetic delayed gastric emptying", "Diabetic gastroparesis"]
+}, {
+  "id": "596",
+  "assocID": "",
+  "name": "Caffeine withdrawal",
+  "synonym": ["Caffeine withdrawal", "Caffeine dependence"]
+}, {
+  "id": "599",
+  "assocID": "",
+  "name": "Psychogenic issues",
+  "synonym": ["Psychogenic issues", "Psychogenic disorder"]
+}, {
+  "id": "600",
+  "assocID": "",
+  "name": "Motion sickness",
+  "synonym": ["Motion sickness", "Kinetosis", "Travel sickness"]
+}, {
+  "id": "601",
+  "assocID": "",
+  "name": "Bad sleeping habits",
+  "synonym": ["Bad sleeping habits", "Poor sleep hygiene"]
+}, {
+  "id": "602",
+  "assocID": "",
+  "name": "Pain",
+  "synonym": ["Pain", "Pain-related issues"]
+}, {
+  "id": "603",
+  "assocID": "",
+  "name": "Pregnancy-related problems",
+  "synonym": ["Pregnancy-related problems", "Pregnancy-related issues"]
+}, {
+  "id": "604",
+  "assocID": "",
+  "name": "Sexually transmitted diseases",
+  "synonym": ["Sexually transmitted diseases", "Sexually transmitted infections"]
+}, {
+  "id": "606",
+  "assocID": "",
+  "name": "State of stress",
+  "synonym": ["State of stress", "Stress", "Stress state"]
+}, {
+  "id": "608",
+  "assocID": "",
+  "name": "Excessive noise exposure",
+  "synonym": ["Excessive noise exposure", "Excessive exposure to noise"]
+}, {
+  "id": "609",
+  "assocID": "",
+  "name": "Voice overuse",
+  "synonym": ["Voice overuse", "Vocal fold lesion"]
+}, {
+  "id": "612",
+  "assocID": "",
+  "name": "Grinding of teeth",
+  "synonym": ["Grinding of teeth", "Bruxism", "Clenching of teeth", "Teeth grinding"]
+}, {
+  "id": "613",
+  "assocID": "",
+  "name": "Caries",
+  "synonym": ["Caries", "Dental caries"]
+}, {
+  "id": "614",
+  "assocID": "",
+  "name": "Knee inflammation",
+  "synonym": ["Knee inflammation", "Gonitis", "Inflammation of the knee joint", "Inflammation of the knee", "Inflammation of the joint of the knee"]
+}, {
+  "id": "649",
+  "assocID": "",
+  "name": "Lung bleeding",
+  "synonym": ["Lung bleeding", "Hemoptysis"]
+}, {
+  "id": "654",
+  "assocID": "",
+  "name": "Heart muscle disease",
+  "synonym": ["Heart muscle disease", "Cardiomyopathies"]
+}, {
+  "id": "655",
+  "assocID": "",
+  "name": "Lymphatic obstruction",
+  "synonym": ["Lymphatic obstruction", "Lymphedema"]
+}, {
+  "id": "656",
+  "assocID": "",
+  "name": "Shingles",
+  "synonym": ["Shingles", "Zoster"]
+}, {
+  "id": "657",
+  "assocID": "",
+  "name": "Chlamydia infection",
+  "synonym": ["Chlamydia infection", "Chlamydia infection in women"]
+}]

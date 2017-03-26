@@ -149,57 +149,117 @@ if ($_POST['q'] == 'issues') {
     $newRow = json_decode($_POST['newRow']);
     $updateRow = json_decode($_POST['updateRow']);
 
+    $t = array();
+    $ids = array();
     foreach ($totalRow as $item) {
         $id = $item -> ID;
+        $newID = $item -> newID;
+        if ($id !== $newID) {
+            $ids[] = array($newID,$id);
+        }
+        $name = $item -> Name;
+        $location = $item -> HealthSymptomLocationIDs;
+        $profName = $item -> ProfName;
+        $synonyms = $item -> Synonyms;
+
+        $synonym = array();
+        $synonym[] = $name;
+
+        if ($profName) {
+            $synonym[] = $profName;
+        }
+        if ($synonyms) {
+            foreach ($synonyms as $syn) {
+                if (!in_array($syn, $synonym)) {
+                    $synonym[] = $syn;
+                }
+            }
+        }
+
+        $s_ = "SELECT * FROM `_issues_symptoms` WHERE `symp_id` = '{$id}';";
+        $q_ = mysqli_query($conn, $s_);
+        $disease = array();
+        while ($row = mysqli_fetch_array($q_)) {
+            $d = array();
+            $dis_id = $row['issue_id'];
+            $s__ = "SELECT * FROM `_issues_names` WHERE `id` = '{$dis_id}';";
+            $r__ = mysqli_query($conn, $s__);
+            $row = mysqli_fetch_array($r__);
+            $dis_name = $row['name'];
+            $d['id'] = $dis_id;
+            $d['name'] = $dis_name;
+            $disease[] = $d;
+        }
+
+        $lo = array();
+        if ($location) {
+            foreach ($location as $loc) {
+                $s = "SELECT * FROM `location` WHERE `id` = '{$loc}';";
+                $r = mysqli_query($conn, $s);
+                $row = mysqli_fetch_array($r);
+                $loc_name = $row['name'];
+                $loc_cate = $row['category'];
+                $l = array();
+                if ($loc_name !== null && $loc_cate !== null) {
+                    $l['name'] = $loc_name;
+                    $l['category'] = $loc_cate;
+                    $lo[] = $l;
+                }
+            }
+        }
 
         $s = "SELECT * FROM `_symptoms` WHERE `id` = {$id};";
         $r = mysqli_query($conn, $s);
         $row = mysqli_fetch_array($r);
 
-        $image_source = $row['image_source'];
-        $image_url = $row['image_url'];
-        $isRedFlag = $row['isRedFlag'];
         $filter_sex = $row['filter_sex'];
+        if ($filter_sex == 1) {
+            $filter_sex = 'male & female';
+        } elseif ($filter_sex == 2) {
+            $filter_sex = 'male';
+        } elseif ($filter_sex == 3) {
+            $filter_sex = 'female';
+        }
+
         $filter_age = $row['filter_age'];
+        if ($filter_age == 1) {
+            $filter_age = 'young & old';
+        } elseif ($filter_age == 2) {
+            $filter_age = 'young';
+        } elseif ($filter_age == 3) {
+            $filter_age = 'old';
+        }
 
-        $item -> image_source = $image_source;
-        $item -> image_url = $image_url;
-        $item -> isRedFlag = $isRedFlag;
-        $item -> filter_sex = $filter_sex;
-        $item -> filter_age = $filter_age;
+        $image = array();
+
+        if ($row['image_url']) {
+            $img = array();
+            $img['image_url'] = $row['image_url'];
+            $img['image_source'] = $row['image_source'];
+
+            $image[] = $img;
+        }
+
+        $parent_symp['id'] = null;
+        $parent_symp['relation'] = null;
+        $children_symp = array();
+
+        $newItem = array();
+
+        $newItem['id'] = $id;
+        $newItem['newID'] = $newID;
+        $newItem['name'] = $name;
+        $newItem['filter_sex'] = $filter_sex;
+        $newItem['filter_age'] = $filter_age;
+        $newItem['image'] = $image;
+        $newItem['location'] = $lo;
+        $newItem['synonym'] = $synonym;
+        $newItem['parent_symp'] = $parent_symp;
+        $newItem['children_symp'] = $children_symp;
+        $newItem['disease'] = $disease;
+
+        $t[] = $newItem;
     }
-    echo json_encode($totalRow);
-
-  // symptoms
-    // id / name / filter_sex / filter_age
-    // symptom - image    (symp_id - image_url - image_source)
-    // symptom - location (symp_id - loc_id)
-    // symptom - name     (symp_id - name)
-    // symptom - symptom  (parent_symp_id - child_symp_id)
-  // disease
-    // id / name / category / filter_sex / filter_age
-    // description / description_short / medical_condition / treatment
-    // disease - image      (dis_id - image_url - image_source)
-    // disease - symptom    (dis_id - symp_id)
-    // disease - procedure  (dis_id - proc_id)
-    // disease - name       (dis_id - name)
-  // risk_factor
-    // id / name
-    // risk_factor - name   (risk_factor_id - name)
-  // lab
-    // id / name / category
-  // procedure
-    // id / name / info_url
-    // procedure - image    (proc_id - image_url - image_source)
-    // procedure - name     (proc_id - name)
-  // location
-    // id / name / category
-  // tag
-    // id / name / card_count / category
-    // tag - case  (tag_id - case_id)
-    // tag - tag   (tag_id - with_tag_id - with_count)
-  // case
-    // id / title / description / question / choices / answer
-    // case - image  (case_id - image_url - image_desc)
-    // case - lab    (case_id - lab_id)
+    echo json_encode($t);
+    // echo json_encode($ids);
 }
