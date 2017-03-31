@@ -150,7 +150,7 @@
       //
       //   $.ajax({
       //       type: "POST",
-      //       url: "sql/apimedicData.php",
+      //       url: "sql/_apimedicData.php",
       //       data: {
       //         q: "update",
       //         totalRow: JSON.stringify(data),
@@ -179,45 +179,6 @@
       //     })
       // })
 
-      var url = "medicalAPI/final/final_symptom.json";
-      $.getJSON(url, function(data) {
-        for (var i = 0; i < data.length; i++) {
-          for (var j = 0; j < data[i]['disease'].length; j++) {
-            var item = data[i]['disease'][j];
-            var url_ = "medicalAPI/final/final_disease.json";
-            $.ajax({
-              url: url_,
-              async: false,
-              type: "GET",
-              success: function(data_) {
-                // console.log(item);
-                for (var k = 0; k < data_.length; k++) {
-                  if (item.name == data_[k].name) {
-                    console.log (item.id == data_[k].id);
-                    return;
-                  }
-                  if (k == data_.length - 1) {
-                    console.log('no!!');
-                    console.log(item.name);
-                  }
-                }
-              }
-            })
-          }
-        }
-        // $.ajax({
-        //     type: "POST",
-        //     url: "sql/infermedicaData.php",
-        //     data: {
-        //       q: "symp",
-        //       data: JSON.stringify(data)
-        //     }
-        //   })
-        //   .done(function(data) {
-        //     console.log(data);
-        //   })
-      })
-
       // var url = "medicalAPI/final/final_symptom.json";
       // $.getJSON(url, function(data) {
       //   for (var i = 0; i < data.length; i++) {
@@ -229,25 +190,70 @@
       //         async: false,
       //         type: "GET",
       //         success: function(data_) {
+      //           // console.log(item);
       //           for (var k = 0; k < data_.length; k++) {
-      //             if (item.id.toString() == data_[k].id) {
-      //               if (data_[k]['name'] !== data[i]['name']) {
-      //                 console.log(data_[k]['name']);
-      //                 console.log(data[i]['name']);
-      //                 item.name = data_[k]['name'];
-      //                 return;
-      //               }
+      //             if (item.name == data_[k].name) {
+      //               console.log (item.id == data_[k].id);
+      //               return;
       //             }
       //             if (k == data_.length - 1) {
       //               console.log('no!!');
-      //               console.log(item);
+      //               console.log(item.name);
       //             }
       //           }
       //         }
       //       })
       //     }
       //   }
-      //   console.log(JSON.stringify(data));
+      //   // $.ajax({
+      //   //     type: "POST",
+      //   //     url: "sql/infermedicaData.php",
+      //   //     data: {
+      //   //       q: "symp",
+      //   //       data: JSON.stringify(data)
+      //   //     }
+      //   //   })
+      //   //   .done(function(data) {
+      //   //     console.log(data);
+      //   //   })
+      // })
+
+      // var url = "medicalAPI/final/final_disease.json";
+      // $.getJSON(url, function(data) {
+      //   for (var i = 0; i < 10; i++) {
+      //     var synonym = data[i].synonym;
+      //     for (var j = 0; j < synonym.length; j++) {
+      //       var name = synonym[j].toLowerCase();
+      //       var url = "https://glosbe.com/gapi/translate?from=eng&dest=kor&format=json&pretty=true&phrase=" + encodeURI(name);
+      //       $.ajax({
+      //         url: url,
+      //         dataType: "jsonp",
+      //       }).done(function(data) {
+      //         console.log(data);
+      //         for (var i = 0; i < data.tuc.length; i++) {
+      //           var item = data.tuc[i];
+      //           if (item.phrase) {
+      //             console.log(item.phrase.text);
+      //           }
+      //         }
+      //       })
+      //     }
+      //   }
+      // console.log(JSON.stringify(data));
+      // })
+
+      // var url = "https://glosbe.com/gapi/translate?from=eng&dest=kor&format=json&pretty=true&phrase=flu";
+      // $.ajax({
+      //   url: url,
+      //   dataType: "jsonp",
+      // }).done(function(data) {
+      //   console.log(data);
+      //   for (var i = 0; i < data.tuc.length; i++) {
+      //     var item = data.tuc[i];
+      //     if (item.phrase) {
+      //       console.log(item.phrase.text);
+      //     }
+      //   }
       // })
 
       //symptom
