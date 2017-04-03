@@ -14,23 +14,11 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <!-- navbar -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Tag Card</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNav">
-      <ul class="nav navbar-nav navbar-left">
-        <li><a href="index.html">Search</a></li>
-        <li class="active"><a href="insert.html">Insert</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="topnav" id="myTopnav">
+    <a href="index.html"><span class="glyphicon glyphicon-search"></span></a>
+    <a href="insert.html"><span class="glyphicon glyphicon-plus"></span></a>
+  </div>
+
   <div class="container">
     <div class="form-group">
       <label for="title">Title:</label>
@@ -47,11 +35,6 @@
             <span class="typeahead__query">
               <input class="symptom_query" placeholder="Symptom" autocomplete="off">
             </span>
-            <span class="typeahead__button">
-              <button type="submit">
-                  <i class="typeahead__search-icon"></i>
-              </button>
-            </span>
           </div>
         </div>
       </form>
@@ -63,11 +46,6 @@
           <div class="typeahead__field">
             <span class="typeahead__query">
               <input class="risk_factor_query" placeholder="Risk Factor" autocomplete="off">
-            </span>
-            <span class="typeahead__button">
-              <button type="submit">
-                  <i class="typeahead__search-icon"></i>
-              </button>
             </span>
           </div>
         </div>
@@ -81,11 +59,6 @@
             <span class="typeahead__query">
               <input class="lab_query" placeholder="Lab test" autocomplete="off">
             </span>
-            <span class="typeahead__button">
-              <button type="submit">
-                  <i class="typeahead__search-icon"></i>
-              </button>
-            </span>
           </div>
         </div>
       </form>
@@ -97,11 +70,6 @@
           <div class="typeahead__field">
             <span class="typeahead__query">
               <input class="disease_query" placeholder="Disease" autocomplete="off">
-            </span>
-            <span class="typeahead__button">
-              <button type="submit">
-                  <i class="typeahead__search-icon"></i>
-              </button>
             </span>
           </div>
         </div>
@@ -116,6 +84,7 @@
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/jquery-typeahead/dist/jquery.typeahead.min.js"></script>
   <script src="bower_components/vue/dist/vue.min.js"></script>
+  <script src="medicalAPI/js_library.js"></script>
   <script>
     function captureReturnKey(query, selector, btn) {
       var b = document.createElement('input');
@@ -134,128 +103,6 @@
     $(document).ready(function() {
       $('#title').focus();
 
-      // var url = "medicalAPI/apimedic/location_symptoms_total.json";
-      // $.getJSON(url, function(data) {
-      //   console.log(data[0]);
-      //   var newRow = [];
-      //   var updateRow = [];
-      //   for (var i = 0; i < data.length; i++) {
-      //     if (typeof data[i].newID == 'number') {
-      //       newRow.push(data[i]);
-      //     } else {
-      //       updateRow.push(data[i]);
-      //     }
-      //   }
-      //   console.log(newRow[0]);
-      //
-      //   $.ajax({
-      //       type: "POST",
-      //       url: "sql/_apimedicData.php",
-      //       data: {
-      //         q: "update",
-      //         totalRow: JSON.stringify(data),
-      //         newRow: JSON.stringify(newRow),
-      //         updateRow: JSON.stringify(updateRow)
-      //       }
-      //     })
-      //     .done(function(data) {
-      //       console.log(data);
-      //     })
-      // })
-
-      // var url = "medicalAPI/final/final_dis.json";
-      // $.getJSON(url, function(data) {
-      //   console.log(data);
-      //   $.ajax({
-      //       type: "POST",
-      //       url: "sql/infermedicaData.php",
-      //       data: {
-      //         q: "final_dis",
-      //         data: JSON.stringify(data)
-      //       }
-      //     })
-      //     .done(function(data) {
-      //       console.log(data);
-      //     })
-      // })
-
-      // var url = "medicalAPI/final/final_symptom.json";
-      // $.getJSON(url, function(data) {
-      //   for (var i = 0; i < data.length; i++) {
-      //     for (var j = 0; j < data[i]['disease'].length; j++) {
-      //       var item = data[i]['disease'][j];
-      //       var url_ = "medicalAPI/final/final_disease.json";
-      //       $.ajax({
-      //         url: url_,
-      //         async: false,
-      //         type: "GET",
-      //         success: function(data_) {
-      //           // console.log(item);
-      //           for (var k = 0; k < data_.length; k++) {
-      //             if (item.name == data_[k].name) {
-      //               console.log (item.id == data_[k].id);
-      //               return;
-      //             }
-      //             if (k == data_.length - 1) {
-      //               console.log('no!!');
-      //               console.log(item.name);
-      //             }
-      //           }
-      //         }
-      //       })
-      //     }
-      //   }
-      //   // $.ajax({
-      //   //     type: "POST",
-      //   //     url: "sql/infermedicaData.php",
-      //   //     data: {
-      //   //       q: "symp",
-      //   //       data: JSON.stringify(data)
-      //   //     }
-      //   //   })
-      //   //   .done(function(data) {
-      //   //     console.log(data);
-      //   //   })
-      // })
-
-      // var url = "medicalAPI/final/final_disease.json";
-      // $.getJSON(url, function(data) {
-      //   for (var i = 0; i < 10; i++) {
-      //     var synonym = data[i].synonym;
-      //     for (var j = 0; j < synonym.length; j++) {
-      //       var name = synonym[j].toLowerCase();
-      //       var url = "https://glosbe.com/gapi/translate?from=eng&dest=kor&format=json&pretty=true&phrase=" + encodeURI(name);
-      //       $.ajax({
-      //         url: url,
-      //         dataType: "jsonp",
-      //       }).done(function(data) {
-      //         console.log(data);
-      //         for (var i = 0; i < data.tuc.length; i++) {
-      //           var item = data.tuc[i];
-      //           if (item.phrase) {
-      //             console.log(item.phrase.text);
-      //           }
-      //         }
-      //       })
-      //     }
-      //   }
-      // console.log(JSON.stringify(data));
-      // })
-
-      // var url = "https://glosbe.com/gapi/translate?from=eng&dest=kor&format=json&pretty=true&phrase=flu";
-      // $.ajax({
-      //   url: url,
-      //   dataType: "jsonp",
-      // }).done(function(data) {
-      //   console.log(data);
-      //   for (var i = 0; i < data.tuc.length; i++) {
-      //     var item = data.tuc[i];
-      //     if (item.phrase) {
-      //       console.log(item.phrase.text);
-      //     }
-      //   }
-      // })
-
       //symptom
       $.typeahead({
         input: '.symptom_query',
@@ -268,17 +115,12 @@
         source: {
           ajax: {
             type: "GET",
-            url: "sql/load_data_symptom.php"
+            url: "sql/typeahead/load_data_symptom.php"
           }
         },
         callback: {
           onClick: function(node, a, item, event) {
             var query = this.item.display;
-            captureReturnKey(query, 'symptom', 'btn-primary');
-            this.item.display = '';
-          },
-          onSubmit: function(node, form, item, event) {
-            var query = this.query.toUpperCase();
             captureReturnKey(query, 'symptom', 'btn-primary');
             this.item.display = '';
           }
@@ -290,23 +132,19 @@
         input: '.risk_factor_query',
         minLength: 0,
         searchOnFocus: true,
+        highlight: true,
         maxItem: 200,
         offset: false,
         hint: true,
         source: {
           ajax: {
             type: "GET",
-            url: "sql/load_data_risk_factor.php"
+            url: "sql/typeahead/load_data_risk_factor.php"
           }
         },
         callback: {
           onClick: function(node, a, item, event) {
             var query = this.item.display;
-            captureReturnKey(query, 'risk_factor', 'btn-info');
-            this.item.display = '';
-          },
-          onSubmit: function(node, form, item, event) {
-            var query = this.query.toUpperCase();
             captureReturnKey(query, 'risk_factor', 'btn-info');
             this.item.display = '';
           }
@@ -318,6 +156,7 @@
         input: '.lab_query',
         minLength: 0,
         searchOnFocus: true,
+        highlight: true,
         maxItem: 2000,
         offset: false,
         order: 'asc',
@@ -332,98 +171,98 @@
           "Biochemistry": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Biochemistry"
             }
           },
           "Arterial blood gas": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Arterial_blood_gas"
             }
           },
           "Blood count": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Blood_count"
             }
           },
           "Cerebrospinal fluid": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Cerebrospinal_fluid"
             }
           },
           "Coagulation system": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Coagulation_system"
             }
           },
           "Genetic testing": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Genetic_testing"
             }
           },
           "Hormones": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Hormones"
             }
           },
           "Immunology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Immunology"
             }
           },
           "Microbiology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Microbiology"
             }
           },
           "Parasitology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Parasitology"
             }
           },
           "Toxicology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Toxicology"
             }
           },
           "Tumor markers": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Tumor_markers"
             }
           },
           "Urine": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Urine"
             }
           },
           "Other": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_lab.php",
+              url: "sql/typeahead/load_data_lab.php",
               path: "data.Other"
             }
           }
@@ -431,11 +270,6 @@
         callback: {
           onClick: function(node, a, item, event) {
             var query = this.item.display;
-            captureReturnKey(query, 'lab', 'btn-warning');
-            this.item.display = '';
-          },
-          onSubmit: function(node, form, item, event) {
-            var query = this.query.toUpperCase();
             captureReturnKey(query, 'lab', 'btn-warning');
             this.item.display = '';
           }
@@ -447,6 +281,7 @@
         input: '.disease_query',
         minLength: 0,
         searchOnFocus: true,
+        highlight: true,
         maxItem: 1000,
         offset: false,
         hint: true,
@@ -460,189 +295,189 @@
           "Allergology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Allergology"
             }
           },
           "Angiology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Angiology"
             }
           },
           "Cardiology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Cardiology"
             }
           },
           "Dentistry": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Dentistry"
             }
           },
           "Dermatology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Dermatology"
             }
           },
           "Diabetology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Diabetology"
             }
           },
           "Endocrinology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Endocrinology"
             }
           },
           "Gastroenterology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Gastroenterology"
             }
           },
           "Gynecology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Gynecology"
             }
           },
           "Hematology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Hematology"
             }
           },
           "Infectiology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Infectiology"
             }
           },
           "Internal Medicine": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Internal_Medicine"
             }
           },
           "Laryngology/ENT": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Laryngology/ENT"
             }
           },
           "Nephrology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Nephrology"
             }
           },
           "Neurology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Neurology"
             }
           },
           "Oncology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Oncology"
             }
           },
           "Ophthalmology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Ophthalmology"
             }
           },
           "Orthopedics": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Orthopedics"
             }
           },
           "Other": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Other"
             }
           },
           "Psychiatry": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Psychiatry"
             }
           },
           "Pulmonology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Pulmonology"
             }
           },
           "Rheumatology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Rheumatology"
             }
           },
           "Surgery": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Surgery"
             }
           },
           "Toxicology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Toxicology"
             }
           },
           "Traumatology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Traumatology"
             }
           },
           "Urology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Urology"
             }
           },
           "Venereology": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_disease.php",
+              url: "sql/typeahead/load_data_disease.php",
               path: "data.Venereology"
             }
           }
@@ -650,11 +485,6 @@
         callback: {
           onClick: function(node, a, item, event) {
             var query = this.item.display;
-            captureReturnKey(query, 'disease', 'btn-danger');
-            this.item.display = '';
-          },
-          onSubmit: function(node, form, item, event) {
-            var query = this.query.toUpperCase();
             captureReturnKey(query, 'disease', 'btn-danger');
             this.item.display = '';
           }

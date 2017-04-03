@@ -14,23 +14,11 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <!-- navbar -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Tag Card</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNav">
-      <ul class="nav navbar-nav navbar-left">
-        <li class="active"><a href="index.html">Search</a></li>
-        <li><a href="insert.html">Insert</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="topnav" id="myTopnav">
+    <a href="index.html"><span class="glyphicon glyphicon-search"></span></a>
+    <a href="insert.html"><span class="glyphicon glyphicon-plus"></span></a>
+  </div>
+
   <div class="container">
     <!-- search -->
     <div class="row">
@@ -40,11 +28,6 @@
             <div class="typeahead__field">
               <span class="typeahead__query">
                 <input class="search_query" placeholder="Write your Keyword!" autocomplete="off">
-              </span>
-              <span class="typeahead__button">
-                <button type="submit">
-                    <i class="typeahead__search-icon"></i>
-                </button>
               </span>
             </div>
           </div>
@@ -59,11 +42,11 @@
             <div class="form-group with_tag" v-if="tag.c_selected">
               <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
               <div class="btn-group">
-                <label :for="tag.name" :class="tagClass(tag)">
+                <label :for="tag.name" class="btn" :class="tagClass(tag)">
                   <span class="glyphicon glyphicon-ok"></span>
                   <span> </span>
                 </label>
-                <label class="btn btn-default active" :for="tag.name">{{ tag.name }}</label>
+                <label class="btn btn-default" :class="{active:tag.selected}" :for="tag.name">{{ tag.name }}</label>
               </div>
             </div>
           </template>
@@ -73,49 +56,28 @@
     <!-- card container -->
     <div class="row">
       <div class="col-xs-12">
-        <div class="panel-group" id="card_container">
+        <div id="card_container">
           <template v-for="card in cards">
-            <div class="panel panel-default" :class="card.id" v-show="card.selected" :key="card.id">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#card_container" :href="cardUrl(card.id)">
-                    <!-- card title -->
-                    {{ card.content }}
-                  </a>
-                  <!-- update Buttons -->
-                  <div class="btn-group updateBtn">
-                    <button type="button" class="btn btn-default" @click="editComplete(card, $event)" v-if="cardEditing==card.id">
-                      <i class="update glyphicon glyphicon-ok"></i>
-                    </button>
-                    <button type="button" class="btn btn-default"  @click="cardEditing=card.id" v-else>
-                      <i class="update glyphicon glyphicon-edit"></i>
-                    </button>
-                    <button type="button" class="btn btn-default" @click="deleteCard(card, $event)">
-                      <i class="update glyphicon glyphicon-trash"></i>
-                    </button>
-                  </div>
-                </h4>
+            <div class="card_panel" v-show="card.selected" :key="card.id">
+              <div class="card_content" :class="card.id">
+                <!-- edit -->
+                <textarea rows="10" v-text="card.content" class="form-control" v-if="cardEditing==card.id"></textarea>
+                <!-- card content -->
+                <pre v-else>{{ card.content }}</pre>
               </div>
-              <div :id="card.id" class="panel-collapse collapse">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <!-- edit -->
-                    <textarea rows="10" v-text="card.content" class="form-control" v-if="cardEditing==card.id"></textarea>
-                    <!-- card content -->
-                    <pre v-else>{{ card.content }}</pre>
-                  </li>
-                  <!-- tags -->
-                  <span class="tagsInCard">
-                    <template v-for="tag in card.tags_info">
-                      <a class="link" @click="tagDelete(tag, card)">
-                        <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span>
-                        {{ tag.name }}
-                      </a>
-                    </template>
-          <hr style="margin:0px">
+              <div class="card_tags">
+                <!-- tags -->
+                <template v-for="tag in card.tags_info">
+                  <a class="link" @click="tagDelete(tag, card)"><span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ tag.name }}</a>
+                </template>
+        </div>
+        <div class="card_bottom">
           <input type="text" id="tagAdd" class="link" @keyup.enter="tagAdd(card, $event)" placeholder="Add a tag">
-          </span>
-          </ul>
+          <div class="btn-group updateBtn">
+            <button type="button" class="btn btn-default" @click="editComplete(card, $event)" v-if="cardEditing==card.id"><i class="update glyphicon glyphicon-ok"></i></button>
+            <button type="button" class="btn btn-default" @click="cardEditing=card.id" v-else><i class="update glyphicon glyphicon-edit"></i></button>
+            <button type="button" class="btn btn-default" @click="deleteCard(card, $event)"><i class="update glyphicon glyphicon-trash"></i></button>
+          </div>
         </div>
       </div>
       </template>
@@ -130,18 +92,7 @@
   <script>
     $(document).ready(function() {
       $('.search_query').focus();
-
-      // serch_query
       loadTags();
-
-      function toggleCard(e) {
-        $(e.target)
-          .prev('.panel-heading')
-          .find('.updateBtn')
-          .toggle();
-      };
-      $('.panel-group').on('hide.bs.collapse', toggleCard);
-      $('.panel-group').on('show.bs.collapse', toggleCard);
     })
 
     function loadTags() {
@@ -155,7 +106,7 @@
           "ale": {
             ajax: {
               type: "GET",
-              url: "sql/load_data_tags.php"
+              url: "sql/typeahead/load_data_tags.php"
             }
           }
         },
@@ -163,10 +114,7 @@
           onClick: function(node, a, item, event) {
             var query = this.item.display;
             searchDatabase(query, [query], '');
-          },
-          onSubmit: function(node, form, item, event) {
-            var query = this.query.toUpperCase();
-            searchDatabase(query, [query], '');
+            this.item.display = '';
           }
         }
       });
@@ -300,7 +248,7 @@
         },
         tagClass: function(tag) {
           if (tag.query) {
-            return 'btn btn-danger active';
+            return 'btn btn-warning active';
           } else {
             if (tag.selected) {
               return 'btn btn-info active';
@@ -375,7 +323,7 @@
             var vars = {
               q: 'card_edit',
               card_id: card.id,
-              card_content: $("#" + card.id + " textarea")[0].value
+              card_content: $("." + card.id + " textarea")[0].value
             };
             $.ajax({
                 type: "POST",

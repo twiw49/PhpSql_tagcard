@@ -1,15 +1,13 @@
 <?php
 header('Content-Type: application/json');
 
-include("db.php");
+include("../db.php");
 
-$sql = "SELECT * FROM `symptom`;";
+$sql = "SELECT * FROM `risk_factor`;";
 $result = mysqli_query($conn, $sql);
 $arr = array();
 while ($row = mysqli_fetch_array($result)) {
-    $r = $row['name'];
-    $r = $r.'<br />'.$row['id'];
-    array_push($arr, $r);
+    array_push($arr, $row['name']);
 };
 
 echo json_encode($arr);
