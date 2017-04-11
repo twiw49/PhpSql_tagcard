@@ -1,251 +1,251 @@
 [{
   "id": "f_4",
   "name": "Age 45-55",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_3",
   "name": "Age above 40",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_5",
   "name": "Age above 60",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_19",
   "name": "Australia and Oceania",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_7",
   "name": "BMI above 30",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_6",
   "name": "BMI below 19",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_69",
   "name": "Cannabis, marijuana smoking",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Do you smoke marijuana?"
 }, {
   "id": "f_40",
   "name": "Carbon monoxide source",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "In order to exclude carbon monoxide poisoning, do you have a coal-fired furnace, gas fire or a broken gas boiler?"
 }, {
   "id": "f_17",
   "name": "Central Africa",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_82",
   "name": "Contact with allergen",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you had recent contact with a known allergen - such as food, chemicals, pollen, pets, etc.?"
 }, {
   "id": "f_122",
   "name": "Contact with animals",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you come into contact with any non-domesticated animals?"
 }, {
   "id": "f_100",
   "name": "Contact with animals, cat",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you recently come into contact with a cat?"
 }, {
   "id": "f_41",
   "name": "Contact with insecticides",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you recently come into contact with insecticides?"
 }, {
   "id": "f_99",
   "name": "Contact with sick person, chickenpox",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you had contact with someone with chickenpox in the last 3 weeks?"
 }, {
   "id": "f_36",
   "name": "Contact with weed killers",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you had contact with any weed killers in the last 48 hours?"
 }, {
   "id": "f_74",
   "name": "Craniocerebral trauma",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you ever had a head injury or trauma?"
 }, {
   "id": "f_8",
   "name": "Diabetes",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Do you have diabetes?"
 }, {
   "id": "f_15",
   "name": "Europe",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_38",
   "name": "Frequent alcohol consumption",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Do you often drink alcohol?"
 }, {
   "id": "f_10",
   "name": "High cholesterol",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Do you have a high level of cholesterol?"
 }, {
   "id": "f_9",
   "name": "Hypertension",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Do you have hypertension?"
 }, {
   "id": "f_48",
   "name": "Insect bite",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you noticed any insects on you or have you been bitten by any insect (lice, mosquitoes, ticks, bedbugs, etc.)?"
 }, {
   "id": "f_14",
   "name": "Latin and South America",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_2",
   "name": "Man",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_21",
   "name": "Middle East",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_37",
   "name": "Mushroom consumption",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you eaten wild mushrooms in the last 6-72 hours?"
 }, {
   "id": "f_44",
   "name": "NSAID or corticosteroid use",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Do you use nonsteroidal anti-inflammatory drugs or corticosteroids?"
 }, {
   "id": "f_13",
   "name": "North America w/o Mexico",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_16",
   "name": "Northern Africa",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_43",
   "name": "Opioids use",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Do you use opioids (heroin, morphine)?"
 }, {
   "id": "f_25",
   "name": "Paracetamol, acetaminophen intake",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you taken any form of acetaminophen (e.g. Tylenol) in the last 48-72 hours?"
 }, {
   "id": "f_11",
   "name": "Postmenopause",
-  "sex_filter": "female",
+  "filter_sex": "female",
   "question": "Are you after menopause?"
 }, {
   "id": "f_42",
   "name": "Pregnancy",
-  "sex_filter": "female",
+  "filter_sex": "female",
   "question": "Are you pregnant?"
 }, {
   "id": "f_80",
   "name": "Prior myocardial infarction",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you ever had a heart attack?"
 }, {
   "id": "f_138",
   "name": "Prolonged exposure to sunlight and heat",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you spent a long time in the sun recently?"
 }, {
   "id": "f_27",
   "name": "Psychological trauma",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you experienced a highly emotional, seriously stressful or traumatic situation?"
 }, {
   "id": "f_47",
   "name": "Recent surgery",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you had surgery recently?"
 }, {
   "id": "f_20",
   "name": "Russia, Kazakhstan and Mongolia",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_26",
   "name": "Salicylate intake",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you taken aspirin or any other salicylate drugs in the last 48-72 hours?"
 }, {
   "id": "f_46",
   "name": "Sedative or hypnotic withdrawal",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you reduced the dose of sedatives or hypnotics?"
 }, {
   "id": "f_53",
   "name": "Skeletal trauma, limb",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you recently had a joint or limb injury?"
 }, {
   "id": "f_28",
   "name": "Smoking",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Do you smoke?"
 }, {
   "id": "f_18",
   "name": "Southern Africa",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_22",
   "name": "Southwestern Asia",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_45",
   "name": "Taking sleeping pills or sedatives",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you taken any sleeping pills or sedatives recently?"
 }, {
   "id": "f_1",
   "name": "Woman",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_65",
   "name": "Age < 18",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": null
 }, {
   "id": "f_81",
   "name": "Atmospheric pressure changes",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you been exposed to atmospheric pressure changes like altitude changes (such as flying), diving (such as scuba diving) or driving in the mountains?"
 }, {
   "id": "f_128",
   "name": "Chronic UV exposure",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Have you often been sunburned or exposed to ultraviolet radiation (e.g. in a tanning salon)?"
 }, {
   "id": "f_139",
   "name": "Contact lenses",
-  "sex_filter": "both",
+  "filter_sex": "both",
   "question": "Do you wear contact lenses?"
 }]

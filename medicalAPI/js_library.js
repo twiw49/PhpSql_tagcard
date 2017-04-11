@@ -111,6 +111,15 @@ var disease_symp_disease = function() {
   });
 };
 
+var load_data = function(load_json_url) {
+  var url = load_json_url;
+  $.getJSON(url, function(data) {
+    for (var i = 0; i < data.length; i++) {
+      console.log(data[i].location);
+    }
+  })
+};
+
 var load_send_data = function(load_json_url, send_php_url) {
   var url = load_json_url; // var url = "medicalAPI/final/final_disease.json"
   $.getJSON(url, function(data) {
