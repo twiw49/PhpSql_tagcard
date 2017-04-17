@@ -3056,7 +3056,7 @@
 }, {
   "id": "c__118",
   "name": "Stomach ulcer",
-  "synonym": ["Stomach ulcer", "Peptic ulcer disease", "Stomach ulcer", "Peptic ulcer"],
+  "synonym": ["Stomach ulcer", "Peptic ulcer disease", "Peptic ulcer"],
   "category": "Gastroenterology",
   "filter_sex": "both",
   "description": "Gastric acid is a natural component of gastric juice, which supports digestion and protects the body from pathogens that enter the stomach via the mouth. If the acid content in gastric juice becomes too high, it can lead to injury of the stomach mucosa. This injury is referred to as a stomach ulcer. The patient usually feels pain in the upper chest and in 20% of these cases there is also injury to blood vessels, which causes bleeding. Although gastric ulcers may manifest with certain resemblance to tumors, they are neither tumors nor are they cancerous.",
@@ -4230,7 +4230,7 @@
 }, {
   "id": "c__171",
   "name": "Achilles tendon tear",
-  "synonym": ["Achilles tendon tear", "Achilles tendon rupture", "Achilles tendon tear", "Tear of the achilles tendon", "Achilles tendon rupture"],
+  "synonym": ["Achilles tendon tear", "Achilles tendon rupture", "Tear of the achilles tendon"],
   "category": "Orthopedics",
   "filter_sex": "both",
   "description": "Aging process and strains change the structure of the Achilles‘ tendon. Fatty tissue can be stored in the tendons, or they calcify, so that in the event of sudden tension of the calf muscles they can’t transfer the strength to the bone anymore and rupture.",
@@ -8130,7 +8130,7 @@
 }, {
   "id": "c__397",
   "name": "Bowel incontinence",
-  "synonym": ["Bowel incontinence", "Fecal incontinence", "Fecal incontinence", "FI", "Faecal incontinence", "Bowel incontinence", "Anal incontinence", "Accidental bowel leakage", "Incontinence of stool"],
+  "synonym": ["Bowel incontinence", "Fecal incontinence", "FI", "Faecal incontinence", "Anal incontinence", "Accidental bowel leakage", "Incontinence of stool"],
   "category": "Gastroenterology",
   "filter_sex": "both",
   "description": "Patients with bowel incontinence for various reasons unable or not sufficiently able to control their sphincter muscle, causing uncontrolled and spontaneous defecation. Bowel incontinence is separated into three levels. Level one causes involuntary flatulence, patients with level two can’t control liquid motion. With bowel incontinence level three, the patient has no control of their excretion, and even solid or hard stool will excrete spontaneous without their influence.",

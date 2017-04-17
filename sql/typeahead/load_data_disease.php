@@ -4,17 +4,16 @@ header('Content-Type: application/json');
 include("../db.php");
 
 $group = array();
-$s = "SELECT * FROM `d_category`;";
+$s = "SELECT * FROM `category_disease`;";
 $r = mysqli_query($conn, $s);
 while ($row_ = mysqli_fetch_array($r)) {
-    $cate_id = $row_['id'];
-    $cate_name = $row_['name'];
+    $cate_name = htmlspecialchars_decode($row_['name']);
 
-    $sql = "SELECT * FROM `disease` WHERE `category` = '{$cate_id}';";
+    $sql = "SELECT * FROM `disease` WHERE `category` = '{$cate_name}';";
     $result = mysqli_query($conn, $sql);
     $arr = array();
     while ($row = mysqli_fetch_array($result)) {
-        array_push($arr, $row['name']);
+        array_push($arr, htmlspecialchars_decode($row['name']));
     };
 
     $group[$cate_name] = $arr;

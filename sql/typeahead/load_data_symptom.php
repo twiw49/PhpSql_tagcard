@@ -7,8 +7,7 @@ $sql = "SELECT * FROM `symptom`;";
 $result = mysqli_query($conn, $sql);
 $arr = array();
 while ($row = mysqli_fetch_array($result)) {
-    $r = $row['name'];
-    // $r = $r.'<br />'.$row['id'];
+    $r = htmlspecialchars_decode($row['name']);
     array_push($arr, $r);
 };
 

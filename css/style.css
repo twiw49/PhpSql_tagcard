@@ -104,6 +104,10 @@
     border-radius: 0;
   }
 
+  .card_content div {
+    padding: 1rem;
+  }
+
   .card_tags {
     padding-top: 1.5rem;
   }
@@ -130,8 +134,9 @@
     width: 100%;
     padding-left: 5px;
     outline: none;
+    border-bottom: 3px dotted #f0f0f0;
   }
-
+  
   .card_bottom {
     display: flex;
     flex-direction: row;
@@ -153,7 +158,7 @@
   }
 
   .card_rsc {
-    padding: 20px 0;
+    padding: 0;
   }
 
   .carousel .item {
@@ -170,12 +175,8 @@
     margin: 0;
   }
 
-  .table>thead>tr>th {
-    padding-left: 2rem !important;
-  }
-
   .table>tbody>tr>td {
-    padding-left: 2rem !important;
+    text-align: center;
   }
 
   .carousel-indicators {
@@ -220,7 +221,12 @@
 
   .carousel-caption p {
     padding-bottom: 0;
-    margin: 10px 0;
+    margin: 10px auto;
+    font-weight: bold;
+  }
+
+  .panel-group {
+    margin-bottom: 0px !important;
   }
 
   .panel-group .panel {

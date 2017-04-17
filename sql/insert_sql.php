@@ -3,7 +3,8 @@
 
   /* Insert Submit */
   if (isset($_POST['insert'])) {
-      $content = htmlspecialchars($_POST['content']);
+      $content = $_POST['content'];
+      $content = escapeHtml($content);
       $tags = $_POST['tags'];
 
       $sql = "INSERT INTO `card` (`id`, `content`) VALUES (NULL, '{$content}');";
@@ -11,7 +12,7 @@
       $new_card_id = mysqli_insert_id($conn);
 
       foreach ($tags as $tag) {
-          $tag = htmlspecialchars($tag);
+          $tag = escapeHtml($tag);
           $sql = "INSERT INTO `tag` (`id`, `name`) VALUES (NULL, '{$tag}');";
           if (!mysqli_query($conn, $sql)) {
               $find_id = "SELECT * FROM `tag` WHERE `name` = '{$tag}';";

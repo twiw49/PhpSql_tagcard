@@ -115,28 +115,36 @@ var load_data = function(load_json_url) {
   var url = load_json_url;
   $.getJSON(url, function(data) {
     for (var i = 0; i < data.length; i++) {
-      console.log(data[i].location);
+      console.log(data[i]);
     }
   })
 };
 
-var load_send_data = function(load_json_url, send_php_url) {
+var load_send_data = function(load_json_url, send_php_url, query) {
   var url = load_json_url; // var url = "medicalAPI/final/final_disease.json"
   $.getJSON(url, function(data) {
-    console.log(data);
+    console.log(data.length);
     $.ajax({
         type: "POST",
         url: send_php_url, // url: "sql/infermedicaData.php"
         data: {
-          q: "final_disease",
+          q: query, // q: "disease"
           data: JSON.stringify(data)
         }
       })
       .done(function(data) {
         console.log(data);
       })
+      .fail(function(error) {
+        console.log(error);
+      })
   })
 }
+// load_send_data("medicalAPI/final/final_disease.json", "sql/database/insertData.php", "disease");
+// load_send_data("medicalAPI/final/final_lab_test.json", "sql/database/insertData.php", "lab");
+// load_send_data("medicalAPI/final/final_procedure.json", "sql/database/insertData.php", "management");
+// load_send_data("medicalAPI/final/final_risk_factor.json", "sql/database/insertData.php", "risk_factor");
+// load_send_data("medicalAPI/final/final_symptom.json", "sql/database/insertData.php", "symptom");
 
 var load_apimedic_data = function() {
   var issue_id;

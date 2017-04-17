@@ -5,14 +5,16 @@ if (!$conn) {
     die('Could not connect: ' . mysqli_error($conn));
 }
 
-$q = htmlspecialchars($_POST['q']);
+$q = $_POST['q'];
 
 function sqlResult($conn, $table, $column, $value, $search)
 {
+    $value = mysqli_real_escape_string($conn, $value);
+    $value = htmlspecialchars($value);
     $sql = "SELECT * FROM `$table` WHERE `$column` = '{$value}'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
-    return $row[$search];
+    return htmlspecialchars_decode($row[$search]);
 };
 
 /* tag_id & tag_name */
@@ -26,6 +28,51 @@ $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_array($result)) {
     $card_id = $row['card_id'];
     $card_content = sqlResult($conn, 'card', 'id', $card_id, 'content');
+    $card_question = sqlResult($conn, 'card', 'id', $card_id, 'question');
+    $card_answer = sqlResult($conn, 'card', 'id', $card_id, 'answer');
+
+    $card_choices = array();
+    $sql_ = "SELECT * FROM `card_choice` WHERE `card_id` = '{$card_id}'";
+    $result_ = mysqli_query($conn, $sql_);
+    while ($row_ = mysqli_fetch_array($result_)) {
+        $choice_number = $row_['choice_number'];
+        $choice_name = $row_['choice_name'];
+        $card_choices[$choice_number] = $choice_name;
+    }
+
+    $card_resources = array();
+    $sql_ = "SELECT * FROM `card_resource` WHERE `card_id` = '{$card_id}';";
+    $result_ = mysqli_query($conn, $sql_);
+    while ($row_ = mysqli_fetch_array($result_)) {
+        $card_rsc = array();
+        $rsc_id = $row_['rsc_id'];
+        $rsc_type = $row_['rsc_type'];
+        $rsc_name = $row_['rsc_name'];
+        if ($rsc_type == 'image') {
+            $s_ = "SELECT * FROM `card_resource_image` WHERE `card_id` = '{$card_id}' AND `rsc_id` = '{$rsc_id}'";
+            $re_ = mysqli_query($conn, $s_);
+            $ro_ = mysqli_fetch_array($re_);
+            $rsc_path = $ro_['rsc_path'];
+
+            $card_rsc['id'] = $rsc_id;
+            $card_rsc['name'] = $rsc_name;
+            $card_rsc['type'] = $rsc_type;
+            $card_rsc['path'] = $rsc_path;
+        } elseif ($rsc_type == 'table') {
+            $s_ = "SELECT * FROM `card_resource_table` WHERE `card_id` = '{$card_id}' AND `rsc_id` = '{$rsc_id}'";
+            $re_ = mysqli_query($conn, $s_);
+            $rsc_table = array();
+            while ($ro_ = mysqli_fetch_array($re_)) {
+                array_push($rsc_table, $ro_['rsc_result']);
+            }
+
+            $card_rsc['id'] = $rsc_id;
+            $card_rsc['name'] = $rsc_name;
+            $card_rsc['type'] = $rsc_type;
+            $card_rsc['result'] = $rsc_table;
+        }
+        $card_resources[] = $card_rsc;
+    }
 
     $tags_ele = array();
     $tags_info = array();
@@ -37,14 +84,18 @@ while ($row = mysqli_fetch_array($result)) {
 
         array_push($tags_ele, $t_name);
         $t_info = array();
+        $t_info['id'] = $t_id;
         $t_info['name'] = $t_name;
-        $t_info['id'] = $t_name;
         $tags_info[] = $t_info;
     };
 
     $y = array();
     $y['id'] = $card_id;
     $y['content'] = $card_content;
+    $y['question'] = $card_question;
+    $y['answer'] = $card_answer;
+    $y['choices'] = $card_choices;
+    $y['resources'] = $card_resources;
     $y['tags'] = $tags_ele;
     $y['tags_info'] = $tags_info;
     $cards[] = $y;

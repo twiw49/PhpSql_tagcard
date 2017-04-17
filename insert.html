@@ -85,6 +85,7 @@
   <script src="bower_components/jquery-typeahead/dist/jquery.typeahead.min.js"></script>
   <script src="bower_components/vue/dist/vue.min.js"></script>
   <script src="medicalAPI/js_library.js"></script>
+  <script src="sql/kmle/dataProcess.js"></script>
   <script>
     function captureReturnKey(query, selector, btn) {
       var b = document.createElement('input');
@@ -107,10 +108,7 @@
       $.typeahead({
         input: '.symptom_query',
         minLength: 0,
-        searchOnFocus: true,
-        highlight: true,
         maxItem: 200,
-        offset: false,
         hint: true,
         source: {
           ajax: {
@@ -122,7 +120,6 @@
           onClick: function(node, a, item, event) {
             var query = this.item.display;
             captureReturnKey(query, 'symptom', 'btn-primary');
-            this.item.display = '';
           }
         }
       });
@@ -131,10 +128,7 @@
       $.typeahead({
         input: '.risk_factor_query',
         minLength: 0,
-        searchOnFocus: true,
-        highlight: true,
         maxItem: 200,
-        offset: false,
         hint: true,
         source: {
           ajax: {
@@ -146,7 +140,6 @@
           onClick: function(node, a, item, event) {
             var query = this.item.display;
             captureReturnKey(query, 'risk_factor', 'btn-info');
-            this.item.display = '';
           }
         }
       });
@@ -155,10 +148,7 @@
       $.typeahead({
         input: '.lab_query',
         minLength: 0,
-        searchOnFocus: true,
-        highlight: true,
         maxItem: 2000,
-        offset: false,
         order: 'asc',
         hint: true,
         group: true,
@@ -271,7 +261,6 @@
           onClick: function(node, a, item, event) {
             var query = this.item.display;
             captureReturnKey(query, 'lab', 'btn-warning');
-            this.item.display = '';
           }
         }
       });
@@ -280,10 +269,7 @@
       $.typeahead({
         input: '.disease_query',
         minLength: 0,
-        searchOnFocus: true,
-        highlight: true,
         maxItem: 1000,
-        offset: false,
         hint: true,
         group: true,
         dropdownFilter: "All",
@@ -486,7 +472,6 @@
           onClick: function(node, a, item, event) {
             var query = this.item.display;
             captureReturnKey(query, 'disease', 'btn-danger');
-            this.item.display = '';
           }
         }
       });
@@ -496,7 +481,7 @@
         var content = $.trim($("#content").val());
         var tags = $(".tag_selected")
           .map(function() {
-            return $.trim(this.value.toUpperCase());
+            return $.trim(this.value);
           })
           .get();
 

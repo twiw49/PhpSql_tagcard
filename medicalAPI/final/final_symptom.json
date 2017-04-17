@@ -3188,7 +3188,8 @@
   },
   "children_symp": [],
   "disease": [],
-  "assocID": null
+  "assocID": null,
+  "question": null
 }, {
   "id": "s_641",
   "name": "Bowel incontinence",
@@ -3664,7 +3665,8 @@
   },
   "children_symp": [],
   "disease": [],
-  "assocID": null
+  "assocID": null,
+  "question": null
 }, {
   "id": "s__985",
   "name": "Heart murmur",
@@ -3990,7 +3992,7 @@
   }, {
     "id": "s_31",
     "relation": "character",
-    "name": null
+    "name": "Chest pain, doesn't subside after rest"
   }, {
     "id": "s_1601",
     "relation": "character",
@@ -5769,7 +5771,8 @@
     "id": "c__550",
     "name": "Sun-related keratosis"
   }],
-  "assocID": "s_548"
+  "assocID": "s_548",
+  "question": null
 }, {
   "id": "s_1662",
   "name": "Cutaneous mass, soft",
@@ -8206,7 +8209,8 @@
   },
   "children_symp": [],
   "disease": [],
-  "assocID": null
+  "assocID": null,
+  "question": null
 }, {
   "id": "s_1779",
   "name": "Dysphagia, esophageal",
@@ -10017,7 +10021,8 @@
   },
   "children_symp": [],
   "disease": [],
-  "assocID": null
+  "assocID": null,
+  "question": null
 }, {
   "id": "s_606",
   "name": "Eye flashes",
@@ -11382,7 +11387,8 @@
   },
   "children_symp": [],
   "disease": [],
-  "assocID": null
+  "assocID": null,
+  "question": null
 }, {
   "id": "s_772",
   "name": "Flat or blunted affect",
@@ -12348,7 +12354,8 @@
   },
   "children_symp": [],
   "disease": [],
-  "assocID": null
+  "assocID": null,
+  "question": null
 }, {
   "id": "s_85",
   "name": "Head tremors",
@@ -14064,7 +14071,8 @@
     "id": "c__165",
     "name": "Fatty tumor"
   }],
-  "assocID": "s_218"
+  "assocID": "s_218",
+  "question": null
 }, {
   "id": "s__131",
   "name": "Increased appetite",
@@ -19631,7 +19639,7 @@
     "name": null
   },
   "children_symp": [{
-    "id": "s_1209",
+    "id": "s__150",
     "relation": "duration",
     "name": "Skin pallor, sudden"
   }],
@@ -24734,7 +24742,7 @@
   "children_symp": [{
     "id": "s_729",
     "relation": "base",
-    "name": null
+    "name": "Thoughts of wanting to kill one's child"
   }],
   "disease": [],
   "assocID": null,
@@ -24750,7 +24758,7 @@
   "parent_symp": {
     "id": "s_728",
     "relation": "base",
-    "name": null
+    "name": "Thoughts of harming one's child"
   },
   "children_symp": [],
   "disease": [],
@@ -27365,7 +27373,7 @@
   }, {
     "id": "s_756",
     "relation": "character",
-    "name": null
+    "name": "Gottron's papules"
   }, {
     "id": "s_381",
     "relation": "character",

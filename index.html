@@ -62,130 +62,62 @@
               <!-- card content -->
               <div class="card_content" :class="card.id">
                 <textarea rows="10" v-text="card.content" class="form-control" v-if="editingCard==card.id"></textarea>
-                <pre v-else>{{ card.content }}</pre>
+                <div v-else>{{ card.content }}</div>
               </div>
-              <div class="card_rsc">
-                <div :id="cardId('rsc', card.id)" class="carousel slide" data-interval="false">
+
+              <div class="card_rsc" v-if="card.resources.length > 0">
+                <div :id="cardId('card_rsc', card.id)" class="carousel slide" data-interval="false">
                   <!-- Indicators -->
-                  <ol class="carousel-indicators">
-                    <li :data-target="cardUrl('rsc', card.id)" data-slide-to="0" class="active"></li>
-                    <li :data-target="cardUrl('rsc', card.id)" data-slide-to="1"></li>
-                    <li :data-target="cardUrl('rsc', card.id)" data-slide-to="2"></li>
-                    <li :data-target="cardUrl('rsc', card.id)" data-slide-to="3"></li>
-                    <li :data-target="cardUrl('rsc', card.id)" data-slide-to="4"></li>
-                  </ol>
+                  <template v-if="card.resources.length > 1">
+                    <ol class="carousel-indicators">
+                      <li v-for="item in card.resources" :data-target="cardUrl('card_rsc', card.id)" :data-slide-to="cardSlideNumber(item.id)" :class="{'active': item.id == 'rsc_1'}"></li>
+                    </ol>
+                  </template>
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner" role="listbox">
-                    <div class="item active">
+                    <div class="item" v-for="item in card.resources" :class="{'active': item.id == 'rsc_1'}">
                       <div class="carousel-caption">
-                        <p>Chania</p>
+                        <p>{{ item.name }}</p>
                       </div>
-                      <img src="images/7602_01.png" alt="Chania" width="460" height="345">
-                    </div>
-                    <div class="item">
-                      <div class="carousel-caption">
-                        <p>Chania</p>
-                      </div>
-                      <img src="images/7602_02.png" alt="Chania" width="460" height="345">
-                    </div>
-                    <div class="item">
-                      <div class="carousel-caption">
-                        <p>Chania</p>
-                      </div>
-                      <img src="images/7602_03.png" alt="Flower" width="460" height="345">
-                    </div>
-                    <div class="item">
-                      <div class="carousel-caption">
-                        <p>Chania</p>
-                      </div>
-                      <img src="images/7602_04.png" alt="Flower" width="460" height="345">
-                    </div>
-                    <div class="item">
-                      <div class="carousel-caption">
-                        <p>혈액검사</p>
-                      </div>
-                      <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Email</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <template v-if="item.type === 'image'">
+                        <img :src="item.path" alt=""></div>
+                      </template>
+                      <template v-else-if="item.type === 'table'">
+                        <table class="table table-striped">
+                          <tbody>
+                            <tr v-for="res in item.result">
+                              <td>{{ res }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </template>
                     </div>
                   </div>
                   <!-- Left and right controls -->
-                  <a class="left carousel-control" :href="cardUrl('rsc', card.id)" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="right carousel-control" :href="cardUrl('rsc', card.id)" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
+                  <template v-if="card.resources.length > 1">
+                    <a class="left carousel-control" :href="cardUrl('rsc', card.id)" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" :href="cardUrl('rsc', card.id)" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </template>
+                </div>
+              </div>
+              <!-- card tags -->
+              <hr />
+              <span class="card_tags" v-for="tag in card.tags_info">
+                  <a class="link" @click="tagDelete(tag, card)"><span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ tag.name }}</a>
+              </span>
+              <!-- card bottom -->
+              <div class="card_bottom">
+                <input type="text" class="link" @keyup.enter="tagAdd(card, $event)" placeholder="Add a tag">
+                <div class="btn-group updateBtn">
+                  <button class="btn btn-default" @click="editComplete(card, $event)" v-if="editingCard==card.id"><i class="glyphicon glyphicon-ok"></i></button>
+                  <button class="btn btn-default" @click="editingCard=card.id" v-else><i class="glyphicon glyphicon-edit"></i></button>
+                  <button class="btn btn-default" @click="deleteCard(card, $event)"><i class="glyphicon glyphicon-trash"></i></button>
                 </div>
               </div>
               <!-- question -->
@@ -210,30 +142,13 @@
                   </div>
                   <div :id="cardId('ques', card.id)" class="panel-collapse collapse">
                     <div class="panel-body">
-                      <ol>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                      </ol>
-                      <hr>
-                      <span style="padding-left:1rem;">Answer: 5</span>
+                      <span style="padding-left:1rem;">Q : {{ card.question }}</span>
+                      <hr style="margin:1rem 0">
+                      <div style="padding-left:1rem;" v-for="(choice, number) in card.choices" :key="choice">{{ number }}. {{ choice }}</div>
+                      <hr style="margin:1rem 0">
+                      <span style="padding-left:1rem;">A : {{ card.answer }}</span>
                     </div>
                   </div>
-                </div>
-              </div>
-              <!-- card tags -->
-              <span class="card_tags" v-for="tag in card.tags_info">
-                  <a class="link" @click="tagDelete(tag, card)"><span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ tag.name }}</a>
-              </span>
-              <!-- card bottom -->
-              <div class="card_bottom">
-                <input type="text" id="tagAdd" class="link" @keyup.enter="tagAdd(card, $event)" placeholder="Add a tag">
-                <div class="btn-group updateBtn">
-                  <button class="btn btn-default" @click="editComplete(card, $event)" v-if="editingCard==card.id"><i class="glyphicon glyphicon-ok"></i></button>
-                  <button class="btn btn-default" @click="editingCard=card.id" v-else><i class="glyphicon glyphicon-edit"></i></button>
-                  <button class="btn btn-default" @click="deleteCard(card, $event)"><i class="glyphicon glyphicon-trash"></i></button>
                 </div>
               </div>
             </div>
@@ -253,26 +168,22 @@
     })
 
     function loadTags() {
+
       $.typeahead({
         input: '.search_query',
         minLength: 0,
-        offset: false,
-        highlight: true,
+        maxItem: 200,
         hint: true,
-        group: true,
         source: {
-          "ale": {
-            ajax: {
-              type: "GET",
-              url: "sql/typeahead/load_data_tags.php"
-            }
+          ajax: {
+            type: "GET",
+            url: "sql/typeahead/load_data_tags.php"
           }
         },
         callback: {
           onClick: function(node, a, item, event) {
             var query = this.item.display;
             searchDatabase(query, [query], '');
-            this.item.display = '';
           }
         }
       });
@@ -313,7 +224,7 @@
           console.log('selected tags : ' + selected_tags);
         })
         .fail(function(xhr) {
-          console.log(xhr);
+          console.log(xhr.responseText);
         })
     };
 
@@ -345,6 +256,9 @@
       for (var i = 0; i < cards.length; i++) {
         var c = cards[i];
         var c_content = c.content;
+        var c_question = c.question;
+        var c_choices = c.choices;
+        var c_resources = c.resources;
         var c_tags = c.tags;
         // 1. selected
         c.selected = true;
@@ -457,7 +371,7 @@
           var old_data = this.data;
           var vars = {
             q: 'tag_add',
-            tag_name: event.target.value.toUpperCase(),
+            tag_name: event.target.value,
             card_id: card.id
           };
           $.ajax({
@@ -510,6 +424,19 @@
                 loadTags();
               })
           }
+        },
+        filterImage: function(items) {
+          return items.filter(function(item) {
+            return item.type == 'image';
+          })
+        },
+        filterTable: function(items) {
+          return items.filter(function(item) {
+            return item.type == 'table';
+          })
+        },
+        cardSlideNumber: function(id) {
+          return Number(id.replace('rsc_', '')) - 1;
         }
       }
     });
