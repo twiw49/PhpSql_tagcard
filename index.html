@@ -54,7 +54,7 @@
       </div>
     </div>
     <!-- card container -->
-    <div class="row">
+    <div class="row card_container">
       <div class="col-xs-12">
         <div id="card_container">
           <template v-for="card in cards">
@@ -65,18 +65,18 @@
                 <div v-else>{{ card.content }}</div>
               </div>
 
-              <div class="card_rsc" v-if="card.resources.length > 0">
-                <div :id="cardId('card_rsc', card.id)" class="carousel slide" data-interval="false">
+              <div class="rsc" v-if="card.resources.length > 0">
+                <div :id="cardId('rsc', card.id)" class="carousel slide" data-interval="false">
                   <!-- Indicators -->
                   <template v-if="card.resources.length > 1">
                     <ol class="carousel-indicators">
-                      <li v-for="item in card.resources" :data-target="cardUrl('card_rsc', card.id)" :data-slide-to="cardSlideNumber(item.id)" :class="{'active': item.id == 'rsc_1'}"></li>
+                      <li v-for="item in card.resources" :data-target="cardUrl('rsc', card.id)" :data-slide-to="cardSlideNumber(item.id)" :class="{'active': item.id == 'rsc_1'}"></li>
                     </ol>
                   </template>
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner" role="listbox">
                     <div class="item" v-for="item in card.resources" :class="{'active': item.id == 'rsc_1'}">
-                      <div class="carousel-caption">
+                      <div class="carousel-caption" v-if="item.type == 'image'">
                         <p>{{ item.name }}</p>
                       </div>
                       <template v-if="item.type === 'image'">
@@ -84,9 +84,16 @@
                       </template>
                       <template v-else-if="item.type === 'table'">
                         <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>{{ item.name }}</th>
+                              <th>참고치</th>
+                            </tr>
+                          </thead>
                           <tbody>
                             <tr v-for="res in item.result">
-                              <td>{{ res }}</td>
+                              <td>{{ res.split('(참고치:')[0] }}</td>
+                              <td>{{ reference(res.split('(참고치:')[1]) }}</td>
                             </tr>
                           </tbody>
                         </table>
@@ -107,7 +114,7 @@
                 </div>
               </div>
               <!-- card tags -->
-              <hr />
+              <hr style="margin:1rem;">
               <span class="card_tags" v-for="tag in card.tags_info">
                   <a class="link" @click="tagDelete(tag, card)"><span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ tag.name }}</a>
               </span>
@@ -219,7 +226,7 @@
         })
         .done(function(data, message, xhr) {
           modifyData(data, selected_tags);
-          console.log('data : ' + xhr.responseText);
+          // console.log(xhr.responseText);
           console.log('query tag : ' + q_tag);
           console.log('selected tags : ' + selected_tags);
         })
@@ -351,6 +358,13 @@
           var old_data = this.data;
           var r = confirm('Do you want to remove ' + tag.id + ' tag from this case?');
           if (r) {
+            for (var i = 0; i < old_data.with_tags.length; i++) {
+              if (old_data.with_tags[i].id == tag.id) {
+                if (old_data.with_tags[i].q_with_count == 1) {
+                  old_data.with_tags.splice(i,1);
+                }
+              }
+            }
             var vars = {
               q: 'tag_delete',
               tag_name: tag.name,
@@ -425,18 +439,13 @@
               })
           }
         },
-        filterImage: function(items) {
-          return items.filter(function(item) {
-            return item.type == 'image';
-          })
-        },
-        filterTable: function(items) {
-          return items.filter(function(item) {
-            return item.type == 'table';
-          })
-        },
         cardSlideNumber: function(id) {
           return Number(id.replace('rsc_', '')) - 1;
+        },
+        reference: function(name) {
+          if (name) {
+            return name.replace(')','');
+          }
         }
       }
     });

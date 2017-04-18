@@ -93,19 +93,15 @@
   }
 
   .card_panel {
-    border: 1px solid #eee;
-    margin-bottom: 2rem;
-  }
-
-  .card_panel pre {
-    margin: 0;
-    border: 0;
-    background-color: rgba(200, 200, 200, 0.15);
-    border-radius: 0;
+    border-bottom: 5px solid #ddd;
+    border-top: 5px solid #ddd;
+    margin-bottom: 4rem;
   }
 
   .card_content div {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
   }
 
   .card_tags {
@@ -136,7 +132,7 @@
     outline: none;
     border-bottom: 3px dotted #f0f0f0;
   }
-  
+
   .card_bottom {
     display: flex;
     flex-direction: row;
@@ -157,22 +153,22 @@
     padding: 1rem;
   }
 
-  .card_rsc {
-    padding: 0;
-  }
-
-  .carousel .item {
-    min-height: 300px;
+  .rsc {
+    margin-bottom: 1rem;
   }
 
   .carousel img {
     margin: auto;
-    max-height: 300px;
+    max-height: 350px;
     width: auto;
   }
 
   .carousel .table {
-    margin: 0;
+    margin: 1rem;
+  }
+
+  .table>thead>tr>th {
+    text-align: center !important;
   }
 
   .table>tbody>tr>td {
@@ -190,18 +186,24 @@
     left: 0;
   }
 
+  .carousel-indicators {
+    margin-top: 1rem;
+  }
+
   .carousel-indicators li {
-    width: 8px;
-    height: 8px;
-    border-radius: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
     background-color: #ccc;
     border: 1px solid #ccc;
+    margin: 0 2px;
   }
 
   .carousel-indicators li.active {
     width: 10px;
     height: 10px;
     border-radius: 10px;
+    margin: 0 2px;
   }
 
   .carousel-control.right, .carousel-control.left {
@@ -252,4 +254,12 @@
 
   .panel-group .panel-heading+.panel-collapse>.panel-body {
     border-top: 0;
+  }
+
+  .panel-group .panel-title {
+    font-size: 14px;
+  }
+
+  .card_container div.col-xs-12 {
+    padding: 0;
   }

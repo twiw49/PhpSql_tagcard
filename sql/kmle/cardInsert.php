@@ -36,7 +36,22 @@ function insertRsc($item, $cycle, $card_id)
     }
 }
 
-if (isset($_POST['q'])=="card") {
+function truncate_data($array)
+{
+    global $conn;
+    foreach ($array as $item) {
+        $sql = "TRUNCATE `{$item}`;";
+        $result = mysqli_query($conn, $sql);
+        echo mysqli_error($conn);
+    }
+}
+
+if ($_POST['q']=="reset") {
+    $array = ['card','card_choice','card_resource','card_resource_image','card_resource_table','tag_card','tag_tag'];
+    truncate_data($array);
+}
+
+if ($_POST['q']=="card") {
     $data = $_POST['data'];
     $data = json_decode($data);
     foreach ($data as $item) {
@@ -61,6 +76,10 @@ if (isset($_POST['q'])=="card") {
             echo mysqli_error($conn);
         }
 
-        insertRsc($item, 4, $card_id);
+        insertRsc($item, 10, $card_id);
+
+        $sql = "INSERT INTO `tag_card` (`card_id`, `tag_id`) VALUES ('{$card_id}', '1');";
+        $result = mysqli_query($conn, $sql);
+        include('../refresh.php');
     }
 }
