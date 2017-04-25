@@ -1,6 +1,6 @@
 [{
     "id": "l_335",
-    "name": "75-g oral glucose tolerance test (75g OGTT)-GH suppression test",
+    "name": "75-g oral glucose tolerance test (75g OGTT, GH suppression test)",
     "category": "Biochemistry",
     "results": [{
         "id": "l_335_a",
@@ -1066,7 +1066,7 @@
   },
   {
     "id": "l_181",
-    "name": "Cerebrospinal fluid (CSF) beta-amyloid (1-42) concentration",
+    "name": "Cerebrospinal fluid (CSF) beta-amyloid(1-42) concentration",
     "category": "Cerebrospinal fluid",
     "results": [{
         "id": "l_181_1",
@@ -3058,7 +3058,7 @@
   },
   {
     "id": "l_528",
-    "name": "Lipoprotein (a)",
+    "name": "Lipoprotein(a)",
     "category": "Biochemistry",
     "results": [{
         "id": "l_528_2",
@@ -4964,7 +4964,7 @@
   },
   {
     "id": "l_106",
-    "name": "Serum anti-PM-Scl antibody titerAnti-PM/Scl-100 antibody titer",
+    "name": "Serum anti-PM-Scl antibody titer",
     "category": "Immunology",
     "results": [{
         "id": "l_106_2",

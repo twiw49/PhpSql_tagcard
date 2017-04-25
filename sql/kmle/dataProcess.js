@@ -31,8 +31,8 @@ var load_data = function(load_json_url) {
         var str = data[i].choice.split(', ')[j];
         var num = /[1-5]/
         var num_ = /[1-5]\)\s*/
-        console.log(str);
-        console.log(str.match(num));
+        // console.log(str);
+        // console.log(str.match(num));
         var num_only = str.match(num)[0];
         var num_delete = str.replace(num_, '');
 
@@ -50,7 +50,7 @@ var load_data = function(load_json_url) {
   })
 };
 
-// load_data("sql/kmle/jsondata/7604.json");
+// load_data("sql/kmle/jsondata/7605.json");
 
 var load_send_data = function(load_json_url, send_php_url, query) {
   var url = load_json_url; // var url = "medicalAPI/final/final_disease.json"
@@ -96,5 +96,6 @@ var reset_data = function(array) {
     })
 }
 
-var array = [7601, 7602, 7603, 7604];
-reset_data(array);
+//load_data("sql/kmle/jsondata/7701.json");
+// var array = [7601, 7602, 7603, 7604, 7605, 7606, 7607];
+// reset_data(array);

@@ -97,6 +97,14 @@
           $sql = "INSERT INTO `management` (`id`, `name`, `url`) VALUES ('{$id}', '{$name}', '{$url}');";
           $result = mysqli_query($conn, $sql);
           echo mysqli_error($conn);
+
+          // management_synonym
+          $synonyms = $item -> synonym;
+          foreach ($synonyms as $synonym) {
+              $sql = "INSERT INTO `management_synonym` (`management_id`, `management_name`, `synonym_name`) VALUES ('{$id}', '{$name}', '{$synonym}');";
+              $result = mysqli_query($conn, $sql);
+              echo mysqli_error($conn);
+          }
       }
   } elseif ($_POST['q'] == 'risk_factor') {
       $data = $_POST['data'];

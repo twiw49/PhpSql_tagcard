@@ -24,9 +24,20 @@ if ($_POST['q'] == 'tag_delete') {
 } elseif ($_POST['q'] == 'tag_add') {
     $tag_name = $_POST['tag_name'];
     $tag_name = mysqli_real_escape_string($conn, $tag_name);
+    $tag_name = htmlspecialchars($tag_name);
     $card_id = $_POST['card_id'];
+    $tag_category = $_POST['tag_category'];
+    $tag_category = mysqli_real_escape_string($conn, $tag_category);
+    if ($tag_category == 'Risk factor') {
+        $tag_category = 'risk_factor';
+    }
 
-    $sql = "INSERT INTO `tag` (`id`, `name`) VALUES (NULL, '{$tag_name}');";
+    $s = "SELECT * FROM `{$tag_category}` WHERE `name` LIKE '{$tag_name}'";
+    $r = mysqli_query($conn, $s);
+    $row = mysqli_fetch_array($r);
+    $tag_id = $row['id'];
+
+    $sql = "INSERT INTO `tag` (`id`, `name`, `category`, `id_in_category`) VALUES (NULL, '{$tag_name}', '{$tag_category}', '{$tag_id}');";
     if (!mysqli_query($conn, $sql)) {
         $find_id = "SELECT * FROM `tag` WHERE `name` = '{$tag_name}';";
         $result = mysqli_query($conn, $find_id);

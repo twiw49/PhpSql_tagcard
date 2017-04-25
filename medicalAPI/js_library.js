@@ -139,7 +139,7 @@ var load_send_data = function(load_json_url, send_php_url, query) {
         console.log(error);
       })
   })
-}
+};
 // load_send_data("medicalAPI/final/final_disease.json", "sql/database/insertData.php", "disease");
 // load_send_data("medicalAPI/final/final_lab_test.json", "sql/database/insertData.php", "lab");
 // load_send_data("medicalAPI/final/final_procedure.json", "sql/database/insertData.php", "management");
@@ -184,7 +184,7 @@ var load_apimedic_data = function() {
         console.log(data);
       }
     })
-}
+};
 
 var load_infermedica_data = function() {
   $.ajax({
@@ -204,4 +204,4 @@ var load_infermedica_data = function() {
     .fail(function(data, status) {
       console.log(data);
     })
-}
+};

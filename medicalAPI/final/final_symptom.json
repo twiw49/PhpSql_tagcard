@@ -9436,12 +9436,12 @@
   "question": "Have you noticed enlargement of your hands, feet, tongue and face at the same time?"
 }, {
   "id": "s_1243",
-  "name": "Enlargement of inguinal tumor during defecation sneezing, coughing, laughing or engaging abdominal wall muscles",
+  "name": "Enlargement of inguinal tumor during defecation, sneezing, coughing, laughing or engaging abdominal wall muscles",
   "filter_sex": "both",
   "filter_age": null,
   "image": [],
   "location": [],
-  "synonym": ["Enlargement of inguinal tumor during defecation sneezing, coughing, laughing or engaging abdominal wall muscles"],
+  "synonym": ["Enlargement of inguinal tumor during defecation, sneezing, coughing, laughing or engaging abdominal wall muscles"],
   "parent_symp": {
     "id": "s_1242",
     "relation": "exacerbating_factor",
@@ -14323,7 +14323,7 @@
   }, {
     "id": "s_1243",
     "relation": "exacerbating_factor",
-    "name": "Enlargement of inguinal tumor during defecation sneezing, coughing, laughing or engaging abdominal wall muscles"
+    "name": "Enlargement of inguinal tumor during defecation, sneezing, coughing, laughing or engaging abdominal wall muscles"
   }, {
     "id": "s_1245",
     "relation": "character",

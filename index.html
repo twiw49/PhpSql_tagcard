@@ -4,165 +4,229 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-  <title>Tag Card | Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>MediTag</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="bower_components/jquery-typeahead/dist/jquery.typeahead.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
-  <div class="topnav" id="myTopnav">
-    <a href="index.html"><span class="glyphicon glyphicon-search"></span></a>
-    <a href="insert.html"><span class="glyphicon glyphicon-plus"></span></a>
-  </div>
-
-  <div class="container">
-    <!-- search -->
-    <div class="row">
-      <div class="col-xs-12">
-        <form onsubmit="return false;">
-          <div class="typeahead__container">
-            <div class="typeahead__field">
-              <span class="typeahead__query">
-                <input class="search_query" placeholder="Write your Keyword!" autocomplete="off">
-              </span>
-            </div>
+  <div class="with_tag_container" v-cloak>
+    <!-- topNav -->
+    <div class="top">
+      <div class="topnav" id="myTopnav">
+        <a href="index.html">MediTag</span></a>
+        <!-- <a href="index.html"><span class="glyphicon glyphicon-search"></span></a> -->
+        <!-- <a href="insert.html"><span class="glyphicon glyphicon-plus"></span></a> -->
+        <a class="navTags glyphicon glyphicon-tags" onclick="openNav()">
+          <span class="badge btn-danger">{{ with_tags_numb }}</span>
+        </a>
+      </div>
+      <form onsubmit="return false;" class="searchTop">
+        <div class="typeahead__container">
+          <div class="typeahead__field">
+            <span class="typeahead__query">
+              <input class="search_input" placeholder="Write your Keyword" autocomplete="off">
+            </span>
           </div>
-        </form>
-      </div>
-    </div>
-    <!-- with tag container -->
-    <div class="row">
-      <div class="col-xs-12">
-        <div id="with_tag_container">
-          <template v-for="tag in with_tags">
-            <div class="form-group with_tag" v-if="tag.c_selected">
-              <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
-              <div class="btn-group">
-                <label :for="tag.name" class="btn" :class="tagClass(tag)">
-                  <span class="glyphicon glyphicon-ok"></span>
-                  <span> </span>
-                </label>
-                <label class="btn btn-default" :class="{active:tag.selected}" :for="tag.name">{{ tag.name }}</label>
-              </div>
-            </div>
-          </template>
         </div>
+      </form>
+    </div>
+    <!-- sideNav / with_tag -->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-chevron-up"></span></a>
+      <div class="tagList">
+        <div class="query">{{data.tag_name}}</div>
+        <hr style="margin:0">
+        <div class="title">Location</div>
+        <template v-for="tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Location'">
+            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
+            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+          </div>
+        </template>
+        <hr style="margin:0">
+        <div class="title">Symptom</div>
+        <template v-for="tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Symptom'">
+            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
+            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+          </div>
+        </template>
+        <hr style="margin:0">
+        <div class="title">Disease</div>
+        <template v-for="tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Disease'">
+            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
+            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+          </div>
+        </template>
+        <hr style="margin:0">
+        <div class="title">Risk factor</div>
+        <template v-for="tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='risk_factor'">
+            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
+            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+          </div>
+        </template>
+        <hr style="margin:0">
+        <div class="title">Management</div>
+        <template v-for="tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Management'">
+            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
+            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+          </div>
+        </template>
+        <hr style="margin:0">
+        <div class="title">Lab</div>
+        <template v-for="tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Lab'">
+            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
+            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+          </div>
+        </template>
       </div>
     </div>
-    <!-- card container -->
-    <div class="row card_container">
+  </div>
+  <!-- container -->
+  <div class="container">
+    <div class="row">
       <div class="col-xs-12">
         <div id="card_container">
           <template v-for="card in cards">
-            <div class="card_panel" v-show="card.selected" :key="card.id">
+            <div class="card_panel" v-show="card.selected">
               <!-- card content -->
-              <div class="card_content" :class="card.id">
-                <textarea rows="10" v-text="card.content" class="form-control" v-if="editingCard==card.id"></textarea>
+              <div class="card_content" :id="cardId('content',card.id)">
+                <textarea rows="10" v-text="card.content" class="form-control" v-if="editingCard==cardId('content',card.id)"></textarea>
                 <div v-else>{{ card.content }}</div>
               </div>
-
+              <!-- card tags -->
+              <hr style="margin-bottom:0;margin-top:0">
+              <div class="card_tags_category">
+                <li :class="{'filled' : card.tags_category.includes('Location')}" class="Location">Location</li>
+                <li :class="{'filled' : card.tags_category.includes('Symptom')}" class="Symptom">Symptom</li>
+                <li :class="{'filled' : card.tags_category.includes('Disease')}" class="Disease">Disease</li>
+                <li :class="{'filled' : card.tags_category.includes('risk_factor')}" class="risk_factor">Risk Factor</li>
+                <li :class="{'filled' : card.tags_category.includes('Management')}" class="Management">Management</li>
+                <li :class="{'filled' : card.tags_category.includes('Lab')}" class="Lab">Lab</li>
+              </div>
+              <hr style="margin-bottom:3px;margin-top:0">
+              <div class="card_tags">
+                <span class="card_tags" v-for="tag in card.tags_info">
+                  <a class="link" :class="tag.category" @click="tagDelete(tag,card)"><span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ tag.name }}</a>
+                </span>
+              </div>
+              <!-- add tag -->
+              <div class="add_tag form-group">
+                <form onsubmit="return false;">
+                  <div class="typeahead__container">
+                    <div class="typeahead__field">
+                      <span class="typeahead__query">
+                        <input :id="cardId('select',card.id)" placeholder="Add a tag ( Minimum 2 characters )" autocomplete="off" @focus.once="selectReady(card.id)">
+                      </span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- card resources -->
               <div class="rsc" v-if="card.resources.length > 0">
-                <div :id="cardId('rsc', card.id)" class="carousel slide" data-interval="false">
+                <div :id="cardId('rsc',card.id)" class="carousel slide" data-interval="false">
                   <!-- Indicators -->
                   <template v-if="card.resources.length > 1">
                     <ol class="carousel-indicators">
-                      <li v-for="item in card.resources" :data-target="cardUrl('rsc', card.id)" :data-slide-to="cardSlideNumber(item.id)" :class="{'active': item.id == 'rsc_1'}"></li>
+                      <li v-for="item in card.resources" :data-target="cardUrl('rsc',card.id)" :data-slide-to="cardSlideNumber(item.id)" :class="{'active': item.id=='rsc_1'}"></li>
                     </ol>
                   </template>
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner" role="listbox">
-                    <div class="item" v-for="item in card.resources" :class="{'active': item.id == 'rsc_1'}">
-                      <div class="carousel-caption" v-if="item.type == 'image'">
-                        <p>{{ item.name }}</p>
-                      </div>
-                      <template v-if="item.type === 'image'">
-                        <img :src="item.path" alt=""></div>
-                      </template>
-                      <template v-else-if="item.type === 'table'">
-                        <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th>{{ item.name }}</th>
-                              <th>참고치</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr v-for="res in item.result">
-                              <td>{{ res.split('(참고치:')[0] }}</td>
-                              <td>{{ reference(res.split('(참고치:')[1]) }}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </template>
-                    </div>
-                  </div>
-                  <!-- Left and right controls -->
-                  <template v-if="card.resources.length > 1">
-                    <a class="left carousel-control" :href="cardUrl('rsc', card.id)" role="button" data-slide="prev">
-                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" :href="cardUrl('rsc', card.id)" role="button" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </template>
-                </div>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item" v-for="item in card.resources" :class="{'active': item.id=='rsc_1'}">
+              <div class="carousel-caption" v-if="item.type == 'image'">
+                <p>{{ item.name }}</p>
               </div>
-              <!-- card tags -->
-              <hr style="margin:1rem;">
-              <span class="card_tags" v-for="tag in card.tags_info">
-                  <a class="link" @click="tagDelete(tag, card)"><span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ tag.name }}</a>
-              </span>
-              <!-- card bottom -->
-              <div class="card_bottom">
-                <input type="text" class="link" @keyup.enter="tagAdd(card, $event)" placeholder="Add a tag">
-                <div class="btn-group updateBtn">
-                  <button class="btn btn-default" @click="editComplete(card, $event)" v-if="editingCard==card.id"><i class="glyphicon glyphicon-ok"></i></button>
-                  <button class="btn btn-default" @click="editingCard=card.id" v-else><i class="glyphicon glyphicon-edit"></i></button>
-                  <button class="btn btn-default" @click="deleteCard(card, $event)"><i class="glyphicon glyphicon-trash"></i></button>
-                </div>
-              </div>
-              <!-- question -->
-              <div class="panel-group">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <a class="panel-title" data-toggle="collapse" :href="cardUrl('impression', card.id)">Impression</a>
-                  </div>
-                  <div :id="cardId('impression', card.id)" class="panel-collapse collapse">
-                    <div class="panel-body">
-                    </div>
-                  </div>
-                  <div class="panel-heading">
-                    <a class="panel-title" data-toggle="collapse" :href="cardUrl('whatnext', card.id)">What To Do Next</a>
-                  </div>
-                  <div :id="cardId('whatnext', card.id)" class="panel-collapse collapse">
-                    <div class="panel-body">
-                    </div>
-                  </div>
-                  <div class="panel-heading">
-                    <a class="panel-title" data-toggle="collapse" :href="cardUrl('ques', card.id)">Question</a>
-                  </div>
-                  <div :id="cardId('ques', card.id)" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <span style="padding-left:1rem;">Q : {{ card.question }}</span>
-                      <hr style="margin:1rem 0">
-                      <div style="padding-left:1rem;" v-for="(choice, number) in card.choices" :key="choice">{{ number }}. {{ choice }}</div>
-                      <hr style="margin:1rem 0">
-                      <span style="padding-left:1rem;">A : {{ card.answer }}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <template v-if="item.type === 'image'">
+                <img :src="item.path" alt=""></div>
+              </template>
+              <template v-else-if="item.type === 'table'">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>{{ item.name }}</th>
+                      <th>참고치</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="res in item.result">
+                      <td>{{ res.split('(참고치:')[0] }}</td>
+                      <td>{{ reference(res.split('(참고치:')[1]) }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </template>
             </div>
+          </div>
+          <!-- Left and right controls -->
+          <template v-if="card.resources.length > 1">
+            <a class="left carousel-control" :href="cardUrl('rsc',card.id)" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" :href="cardUrl('rsc',card.id)" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </template>
         </div>
       </div>
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <!-- Impression -->
+          <div class="panel-heading">
+            <a class="panel-title" data-toggle="collapse" :href="cardUrl('impression', card.id)">Impression</a>
+          </div>
+          <div :id="cardId('impression', card.id)" class="panel-collapse collapse">
+            <div class="panel-body">
+            </div>
+          </div>
+          <!-- What to do next -->
+          <div class="panel-heading">
+            <a class="panel-title" data-toggle="collapse" :href="cardUrl('whatnext', card.id)">What To Do Next</a>
+          </div>
+          <div :id="cardId('whatnext', card.id)" class="panel-collapse collapse">
+            <div class="panel-body">
+            </div>
+          </div>
+          <!-- Question -->
+          <div class="panel-heading">
+            <a class="panel-title" data-toggle="collapse" :href="cardUrl('ques', card.id)">Question</a>
+          </div>
+          <div :id="cardId('ques', card.id)" class="panel-collapse collapse">
+            <div class="panel-body">
+              <span style="padding-left:1rem;">Q : {{ card.question }}</span>
+              <hr style="margin:0.5rem 0;">
+              <div style="padding-left:1rem;" v-for="(choice, number) in card.choices">{{ number }}. {{ choice }}</div>
+              <hr style="margin:0.5rem 0;">
+              <span style="padding-left:1rem;">A : {{ card.answer }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- update buttons -->
+      <div class="btn-group updateBtn">
+        <button class="btn btn-default" @click="editComplete(card, $event)" v-if="editingCard==cardId('content',card.id)"><i class="glyphicon glyphicon-ok"></i></button>
+        <button class="btn btn-default" @click="editingCard=cardId('content',card.id)" v-else><i class="glyphicon glyphicon-edit"></i></button>
+        <button class="btn btn-default" @click="deleteCard(card, $event)"><i class="glyphicon glyphicon-trash"></i></button>
+      </div>
     </div>
+    </template>
+  </div>
+  </div>
+  </div>
   </div>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -170,17 +234,16 @@
   <script src="bower_components/vue/dist/vue.min.js"></script>
   <script>
     $(document).ready(function() {
-      $('.search_query').focus();
+      $('.search_input').focus();
       loadTags();
     })
 
     function loadTags() {
-
       $.typeahead({
-        input: '.search_query',
+        input: '.search_input',
         minLength: 0,
         maxItem: 200,
-        hint: true,
+        accent: true,
         source: {
           ajax: {
             type: "GET",
@@ -189,11 +252,19 @@
         },
         callback: {
           onClick: function(node, a, item, event) {
-            var query = this.item.display;
+            var query = item.display;
             searchDatabase(query, [query], '');
           }
         }
       });
+    };
+
+    function openNav() {
+      document.getElementById("mySidenav").style.height = "100vh";
+    };
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.height = "0px";
     };
 
     function searchDatabase(q_tag, selected_tags, old_data) {
@@ -229,6 +300,7 @@
           // console.log(xhr.responseText);
           console.log('query tag : ' + q_tag);
           console.log('selected tags : ' + selected_tags);
+          $('input').blur();
         })
         .fail(function(xhr) {
           console.log(xhr.responseText);
@@ -310,32 +382,41 @@
         }
       }
 
+      console.log(data);
       tagVue.data = data;
       tagVue.with_tags = with_tags_all;
+      tagVue.with_tags_numb = with_tags_all.length;
       cardVue.data = data;
       cardVue.cards = cards;
     };
 
     var tagVue = new Vue({
-      el: "#with_tag_container",
+      el: ".with_tag_container",
       data: {
         with_tags: '',
-        data: ''
+        data: '',
+        with_tags_numb: ''
       },
       methods: {
         tagClass: function(tag) {
           if (tag.query) {
-            return 'btn btn-warning active';
+            return 'btn btn-danger active';
           } else {
             if (tag.selected) {
-              return 'btn btn-info active';
+              return 'btn btn-warning active';
             }
-            return 'btn btn-info';
+            return 'btn btn-primary';
           }
         },
         tagCheck: function(tag, event) {
           tag.selected = event.target.checked;
           modifyData(this.data, '');
+          this.with_tags_numb = 0;
+          for (var i = 0; i < this.with_tags.length; i++) {
+            if (this.with_tags[i].c_selected == true) {
+              this.with_tags_numb++;
+            }
+          }
         }
       }
     });
@@ -356,12 +437,12 @@
         },
         tagDelete: function(tag, card) {
           var old_data = this.data;
-          var r = confirm('Do you want to remove ' + tag.id + ' tag from this case?');
+          var r = confirm('Do you want to remove "' + tag.name + '" tag from this case?');
           if (r) {
             for (var i = 0; i < old_data.with_tags.length; i++) {
               if (old_data.with_tags[i].id == tag.id) {
                 if (old_data.with_tags[i].q_with_count == 1) {
-                  old_data.with_tags.splice(i,1);
+                  old_data.with_tags.splice(i, 1);
                 }
               }
             }
@@ -381,32 +462,15 @@
               })
           }
         },
-        tagAdd: function(card, event) {
-          var old_data = this.data;
-          var vars = {
-            q: 'tag_add',
-            tag_name: event.target.value,
-            card_id: card.id
-          };
-          $.ajax({
-              type: "POST",
-              url: "sql/update_sql.php",
-              data: vars
-            })
-            .done(function() {
-              searchDatabase('', '', old_data);
-              loadTags();
-            })
-          event.target.value = '';
-        },
         editComplete: function(card, event) {
           var old_data = this.data;
-          var r = confirm('Do you want to edit this card?');
+          var r = confirm('Do you want to edit this case?');
+          console.log(card.id);
           if (r) {
             var vars = {
               q: 'card_edit',
               card_id: card.id,
-              card_content: $("." + card.id + " textarea")[0].value
+              card_content: $("#content_" + card.id + " textarea")[0].value
             };
             $.ajax({
                 type: "POST",
@@ -422,7 +486,7 @@
         },
         deleteCard: function(card, event) {
           var old_data = this.data;
-          var r = confirm('Do you want to remove this card?');
+          var r = confirm('Do you want to remove this case?');
           if (r) {
             var vars = {
               q: 'card_delete',
@@ -444,8 +508,97 @@
         },
         reference: function(name) {
           if (name) {
-            return name.replace(')','');
+            return name.replace(')', '');
           }
+        },
+        selectReady: function(id) {
+          var old_data = this.data;
+          $.typeahead({
+            input: '#select_' + id,
+            minLength: 2,
+            maxItem: 5000,
+            order: 'asc',
+            accent: true,
+            group: true,
+            dropdownFilter: "All",
+            maxItemPerGroup: 2000,
+            template: function(query, item) {
+              var list = item.display.split(' / ');
+              var result = list[0] + '<br /><small style="color:#999;">';
+              for (var i = 1; i < list.length; i++) {
+                result += list[i] + '<br />';
+              }
+              result += '</small>';
+              return result;
+            },
+            emptyTemplate: "No result for {{query}}",
+            debug: true,
+            source: {
+              "Location": {
+                ajax: {
+                  type: "GET",
+                  url: "sql/typeahead/load_data_possibleTags.php",
+                  path: "data.location"
+                }
+              },
+              "Symptom": {
+                ajax: {
+                  type: "GET",
+                  url: "sql/typeahead/load_data_possibleTags.php",
+                  path: "data.symptom"
+                }
+              },
+              "Disease": {
+                ajax: {
+                  type: "GET",
+                  url: "sql/typeahead/load_data_possibleTags.php",
+                  path: "data.disease"
+                }
+              },
+              "Risk factor": {
+                ajax: {
+                  type: "GET",
+                  url: "sql/typeahead/load_data_possibleTags.php",
+                  path: "data.risk_factor"
+                }
+              },
+              "Management": {
+                ajax: {
+                  type: "GET",
+                  url: "sql/typeahead/load_data_possibleTags.php",
+                  path: "data.management"
+                }
+              },
+              "Lab": {
+                ajax: {
+                  type: "GET",
+                  url: "sql/typeahead/load_data_possibleTags.php",
+                  path: "data.lab"
+                }
+              }
+            },
+            callback: {
+              onClick: function(node, a, item, event) {
+                var vars = {
+                  q: 'tag_add',
+                  tag_name: this.item.display.split(' / ')[0],
+                  card_id: id,
+                  tag_category: this.item.group
+                };
+                console.log(this.item.group)
+                $.ajax({
+                    type: "POST",
+                    url: "sql/update_sql.php",
+                    data: vars
+                  })
+                  .done(function() {
+                    searchDatabase('', '', old_data);
+                    loadTags();
+                  })
+                this.item.display = ''
+              }
+            }
+          });
         }
       }
     });

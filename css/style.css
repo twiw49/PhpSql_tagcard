@@ -1,265 +1,431 @@
-  body {
-    font-family: "medium-ui-font", "medium-content-sans-serif-font", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Geneva", "Verdana", "sans-serif";
-    font-weight: 400;
-    font-style: normal;
-    color: rgba(0, 0, 0, 0.6);
-  }
+body {
+  font-family: "medium-ui-font", "medium-content-sans-serif-font", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Geneva", "Verdana", "sans-serif";
+  font-weight: 400;
+  background: #e9ebee;
+}
 
-  .topnav {
-    background-color: #333;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    z-index: 100;
-  }
+[v-cloak] {
+  display: none;
+}
 
-  .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 10px 10px;
-    text-decoration: none;
-    font-size: 17px;
-    flex-grow: 1;
-  }
+.top {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  z-index: 10;
+}
 
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+.topnav {
+  flex-grow: 0;
+  min-width: 130px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  height: 32px;
+  background-color: #333;
+}
 
-  .topnav a.active {
-    background-color: #4CAF50;
-    color: white;
-  }
+.topnav a {
+  flex-grow: 0;
+  text-align: center;
+  color: #f2f2f2;
+  padding: 3px 8px;
+  font-size: 12px;
+  text-decoration: none;
+  vertical-align: center;
+}
 
-  .form-group input[type="checkbox"] {
-    display: none;
-  }
+.topnav a.navTags {
+  flex-grow: 1;
+  padding: 0;
+  padding: 3px 8px;
+  cursor: pointer;
+}
 
-  .form-group input[type="checkbox"]+.btn-group>label span {
-    width: 15px;
-  }
+.topnav a.navTags .badge {
+  position: relative;
+  top: 2px;
+  padding-top: 0.9px;
+  line-height: 0.9;
+  font-weight: bold;
+}
 
-  .form-group input[type="checkbox"]+.btn-group>label span:first-child {
-    display: none;
-  }
+.searchTop {
+  padding: 0;
+  flex-grow: 1;
+}
 
-  .form-group input[type="checkbox"]+.btn-group>label span:last-child {
-    display: inline-block;
-  }
+.searchTop .search_input {
+  text-align: center;
+  background: #eee !important;
+  color: #333;
+  border: 5px solid #333;
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-radius: 0;
+}
 
-  .form-group input[type="checkbox"]:checked+.btn-group>label span:first-child {
-    display: inline-block;
-  }
+.searchTop .typeahead__cancel-button {
+  opacity: 0.8 !important;
+}
 
-  .form-group input[type="checkbox"]:checked+.btn-group>label span:last-child {
-    display: none;
-  }
+.searchTop .typeahead__result {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+}
 
-  #with_tag_container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-    margin-top: 1.5rem;
-  }
+.searchTop .typeahead__list {
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  position: relative !important;
+  top: 0;
+  border: 0;
+  background: #ddd;
+}
 
-  .with_tag {
-    margin-right: 1rem;
-  }
+.searchTop .typeahead__list>li>a {
+  color: #333;
+}
 
-  .with_tag .btn {
-    border: 0;
-    font-size: 12px;
-    line-height: 1.7rem;
-  }
+.searchTop .typeahead__dropdown>li.active>a, .searchTop .typeahead__dropdown>li>a:focus, .searchTop .typeahead__dropdown>li>a:hover, .searchTop .typeahead__list>li.active>a, .searchTop .typeahead__list>li>a:focus, .searchTop .typeahead__list>li>a:hover {
+  background-color: #4CAF50;
+  color: white;
+}
 
-  .container {
-    margin: auto;
-    max-width: 600px;
-    position: relative;
-    top: 70px;
-  }
+.sidenav {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 20;
+  top, left: 0;
+  background-color: rgba(48, 47, 47, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+  color: #eee;
+  overflow-y: scroll;
+}
 
-  .typeahead__list {
-    max-height: 500px;
-    overflow-y: auto;
-    padding: 0;
-    position: relative;
-  }
+.sidenav a {
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  color: white;
+  transition: 0.3s;
+  text-align: center;
+  padding-top: 5px;
+}
 
-  .card_panel {
-    border-bottom: 5px solid #ddd;
-    border-top: 5px solid #ddd;
-    margin-bottom: 4rem;
-  }
+.sidenav .title {
+  padding: 1rem 1rem;
+}
 
-  .card_content div {
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-    font-size: 1.5rem;
-  }
+.sidenav .query {
+  text-align: center;
+  padding-bottom: 1rem;
+}
 
-  .card_tags {
-    padding-top: 1.5rem;
-  }
+.card_tags_category {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .card_tags a, .card_bottom input {
-    font-size: 13px;
-    color: rgba(0, 0, 0, 0.6);
-    background: rgba(255, 255, 255, 0.97);
-  }
+.card_tags_category li {
+  list-style: none;
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: center;
+  font-size: 10px;
+  background: rgba(245, 245, 245, 0.5);
+}
 
-  .card_tags a {
-    display: inline-block;
-    border: 1px solid #f0f0f0;
-    border-radius: 10px;
-    margin-left: 8px;
-    margin-top: 5px;
-    padding: 2px 8px;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.card_tags_category .Symptom, .card_tags .Symptom {
+  color: rgb(246, 114, 114);
+}
 
-  .card_bottom input {
-    border: 0;
-    width: 100%;
-    padding-left: 5px;
-    outline: none;
-    border-bottom: 3px dotted #f0f0f0;
-  }
+.card_tags_category .Location, .card_tags .Location {
+  color: rgb(46, 208, 218);
+}
 
-  .card_bottom {
-    display: flex;
-    flex-direction: row;
-    padding: 1rem 1rem;
-  }
+.card_tags_category .Disease, .card_tags .Disease {
+  color: rgb(245, 181, 71);
+}
 
-  .card_bottom div {
-    flex-shrink: 0;
-  }
+.card_tags_category .risk_factor, .card_tags .risk_factor {
+  color: rgb(200, 209, 29);
+}
 
-  .card_bottom .updateBtn button {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    background-image: none;
-    border: 0;
-    color: rgba(0, 0, 0, 0.6);
-    padding: 1rem;
-  }
+.card_tags_category .Management, .card_tags .Management {
+  color: rgb(86, 103, 213);
+}
 
-  .rsc {
-    margin-bottom: 1rem;
-  }
+.card_tags_category .Lab, .card_tags .Lab {
+  color: rgb(151, 84, 193);
+}
 
-  .carousel img {
-    margin: auto;
-    max-height: 350px;
-    width: auto;
-  }
+.card_tags_category .Symptom.filled {
+  background: rgb(246, 114, 114);
+  color: white;
+}
 
-  .carousel .table {
-    margin: 1rem;
-  }
+.card_tags_category .Location.filled {
+  background: rgb(46, 208, 218);
+  color: white;
+}
 
-  .table>thead>tr>th {
-    text-align: center !important;
-  }
+.card_tags_category .Disease.filled {
+  background: rgb(245, 181, 71);
+  color: white;
+}
 
-  .table>tbody>tr>td {
-    text-align: center;
-  }
+.card_tags_category .risk_factor.filled {
+  background: rgb(200, 209, 29);
+  color: white;
+}
 
-  .carousel-indicators {
-    position: relative;
-    top: -5px;
-    z-index: 15;
-    text-align: center;
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-    left: 0;
-  }
+.card_tags_category .Management.filled {
+  background: rgb(86, 103, 213);
+  color: white;
+}
 
-  .carousel-indicators {
-    margin-top: 1rem;
-  }
+.card_tags_category .Lab.filled {
+  background: rgb(151, 84, 193);
+  color: white;
+}
 
-  .carousel-indicators li {
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    background-color: #ccc;
-    border: 1px solid #ccc;
-    margin: 0 2px;
-  }
+.add_tag {
+  padding: 0 !important;
+}
 
-  .carousel-indicators li.active {
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    margin: 0 2px;
-  }
+.add_tag ul.typeahead__list {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  max-height: 500px;
+  overflow-y: scroll;
+  position: relative;
+  border-top: 0;
+  border-bottom: 1px solid #ddd;
+}
 
-  .carousel-control.right, .carousel-control.left {
-    background-image: none;
-  }
+.add_tag .typeahead__filter-button {
+  border: 0 !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  border-top: 1px solid #f0f0f0 !important;
+}
 
-  .carousel-caption {
-    position: relative;
-    color: rgba(0, 0, 0, 0.6);
-    text-shadow: none;
-    margin: 0 auto;
-    padding: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+.add_tag .typeahead__field {
+  margin-top: 0.8rem;
+}
 
-  .carousel-caption p {
-    padding-bottom: 0;
-    margin: 10px auto;
-    font-weight: bold;
-  }
+.form-group input[type="checkbox"] {
+  display: none;
+}
 
-  .panel-group {
-    margin-bottom: 0px !important;
-  }
+.with_tag .btn {
+  border: 0;
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  max-width: 100%;
+  overflow-x: scroll;
+  margin: 0 1rem;
+}
 
-  .panel-group .panel {
-    border-radius: 0;
-    border: 0;
-  }
+.with_tag .btn .badge {
+  background-color: rgb(142, 144, 147);
+  position: relative;
+  top: -1px;
+  left: 0px;
+  font-size: 10px;
+  color: white;
+}
 
-  .panel-group .panel a {
-    display: block;
-    width: 100%;
-    padding: 10px 15px;
-  }
+.container {
+  margin: auto;
+  max-width: 600px;
+  position: relative;
+  top: 32px;
+}
 
-  .panel-default>.panel-heading {
-    background-image: none;
-    padding: 0;
-    border-bottom: 1px solid #eee;
-  }
+.container div.col-xs-12 {
+  padding: 0;
+}
 
-  .panel-group ol {
-    margin: 0;
-  }
+.card_panel {
+  border-top: 2px solid #777;
+  margin-bottom: 5rem;
+  background: rgb(255, 255, 255);
+}
 
-  .panel-group .panel-heading+.panel-collapse>.panel-body {
-    border-top: 0;
-  }
+.card_content div {
+  padding: 1.5rem 1rem;
+  font-size: 1.3rem;
+  color: #333;
+  line-height: 21px;
+}
 
-  .panel-group .panel-title {
-    font-size: 14px;
-  }
+.card_tags a, .add_tag input {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.97);
+}
 
-  .card_container div.col-xs-12 {
-    padding: 0;
-  }
+.card_tags a {
+  display: inline-block;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  margin-top: 0.6rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  padding: 2px 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.0rem;
+}
+
+.add_tag input {
+  border: 0;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 1rem;
+  outline: none;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 1.2rem;
+}
+
+.add_tag.form-group {
+  margin-bottom: 0;
+}
+
+.carousel img {
+  margin: auto;
+  max-height: 350px;
+  width: auto;
+}
+
+.rsc {
+  margin: 1rem 0;
+}
+
+.rsc .table {
+  font-size: 1.2rem;
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+.rsc .table>thead>tr>th, .rsc .table>tbody>tr>td {
+  text-align: center !important;
+}
+
+.carousel-indicators {
+  position: relative;
+  top: -5px;
+  z-index: 1;
+  text-align: center;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  left: 0;
+}
+
+.carousel-indicators {
+  margin-top: 1rem;
+}
+
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  margin: 0 2px;
+}
+
+.carousel-indicators li.active {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin: 0 2px;
+}
+
+.carousel-control.right, .carousel-control.left {
+  background-image: none;
+}
+
+.carousel-caption {
+  position: relative;
+  color: rgba(0, 0, 0, 0.6);
+  text-shadow: none;
+  margin: 0 auto;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.carousel-caption p {
+  padding-bottom: 0;
+  margin: 10px auto;
+  font-weight: bold;
+}
+
+.panel-group {
+  margin-bottom: 0px !important;
+}
+
+.panel-group .panel {
+  border-radius: 0;
+  border: 0;
+}
+
+.panel-group .panel a {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.panel-default>.panel-heading {
+  background-image: none;
+  padding: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.panel-group ol {
+  margin: 0;
+}
+
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+  border-top: 0;
+}
+
+.panel-group .panel-title {
+  font-size: 1.2rem;
+}
+
+.panel-group .panel-body {
+  font-size: 1.2rem;
+}
+
+.updateBtn {
+  width: 100%;
+  display: flex;
+}
+
+.updateBtn button {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-image: none;
+  border: 0;
+  border-radius: 0;
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(250, 250, 250, 1.0);
+  padding: 0.5rem;
+  flex-grow: 1;
+}
