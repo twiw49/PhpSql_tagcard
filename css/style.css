@@ -17,7 +17,6 @@ body {
 
 .topnav {
   flex-grow: 0;
-  min-width: 130px;
   display: flex;
   align-items: center;
   z-index: 10;
@@ -29,7 +28,7 @@ body {
   flex-grow: 0;
   text-align: center;
   color: #f2f2f2;
-  padding: 3px 8px;
+  padding: 5px 5px;
   font-size: 12px;
   text-decoration: none;
   vertical-align: center;
@@ -40,14 +39,15 @@ body {
   padding: 0;
   padding: 3px 8px;
   cursor: pointer;
+  top: 0;
 }
 
 .topnav a.navTags .badge {
   position: relative;
   top: 2px;
-  padding-top: 0.9px;
-  line-height: 0.9;
-  font-weight: bold;
+  padding: 1.15px 4px 2px 4px;
+  line-height: 0.7;
+  font-size: 0.8rem;
 }
 
 .searchTop {
@@ -91,7 +91,22 @@ body {
   color: #333;
 }
 
-.searchTop .typeahead__dropdown>li.active>a, .searchTop .typeahead__dropdown>li>a:focus, .searchTop .typeahead__dropdown>li>a:hover, .searchTop .typeahead__list>li.active>a, .searchTop .typeahead__list>li>a:focus, .searchTop .typeahead__list>li>a:hover {
+.searchTop .typeahead__dropdown>li.active>a {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.searchTop .typeahead__dropdown>li>a:focus, .searchTop .typeahead__dropdown>li>a:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.searchTop .typeahead__list>li.active>a {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.searchTop .typeahead__list>li>a:focus, .searchTop .typeahead__list>li>a:hover {
   background-color: #4CAF50;
   color: white;
 }
@@ -101,7 +116,8 @@ body {
   width: 100%;
   position: fixed;
   z-index: 20;
-  top, left: 0;
+  top: 0;
+  left: 0;
   background-color: rgba(48, 47, 47, 0.9);
   overflow-y: hidden;
   transition: 0.5s;
@@ -110,13 +126,16 @@ body {
 }
 
 .sidenav a {
-  text-decoration: none;
-  font-size: 1rem;
-  display: block;
-  color: white;
-  transition: 0.3s;
-  text-align: center;
-  padding-top: 5px;
+  float: right;
+  font-size: 2rem;
+  color: #ddd;
+  opacity: 0.5;
+  transition: 0.5s;
+  padding: 0.5rem 1rem;
+}
+
+.sidenav a:hover {
+  opacity: 1;
 }
 
 .sidenav .title {
@@ -125,7 +144,12 @@ body {
 
 .sidenav .query {
   text-align: center;
-  padding-bottom: 1rem;
+  padding: 4rem 1rem 1rem 1rem;
+}
+
+.sidenav .numb {
+  margin-bottom: 0.8rem;
+  text-align: center;
 }
 
 .card_tags_category {
@@ -139,60 +163,66 @@ body {
   flex-shrink: 1;
   text-align: center;
   font-size: 10px;
-  background: rgba(245, 245, 245, 0.5);
+  padding: 0.5rem 0.3rem;
 }
 
 .card_tags_category .Symptom, .card_tags .Symptom {
-  color: rgb(246, 114, 114);
+  color: #f67272;
+  background: rgba(240, 240, 240, 0.5);
 }
 
 .card_tags_category .Location, .card_tags .Location {
-  color: rgb(46, 208, 218);
+  color: #2ed0da;
+  background: rgba(240, 240, 240, 0.5);
 }
 
 .card_tags_category .Disease, .card_tags .Disease {
-  color: rgb(245, 181, 71);
+  color: #f5b547;
+  background: rgba(240, 240, 240, 0.5);
 }
 
 .card_tags_category .risk_factor, .card_tags .risk_factor {
-  color: rgb(200, 209, 29);
+  color: #c0c915;
+  background: rgba(240, 240, 240, 0.5);
 }
 
 .card_tags_category .Management, .card_tags .Management {
-  color: rgb(86, 103, 213);
+  color: #5667d5;
+  background: rgba(240, 240, 240, 0.5);
 }
 
 .card_tags_category .Lab, .card_tags .Lab {
-  color: rgb(151, 84, 193);
+  color: #9754c1;
+  background: rgba(240, 240, 240, 0.5);
 }
 
 .card_tags_category .Symptom.filled {
-  background: rgb(246, 114, 114);
+  background: #f67272;
   color: white;
 }
 
 .card_tags_category .Location.filled {
-  background: rgb(46, 208, 218);
+  background: #2ed0da;
   color: white;
 }
 
 .card_tags_category .Disease.filled {
-  background: rgb(245, 181, 71);
+  background: #f5b547;
   color: white;
 }
 
 .card_tags_category .risk_factor.filled {
-  background: rgb(200, 209, 29);
+  background: #c0c915;
   color: white;
 }
 
 .card_tags_category .Management.filled {
-  background: rgb(86, 103, 213);
+  background: #5667d5;
   color: white;
 }
 
 .card_tags_category .Lab.filled {
-  background: rgb(151, 84, 193);
+  background: #9754c1;
   color: white;
 }
 
@@ -217,8 +247,13 @@ body {
   border-top: 1px solid #f0f0f0 !important;
 }
 
-.add_tag .typeahead__field {
-  margin-top: 0.8rem;
+.add_tag .typeahead__container {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.add_tag .typeahead__list {
+  font-size: 1.2rem;
 }
 
 .form-group input[type="checkbox"] {
@@ -227,18 +262,16 @@ body {
 
 .with_tag .btn {
   border: 0;
-  font-size: 1.2rem;
-  line-height: 1.7rem;
-  max-width: 100%;
-  overflow-x: scroll;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  max-width: 95%;
+  overflow-x: auto;
   margin: 0 1rem;
+  padding-top: 9px;
 }
 
 .with_tag .btn .badge {
-  background-color: rgb(142, 144, 147);
-  position: relative;
-  top: -1px;
-  left: 0px;
+  background-color: #8e9093;
   font-size: 10px;
   color: white;
 }
@@ -255,15 +288,14 @@ body {
 }
 
 .card_panel {
-  border-top: 2px solid #777;
-  margin-bottom: 5rem;
-  background: rgb(255, 255, 255);
+  margin-bottom: 6rem;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card_content div {
-  padding: 1.5rem 1rem;
+  padding: 1.3rem;
   font-size: 1.3rem;
-  color: #333;
   line-height: 21px;
 }
 
@@ -309,7 +341,7 @@ body {
 }
 
 .rsc {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 .rsc .table {
@@ -332,9 +364,6 @@ body {
   margin: 0 auto;
   padding: 0;
   left: 0;
-}
-
-.carousel-indicators {
   margin-top: 1rem;
 }
 
@@ -376,6 +405,7 @@ body {
 }
 
 .panel-group {
+  margin-top: 1rem !important;
   margin-bottom: 0px !important;
 }
 
@@ -404,11 +434,7 @@ body {
   border-top: 0;
 }
 
-.panel-group .panel-title {
-  font-size: 1.2rem;
-}
-
-.panel-group .panel-body {
+.panel-group .panel-title, .panel-group .panel-body {
   font-size: 1.2rem;
 }
 
@@ -425,7 +451,31 @@ body {
   border: 0;
   border-radius: 0;
   color: rgba(0, 0, 0, 0.6);
-  background: rgba(250, 250, 250, 1.0);
+  background: #fafafa;
   padding: 0.5rem;
   flex-grow: 1;
+}
+
+#readmore {
+  width: 100%;
+  border-radius: 0;
+  position: relative;
+  top: -3rem;
+}
+
+.loading_img {
+  z-index: 10;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #e9ebee;
+  opacity: 0.5;
+}
+
+.loading_img img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -99px;
+  margin-top: -99px;
 }

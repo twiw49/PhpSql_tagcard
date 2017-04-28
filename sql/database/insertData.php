@@ -1,7 +1,28 @@
 <?php
   include('../db.php');
 
+  function escapeHtml($name)
+  {
+      global $conn;
+      $name = htmlspecialchars($name);
+      $name = mysqli_real_escape_string($conn, $name);
+      return $name;
+  }
+
+  function truncate_data($array)
+  {
+      global $conn;
+      foreach ($array as $item) {
+          $sql = "TRUNCATE `{$item}`;";
+          $result = mysqli_query($conn, $sql);
+          echo mysqli_error($conn);
+      }
+  }
+
   if ($_POST['q'] == 'disease') {
+      $array = ['disease','disease_info','disease_symptom','disease_synonym'];
+      truncate_data($array);
+
       $data = $_POST['data'];
       $data = json_decode($data);
       foreach ($data as $item) {
@@ -55,6 +76,9 @@
           echo mysqli_error($conn);
       }
   } elseif ($_POST['q'] == 'lab') {
+      $array = ['lab','lab_result'];
+      truncate_data($array);
+
       $data = $_POST['data'];
       $data = json_decode($data);
       foreach ($data as $item) {
@@ -83,6 +107,9 @@
           echo mysqli_error($conn);
       }
   } elseif ($_POST['q'] == 'management') {
+      $array = ['management','management_synonym'];
+      truncate_data($array);
+
       $data = $_POST['data'];
       $data = json_decode($data);
       foreach ($data as $item) {
@@ -101,12 +128,15 @@
           // management_synonym
           $synonyms = $item -> synonym;
           foreach ($synonyms as $synonym) {
+              $synonym = escapeHtml($synonym);
               $sql = "INSERT INTO `management_synonym` (`management_id`, `management_name`, `synonym_name`) VALUES ('{$id}', '{$name}', '{$synonym}');";
               $result = mysqli_query($conn, $sql);
               echo mysqli_error($conn);
           }
       }
   } elseif ($_POST['q'] == 'risk_factor') {
+      $array = ['risk_factor'];
+      truncate_data($array);
       $data = $_POST['data'];
       $data = json_decode($data);
       foreach ($data as $item) {
@@ -125,6 +155,9 @@
           echo mysqli_error($conn);
       }
   } elseif ($_POST['q'] == 'symptom') {
+      $array = ['symptom','symptom_location','symptom_relation','symptom_synonym'];
+      truncate_data($array);
+
       $data = $_POST['data'];
       $data = json_decode($data);
       foreach ($data as $item) {
@@ -181,7 +214,6 @@
               echo mysqli_error($conn);
           }
 
-
           $children = $item -> children_symp;
           foreach ($children as $child) {
               $child_id = $child -> id;
@@ -193,7 +225,7 @@
 
               // symptom_relation
               if ($child_id) {
-                  $sql = "INSERT INTO `symptom_relation` (`parent_id`, `parent_name`, `child_id`, `child_name`, `category`) VALUES ('{$id}', '{$name}', '{$child_id}', '{$child_name}', '{$child_relation}');";
+                  $sql = "INSERT IGNORE INTO `symptom_relation` (`parent_id`, `parent_name`, `child_id`, `child_name`, `category`) VALUES ('{$id}', '{$name}', '{$child_id}', '{$child_name}', '{$child_relation}');";
                   $result = mysqli_query($conn, $sql);
                   echo mysqli_error($conn);
               }
@@ -202,7 +234,9 @@
           $location_arr = $item -> location;
           foreach ($location_arr as $location) {
               $location_name = $location -> name;
+              $location_name = escapeHtml($location_name);
               $location_category = $location -> category;
+              $location_category = escapeHtml($location_category);
 
               // symptom_location
               $sql = "INSERT INTO `symptom_location` (`symptom_id`, `symptom_name`, `location_name`, `location_category`) VALUES ('{$id}', '{$name}', '{$location_name}', '{$location_category}');";

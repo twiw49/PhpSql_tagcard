@@ -51,7 +51,6 @@ var load_data = function(load_json_url) {
 };
 
 // load_data("sql/kmle/jsondata/7605.json");
-
 var load_send_data = function(load_json_url, send_php_url, query) {
   var url = load_json_url; // var url = "medicalAPI/final/final_disease.json"
   $.getJSON(url, function(data) {
@@ -72,7 +71,6 @@ var load_send_data = function(load_json_url, send_php_url, query) {
       })
   })
 }
-
 // load_send_data("sql/kmle/processed/7602.json", "sql/kmle/cardInsert.php", "card");
 
 var reset_data = function(array) {
@@ -95,7 +93,6 @@ var reset_data = function(array) {
       console.log(error);
     })
 }
-
-//load_data("sql/kmle/jsondata/7701.json");
-// var array = [7601, 7602, 7603, 7604, 7605, 7606, 7607];
-// reset_data(array);
+load_data("sql/kmle/jsondata/7701.json");
+var array = [7601, 7602, 7603, 7604, 7605, 7606, 7607];
+reset_data(array);

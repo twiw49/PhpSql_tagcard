@@ -276,12 +276,12 @@
 }, {
   "id": "p_77",
   "name": "Eyelid Surgery",
-  "synonym": ["Eyelid Surgery", "Eyelid Surgery", "Blepharoplasty"],
+  "synonym": ["Eyelid Surgery", "Blepharoplasty"],
   "url": "http://www.medicinenet.com/blepharoplasty__eyelid_surgery/article.htm"
 }, {
   "id": "p_78",
   "name": "Botox Treatment",
-  "synonym": ["Botox Injections", "Botox Treatment", "Botox Treatment", "Strabismus Treatment, Botox", "Blepharospasm Treatment, Botox"],
+  "synonym": ["Botox Injections", "Botox Treatment", "Strabismus Treatment, Botox", "Blepharospasm Treatment, Botox"],
   "url": "http://www.medicinenet.com/botox_treatment/article.htm"
 }, {
   "id": "p_79",
@@ -426,12 +426,12 @@
 }, {
   "id": "p_127",
   "name": "C-Reactive Protein Test",
-  "synonym": ["CRP", "CRP", "C-Reactive Protein Test"],
+  "synonym": ["CRP", "C-Reactive Protein Test"],
   "url": "http://www.medicinenet.com/c-reactive_protein_test_crp/article.htm"
 }, {
   "id": "p_128",
   "name": "Cesarean Birth",
-  "synonym": ["Cesarean Birth", "Vaginal Birth after C-Section", "VBAC", "Cesarean Birth", "C-Section"],
+  "synonym": ["Vaginal Birth after C-Section", "VBAC", "Cesarean Birth", "C-Section"],
   "url": "http://www.medicinenet.com/c-section_cesarean_birth/article.htm"
 }, {
   "id": "p_129",
@@ -496,7 +496,7 @@
 }, {
   "id": "p_147",
   "name": "Cervista HPV Test",
-  "synonym": ["Cervista HPV Test", "Cervista HPV Test", "Human Papillomavirus Test", "Papillomavirus, Human Test", "Test, HPV", "Cervical Cancer Test"],
+  "synonym": ["Cervista HPV Test", "Human Papillomavirus Test", "Papillomavirus, Human Test", "Test, HPV", "Cervical Cancer Test"],
   "url": "http://www.medicinenet.com/cervista_hpv_test/article.htm"
 }, {
   "id": "p_152",
@@ -781,7 +781,7 @@
 }, {
   "id": "p_250",
   "name": "Urine Tests for Diabetes",
-  "synonym": ["Tests for Diabetes", "Urine Tests for Diabetes", "Urine Tests for Diabetes", "Diabetes Urine Tests"],
+  "synonym": ["Tests for Diabetes", "Urine Tests for Diabetes", "Diabetes Urine Tests"],
   "url": "http://www.medicinenet.com/urine_tests_for_diabetes/article.htm"
 }, {
   "id": "p_251",
@@ -1021,7 +1021,7 @@
 }, {
   "id": "p_365",
   "name": "Lap Band Surgery",
-  "synonym": ["Lap Band Surgery", "Surgery, Gastric Banding", "Surgery, Lap Band", "Weight Loss Surgery", "Gastric Banding", "Lap Band Surgery", "Gastric Banding Surgery"],
+  "synonym": ["Surgery, Gastric Banding", "Surgery, Lap Band", "Weight Loss Surgery", "Gastric Banding", "Lap Band Surgery", "Gastric Banding Surgery"],
   "url": "http://www.medicinenet.com/lap_band_surgery_gastric_banding/article.htm"
 }, {
   "id": "p_373",

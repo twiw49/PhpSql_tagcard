@@ -5,6 +5,7 @@ include("../db.php");
 
 $group = array();
 
+// symptom
 $s = "SELECT * FROM `symptom`;";
 $r = mysqli_query($conn, $s);
 $arr = array();
@@ -22,6 +23,7 @@ while ($row = mysqli_fetch_array($r)) {
 }
 $group['symptom'] = $arr;
 
+// disease
 $s = "SELECT * FROM `disease`;";
 $r = mysqli_query($conn, $s);
 $arr = array();
@@ -39,6 +41,8 @@ while ($row = mysqli_fetch_array($r)) {
 }
 $group['disease'] = $arr;
 
+
+// risk_factor
 $s = "SELECT * FROM `risk_factor`;";
 $r = mysqli_query($conn, $s);
 $arr = array();
@@ -47,6 +51,7 @@ while ($row = mysqli_fetch_array($r)) {
 }
 $group['risk_factor'] = $arr;
 
+// management
 $s = "SELECT * FROM `management`;";
 $r = mysqli_query($conn, $s);
 $arr = array();
@@ -64,6 +69,7 @@ while ($row = mysqli_fetch_array($r)) {
 }
 $group['management'] = $arr;
 
+// lab
 $s = "SELECT * FROM `lab`;";
 $r = mysqli_query($conn, $s);
 $arr = array();
@@ -72,6 +78,7 @@ while ($row = mysqli_fetch_array($r)) {
 }
 $group['lab'] = $arr;
 
+// location
 $s = "SELECT * FROM `location`;";
 $r = mysqli_query($conn, $s);
 $arr = array();
