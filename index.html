@@ -384,22 +384,22 @@
         var c_question = c.question;
         var c_choices = c.choices;
         var c_resources = c.resources;
-        var c_tags = c.tags;
+        var c_tags_id_in_category = c.tags_id_in_category;
         // 1. selected
         c.selected = true;
         for (var j = 0; j < selected_tags.length; j++) {
-          if (!c_tags.includes(selected_tags[j])) {
+          if (!c_tags_id_in_category.includes(selected_tags[j])) {
             c.selected = false;
             break;
           }
         }
         // 2. with_tags_selected
         if (c.selected) {
-          for (var j = 0; j < c_tags.length; j++) {
-            if (c_tags[j] in with_tags_selected) {
-              with_tags_selected[c_tags[j]] += 1;
+          for (var j = 0; j < c_tags_id_in_category.length; j++) {
+            if (c_tags_id_in_category[j] in with_tags_selected) {
+              with_tags_selected[c_tags_id_in_category[j]] += 1;
             } else {
-              with_tags_selected[c_tags[j]] = 1;
+              with_tags_selected[c_tags_id_in_category[j]] = 1;
             }
           }
           // 4. showing
