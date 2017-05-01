@@ -286,8 +286,8 @@
       var tag_name = query[0];
       var tag_category = query[1];
       var vars = {
-        q: tag_name,
-        c: tag_category
+        tag_name: tag_name,
+        tag_category: tag_category
       }
       $.ajax({
           type: "POST",
@@ -373,17 +373,33 @@
       }
 
       var with_tags_selected = {};
-      var with_tags_all = data.with_tags;
       var cards = data.cards;
+      var w_t = [];
+      var w_t_id = [];
+      for (var i = 0; i < cards.length; i++) {
+        var c_t_id = [];
+        var c_t_category = [];
+        for ( var j = 0; j < cards[i].tags_info.length; j++) {
+          if (!w_t_id.includes(cards[i].tags_info[j].id_in_category)) {
+            w_t_id.push(cards[i].tags_info[j].id_in_category);
+            w_t.push(cards[i].tags_info[j]);
+          }
+          if (!c_t_id.includes(cards[i].tags_info[j].id_in_category)) {
+            c_t_id.push(cards[i].tags_info[j].id_in_category);
+          }
+          if (!c_t_category.includes(cards[i].tags_info[j].category)) {
+            c_t_category.push(cards[i].tags_info[j].category);
+          }
+        }
+        cards[i].tags_id_in_category = c_t_id;
+        cards[i].tags_category = c_t_category;
+      }
+      data.with_tags = w_t;
 
       // cards에 property 부여하기
       var k = 0;
       for (var i = 0; i < cards.length; i++) {
         var c = cards[i];
-        var c_content = c.content;
-        var c_question = c.question;
-        var c_choices = c.choices;
-        var c_resources = c.resources;
         var c_tags_id_in_category = c.tags_id_in_category;
         // 1. selected
         c.selected = true;
@@ -417,8 +433,8 @@
       }
 
       // with_tags_all에 property 부여하기
-      for (var i = 0; i < with_tags_all.length; i++) {
-        var w_tag = with_tags_all[i];
+      for (var i = 0; i < data.with_tags.length; i++) {
+        var w_tag = data.with_tags[i];
         // 1. q_tag (검색창을 통해 입력된 값)
         if (w_tag.name == q_tag) {
           w_tag.query = true;
@@ -441,7 +457,7 @@
 
       console.log(JSON.stringify(data));
       tagVue.data = data;
-      tagVue.with_tags = with_tags_all;
+      tagVue.with_tags = data.with_tags;
       tagVue.cards = cards;
       tagVue.query = data.query;
       cardVue.data = data;
