@@ -45,7 +45,7 @@
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="sideNavController.close()"><span class="glyphicon glyphicon-remove"></span></a>
       <div class="tagList">
-        <div class="query">{{ data.tag_name }}</div>
+        <div class="query">{{ query.name }}</div>
         <hr style="margin:0;margin-bottom:1rem">
         <div class="numb">선택된 태그 : {{ selected_tags_numb }} 개</div>
         <div class="numb">검색된 케이스 : {{ selected_cards_numb }} 개</div>
@@ -261,6 +261,11 @@
         minLength: 0,
         maxItem: 200,
         accent: true,
+        template: function(query, item) {
+          var list = item.display.split(' / ');
+          var result = list[0] + '<span style="color:#bbb;position:relative;left:10px;font-size:x-small">' + list[1] + '</span>';
+          return result;
+        },
         source: {
           ajax: {
             type: "GET",
@@ -269,39 +274,24 @@
         },
         callback: {
           onClick: function(node, a, item, event) {
-            var query = item.display;
-            searchData(query, [query], '');
+            var query = item.display.split(' / ');
+            searchData_(query);
             $('.loading_img').show();
           }
         }
       });
     };
 
-    function searchData(q_tag, selected_tags, old_data) {
-      if (!q_tag) {
-        for (var i = 0; i < old_data.with_tags.length; i++) {
-          if (old_data.with_tags[i].query) {
-            var q_tag = old_data.with_tags[i].name;
-          }
-        }
-      }
-
-      if (!selected_tags) {
-        var selected_tags = [];
-        for (var i = 0; i < old_data.with_tags.length; i++) {
-          if (old_data.with_tags[i].selected) {
-            selected_tags.push(old_data.with_tags[i].name);
-          }
-        }
-      }
-
+    function searchData_(query) {
+      var tag_name = query[0];
+      var tag_category = query[1];
       var vars = {
-        q: q_tag
-      };
-
+        q: tag_name,
+        c: tag_category
+      }
       $.ajax({
           type: "POST",
-          url: "sql/search_sql.php",
+          url: "sql/search_sql_.php",
           data: vars,
           dataType: 'json',
           complete: function() {
@@ -309,16 +299,58 @@
           }
         })
         .done(function(data, message, xhr) {
-          processData(data, selected_tags);
+          processData(data, [data.query.id_in_category]);
           console.log(xhr.responseText);
-          console.log('query tag : ' + q_tag);
-          console.log('selected tags : ' + selected_tags);
+          console.log('query tag : ' + tag_name);
           $('input').blur();
         })
         .fail(function(xhr) {
           console.log(xhr.responseText);
         })
-    };
+    }
+
+    // function searchData(q_tag, selected_tags, old_data) {
+    //   if (!q_tag) {
+    //     for (var i = 0; i < old_data.with_tags.length; i++) {
+    //       if (old_data.with_tags[i].query) {
+    //         var q_tag = old_data.with_tags[i].name;
+    //       }
+    //     }
+    //   }
+    //
+    //   if (!selected_tags) {
+    //     var selected_tags = [];
+    //     for (var i = 0; i < old_data.with_tags.length; i++) {
+    //       if (old_data.with_tags[i].selected) {
+    //         selected_tags.push(old_data.with_tags[i].name);
+    //       }
+    //     }
+    //   }
+    //
+    //   var vars = {
+    //     q: q_tag
+    //   };
+    //
+    //   $.ajax({
+    //       type: "POST",
+    //       url: "sql/search_sql.php",
+    //       data: vars,
+    //       dataType: 'json',
+    //       complete: function() {
+    //         $('.loading_img').hide();
+    //       }
+    //     })
+    //     .done(function(data, message, xhr) {
+    //       processData(data, selected_tags);
+    //       console.log(xhr.responseText);
+    //       console.log('query tag : ' + q_tag);
+    //       console.log('selected tags : ' + selected_tags);
+    //       $('input').blur();
+    //     })
+    //     .fail(function(xhr) {
+    //       console.log(xhr.responseText);
+    //     })
+    // };
 
     function processData(data, selected_tags) {
       // 주요 변수들 관계
@@ -328,14 +360,14 @@
       // with_tags_all (q_tag와 동시에 태깅된 태그들)
 
       // 주요 변수들 define
-      var q_tag = data.tag_name;
+      var q_tag = data.query.name;
       if (selected_tags) {
         var selected_tags = selected_tags;
       } else {
         var selected_tags = [];
         for (var i = 0; i < data.with_tags.length; i++) {
           if (data.with_tags[i].selected) {
-            selected_tags.push(data.with_tags[i].name);
+            selected_tags.push(data.with_tags[i].id_in_category);
           }
         }
       }
@@ -394,13 +426,13 @@
           w_tag.query = false;
         }
         // 2. selected_tags (체크박스를 통해 선택된 태그들의 이름을 배열에 저장한 값)
-        if (selected_tags.includes(w_tag.name)) {
+        if (selected_tags.includes(w_tag.id_in_category)) {
           w_tag.selected = true;
         } else {
           w_tag.selected = false;
         }
         // 3. with_tags_selected
-        if (w_tag.name in with_tags_selected) {
+        if (w_tag.id_in_category in with_tags_selected) {
           w_tag.c_selected = true;
         } else {
           w_tag.c_selected = false;
@@ -411,6 +443,7 @@
       tagVue.data = data;
       tagVue.with_tags = with_tags_all;
       tagVue.cards = cards;
+      tagVue.query = data.query;
       cardVue.data = data;
       cardVue.cards = cards;
       cardVue.groupNumb = 1;
@@ -656,7 +689,8 @@
       data: {
         data: '',
         with_tags: '',
-        cards: ''
+        cards: '',
+        query: ''
       },
       computed: {
         selected_tags_numb: function() {
