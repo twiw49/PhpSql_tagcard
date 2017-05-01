@@ -103,7 +103,7 @@ while ($row = mysqli_fetch_array($result)) {
         $t_id_in_category = sqlResult($conn, 'tag', 'id', $t_id, 'id_in_category');
 
         array_push($tags_ele, $t_name);
-        if (!in_array($t_category, $tags_category)) {
+        if (!in_array($t_category, $tags_category) && $t_category !== '') {
             array_push($tags_category, $t_category);
         }
         $t_info = array();

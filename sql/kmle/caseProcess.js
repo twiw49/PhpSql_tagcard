@@ -49,10 +49,10 @@ var load_data = function(load_json_url) {
     console.log(JSON.stringify(data));
   })
 };
-
 // load_data("sql/kmle/jsondata/7605.json");
+
 var load_send_data = function(load_json_url, send_php_url, query) {
-  var url = load_json_url; // var url = "medicalAPI/final/final_disease.json"
+  var url = load_json_url; // var url = "sql/medicalData/final_disease.json"
   $.getJSON(url, function(data) {
     console.log(data.length);
     $.ajax({
@@ -71,12 +71,12 @@ var load_send_data = function(load_json_url, send_php_url, query) {
       })
   })
 }
-// load_send_data("sql/kmle/processed/7602.json", "sql/kmle/cardInsert.php", "card");
+// load_send_data("sql/kmle/processed/7602.json", "sql/kmle/insertCase.php", "card");
 
 var reset_data = function(array) {
   $.ajax({
       type: "POST",
-      url: "sql/kmle/cardInsert.php",
+      url: "sql/kmle/insertCase.php",
       data: {
         q: 'reset'
       }
@@ -86,7 +86,7 @@ var reset_data = function(array) {
       for (var i = 0; i < array.length; i++) {
         var url_ = "sql/kmle/processed/" + array[i] + ".json";
         console.log(url_);
-        load_send_data(url_, "sql/kmle/cardInsert.php", "card");
+        load_send_data(url_, "sql/kmle/insertCase.php", "card");
       }
     })
     .fail(function(error) {

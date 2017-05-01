@@ -17,7 +17,7 @@
 
 <body>
   <div class="loading_img" style="display:none;">
-    <img src="gears.svg">
+    <img src="css/gears.svg">
   </div>
   <div class="with_tag_container" v-cloak>
     <!-- topNav -->
@@ -407,6 +407,7 @@
         }
       }
 
+      console.log(JSON.stringify(data));
       tagVue.data = data;
       tagVue.with_tags = with_tags_all;
       tagVue.cards = cards;
