@@ -45,12 +45,12 @@
         <div class="typeahead__container">
           <div class="typeahead__field">
             <span class="typeahead__query">
-              <input class="risk_factor_query" placeholder="Risk Factor" autocomplete="off">
+              <input class="risk_query" placeholder="Risk Factor" autocomplete="off">
             </span>
           </div>
         </div>
       </form>
-      <div id="risk_factor"></div>
+      <div id="risk"></div>
     </div>
     <div class="form-group">
       <form onsubmit="return false;">
@@ -124,22 +124,22 @@
         }
       });
 
-      //risk factor
+      //risk
       $.typeahead({
-        input: '.risk_factor_query',
+        input: '.risk_query',
         minLength: 0,
         maxItem: 200,
         hint: true,
         source: {
           ajax: {
             type: "GET",
-            url: "sql/typeahead/load_data_risk_factor.php"
+            url: "sql/typeahead/load_data_risk.php"
           }
         },
         callback: {
           onClick: function(node, a, item, event) {
             var query = this.item.display;
-            captureReturnKey(query, 'risk_factor', 'btn-info');
+            captureReturnKey(query, 'risk', 'btn-info');
           }
         }
       });

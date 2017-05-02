@@ -203,5 +203,5 @@ var load_send_data = function(load_json_url, send_php_url, query) {
 // load_send_data("sql/medicalData/final_disease.json", "sql/medicalData/insertMedicalData.php", "disease");
 // load_send_data("sql/medicalData/final_lab_test.json", "sql/medicalData/insertMedicalData.php", "lab");
 // load_send_data("sql/medicalData/final_procedure.json", "sql/medicalData/insertMedicalData.php", "management");
-// load_send_data("sql/medicalData/final_risk_factor.json", "sql/medicalData/insertMedicalData.php", "risk_factor");
+// load_send_data("sql/medicalData/final_risk.json", "sql/medicalData/insertMedicalData.php", "risk");
 // load_send_data("sql/medicalData/final_symptom.json", "sql/medicalData/insertMedicalData.php", "symptom");

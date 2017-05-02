@@ -134,8 +134,8 @@
               echo mysqli_error($conn);
           }
       }
-  } elseif ($_POST['q'] == 'risk_factor') {
-      $array = ['risk_factor'];
+  } elseif ($_POST['q'] == 'risk') {
+      $array = ['risk'];
       truncate_data($array);
       $data = $_POST['data'];
       $data = json_decode($data);
@@ -149,8 +149,8 @@
           $question = $item -> question;
           $question = escapeHtml($question);
 
-          // risk factor
-          $sql = "INSERT INTO `risk_factor` (`id`, `name`, `filter_sex`, `question`) VALUES ('{$id}', '{$name}', '{$filter_sex}', '{$question}');";
+          // risk
+          $sql = "INSERT INTO `risk` (`id`, `name`, `filter_sex`, `question`) VALUES ('{$id}', '{$name}', '{$filter_sex}', '{$question}');";
           $result = mysqli_query($conn, $sql);
           echo mysqli_error($conn);
       }

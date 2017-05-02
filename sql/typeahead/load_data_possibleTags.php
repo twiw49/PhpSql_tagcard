@@ -42,14 +42,14 @@ while ($row = mysqli_fetch_array($r)) {
 $group['disease'] = $arr;
 
 
-// risk_factor
-$s = "SELECT * FROM `risk_factor`;";
+// risk
+$s = "SELECT * FROM `risk`;";
 $r = mysqli_query($conn, $s);
 $arr = array();
 while ($row = mysqli_fetch_array($r)) {
     array_push($arr, htmlspecialchars_decode($row['name']));
 }
-$group['risk_factor'] = $arr;
+$group['risk'] = $arr;
 
 // management
 $s = "SELECT * FROM `management`;";

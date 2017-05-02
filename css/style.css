@@ -170,7 +170,7 @@ body {
   background: rgba(240, 240, 240, 0.5);
 }
 
-.card_tags_category .risk_factor, .card_tags .risk_factor {
+.card_tags_category .Risk, .card_tags .Risk {
   color: #c0c915;
   background: rgba(240, 240, 240, 0.5);
 }
@@ -200,7 +200,7 @@ body {
   color: white;
 }
 
-.card_tags_category .risk_factor.filled {
+.card_tags_category .Risk.filled {
   background: #c0c915;
   color: white;
 }

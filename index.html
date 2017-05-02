@@ -19,13 +19,16 @@
   <div class="loading_img" style="display:none;">
     <img src="css/gears.svg">
   </div>
+  <!-- tagVue -->
   <div class="with_tag_container" v-cloak>
     <!-- topNav -->
     <div class="top">
       <div class="topnav home">
         <a href="index.html">MediTag</a>
+        <!-- shuffleCards() -->
         <a class="navTags glyphicon glyphicon-refresh" onclick="cardVue.shuffleCards()"></a>
       </div>
+      <!-- loadTags() -->
       <form onsubmit="return false;" class="searchTop">
         <div class="typeahead__container">
           <div class="typeahead__field">
@@ -36,13 +39,16 @@
         </div>
       </form>
       <div class="topnav">
+        <!-- sideNavController -->
         <a class="navTags glyphicon glyphicon-tags" onclick="sideNavController.open()">
+          <!-- badge / c_selected_tags_numb-->
           <span class="badge btn-danger">{{ c_selected_tags_numb }}</span>
         </a>
       </div>
     </div>
-    <!-- sideNav / with_tag -->
+    <!-- sideNav -->
     <div id="mySidenav" class="sidenav">
+      <!-- sideNavController -->
       <a href="javascript:void(0)" class="closebtn" onclick="sideNavController.close()"><span class="glyphicon glyphicon-remove"></span></a>
       <div class="tagList">
         <div class="query">{{ query.name }}</div>
@@ -52,50 +58,50 @@
         <div class="numb">연관된 태그 : {{ c_selected_tags_numb }} 개</div>
         <hr style="margin:0">
         <div class="title">Location</div>
-        <template v-for="tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Location'">
-            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
-            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+        <template v-for="w_tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Location'">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
           </div>
         </template>
         <hr style="margin:0">
         <div class="title">Symptom</div>
-        <template v-for="tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Symptom'">
-            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
-            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+        <template v-for="w_tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Symptom'">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
           </div>
         </template>
         <hr style="margin:0">
         <div class="title">Disease</div>
-        <template v-for="tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Disease'">
-            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
-            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+        <template v-for="w_tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Disease'">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
           </div>
         </template>
         <hr style="margin:0">
-        <div class="title">Risk factor</div>
-        <template v-for="tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='risk_factor'">
-            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
-            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+        <div class="title">Risk</div>
+        <template v-for="w_tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Risk'">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
           </div>
         </template>
         <hr style="margin:0">
         <div class="title">Management</div>
-        <template v-for="tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Management'">
-            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
-            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+        <template v-for="w_tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Management'">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
           </div>
         </template>
         <hr style="margin:0">
         <div class="title">Lab</div>
-        <template v-for="tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="tag.c_selected && tag.category=='Lab'">
-            <label :for="tag.name" :class="tagClass(tag)"> {{ tag.name }} <div class="badge"> {{ tag.q_with_count }} </div></label>
-            <input type="checkbox" :id="tag.name" :checked="tag.selected" :disabled="tag.query" @change="tagCheck(tag, $event)">
+        <template v-for="w_tag in with_tags" v-cloak>
+          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Lab'">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
           </div>
         </template>
         <hr style="margin:0">
@@ -113,7 +119,7 @@
                 <li :class="{'filled' : card.tags_category.includes('Location')}" class="Location">Location</li>
                 <li :class="{'filled' : card.tags_category.includes('Symptom')}" class="Symptom">Symptom</li>
                 <li :class="{'filled' : card.tags_category.includes('Disease')}" class="Disease">Disease</li>
-                <li :class="{'filled' : card.tags_category.includes('risk_factor')}" class="risk_factor">Risk Factor</li>
+                <li :class="{'filled' : card.tags_category.includes('Risk')}" class="risk">Risk</li>
                 <li :class="{'filled' : card.tags_category.includes('Management')}" class="Management">Management</li>
                 <li :class="{'filled' : card.tags_category.includes('Lab')}" class="Lab">Lab</li>
               </div>
@@ -135,7 +141,7 @@
                   <div class="typeahead__container">
                     <div class="typeahead__field">
                       <span class="typeahead__query">
-                        <input :id="makeId('select',card.id)" placeholder="Add a tag ( Minimum 2 characters )" autocomplete="off" @focus.once="selectReady(card.id)">
+                        <input :id="makeId('select',card.id)" placeholder="Add a tag ( Minimum 2 characters )" autocomplete="off" @focus.once="selectReady(card)">
                       </span>
                     </div>
                   </div>
@@ -275,14 +281,14 @@
         callback: {
           onClick: function(node, a, item, event) {
             var query = item.display.split(' / ');
-            searchData_(query);
+            searchData(query);
             $('.loading_img').show();
           }
         }
       });
     };
 
-    function searchData_(query) {
+    function searchData(query) {
       var tag_name = query[0];
       var tag_category = query[1];
       var vars = {
@@ -299,7 +305,7 @@
           }
         })
         .done(function(data, message, xhr) {
-          processData(data, [data.query.id_in_category]);
+          processData(data, [data.query.raw_id]);
           console.log(xhr.responseText);
           console.log('query tag : ' + tag_name);
           $('input').blur();
@@ -309,113 +315,67 @@
         })
     }
 
-    // function searchData(q_tag, selected_tags, old_data) {
-    //   if (!q_tag) {
-    //     for (var i = 0; i < old_data.with_tags.length; i++) {
-    //       if (old_data.with_tags[i].query) {
-    //         var q_tag = old_data.with_tags[i].name;
-    //       }
-    //     }
-    //   }
-    //
-    //   if (!selected_tags) {
-    //     var selected_tags = [];
-    //     for (var i = 0; i < old_data.with_tags.length; i++) {
-    //       if (old_data.with_tags[i].selected) {
-    //         selected_tags.push(old_data.with_tags[i].name);
-    //       }
-    //     }
-    //   }
-    //
-    //   var vars = {
-    //     q: q_tag
-    //   };
-    //
-    //   $.ajax({
-    //       type: "POST",
-    //       url: "sql/search_sql.php",
-    //       data: vars,
-    //       dataType: 'json',
-    //       complete: function() {
-    //         $('.loading_img').hide();
-    //       }
-    //     })
-    //     .done(function(data, message, xhr) {
-    //       processData(data, selected_tags);
-    //       console.log(xhr.responseText);
-    //       console.log('query tag : ' + q_tag);
-    //       console.log('selected tags : ' + selected_tags);
-    //       $('input').blur();
-    //     })
-    //     .fail(function(xhr) {
-    //       console.log(xhr.responseText);
-    //     })
-    // };
 
     function processData(data, selected_tags) {
       // 주요 변수들 관계
       // q_tag (single tag)
       // selected_tags (single or multiple tag(s))
-      // with_tags_selected (selected_tags 모두와 동시에 태깅된 태그들)
+      // c_selected_tags (selected_tags 모두와 동시에 태깅된 태그들)
       // with_tags_all (q_tag와 동시에 태깅된 태그들)
 
-      // 주요 변수들 define
-      var q_tag = data.query.name;
+
+      // data reset
+      data.with_tags = [];
+      data.c_selected_tags = {};
+
+      // q_tag
+      var q_tag = data.query.raw_id;
+
+      // selected_tags
       if (selected_tags) {
-        var selected_tags = selected_tags;
-      } else {
-        var selected_tags = [];
-        for (var i = 0; i < data.with_tags.length; i++) {
-          if (data.with_tags[i].selected) {
-            selected_tags.push(data.with_tags[i].id_in_category);
-          }
-        }
+        data.selected_tags = selected_tags;
       }
 
-      var with_tags_selected = {};
+      var c_selected_tags = {};
       var cards = data.cards;
-      var w_t = [];
-      var w_t_id = [];
-      for (var i = 0; i < cards.length; i++) {
-        var c_t_id = [];
-        var c_t_category = [];
-        for ( var j = 0; j < cards[i].tags_info.length; j++) {
-          if (!w_t_id.includes(cards[i].tags_info[j].id_in_category)) {
-            w_t_id.push(cards[i].tags_info[j].id_in_category);
-            w_t.push(cards[i].tags_info[j]);
-          }
-          if (!c_t_id.includes(cards[i].tags_info[j].id_in_category)) {
-            c_t_id.push(cards[i].tags_info[j].id_in_category);
-          }
-          if (!c_t_category.includes(cards[i].tags_info[j].category)) {
-            c_t_category.push(cards[i].tags_info[j].category);
-          }
-        }
-        cards[i].tags_id_in_category = c_t_id;
-        cards[i].tags_category = c_t_category;
-      }
-      data.with_tags = w_t;
-
-      // cards에 property 부여하기
+      var with_tags_info = [];
+      var with_tags_raw_id = [];
       var k = 0;
       for (var i = 0; i < cards.length; i++) {
+        var card_tags_raw_id = [];
+        var card_tags_category = [];
         var c = cards[i];
-        var c_tags_id_in_category = c.tags_id_in_category;
+        for ( var j = 0; j < c.tags_info.length; j++) {
+          if (!with_tags_raw_id.includes(c.tags_info[j].raw_id)) {
+            with_tags_raw_id.push(c.tags_info[j].raw_id);
+            with_tags_info.push(c.tags_info[j]);
+          }
+          if (!card_tags_raw_id.includes(c.tags_info[j].raw_id)) {
+            card_tags_raw_id.push(c.tags_info[j].raw_id);
+          }
+          if (!card_tags_category.includes(c.tags_info[j].category)) {
+            card_tags_category.push(c.tags_info[j].category);
+          }
+        }
+        c.tags_raw_id = card_tags_raw_id;
+        c.tags_category = card_tags_category;
+
+        // cards에 property 부여하기
         // 1. selected
         c.selected = true;
-        for (var j = 0; j < selected_tags.length; j++) {
-          if (!c_tags_id_in_category.includes(selected_tags[j])) {
+        for (var j = 0; j < data.selected_tags.length; j++) {
+          if (!c.tags_raw_id.includes(data.selected_tags[j])) {
             c.selected = false;
             break;
           }
         }
-        // 2. with_tags_selected
+        // 2. c_selected_tags
         if (c.selected) {
-          for (var j = 0; j < c_tags_id_in_category.length; j++) {
-            if (c_tags_id_in_category[j] in with_tags_selected) {
-              with_tags_selected[c_tags_id_in_category[j]] += 1;
+          for (var j = 0; j < c.tags_raw_id.length; j++) {
+            if (c.tags_raw_id[j] in c_selected_tags) {
+              c_selected_tags[c.tags_raw_id[j]] += 1;
             } else {
-              with_tags_selected[c_tags_id_in_category[j]] = 1;
+              c_selected_tags[c.tags_raw_id[j]] = 1;
             }
           }
           // 4. showing
@@ -431,24 +391,26 @@
         // 3. editing
         c.editing = false;
       }
+      data.with_tags = with_tags_info;
+      data.c_selected_tags = c_selected_tags;
 
       // with_tags_all에 property 부여하기
       for (var i = 0; i < data.with_tags.length; i++) {
         var w_tag = data.with_tags[i];
         // 1. q_tag (검색창을 통해 입력된 값)
-        if (w_tag.name == q_tag) {
+        if (w_tag.raw_id == q_tag) {
           w_tag.query = true;
         } else {
           w_tag.query = false;
         }
         // 2. selected_tags (체크박스를 통해 선택된 태그들의 이름을 배열에 저장한 값)
-        if (selected_tags.includes(w_tag.id_in_category)) {
+        if (data.selected_tags.includes(w_tag.raw_id)) {
           w_tag.selected = true;
         } else {
           w_tag.selected = false;
         }
-        // 3. with_tags_selected
-        if (w_tag.id_in_category in with_tags_selected) {
+        // 3. c_selected_tags
+        if (w_tag.raw_id in c_selected_tags) {
           w_tag.c_selected = true;
         } else {
           w_tag.c_selected = false;
@@ -457,13 +419,83 @@
 
       console.log(JSON.stringify(data));
       tagVue.data = data;
-      tagVue.with_tags = data.with_tags;
-      tagVue.cards = cards;
       tagVue.query = data.query;
+      tagVue.cards = data.cards;
+      tagVue.with_tags = data.with_tags;
+      tagVue.selected_tags = data.selected_tags;
+      tagVue.c_selected_tags = data.c_selected_tags;
+
       cardVue.data = data;
-      cardVue.cards = cards;
+      cardVue.cards = data.cards;
       cardVue.groupNumb = 1;
     };
+
+    var tagVue = new Vue({
+      el: ".with_tag_container",
+      data: {
+        data: '',
+        query: '',
+        cards: '',
+        with_tags: '',
+        selected_tags: '',
+        c_selected_tags: ''
+      },
+      computed: {
+        selected_tags_numb: function() {
+          // var numb = 0;
+          // for (var i = 0; i < this.with_tags.length; i++) {
+          //   if (this.with_tags[i].selected == true) {
+          //     numb++;
+          //   }
+          // }
+          // return numb;
+          return this.selected_tags.length;
+        },
+        c_selected_tags_numb: function() {
+          // var numb = 0;
+          // for (var i = 0; i < this.with_tags.length; i++) {
+          //   if (this.with_tags[i].c_selected == true) {
+          //     numb++;
+          //   }
+          // }
+          // return numb;
+          return Object.keys(this.c_selected_tags).length;
+        },
+        selected_cards_numb: function() {
+          var numb = 0;
+          for (var i = 0; i < this.cards.length; i++) {
+            if (this.cards[i].selected == true) {
+              numb++;
+            }
+          }
+          return numb;
+        }
+      },
+      methods: {
+        tagClass: function(tag) {
+          if (tag.query) {
+            return 'btn btn-danger active';
+          } else {
+            if (tag.selected) {
+              return 'btn btn-warning active';
+            }
+            return 'btn btn-primary';
+          }
+        },
+        tagCheck: function(tag, event) {
+          var old_data = this.data;
+          tag.selected = event.target.checked;
+          console.log(old_data);
+          if (tag.selected) {
+              old_data.selected_tags.push(tag.raw_id);
+          } else {
+              var pos = old_data.selected_tags.indexOf(tag.raw_id);
+              old_data.selected_tags.splice(pos,1);
+          }
+          processData(old_data, old_data.selected_tags);
+        }
+      }
+    });
 
     var cardVue = new Vue({
       el: "#card_container",
@@ -532,14 +564,14 @@
           if (r) {
             for (var i = 0; i < old_data.with_tags.length; i++) {
               if (old_data.with_tags[i].id == tag.id) {
-                if (old_data.with_tags[i].q_with_count == 1) {
+                if (old_data.with_tags[i].with_count == 1) {
                   old_data.with_tags.splice(i, 1);
                 }
               }
             }
             var vars = {
               q: 'tag_delete',
-              tag_name: tag.name,
+              tag_raw_id: tag.raw_id,
               card_id: card.id
             };
             $.ajax({
@@ -548,35 +580,31 @@
                 data: vars
               })
               .done(function() {
-                searchData('', '', old_data);
+                for (var i = 0; i < old_data.cards.length; i++) {
+                  var c = old_data.cards[i];
+                  if (c.id == card.id) {
+                    for (var j = 0; j <c.tags_info.length; j++) {
+                      var t = c.tags_info[j];
+                      if (t.id == tag.id) {
+                        c.tags_info.splice(j,1);
+                      }
+                    }
+                  }
+                }
+                processData(old_data)
                 loadTags();
               })
-            if (tag.name == "untagged") {
-              var vars = {
-                q: 'tag_add',
-                tag_name: "tagged",
-                card_id: card.id
-              };
-              $.ajax({
-                  type: "POST",
-                  url: "sql/update_sql.php",
-                  data: vars
-                })
-                .done(function() {
-                  searchData('', '', old_data);
-                  loadTags();
-                })
-            }
           }
         },
         editComplete: function(card, event) {
           var old_data = this.data;
+          var card_content = $("#content_" + card.id + " textarea")[0].value;
           var r = confirm('Do you want to edit this case?');
           if (r) {
             var vars = {
               q: 'card_edit',
               card_id: card.id,
-              card_content: $("#content_" + card.id + " textarea")[0].value
+              card_content: card_content
             };
             $.ajax({
                 type: "POST",
@@ -584,7 +612,13 @@
                 data: vars
               })
               .done(function() {
-                searchData('', '', old_data);
+                for (var i = 0; i < old_data.cards.length; i++) {
+                  var c = old_data.cards[i];
+                  if (c.id == card.id) {
+                    c.content = card_content;
+                  }
+                }
+                processData(old_data)
                 loadTags();
               })
           }
@@ -604,15 +638,21 @@
                 data: vars
               })
               .done(function() {
-                searchData('', '', old_data);
+                for (var i = 0; i < old_data.cards.length; i++) {
+                  var c = old_data.cards[i];
+                  if (c.id == card.id) {
+                    old_data.cards.splice(i,1);
+                  }
+                }
+                processData(old_data)
                 loadTags();
               })
           }
         },
-        selectReady: function(cardId) {
+        selectReady: function(card) {
           var old_data = this.data;
           $.typeahead({
-            input: '#select_' + cardId,
+            input: '#select_' + card.id,
             minLength: 2,
             maxItem: 5000,
             order: 'asc',
@@ -653,11 +693,11 @@
                   path: "data.disease"
                 }
               },
-              "Risk factor": {
+              "Risk": {
                 ajax: {
                   type: "GET",
                   url: "sql/typeahead/load_data_possibleTags.php",
-                  path: "data.risk_factor"
+                  path: "data.risk"
                 }
               },
               "Management": {
@@ -677,80 +717,50 @@
             },
             callback: {
               onClick: function(node, a, item, event) {
+                var tag_name = this.item.display.split(' / ')[0];
+                var tag_category = this.item.group;
+                console.log(tag_category);
+                console.log(old_data);
+                for (var i = 0; i < old_data.cards.length; i++) {
+                  var c = old_data.cards[i];
+                  if (card.id == c.id) {
+                    for (var j = 0; j < c.tags_info.length; j++) {
+                      var t = c.tags_info[j];
+                      if (t.name == tag_name && t.category == tag_category) {
+                        alert('Same tag was already inserted.!');
+                        return;
+                      }
+                    }
+                  }
+                }
+
                 var vars = {
                   q: 'tag_add',
-                  tag_name: this.item.display.split(' / ')[0],
-                  card_id: cardId,
-                  tag_category: this.item.group
+                  q_tag: old_data.query.id,
+                  tag_name: tag_name,
+                  card_id: card.id,
+                  tag_category: tag_category
                 };
                 $.ajax({
                     type: "POST",
                     url: "sql/update_sql.php",
-                    data: vars
+                    data: vars,
+                    dataType: 'json'
                   })
-                  .done(function() {
-                    searchData('', '', old_data);
+                  .done(function(tag_info) {
+                    for (var i = 0; i < old_data.cards.length; i++) {
+                      var c = old_data.cards[i];
+                      if (c.id == card.id) {
+                        c.tags_info.push(tag_info);
+                      }
+                    }
+                    processData(old_data)
                     loadTags();
                   })
                 this.item.display = ''
               }
             }
           });
-        }
-      }
-    });
-
-    var tagVue = new Vue({
-      el: ".with_tag_container",
-      data: {
-        data: '',
-        with_tags: '',
-        cards: '',
-        query: ''
-      },
-      computed: {
-        selected_tags_numb: function() {
-          var numb = 0;
-          for (var i = 0; i < this.with_tags.length; i++) {
-            if (this.with_tags[i].selected == true) {
-              numb++;
-            }
-          }
-          return numb;
-        },
-        c_selected_tags_numb: function() {
-          var numb = 0;
-          for (var i = 0; i < this.with_tags.length; i++) {
-            if (this.with_tags[i].c_selected == true) {
-              numb++;
-            }
-          }
-          return numb;
-        },
-        selected_cards_numb: function() {
-          var numb = 0;
-          for (var i = 0; i < this.cards.length; i++) {
-            if (this.cards[i].selected == true) {
-              numb++;
-            }
-          }
-          return numb;
-        }
-      },
-      methods: {
-        tagClass: function(tag) {
-          if (tag.query) {
-            return 'btn btn-danger active';
-          } else {
-            if (tag.selected) {
-              return 'btn btn-warning active';
-            }
-            return 'btn btn-primary';
-          }
-        },
-        tagCheck: function(tag, event) {
-          tag.selected = event.target.checked;
-          processData(this.data, '');
         }
       }
     });

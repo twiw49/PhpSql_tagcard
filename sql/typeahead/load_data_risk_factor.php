@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 include("../db.php");
 
-$sql = "SELECT * FROM `risk_factor`;";
+$sql = "SELECT * FROM `risk`;";
 $result = mysqli_query($conn, $sql);
 $arr = array();
 while ($row = mysqli_fetch_array($result)) {

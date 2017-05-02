@@ -41,19 +41,19 @@ $tag_name = escapeHtml($tag_name);
 $tag_category = $_POST['tag_category'];
 $tag_category = escapeHtml($tag_category);
 if ($tag_category == "Risk Factor") {
-    $tag_category = "risk_factor";
+    $tag_category = "risk";
 };
 $sql = "SELECT * FROM `tag` WHERE `name` LIKE '{$tag_name}' AND `category` LIKE '{$tag_category}';";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 $tag_id = $row['id'];
-$id_in_category = $row['id_in_category'];
+$raw_id = $row['raw_id'];
 
 $query = array();
 $query['id'] = $tag_id;
 $query['name'] = $tag_name;
 $query['category'] = $tag_category;
-$query['id_in_category'] = $id_in_category;
+$query['raw_id'] = $raw_id;
 
 /* cards */
 $cards = array();
@@ -116,7 +116,7 @@ while ($row = mysqli_fetch_array($result)) {
         $t_id = $row_['tag_id'];
         $t_name = sqlResult($conn, 'tag', 'id', $t_id, 'name');
         $t_category = sqlResult($conn, 'tag', 'id', $t_id, 'category');
-        $t_id_in_category = sqlResult($conn, 'tag', 'id', $t_id, 'id_in_category');
+        $t_raw_id = sqlResult($conn, 'tag', 'id', $t_id, 'raw_id');
         //$t_with_count
         $s_ = "SELECT * FROM `tag_tag` WHERE `tag_id` = '{$t_id}' AND `with_tag_id` = '{$tag_id}';";
         $r_ = mysqli_query($conn, $s_);
@@ -127,7 +127,7 @@ while ($row = mysqli_fetch_array($result)) {
         $t_info['id'] = $t_id;
         $t_info['name'] = $t_name;
         $t_info['category'] = $t_category;
-        $t_info['id_in_category'] = $t_id_in_category;
+        $t_info['raw_id'] = $t_raw_id;
         $t_info['with_count'] = $t_with_count;
         $tags_info[] = $t_info;
     };
