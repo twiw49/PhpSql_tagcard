@@ -5,10 +5,17 @@ if (!$conn) {
     die('Could not connect: ' . mysqli_error($conn));
 }
 
+function escapeHtml($name)
+{
+    global $conn;
+    $name = htmlspecialchars($name);
+    $name = mysqli_real_escape_string($conn, $name);
+    return $name;
+}
+
 function sqlResult($conn, $table, $column, $value, $search)
 {
-    $value = mysqli_real_escape_string($conn, $value);
-    $value = htmlspecialchars($value);
+    $value = escapeHtml($value);
     $sql = "SELECT * FROM `$table` WHERE `$column` = '{$value}'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
@@ -17,8 +24,7 @@ function sqlResult($conn, $table, $column, $value, $search)
 
 function sqlReuslt_array($conn, $table, $column, $value, $arr)
 {
-    $value = mysqli_real_escape_string($conn, $value);
-    $value = htmlspecialchars($value);
+    $value = escapeHtml($value);
     $sql = "SELECT * FROM `$table` WHERE `$column` = '{$value}'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
@@ -29,13 +35,25 @@ function sqlReuslt_array($conn, $table, $column, $value, $arr)
     return $r;
 };
 
-$q = $_POST['q'];
 /* tag_id & tag_name */
-$tag_name = $q;
-$tag_arr = sqlReuslt_array($conn, 'tag', 'name', $tag_name, ['id','category','id_in_category']);
-$tag_id = $tag_arr['id'];
-$tag_category = $tag_arr['category'];
-$tag_id_in_category = $tag_arr['id_in_category'];
+$tag_name = $_POST['tag_name'];
+$tag_name = escapeHtml($tag_name);
+$tag_category = $_POST['tag_category'];
+$tag_category = escapeHtml($tag_category);
+if ($tag_category == "Risk Factor") {
+    $tag_category = "risk";
+};
+$sql = "SELECT * FROM `tag` WHERE `name` LIKE '{$tag_name}' AND `category` LIKE '{$tag_category}';";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
+$tag_id = $row['id'];
+$raw_id = $row['raw_id'];
+
+$query = array();
+$query['id'] = $tag_id;
+$query['name'] = $tag_name;
+$query['category'] = $tag_category;
+$query['raw_id'] = $raw_id;
 
 /* cards */
 $cards = array();
@@ -91,8 +109,6 @@ while ($row = mysqli_fetch_array($result)) {
         $card_resources[] = $card_rsc;
     }
 
-    $tags_ele = array();
-    $tags_category = array();
     $tags_info = array();
     $sql_ = "SELECT * FROM `tag_card` WHERE `card_id` = '{$card_id}'";
     $result_ = mysqli_query($conn, $sql_);
@@ -100,17 +116,19 @@ while ($row = mysqli_fetch_array($result)) {
         $t_id = $row_['tag_id'];
         $t_name = sqlResult($conn, 'tag', 'id', $t_id, 'name');
         $t_category = sqlResult($conn, 'tag', 'id', $t_id, 'category');
-        $t_id_in_category = sqlResult($conn, 'tag', 'id', $t_id, 'id_in_category');
+        $t_raw_id = sqlResult($conn, 'tag', 'id', $t_id, 'raw_id');
+        //$t_with_count
+        $s_ = "SELECT * FROM `tag_tag` WHERE `tag_id` = '{$t_id}' AND `with_tag_id` = '{$tag_id}';";
+        $r_ = mysqli_query($conn, $s_);
+        $row__ = mysqli_fetch_array($r_);
+        $t_with_count = $row__['with_count'];
 
-        array_push($tags_ele, $t_name);
-        if (!in_array($t_category, $tags_category) && $t_category !== '') {
-            array_push($tags_category, $t_category);
-        }
-        $t_info = array();
+        $t_info = [];
         $t_info['id'] = $t_id;
         $t_info['name'] = $t_name;
         $t_info['category'] = $t_category;
-        $t_info['id_in_category'] = $t_id_in_category;
+        $t_info['raw_id'] = $t_raw_id;
+        $t_info['with_count'] = $t_with_count;
         $tags_info[] = $t_info;
     };
 
@@ -121,49 +139,12 @@ while ($row = mysqli_fetch_array($result)) {
     $y['answer'] = $card_answer;
     $y['choices'] = $card_choices;
     $y['resources'] = $card_resources;
-    $y['tags'] = $tags_ele;
-    $y['tags_category'] = $tags_category;
     $y['tags_info'] = $tags_info;
     $cards[] = $y;
 };
 
-/* with_tags */
-$sql_0 = "SELECT * FROM `tag_tag` WHERE `tag_id` = '{$tag_id}' ORDER BY `with_count` DESC";
-$result_0 = mysqli_query($conn, $sql_0);
-
-$with_tags = array();
-while ($row_0 = mysqli_fetch_array($result_0)) {
-    $with_tag_id = $row_0['with_tag_id'];
-    $with_tag_arr = sqlReuslt_array($conn, 'tag', 'id', $with_tag_id, ['name','category','id_in_category']);
-    $with_tag_name = $with_tag_arr['name'];
-    $with_tag_category = $with_tag_arr['category'];
-    $with_tag_id_in_category = $with_tag_arr['id_in_category'];
-    $with_count = $row_0['with_count'];
-
-    // $with_with_tags = array();
-    // $sql_1 = "SELECT * FROM `tag_tag` WHERE `tag_id` = '{$with_tag_id}';";
-    // $result_1 = mysqli_query($conn, $sql_1);
-    // while ($row_1 = mysqli_fetch_array($result_1)) {
-    //     $w = sqlResult($conn, 'tag', 'id', $row_1['with_tag_id'], 'name');
-    //     array_push($with_with_tags, $w);
-    // }
-
-    $z = array();
-    $z['id'] = $with_tag_id;
-    $z['name'] = $with_tag_name;
-    $z['category'] = $with_tag_category;
-    $z['id_in_category'] = $with_tag_id_in_category;
-    $z['q_with_count'] = $with_count;
-    // $z['with_with_tags'] = $with_with_tags;
-    $with_tags[] = $z;
-}
-
 $r = array();
-$r['tag_id'] = $tag_id;
-$r['tag_name'] = $tag_name;
-$r['tag_category'] = $tag_category;
-$r['tag_id_in_category'] = $tag_id_in_category;
+$r['query'] = $query;
 $r['cards'] = $cards;
-$r['with_tags'] = $with_tags;
 
 echo json_encode($r);

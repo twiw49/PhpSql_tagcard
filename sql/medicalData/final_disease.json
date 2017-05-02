@@ -14701,17 +14701,6 @@
   "treatment": null,
   "symptom": {}
 }, {
-  "id": "c_446",
-  "name": "Hypoglycemia",
-  "synonym": ["Hypoglycemia"],
-  "category": "Internal Medicine",
-  "filter_sex": "both",
-  "description": null,
-  "descriptionShort": null,
-  "medicalCondition": null,
-  "treatment": null,
-  "symptom": {}
-}, {
   "id": "c_58",
   "name": "Hypoparathyroidism",
   "synonym": ["Hypoparathyroidism"],

@@ -16,7 +16,7 @@ while ($row = mysqli_fetch_array($r)) {
     $r_ = mysqli_query($conn, $s_);
     while ($row_ = mysqli_fetch_array($r_)) {
         if ($row['name'] !== $row_['synonym_name']) {
-            $name = $name.' / '.$row_['synonym_name'];
+            $name = $name.' | '.$row_['synonym_name'];
         }
     }
     array_push($arr, htmlspecialchars_decode($name));
@@ -34,7 +34,7 @@ while ($row = mysqli_fetch_array($r)) {
     $r_ = mysqli_query($conn, $s_);
     while ($row_ = mysqli_fetch_array($r_)) {
         if ($row['name'] !== $row_['synonym_name']) {
-            $name = $name.' / '.$row_['synonym_name'];
+            $name = $name.' | '.$row_['synonym_name'];
         }
     }
     array_push($arr, htmlspecialchars_decode($name));
@@ -62,7 +62,7 @@ while ($row = mysqli_fetch_array($r)) {
     $r_ = mysqli_query($conn, $s_);
     while ($row_ = mysqli_fetch_array($r_)) {
         if ($row['name'] !== $row_['synonym_name']) {
-            $name = $name.' / '.$row_['synonym_name'];
+            $name = $name.' | '.$row_['synonym_name'];
         }
     }
     array_push($arr, htmlspecialchars_decode($name));

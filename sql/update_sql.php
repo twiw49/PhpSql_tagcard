@@ -73,7 +73,7 @@ elseif ($_POST['q'] == 'tag_add') {
 
     $tag_info = array();
     $tag_info['id'] = $new_tag_id;
-    $tag_info['name'] = $tag_name;
+    $tag_info['name'] = htmlspecialchars_decode($tag_name);
     $tag_info['category'] = $tag_category;
     $tag_info['raw_id'] = $tag_raw_id;
     $tag_info['with_count'] = $with_count;

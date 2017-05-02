@@ -8,19 +8,12 @@ body {
   display: none;
 }
 
-.top {
+.topnav {
   position: fixed;
   display: flex;
   width: 100%;
   z-index: 10;
-}
-
-.topnav {
-  flex-grow: 0;
-  display: flex;
   align-items: center;
-  z-index: 10;
-  height: 32px;
   background-color: #333;
 }
 
@@ -28,26 +21,38 @@ body {
   flex-grow: 0;
   text-align: center;
   color: #f2f2f2;
-  padding: 5px 5px;
+  padding: 7.3px 8px;
   font-size: 12px;
   text-decoration: none;
-  vertical-align: center;
+}
+
+.topnav a:hover {
+  background: #4CAF50;
+}
+
+.topnav a.filter span {
+  font-size: 1.35rem;
+  top: 2px;
 }
 
 .topnav a.navTags {
-  flex-grow: 1;
-  padding: 0;
-  padding: 3px 8px;
-  cursor: pointer;
-  top: 0;
+  padding-right: 4px;
+  flex-shrink: 0;
+}
+
+.topnav a.navTags span {
+  top: 2px;
+  right: -3px;
 }
 
 .topnav a.navTags .badge {
   position: relative;
   top: 2px;
-  padding: 1.15px 4px 2px 4px;
+  right: 5px;
+  padding: 2.15px 4px 1px 4px;
   line-height: 0.7;
   font-size: 0.8rem;
+  font-weight: lighter;
 }
 
 .searchTop {
@@ -59,10 +64,14 @@ body {
   text-align: center;
   background: #eee !important;
   color: #333;
-  border: 5px solid #333;
+  border: 3px solid #333;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border-radius: 0;
+}
+
+.searchTop .search_input:focus {
+  border: 3px solid #333;
 }
 
 .searchTop .typeahead__cancel-button {
@@ -71,6 +80,7 @@ body {
 
 .searchTop .typeahead__result {
   position: fixed;
+  top: 32px;
   left: 0;
   width: 100vw;
 }
@@ -84,11 +94,13 @@ body {
   position: relative !important;
   top: 0;
   border: 0;
-  background: #fff;
+  background: rgba(255, 218, 29, 0.5);
 }
 
 .searchTop .typeahead__list>li>a {
   color: #333;
+  font-size: 1.2rem;
+  text-align: left;
 }
 
 .searchTop .typeahead__list>li.active>a, .searchTop .typeahead__list>li>a:focus, .searchTop .typeahead__list>li>a:hover {
@@ -141,76 +153,76 @@ body {
   text-align: center;
 }
 
-.card_tags_category {
+.c_tags_category {
   display: flex;
   flex-wrap: wrap;
 }
 
-.card_tags_category li {
+.c_tags_category li {
   list-style: none;
   flex-grow: 1;
   flex-shrink: 1;
   text-align: center;
   font-size: 10px;
-  padding: 0.5rem 0.3rem;
+  padding: 0.3rem 0.3rem;
 }
 
-.card_tags_category .Symptom, .card_tags .Symptom {
+.c_tags_category .Symptom, .card_tags .Symptom {
   color: #f67272;
-  background: rgba(240, 240, 240, 0.5);
+  background: rgba(240, 240, 240, 0.8);
 }
 
-.card_tags_category .Location, .card_tags .Location {
+.c_tags_category .Location, .card_tags .Location {
   color: #2ed0da;
-  background: rgba(240, 240, 240, 0.5);
+  background: rgba(240, 240, 240, 0.8);
 }
 
-.card_tags_category .Disease, .card_tags .Disease {
+.c_tags_category .Disease, .card_tags .Disease {
   color: #f5b547;
-  background: rgba(240, 240, 240, 0.5);
+  background: rgba(240, 240, 240, 0.8);
 }
 
-.card_tags_category .Risk, .card_tags .Risk {
+.c_tags_category .Risk, .card_tags .Risk {
   color: #c0c915;
-  background: rgba(240, 240, 240, 0.5);
+  background: rgba(240, 240, 240, 0.8);
 }
 
-.card_tags_category .Management, .card_tags .Management {
+.c_tags_category .Management, .card_tags .Management {
   color: #5667d5;
-  background: rgba(240, 240, 240, 0.5);
+  background: rgba(240, 240, 240, 0.8);
 }
 
-.card_tags_category .Lab, .card_tags .Lab {
+.c_tags_category .Lab, .card_tags .Lab {
   color: #9754c1;
-  background: rgba(240, 240, 240, 0.5);
+  background: rgba(240, 240, 240, 0.8);
 }
 
-.card_tags_category .Symptom.filled {
+.c_tags_category .Symptom.filled {
   background: #f67272;
   color: white;
 }
 
-.card_tags_category .Location.filled {
+.c_tags_category .Location.filled {
   background: #2ed0da;
   color: white;
 }
 
-.card_tags_category .Disease.filled {
+.c_tags_category .Disease.filled {
   background: #f5b547;
   color: white;
 }
 
-.card_tags_category .Risk.filled {
+.c_tags_category .Risk.filled {
   background: #c0c915;
   color: white;
 }
 
-.card_tags_category .Management.filled {
+.c_tags_category .Management.filled {
   background: #5667d5;
   color: white;
 }
 
-.card_tags_category .Lab.filled {
+.c_tags_category .Lab.filled {
   background: #9754c1;
   color: white;
 }
