@@ -10973,11 +10973,11 @@
   "children_symp": [{
     "id": "s_100",
     "relation": "severity",
-    "name": "Fever > 101 F"
+    "name": "Fever > 38.3°C"
   }, {
     "id": "s_99",
     "relation": "severity",
-    "name": "Fever between 99.5 and 101 F"
+    "name": "Fever between 37.5°C and 38.3°C"
   }, {
     "id": "s_1186",
     "relation": "severity",
@@ -11213,12 +11213,12 @@
   "question": "Do you have an elevated body temperature or fever?"
 }, {
   "id": "s_100",
-  "name": "Fever > 101 F",
+  "name": "Fever > 38.3°C",
   "filter_sex": "both",
   "filter_age": null,
   "image": [],
   "location": [],
-  "synonym": ["Fever > 101 F"],
+  "synonym": ["Fever > 38.3°C"],
   "parent_symp": {
     "id": "s__11",
     "relation": "severity",
@@ -11227,15 +11227,15 @@
   "children_symp": [],
   "disease": [],
   "assocID": null,
-  "question": "Do you have a body temperature of 101 °F (38 °C) or higher?"
+  "question": "Do you have a body temperature of 38.3°C or higher?"
 }, {
   "id": "s_99",
-  "name": "Fever between 99.5 and 101 F",
+  "name": "Fever between 37.5°C and 38.3°C",
   "filter_sex": "both",
   "filter_age": null,
   "image": [],
   "location": [],
-  "synonym": ["Fever between 99.5 and 101 F"],
+  "synonym": ["Fever between 37.5°C and 38.3°C"],
   "parent_symp": {
     "id": "s__11",
     "relation": "severity",
@@ -11244,7 +11244,7 @@
   "children_symp": [],
   "disease": [],
   "assocID": null,
-  "question": "Do you have a body temperature between 99.5 and 101 °F (37 and 38 °C)?"
+  "question": "Do you have a body temperature between 37.5°C and 38.3°C?"
 }, {
   "id": "s_1186",
   "name": "Fever with flare-ups and remissions",
@@ -21297,7 +21297,7 @@
   "children_symp": [],
   "disease": [],
   "assocID": null,
-  "question": "Have you had at least four episodes within the last year consisting of a sore throat and a temperature greater than 100.9°F (38.3°C) or tonsillar exudates?"
+  "question": "Have you had at least four episodes within the last year consisting of a sore throat and a temperature greater than 38.3°C or tonsillar exudates?"
 }, {
   "id": "s_141",
   "name": "Recurrent unpleasant thoughts and images",

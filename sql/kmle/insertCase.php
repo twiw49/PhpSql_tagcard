@@ -80,6 +80,8 @@ if ($_POST['q']=="card") {
 
         $sql = "INSERT INTO `tag_card` (`card_id`, `tag_id`) VALUES ('{$card_id}', '1');";
         $result = mysqli_query($conn, $sql);
+        $sql = "INSERT INTO `tag_card` (`card_id`, `tag_id`) VALUES ('{$card_id}', '2');";
+        $result = mysqli_query($conn, $sql);
         include('../refresh.php');
     }
 }

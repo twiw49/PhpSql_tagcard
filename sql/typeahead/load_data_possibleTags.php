@@ -19,6 +19,9 @@ while ($row = mysqli_fetch_array($r)) {
             $name = $name.' | '.$row_['synonym_name'];
         }
     }
+    if ($row['question']) {
+        $name = $name.' | Q) '.$row['question'];
+    }
     array_push($arr, htmlspecialchars_decode($name));
 }
 $group['symptom'] = $arr;
@@ -47,6 +50,9 @@ $s = "SELECT * FROM `risk`;";
 $r = mysqli_query($conn, $s);
 $arr = array();
 while ($row = mysqli_fetch_array($r)) {
+    if ($row['question']) {
+        $name = $name.' | Q) '.$row['question'];
+    }
     array_push($arr, htmlspecialchars_decode($row['name']));
 }
 $group['risk'] = $arr;

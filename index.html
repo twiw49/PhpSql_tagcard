@@ -19,243 +19,236 @@
   <div class="loading_img" style="display:none;">
     <img src="css/gears.svg">
   </div>
-  <!-- tagVue -->
-  <div class="with_tag_container" v-cloak>
-    <!-- topNav -->
-    <div class="topnav">
-      <a href="index.html">MediTag</a>
-      <!-- showUnagged() -->
-      <a onclick="cardVue.showUntagged()">
-        <span class="glyphicon glyphicon-star-empty"></span>
-      </a>
-      <!-- showTagged() -->
-      <a onclick="cardVue.showTagged()">
-        <span class="glyphicon glyphicon-star"></span>
-      </a>
-      <!-- shuffleCards() -->
-      <a onclick="cardVue.shuffleCards()">
-        <span class="glyphicon glyphicon-refresh"></span>
-      </a>
-      <!-- tagRecommend() -->
-      <form onsubmit="return false;" class="searchTop">
-        <div class="typeahead__container">
-          <div class="typeahead__field">
-            <span class="typeahead__query">
-              <input class="search_input" placeholder="Write your Keyword" autocomplete="off">
-            </span>
-          </div>
+  <!-- tagVue / sidenav -->
+  <div id="sidenav" v-cloak>
+    <div class="tagList">
+      <div class="query">{{ query.name }}</div>
+      <hr style="margin:0;margin-bottom:1rem">
+      <div class="numb">선택된 태그 : {{ selected_tags_numb }} 개</div>
+      <div class="numb">검색된 케이스 : {{ selected_cards_numb }} 개</div>
+      <div class="numb">연관된 태그 : {{ c_selected_tags_numb }} 개</div>
+      <hr style="margin:0">
+      <!-- w_tag in with_tags -->
+      <div class="title">Location</div>
+      <template v-for="w_tag in with_tags" v-cloak>
+        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Location'">
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
         </div>
-      </form>
-      <!-- sideNavController -->
-      <a class="navTags" onclick="sideNavController.open()" v-cloak>
-        <span class="glyphicon glyphicon-tags"></span>
-        <!-- badge / c_selected_tags_numb-->
-        <span class="badge btn-danger" v-cloak>{{ c_selected_tags_numb }}</span>
-      </a>
+      </template>
+      <hr style="margin:0">
+      <div class="title">Symptom</div>
+      <template v-for="w_tag in with_tags" v-cloak>
+        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Symptom'">
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+        </div>
+      </template>
+      <hr style="margin:0">
+      <div class="title">Disease</div>
+      <template v-for="w_tag in with_tags" v-cloak>
+        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Disease'">
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+        </div>
+      </template>
+      <hr style="margin:0">
+      <div class="title">Risk</div>
+      <template v-for="w_tag in with_tags" v-cloak>
+        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Risk'">
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+        </div>
+      </template>
+      <hr style="margin:0">
+      <div class="title">Management</div>
+      <template v-for="w_tag in with_tags" v-cloak>
+        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Management'">
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+        </div>
+      </template>
+      <hr style="margin:0">
+      <div class="title">Lab</div>
+      <template v-for="w_tag in with_tags" v-cloak>
+        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Lab'">
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+        </div>
+      </template>
+      <hr style="margin:0">
     </div>
-    <!-- sideNav -->
-    <div id="mySidenav" class="sidenav">
-      <!-- sideNavController -->
-      <a href="javascript:void(0)" class="closebtn" onclick="sideNavController.close()"><span class="glyphicon glyphicon-remove"></span></a>
-      <div class="tagList">
-        <div class="query">{{ query.name }}</div>
-        <hr style="margin:0;margin-bottom:1rem">
-        <div class="numb">선택된 태그 : {{ selected_tags_numb }} 개</div>
-        <div class="numb">검색된 케이스 : {{ selected_cards_numb }} 개</div>
-        <div class="numb">연관된 태그 : {{ c_selected_tags_numb }} 개</div>
-        <hr style="margin:0">
-        <!-- w_tag in with_tags -->
-        <div class="title">Location</div>
-        <template v-for="w_tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Location'">
-            <label :for="w_tag.raw_id" :class="tagClass(w_tag)">{{ w_tag.name }}<div class="badge">{{ w_tag.with_count }}</div></label>
-            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
+  </div>
+  <!-- container / cardVue -->
+  <div class="container" id="card_container">
+    <div class="row">
+      <div class="col-xs-12">
+        <!-- c in cards / c_tag -->
+        <template v-for="c in cards">
+          <div class="card_panel" v-if="c.selected && c.showing">
+            <div class="c_tags_category">
+              <li :class="{'filled' : c.tags_category.includes('Location')}" class="Location">Location</li>
+              <li :class="{'filled' : c.tags_category.includes('Symptom')}" class="Symptom">Symptom</li>
+              <li :class="{'filled' : c.tags_category.includes('Disease')}" class="Disease">Disease</li>
+              <li :class="{'filled' : c.tags_category.includes('Risk')}" class="Risk">Risk</li>
+              <li :class="{'filled' : c.tags_category.includes('Management')}" class="Management">Management</li>
+              <li :class="{'filled' : c.tags_category.includes('Lab')}" class="Lab">Lab</li>
+            </div>
+            <!-- card content -->
+            <div class="card_content" :id="makeId('content',c.id)">
+              <textarea rows="10" v-text="c.content" class="form-control" v-if="c.editing==true"></textarea>
+              <div v-else>{{ c.content }}</div>
+            </div>
+            <hr style="margin-top:0;margin-bottom:1rem;">
+            <!-- c_tag in c.tags_info -->
+            <div class="card_tags">
+              <span class="card_tags" v-for="c_tag in c.tags_info">
+                <template v-if="c_tag.category !== 'ALL'">
+                  <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c)">
+                    <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ c_tag.name }}
+                  </a>
+                </template>
+              </span>
+            </div>
+            <!-- add tag -->
+            <div class="add_tag form-group">
+              <form onsubmit="return false;" :key="makeId('select',c.id)">
+                <div class="typeahead__container">
+                  <div class="typeahead__field">
+                    <span class="typeahead__query">
+                      <input :id="makeId('select',c.id)" placeholder="Add a tag" autocomplete="off" @focus.once="selectReady(c)">
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- card resources -->
+            <div class="rsc" v-if="c.resources.length > 0">
+              <div :id="makeId('rsc',c.id)" class="carousel slide" data-interval="false">
+                <!-- Indicators -->
+                <template v-if="c.resources.length > 1">
+                  <ol class="carousel-indicators">
+                    <!-- c_rsc in c.resources -->
+                    <li v-for="c_rsc in c.resources" :data-target="makeId('#rsc',c.id)" :data-slide-to="Number(c_rsc.id.replace('rsc_', '')) - 1" :class="{'active': c_rsc.id=='rsc_1'}"></li>
+                  </ol>
+                </template>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <!-- c_rsc in c.resources -->
+                  <div class="item" v-for="c_rsc in c.resources" :class="{'active': c_rsc.id=='rsc_1'}">
+                    <div class="carousel-caption" v-if="c_rsc.type == 'image'">
+                      <p>{{ c_rsc.name }}</p>
+                    </div>
+                    <template v-if="c_rsc.type==='image'">
+                      <img :src="c_rsc.path" alt="">
+                    </template>
+                    <template v-else-if="c_rsc.type==='table'">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>{{ c_rsc.name }}</th>
+                            <th>참고치</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="res in c_rsc.result">
+                            <td>{{ res.split('(참고치:')[0] }}</td>
+                            <td><span v-if="res.split('(참고치:')[1]">{{ res.split('(참고치:')[1].replace(')', '') }}</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </template>
+                  </div>
+                </div>
+                <!-- Left and right controls -->
+                <template v-if="c.resources.length > 1">
+                  <a class="left carousel-control" :href="makeId('#rsc',c.id)" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" :href="makeId('#rsc',c.id)" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </template>
+              </div>
+            </div>
+            <div class="panel-group">
+              <div class="panel panel-default">
+                <!-- Impression -->
+                <div class="panel-heading">
+                  <a class="panel-title" data-toggle="collapse" :href="makeId('#impression',c.id)">Impression</a>
+                </div>
+                <div :id="makeId('impression',c.id)" class="panel-collapse collapse">
+                  <div class="panel-body"></div>
+                </div>
+                <!-- What to do next -->
+                <div class="panel-heading">
+                  <a class="panel-title" data-toggle="collapse" :href="makeId('#whatnext',c.id)">What To Do Next</a>
+                </div>
+                <div :id="makeId('whatnext', c.id)" class="panel-collapse collapse">
+                  <div class="panel-body"></div>
+                </div>
+                <!-- Question -->
+                <div class="panel-heading">
+                  <a class="panel-title" data-toggle="collapse" :href="makeId('#ques',c.id)">Question</a>
+                </div>
+                <div :id="makeId('ques',c.id)" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <span style="padding-left:1rem;">Q : {{ c.question }}</span>
+                    <hr style="margin:0.5rem 0;">
+                    <div style="padding-left:1rem;" v-for="(choice, number) in c.choices">{{ number }}. {{ choice }}</div>
+                    <hr style="margin:0.5rem 0;">
+                    <span style="padding-left:1rem;">A : {{ c.answer }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- update buttons -->
+            <div class="btn-group updateBtn">
+              <button class="btn btn-default" @click="editComplete(c, $event)" v-if="c.editing==true"><i class="glyphicon glyphicon-ok"></i></button>
+              <button class="btn btn-default" @click="c.editing=true" v-else><i class="glyphicon glyphicon-edit"></i></button>
+              <button class="btn btn-default" @click="deleteCard(c, $event)"><i class="glyphicon glyphicon-trash"></i></button>
+            </div>
           </div>
         </template>
-        <hr style="margin:0">
-        <div class="title">Symptom</div>
-        <template v-for="w_tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Symptom'">
-            <label :for="w_tag.raw_id" :class="tagClass(w_tag)">{{ w_tag.name }}<div class="badge">{{ w_tag.with_count }}</div></label>
-            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
-          </div>
-        </template>
-        <hr style="margin:0">
-        <div class="title">Disease</div>
-        <template v-for="w_tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Disease'">
-            <label :for="w_tag.raw_id" :class="tagClass(w_tag)">{{ w_tag.name }}<div class="badge">{{ w_tag.with_count }}</div></label>
-            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
-          </div>
-        </template>
-        <hr style="margin:0">
-        <div class="title">Risk</div>
-        <template v-for="w_tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Risk'">
-            <label :for="w_tag.raw_id" :class="tagClass(w_tag)">{{ w_tag.name }}<div class="badge">{{ w_tag.with_count }}</div></label>
-            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
-          </div>
-        </template>
-        <hr style="margin:0">
-        <div class="title">Management</div>
-        <template v-for="w_tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Management'">
-            <label :for="w_tag.raw_id" :class="tagClass(w_tag)">{{ w_tag.name }}<div class="badge">{{ w_tag.with_count }}</div></label>
-            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
-          </div>
-        </template>
-        <hr style="margin:0">
-        <div class="title">Lab</div>
-        <template v-for="w_tag in with_tags" v-cloak>
-          <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Lab'">
-            <label :for="w_tag.raw_id" :class="tagClass(w_tag)">{{ w_tag.name }}<div class="badge">{{ w_tag.with_count }}</div></label>
-            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)">
-          </div>
-        </template>
-        <hr style="margin:0">
+        <button type="button" class="btn btn-success" id="readmore" v-if="data && selected_cards_numb > groupNumb * 5" @click="readMore()" v-cloak>ReadMore</button>
       </div>
     </div>
   </div>
-  <!-- container -->
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <!-- cardVue -->
-        <div id="card_container">
-          <!-- c in cards / c_tag -->
-          <template v-for="c in cards">
-            <div class="card_panel" v-if="c.selected && c.showing">
-              <div class="c_tags_category">
-                <li :class="{'filled' : c.tags_category.includes('Location')}" class="Location">Location</li>
-                <li :class="{'filled' : c.tags_category.includes('Symptom')}" class="Symptom">Symptom</li>
-                <li :class="{'filled' : c.tags_category.includes('Disease')}" class="Disease">Disease</li>
-                <li :class="{'filled' : c.tags_category.includes('Risk')}" class="Risk">Risk</li>
-                <li :class="{'filled' : c.tags_category.includes('Management')}" class="Management">Management</li>
-                <li :class="{'filled' : c.tags_category.includes('Lab')}" class="Lab">Lab</li>
-              </div>
-              <!-- card content -->
-              <div class="card_content" :id="makeId('content',c.id)">
-                <textarea rows="10" v-text="c.content" class="form-control" v-if="c.editing==true"></textarea>
-                <div v-else>{{ c.content }}</div>
-              </div>
-              <hr style="margin-top:0;margin-bottom:1rem;">
-              <!-- c_tag in c.tags_info -->
-              <div class="card_tags">
-                <span class="card_tags" v-for="c_tag in c.tags_info">
-                  <template v-if="c_tag.name !== 'all'">
-                    <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c)">
-                      <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ c_tag.name }}
-                    </a>
-                  </template>
-                </span>
-              </div>
-              <!-- add tag -->
-              <div class="add_tag form-group">
-                <form onsubmit="return false;" :key="makeId('select',c.id)">
-                  <div class="typeahead__container">
-                    <div class="typeahead__field">
-                      <span class="typeahead__query">
-                        <input :id="makeId('select',c.id)" placeholder="Add a tag" autocomplete="off" @focus.once="selectReady(c)">
-                      </span>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <!-- card resources -->
-              <div class="rsc" v-if="c.resources.length > 0">
-                <div :id="makeId('rsc',c.id)" class="carousel slide" data-interval="false">
-                  <!-- Indicators -->
-                  <template v-if="c.resources.length > 1">
-                    <ol class="carousel-indicators">
-                      <!-- c_rsc in c.resources -->
-                      <li v-for="c_rsc in c.resources" :data-target="makeId('#rsc',c.id)" :data-slide-to="Number(c_rsc.id.replace('rsc_', '')) - 1" :class="{'active': c_rsc.id=='rsc_1'}"></li>
-                    </ol>
-                  </template>
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner" role="listbox">
-                    <!-- c_rsc in c.resources -->
-                    <div class="item" v-for="c_rsc in c.resources" :class="{'active': c_rsc.id=='rsc_1'}">
-                      <div class="carousel-caption" v-if="c_rsc.type == 'image'">
-                        <p>{{ c_rsc.name }}</p>
-                      </div>
-                      <template v-if="c_rsc.type==='image'">
-                        <img :src="c_rsc.path" alt=""></div>
-                      </template>
-                      <template v-else-if="c_rsc.type==='table'">
-                        <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th>{{ c_rsc.name }}</th>
-                              <th>참고치</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr v-for="res in c_rsc.result">
-                              <td>{{ res.split('(참고치:')[0] }}</td>
-                              <td><span v-if="res.split('(참고치:')[1]">{{ res.split('(참고치:')[1].replace(')', '') }}</span></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </template>
-                    </div>
-                  </div>
-                  <!-- Left and right controls -->
-                  <template v-if="c.resources.length > 1">
-                    <a class="left carousel-control" :href="makeId('#rsc',c.id)" role="button" data-slide="prev">
-                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" :href="makeId('#rsc',c.id)" role="button" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </template>
-                </div>
-              </div>
-              <div class="panel-group">
-                <div class="panel panel-default">
-                  <!-- Impression -->
-                  <div class="panel-heading">
-                    <a class="panel-title" data-toggle="collapse" :href="makeId('#impression',c.id)">Impression</a>
-                  </div>
-                  <div :id="makeId('impression',c.id)" class="panel-collapse collapse">
-                    <div class="panel-body"></div>
-                  </div>
-                  <!-- What to do next -->
-                  <div class="panel-heading">
-                    <a class="panel-title" data-toggle="collapse" :href="makeId('#whatnext',c.id)">What To Do Next</a>
-                  </div>
-                  <div :id="makeId('whatnext', c.id)" class="panel-collapse collapse">
-                    <div class="panel-body"></div>
-                  </div>
-                  <!-- Question -->
-                  <div class="panel-heading">
-                    <a class="panel-title" data-toggle="collapse" :href="makeId('#ques',c.id)">Question</a>
-                  </div>
-                  <div :id="makeId('ques',c.id)" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <span style="padding-left:1rem;">Q : {{ c.question }}</span>
-                      <hr style="margin:0.5rem 0;">
-                      <div style="padding-left:1rem;" v-for="(choice, number) in c.choices">{{ number }}. {{ choice }}</div>
-                      <hr style="margin:0.5rem 0;">
-                      <span style="padding-left:1rem;">A : {{ c.answer }}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- update buttons -->
-              <div class="btn-group updateBtn">
-                <button class="btn btn-default" @click="editComplete(c, $event)" v-if="c.editing==true"><i class="glyphicon glyphicon-ok"></i></button>
-                <button class="btn btn-default" @click="c.editing=true" v-else><i class="glyphicon glyphicon-edit"></i></button>
-                <button class="btn btn-default" @click="deleteCard(c, $event)"><i class="glyphicon glyphicon-trash"></i></button>
-              </div>
-            </div>
-            </template>
-            <button type="button" name="button" class="btn btn-success" id="readmore" v-if="data && selected_cards_numb > groupNumb * 5" @click="readMore()" v-cloak>ReadMore</button>
-          </div>
+  <!-- footer -->
+  <div class="footer">
+    <!-- tagRecommend() -->
+    <form onsubmit="return false;" class="searchBox">
+      <div class="typeahead__container">
+        <div class="typeahead__field">
+          <span class="typeahead__query">
+            <input class="search_input" placeholder="Write your Keyword" autocomplete="off">
+          </span>
         </div>
       </div>
-    </div>
+    </form>
+    <!-- showUnagged() -->
+    <a onclick="cardVue.showUntagged()" class="tabs">
+      <span class="glyphicon glyphicon-star-empty"></span>
+    </a>
+    <!-- showTagged() -->
+    <a onclick="cardVue.showTagged()" class="tabs">
+      <span class="glyphicon glyphicon-star"></span>
+    </a>
+    <!-- shuffleCards() -->
+    <a onclick="cardVue.shuffleCards()" class="tabs">
+      <span class="glyphicon glyphicon-refresh"></span>
+    </a>
+    <!-- sideNavController -->
+    <a onclick="sideNavController.open()" class="tabs">
+      <span class="glyphicon glyphicon-tags"></span>
+    </a>
+    <!-- search -->
+    <a onclick="searchShow()" class="search_show">
+      <span class="glyphicon glyphicon-search"></span>
+    </a>
+  </div>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/jquery-typeahead/dist/jquery.typeahead.min.js"></script>
@@ -264,30 +257,42 @@
     $(document).ready(function() {
       $('.search_input').focus();
       tagRecommend();
-    });
 
-    function myFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");
-    }
+      $('#sidenav').on('click', function() {
+        sideNavController.close();
+      })
+    });
 
     var sideNavController = {
       open: function() {
-          document.getElementById("mySidenav").style.height = "100vh";
+          document.getElementById("sidenav").style.height = "100vh";
       },
       close: function() {
-          document.getElementById("mySidenav").style.height = "0px";
+          document.getElementById("sidenav").style.height = "0px";
       }
+    };
+
+    var searchShow = function() {
+      if($(".tabs").css("display") == "none"){
+        $('.tabs').show();
+        $('.searchBox').hide();
+      } else {
+        $('.tabs').hide();
+        $('.searchBox').show();
+      }
+      $('.search_input').focus().val('');
     };
 
     function tagRecommend() {
       $.typeahead({
         input: '.search_input',
-        minLength: 0,
+        minLength: 1,
         maxItem: 200,
         accent: true,
+        hightlight: "any",
         template: function(query, item) {
           var list = item.display.split(' | ');
-          var result = list[0] + '<span style="color:#bbb;position:relative;left:10px;font-size:x-small">' + list[1] + '</span>';
+          var result = list[0] + '<span class="category_search">' + list[1] + '</span>';
           return result;
         },
         source: {
@@ -297,10 +302,14 @@
           }
         },
         callback: {
+          onNavigateBefore: function (node, query, event) {
+            event.preventInputChange = true;
+          },
           onClick: function(node, a, item, event) {
             var query = item.display.split(' | ');
             searchData(query);
             $('.loading_img').show();
+            $(".tabs").show();
           }
         }
       });
@@ -334,13 +343,6 @@
 
 
     function processData(data, selected_tags) {
-      // 주요 변수들 관계
-      // cards
-      // with_tags
-      // query_tag (q_tag)
-      // selected_tags
-      // c_selected_tags
-
       var q_tag = data.query.raw_id;
 
       // data reset
@@ -355,11 +357,14 @@
       var w_tags_raw_id = [];
       var c_selected_tags = {};
       var k = 0;
+      if (!data.groupNumb) {
+        data.groupNumb = 1;
+      }
       for (var i = 0; i < data.cards.length; i++) {
         var c_tags_raw_id = [];
         var c_tags_category = [];
         var c = data.cards[i];
-        for ( var j = 0; j < c.tags_info.length; j++) {
+        for (var j = 0; j < c.tags_info.length; j++) {
           if (!w_tags_raw_id.includes(c.tags_info[j].raw_id)) {
             w_tags_raw_id.push(c.tags_info[j].raw_id);
             w_tags_arr.push(c.tags_info[j]);
@@ -374,7 +379,6 @@
         c.tags_raw_id = c_tags_raw_id;
         c.tags_category = c_tags_category;
 
-        // card에 property 부여하기
         // selected
         c.selected = true;
         for (var j = 0; j < data.selected_tags.length; j++) {
@@ -393,7 +397,7 @@
             }
           }
           // showing
-          if (k < 5) {
+          if (k < 5 * data.groupNumb) {
             c.showing = true;
             k++;
           } else {
@@ -441,13 +445,13 @@
 
       cardVue.data = data;
       cardVue.cards = data.cards;
-      cardVue.groupNumb = 1;
+      cardVue.groupNumb = data.groupNumb;
 
       tagRecommend();
     };
 
     var tagVue = new Vue({
-      el: ".with_tag_container",
+      el: "#sidenav",
       data: {
         data: '',
         cards: '',
@@ -461,10 +465,11 @@
           return this.selected_tags.length;
         },
         c_selected_tags_numb: function() {
-          if (!this.c_selected_tags) {
+          if (!this.selected_tags_numb) {
             return 0;
           }
-          return Object.keys(this.c_selected_tags).length - 1;
+          console.log(this.c_selected_tags);
+          return Object.keys(this.c_selected_tags).length - 2;
         },
         selected_cards_numb: function() {
           var numb = 0;
@@ -472,6 +477,9 @@
             if (this.cards[i].selected == true) {
               numb++;
             }
+          }
+          if (numb == 0) {
+            this.selected_tags = [];
           }
           return numb;
         }
@@ -496,6 +504,9 @@
               this.data.selected_tags.splice(pos,1);
           }
           processData(this.data, this.data.selected_tags);
+        },
+        stopPropagate: function(event) {
+          event.stopPropagation();
         }
       }
     });
@@ -519,11 +530,11 @@
         }
       },
       methods: {
-        showTagged: function() {
+        showUntagged: function() {
           $('.loading_img').show();
           var vars = {
-            tag_name: 'all',
-            tag_category: 'all'
+            tag_name: 'Untagged Cards',
+            tag_category: 'ALL'
           }
           $.ajax({
               type: "POST",
@@ -537,7 +548,7 @@
             .done(function(data, message, xhr) {
               for (var i = data.cards.length - 1; i >= 0; i--) {
                 var c = data.cards[i];
-                if (c.tags_info.length == 1) {
+                if (c.tags_info.length > 2) {
                   data.cards.splice(i,1);
                 }
               }
@@ -547,11 +558,11 @@
               console.log(xhr.responseText);
             })
         },
-        showUntagged: function() {
+        showTagged: function() {
           $('.loading_img').show();
           var vars = {
-            tag_name: 'all',
-            tag_category: 'all'
+            tag_name: 'Tagged Cards',
+            tag_category: 'ALL'
           }
           $.ajax({
               type: "POST",
@@ -565,7 +576,7 @@
             .done(function(data, message, xhr) {
               for (var i = data.cards.length - 1; i >= 0; i--) {
                 var c = data.cards[i];
-                if (c.tags_info.length > 1) {
+                if (c.tags_info.length == 2) {
                   data.cards.splice(i,1);
                 }
               }
@@ -577,42 +588,43 @@
         },
         shuffleCards: function() {
           if (this.cards) {
-            if (this.groupNumb * 5 < this.selected_cards_numb) {
-              for (var i = 0; i < this.groupNumb * 5; i++) {
-                  this.cards[i].showing = false;
+            var j = 0;
+            for (var i = 0; i < this.cards.length; i++) {
+              if (j < this.groupNumb * 5) {
+                this.cards[i].showing = false;
+                j++;
+                continue;
               }
-            } else {
-              for (var i = 0; i < this.selected_cards_numb; i++) {
-                  this.cards[i].showing = false;
-              }
+              break;
             }
 
             this.cards.sort(function() { return 0.5 - Math.random() });
-            if (this.cards.length < 5) {
-              for (var i = 0; i < this.cards.length; i++) {
+
+            var k = 0;
+            for (var i = 0; i < this.cards.length; i++) {
+              if (k < this.groupNumb * 5) {
                 this.cards[i].showing = true;
+                k++;
+                continue;
               }
-            } else {
-              for (var i = 0; i < 5; i++) {
-                this.cards[i].showing = true;
-              }
+              break;
             }
-            this.groupNumb = 1;
           }
         },
         readMore: function() {
           var start = this.groupNumb * 5;
           var end = (this.groupNumb + 1) * 5;
-          if (this.selected_cards_numb >= start && this.selected_cards_numb < end) {
-            for (var i = start; i < this.selected_cards_numb; i++) {
+          var k = 0;
+          for (var i = start; i < this.selected_cards_numb; i++) {
+            if (k < 5) {
               this.cards[i].showing = true;
+              k++;
+              continue;
             }
-          } else {
-            for (var i = start; i < end; i++) {
-              this.cards[i].showing = true;
-            }
+            break;
           }
           this.groupNumb++;
+          this.data.groupNumb = this.groupNumb;
         },
         makeId: function(prefix, id) {
           return prefix + '_' + id;
@@ -714,11 +726,12 @@
             order: 'asc',
             accent: true,
             group: true,
+            hightlight: true,
             dropdownFilter: "All",
             maxItemPerGroup: 2000,
             template: function(query, item) {
               var list = item.display.split(' | ');
-              var result = list[0] + '<br /><small style="color:#999;">';
+              var result = list[0] + '<br /><small style="color:#888;">';
               for (var i = 1; i < list.length; i++) {
                 result += list[i] + '<br />';
               }
@@ -772,6 +785,9 @@
               }
             },
             callback: {
+              onNavigateBefore: function (node, query, event) {
+                event.preventInputChange = true;
+              },
               onClick: function(node, a, item, event) {
                 var tag_name = this.item.display.split(' | ')[0];
                 var tag_category = this.item.group;
@@ -801,6 +817,7 @@
                     dataType: 'json'
                   })
                   .done(function(tag_info) {
+                    $('#select_'+card.id).val('');
                     for (var i = 0; i < old_data.cards.length; i++) {
                       var c = old_data.cards[i];
                       if (c.id == card.id) {
@@ -808,7 +825,6 @@
                       }
                     }
                     processData(old_data);
-                    $('#select_'+card.id).val('');
                   })
               }
             }
