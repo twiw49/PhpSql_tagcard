@@ -11,7 +11,7 @@ function escapeHtml($name)
     $name = htmlspecialchars($name);
     $name = mysqli_real_escape_string($conn, $name);
     return $name;
-}
+};
 
 function sqlResult($conn, $table, $column, $value, $search)
 {
@@ -35,32 +35,50 @@ function sqlReuslt_array($conn, $table, $column, $value, $arr)
     return $r;
 };
 
-/* tag_id & tag_name */
-$tag_name = $_POST['tag_name'];
-$tag_name = escapeHtml($tag_name);
-$tag_category = $_POST['tag_category'];
-$tag_category = escapeHtml($tag_category);
-if ($tag_category == "Risk Factor") {
-    $tag_category = "risk";
-};
-$sql = "SELECT * FROM `tag` WHERE `name` LIKE '{$tag_name}' AND `category` LIKE '{$tag_category}';";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($result);
-$tag_id = $row['id'];
-$raw_id = $row['raw_id'];
 
-$query = array();
-$query['id'] = $tag_id;
-$query['name'] = $tag_name;
-$query['category'] = $tag_category;
-$query['raw_id'] = $raw_id;
+if ($_POST['type'] == 'tag') {
+    $tag_name = $_POST['tag_name'];
+    $tag_name = escapeHtml($tag_name);
+    $tag_category = $_POST['tag_category'];
+    $tag_category = escapeHtml($tag_category);
 
-/* cards */
-$cards = array();
-$sql = "SELECT * FROM `tag_card` WHERE `tag_id` = '{$tag_id}'";
+    $sql = "SELECT * FROM `tag` WHERE `name` LIKE '{$tag_name}' AND `category` LIKE '{$tag_category}';";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+    $tag_id = $row['id'];
+    $raw_id = $row['raw_id'];
+
+    $query = array();
+    $query['id'] = $tag_id;
+    $query['name'] = $tag_name;
+    $query['category'] = $tag_category;
+    $query['raw_id'] = $raw_id;
+
+    $cards = array();
+    $sql = "SELECT * FROM `tag_card` WHERE `tag_id` = '{$tag_id}';";
+} elseif ($_POST['type'] == 'card') {
+    $query = array();
+    $cards = array();
+
+    if ($_POST['query'] == 'tagged') {
+        $query['name'] = 'Tagged Cards';
+        $sql = "SELECT * FROM `card` WHERE `tagged` = 1;";
+    } elseif ($_POST['query'] == 'untagged') {
+        $query['name'] = 'Untagged Cards';
+        $sql = "SELECT * FROM `card` WHERE `tagged` = 0;";
+    } else {
+        $q = $_POST['query'];
+        $query['name'] = $q;
+        $sql = "SELECT * FROM `card` WHERE `content` LIKE '%$q%'";
+    }
+}
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_array($result)) {
-    $card_id = $row['card_id'];
+    if ($_POST['type'] == 'tag') {
+        $card_id = $row['card_id'];
+    } elseif ($_POST['type'] == 'card') {
+        $card_id = $row['id'];
+    }
     $card_arr = sqlReuslt_array($conn, 'card', 'id', $card_id, ['content','question','answer']);
     $card_content = $card_arr['content'];
     $card_question = $card_arr['question'];
@@ -117,18 +135,12 @@ while ($row = mysqli_fetch_array($result)) {
         $t_name = sqlResult($conn, 'tag', 'id', $t_id, 'name');
         $t_category = sqlResult($conn, 'tag', 'id', $t_id, 'category');
         $t_raw_id = sqlResult($conn, 'tag', 'id', $t_id, 'raw_id');
-        //$t_with_count
-        $s_ = "SELECT * FROM `tag_tag` WHERE `tag_id` = '{$t_id}' AND `with_tag_id` = '{$tag_id}';";
-        $r_ = mysqli_query($conn, $s_);
-        $row__ = mysqli_fetch_array($r_);
-        $t_with_count = $row__['with_count'];
 
         $t_info = [];
         $t_info['id'] = $t_id;
         $t_info['name'] = $t_name;
         $t_info['category'] = $t_category;
         $t_info['raw_id'] = $t_raw_id;
-        $t_info['with_count'] = $t_with_count;
         $tags_info[] = $t_info;
     };
 

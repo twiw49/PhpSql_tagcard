@@ -57,9 +57,9 @@ var load_send_data = function(load_json_url, send_php_url, query) {
     console.log(data.length);
     $.ajax({
         type: "POST",
-        url: send_php_url, // url: "sql/infermedicaData.php"
+        url: send_php_url,
         data: {
-          q: query, // q: "disease"
+          q: query,
           data: JSON.stringify(data)
         }
       })
@@ -93,6 +93,8 @@ var reset_data = function(array) {
       console.log(error);
     })
 }
-load_data("sql/kmle/jsondata/7701.json");
+
+// load_data("sql/kmle/jsondata/7701.json");
+// load_send_data("sql/kmle/processed/7602.json", "sql/kmle/insertCase.php", "card");
 var array = [7601, 7602, 7603, 7604, 7605, 7606, 7607];
 reset_data(array);

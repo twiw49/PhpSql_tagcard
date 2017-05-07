@@ -32,7 +32,7 @@
       <div class="title">Location</div>
       <template v-for="w_tag in with_tags" v-cloak>
         <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Location'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
           <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
         </div>
       </template>
@@ -40,7 +40,7 @@
       <div class="title">Symptom</div>
       <template v-for="w_tag in with_tags" v-cloak>
         <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Symptom'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
           <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
         </div>
       </template>
@@ -48,7 +48,7 @@
       <div class="title">Disease</div>
       <template v-for="w_tag in with_tags" v-cloak>
         <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Disease'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
           <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
         </div>
       </template>
@@ -56,7 +56,7 @@
       <div class="title">Risk</div>
       <template v-for="w_tag in with_tags" v-cloak>
         <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Risk'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
           <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
         </div>
       </template>
@@ -64,7 +64,7 @@
       <div class="title">Management</div>
       <template v-for="w_tag in with_tags" v-cloak>
         <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Management'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
           <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
         </div>
       </template>
@@ -72,7 +72,7 @@
       <div class="title">Lab</div>
       <template v-for="w_tag in with_tags" v-cloak>
         <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Lab'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
           <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
         </div>
       </template>
@@ -103,11 +103,9 @@
             <!-- c_tag in c.tags_info -->
             <div class="card_tags">
               <span class="card_tags" v-for="c_tag in c.tags_info">
-                <template v-if="c_tag.category !== 'ALL'">
                   <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c)">
                     <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ c_tag.name }}
                   </a>
-                </template>
               </span>
             </div>
             <!-- add tag -->
@@ -219,13 +217,22 @@
   <!-- footer -->
   <div class="footer">
     <!-- tagRecommend() -->
-    <form onsubmit="return false;" class="searchBox">
+    <form onsubmit="return false;" class="searchTagBox">
       <div class="typeahead__container">
         <div class="typeahead__field">
           <span class="typeahead__query">
-            <input class="search_input" placeholder="Write your Keyword" autocomplete="off">
+            <input placeholder="Write your Tag" autocomplete="off">
           </span>
         </div>
+      </div>
+    </form>
+    <!-- wordSearch() -->
+    <form onsubmit="return false;" class="searchWordBox">
+      <div class="input-group">
+        <input placeholder="Write your Word" type="text" class="form-control">
+        <span class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </span>
       </div>
     </form>
     <!-- showUnagged() -->
@@ -244,9 +251,13 @@
     <a onclick="sideNavController.open()" class="tabs">
       <span class="glyphicon glyphicon-tags"></span>
     </a>
-    <!-- search -->
-    <a onclick="searchShow()" class="search_show">
-      <span class="glyphicon glyphicon-search"></span>
+    <!-- Tag search -->
+    <a onclick="searchNav.tag()" class="searchTagBtn">
+      <span>태그검색</span>
+    </a>
+    <!-- Word search -->
+    <a onclick="searchNav.word()" class="searchWordBtn">
+      <span>단어검색</span>
     </a>
   </div>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -255,9 +266,7 @@
   <script src="bower_components/vue/dist/vue.min.js"></script>
   <script>
     $(document).ready(function() {
-      $('.search_input').focus();
       tagRecommend();
-
       $('#sidenav').on('click', function() {
         sideNavController.close();
       })
@@ -265,27 +274,115 @@
 
     var sideNavController = {
       open: function() {
-          document.getElementById("sidenav").style.height = "100vh";
+        $("#sidenav").css("height","100vh");
       },
       close: function() {
-          document.getElementById("sidenav").style.height = "0px";
+        $("#sidenav").css("height",0);
       }
     };
 
-    var searchShow = function() {
-      if($(".tabs").css("display") == "none"){
-        $('.tabs').show();
-        $('.searchBox').hide();
-      } else {
-        $('.tabs').hide();
-        $('.searchBox').show();
+    var searchNav = {
+      tag: function() {
+        if($(".tabs").css("display") == "none"){
+          $('.searchTagBox').hide();
+          $('.searchWordBox').hide();
+          $('.tabs').show();
+          $('.searchWordBtn').show();
+          $('.searchTagBtn').html('<span>태그검색</span>').css('flex-grow',1);
+        } else {
+          $('.tabs').hide();
+          $('.searchWordBtn').hide();
+          $('.searchWordBox').hide();
+          $('.searchTagBox').show();
+          $('.searchTagBtn').html('<span class="glyphicon glyphicon-arrow-left"></span>').css('flex-grow',0);
+        }
+        $('.searchTagBox input').focus().val('');
+      },
+      word: function() {
+        if($(".tabs").css("display") == "none"){
+          $('.tabs').show();
+          $('.searchTagBtn').show();
+          $('.searchTagBox').hide();
+          $('.searchWordBox').hide();
+          $('.searchWordBtn').html('<span>단어검색</span>').css('flex-grow',1);
+        } else {
+          $('.tabs').hide();
+          $('.searchTagBtn').hide();
+          $('.searchTagBox').hide();
+          $('.searchWordBox').show();
+          $('.searchWordBtn').html('<span class="glyphicon glyphicon-arrow-left"></span>').css('flex-grow',0);
+          $('.searchWordBox input').focus();
+          $('.searchWordBox input').keypress(function(event) {
+            if (event.which == 13){
+              searchData.word(this);
+            }
+          })
+          $('.searchWordBox span').click(function() {
+            var that = $('.searchWordBox input');
+            searchData.word(that);
+          })
+        }
+        $('.searchWordBox input').focus().val('');
       }
-      $('.search_input').focus().val('');
     };
+
+    var searchData = {
+      tag: function(q) {
+        var tag_name = q[0];
+        var tag_category = q[1];
+        var vars = {
+          type: 'tag',
+          tag_name: tag_name,
+          tag_category: tag_category
+        }
+        $.ajax({
+            type: "POST",
+            url: "sql/search_sql.php",
+            data: vars,
+            dataType: 'json',
+            complete: function() {
+              $('.loading_img').hide();
+            }
+          })
+          .done(function(data, message, xhr) {
+            processData(data, [data.query.raw_id]);
+            $('input').blur();
+          })
+          .fail(function(xhr) {
+            console.log(xhr.responseText);
+          })
+      },
+      word: function(that) {
+        var vars = {
+          type: 'card',
+          query: $(that).val()
+        }
+        $.ajax({
+            type: "POST",
+            url: "sql/search_sql.php",
+            data: vars,
+            dataType: 'json',
+            complete: function() {
+              $('.loading_img').hide();
+            }
+          })
+          .done(function(data, message, xhr) {
+            processData(data, []);
+            $('.loading_img').show();
+            $('.searchWordBox').hide();
+            $('.searchWordBtn').html('<span>단어검색</span>').css('flex-grow',1);
+            $('.searchTagBtn').show();
+            $(".tabs").show();
+          })
+          .fail(function(xhr) {
+            console.log(xhr.responseText);
+          })
+      }
+    }
 
     function tagRecommend() {
       $.typeahead({
-        input: '.search_input',
+        input: '.searchTagBox input',
         minLength: 1,
         maxItem: 200,
         accent: true,
@@ -307,40 +404,16 @@
           },
           onClick: function(node, a, item, event) {
             var query = item.display.split(' | ');
-            searchData(query);
+            searchData.tag(query);
             $('.loading_img').show();
+            $('.searchTagBox').hide();
+            $('.searchTagBtn').html('<span>태그검색</span>').css('flex-grow',1);
+            $('.searchWordBtn').show();
             $(".tabs").show();
           }
         }
       });
     };
-
-    function searchData(query) {
-      var tag_name = query[0];
-      var tag_category = query[1];
-      var vars = {
-        tag_name: tag_name,
-        tag_category: tag_category
-      }
-      $.ajax({
-          type: "POST",
-          url: "sql/search_sql.php",
-          data: vars,
-          dataType: 'json',
-          complete: function() {
-            $('.loading_img').hide();
-          }
-        })
-        .done(function(data, message, xhr) {
-          // console.log(xhr.responseText);
-          processData(data, [data.query.raw_id]);
-          $('input').blur();
-        })
-        .fail(function(xhr) {
-          console.log(xhr.responseText);
-        })
-    }
-
 
     function processData(data, selected_tags) {
       var q_tag = data.query.raw_id;
@@ -435,7 +508,6 @@
         }
       }
 
-      // console.log(JSON.stringify(data));
       tagVue.data = data;
       tagVue.query = data.query;
       tagVue.cards = data.cards;
@@ -468,8 +540,7 @@
           if (!this.selected_tags_numb) {
             return 0;
           }
-          console.log(this.c_selected_tags);
-          return Object.keys(this.c_selected_tags).length - 2;
+          return Object.keys(this.c_selected_tags).length;
         },
         selected_cards_numb: function() {
           var numb = 0;
@@ -533,8 +604,8 @@
         showUntagged: function() {
           $('.loading_img').show();
           var vars = {
-            tag_name: 'Untagged Cards',
-            tag_category: 'ALL'
+            type: 'card',
+            query: 'untagged'
           }
           $.ajax({
               type: "POST",
@@ -546,12 +617,6 @@
               }
             })
             .done(function(data, message, xhr) {
-              for (var i = data.cards.length - 1; i >= 0; i--) {
-                var c = data.cards[i];
-                if (c.tags_info.length > 2) {
-                  data.cards.splice(i,1);
-                }
-              }
               processData(data, []);
             })
             .fail(function(xhr) {
@@ -561,8 +626,8 @@
         showTagged: function() {
           $('.loading_img').show();
           var vars = {
-            tag_name: 'Tagged Cards',
-            tag_category: 'ALL'
+            type: 'card',
+            query: 'tagged'
           }
           $.ajax({
               type: "POST",
@@ -574,12 +639,6 @@
               }
             })
             .done(function(data, message, xhr) {
-              for (var i = data.cards.length - 1; i >= 0; i--) {
-                var c = data.cards[i];
-                if (c.tags_info.length == 2) {
-                  data.cards.splice(i,1);
-                }
-              }
               processData(data, []);
             })
             .fail(function(xhr) {
@@ -635,7 +694,8 @@
           if (r) {
             for (var i = 0; i < old_data.with_tags.length; i++) {
               if (old_data.with_tags[i].id == tag.id) {
-                if (old_data.with_tags[i].with_count == 1) {
+                var id = old_data.with_tags[i].raw_id;
+                if (old_data.c_selected_tags[id] == 1) {
                   old_data.with_tags.splice(i, 1);
                 }
               }
@@ -662,7 +722,7 @@
                     }
                   }
                 }
-                processData(old_data)
+                processData(old_data);
               })
           }
         },
@@ -805,7 +865,7 @@
                 }
                 var vars = {
                   q: 'tag_add',
-                  q_tag: old_data.query.id,
+                  // q_tag: old_data.query.id,
                   tag_name: tag_name,
                   card_id: card.id,
                   tag_category: tag_category

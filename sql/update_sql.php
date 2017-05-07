@@ -40,7 +40,7 @@ elseif ($_POST['q'] == 'card_delete') {
 
 // tag_add
 elseif ($_POST['q'] == 'tag_add') {
-    $q_tag = $_POST['q_tag'];
+    // $q_tag = $_POST['q_tag'];
     $tag_name = $_POST['tag_name'];
     $tag_name = escapeHtml($tag_name);
     $card_id = $_POST['card_id'];
@@ -66,17 +66,11 @@ elseif ($_POST['q'] == 'tag_add') {
 
     include('refresh.php');
 
-    $sql = "SELECT * FROM `tag_tag` WHERE `tag_id` = '{$q_tag}' AND `with_tag_id` = '{$new_tag_id}';";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-    $with_count = $row['with_count'];
-
     $tag_info = array();
     $tag_info['id'] = $new_tag_id;
     $tag_info['name'] = htmlspecialchars_decode($tag_name);
     $tag_info['category'] = $tag_category;
     $tag_info['raw_id'] = $tag_raw_id;
-    $tag_info['with_count'] = $with_count;
     echo json_encode($tag_info);
 }
 
