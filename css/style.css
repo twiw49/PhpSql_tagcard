@@ -13,6 +13,14 @@ body {
   margin: 0;
 }
 
+.backimage {
+  position: fixed;
+  background-image: url('backimage.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
 .container {
   margin: auto;
   max-width: 600px;
@@ -272,18 +280,20 @@ body {
   line-height: 20px;
   max-width: 93%;
   overflow-x: scroll;
-  margin: 0 1rem;
+  margin: 0 0.7rem;
+  margin-bottom: 1.5rem;
   padding-top: 6px;
 }
 
 .with_tag .btn .badge {
+  padding-top: 2px !important;
   background-color: #8e9093;
   font-size: 10px;
   color: white;
 }
 
 .card_panel {
-  margin-bottom: 6rem;
+  margin-bottom: 13rem;
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -448,13 +458,6 @@ body {
   background: #fafafa;
   padding: 0.5rem;
   flex-grow: 1;
-}
-
-#readmore {
-  width: 100%;
-  border-radius: 0;
-  position: relative;
-  top: -40px;
 }
 
 .loading_img {

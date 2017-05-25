@@ -7,7 +7,7 @@ var rscProcess = function(item, cycle) {
       item[rsc_] = {};
       item[rsc_].name = item[rsc].match(re1)[0].replace('[', '').replace(']', '').split(',')[0];
       if (item[rsc].match(re1)[0].replace('[', '').replace(']', '').split(',')[1]) {
-        item[rsc_].path = './images/' + item[rsc].match(re1)[0].replace('[', '').replace(']', '').split(',')[1] + '.png';
+        item[rsc_].path = './images/' + item[rsc].match(re1)[0].replace('[', '').replace(']', '').split(',')[1] + '.jpg';
       }
       if (item[rsc].replace(re1, '').trim()) {
         item[rsc_].result = item[rsc].replace(re1, '').trim().split(', ');
@@ -26,7 +26,7 @@ var load_data = function(load_json_url) {
       if (data[i].choice.split(', ').length !== 5) {
         console.log('choice error!!' + data[i].number);
       }
-
+      console.log(data[i]);
       for (var j = 0; j < data[i].choice.split(', ').length; j++) {
         var str = data[i].choice.split(', ')[j];
         var num = /[1-5]/
@@ -49,7 +49,7 @@ var load_data = function(load_json_url) {
     console.log(JSON.stringify(data));
   })
 };
-// load_data("sql/kmle/jsondata/7605.json");
+// load_data("sql/kmle/jsondata/7703.json");
 
 var load_send_data = function(load_json_url, send_php_url, query) {
   var url = load_json_url; // var url = "sql/medicalData/final_disease.json"
@@ -94,7 +94,7 @@ var reset_data = function(array) {
     })
 }
 
-// load_data("sql/kmle/jsondata/7701.json");
-// load_send_data("sql/kmle/processed/7602.json", "sql/kmle/insertCase.php", "card");
-var array = [7601, 7602, 7603, 7604, 7605, 7606, 7607];
+// load_data("sql/kmle/jsondata/7906.json");
+// var array = [7601, 7602, 7603, 7604, 7605, 7606, 7607, 7701, 7703, 7704];
+var array = [7906];
 reset_data(array);

@@ -23,6 +23,7 @@ if ($_POST['q'] == 'tag_delete') {
     $r_del_c = mysqli_query($conn, $s_del_c);
 
     include('refresh.php');
+    echo json_encode('');
 }
 
 // card_delete
@@ -36,6 +37,7 @@ elseif ($_POST['q'] == 'card_delete') {
     $r_del_t = mysqli_query($conn, $s_del_t);
 
     include('refresh.php');
+    echo json_encode('');
 }
 
 // tag_add
@@ -64,6 +66,9 @@ elseif ($_POST['q'] == 'tag_add') {
     $sql = "INSERT INTO `tag_card` (`card_id`, `tag_id`) VALUES ('{$card_id}', '{$new_tag_id}');";
     $result = mysqli_query($conn, $sql);
 
+    $sql = "UPDATE `card` SET date = now() WHERE id = '{$card_id}';";
+    $result = mysqli_query($conn, $sql);
+
     include('refresh.php');
 
     $tag_info = array();
@@ -84,4 +89,5 @@ elseif ($_POST['q'] == 'card_edit') {
     $r_edit = mysqli_query($conn, $s_edit);
 
     include('refresh.php');
+    echo json_encode('');
 }

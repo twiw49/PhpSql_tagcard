@@ -60,16 +60,16 @@ if ($_POST['type'] == 'tag') {
     $query = array();
     $cards = array();
 
-    if ($_POST['query'] == 'tagged') {
-        $query['name'] = 'Tagged Cards';
-        $sql = "SELECT * FROM `card` WHERE `tagged` = 1;";
-    } elseif ($_POST['query'] == 'untagged') {
-        $query['name'] = 'Untagged Cards';
-        $sql = "SELECT * FROM `card` WHERE `tagged` = 0;";
-    } else {
+    switch ($_POST['query']) {
+      case 'all':
+        $query['name'] = 'All Cards';
+        $sql = "SELECT * FROM `card`;";
+        break;
+      default:
         $q = $_POST['query'];
         $query['name'] = $q;
         $sql = "SELECT * FROM `card` WHERE `content` LIKE '%$q%'";
+        break;
     }
 }
 $result = mysqli_query($conn, $sql);
@@ -79,10 +79,12 @@ while ($row = mysqli_fetch_array($result)) {
     } elseif ($_POST['type'] == 'card') {
         $card_id = $row['id'];
     }
-    $card_arr = sqlReuslt_array($conn, 'card', 'id', $card_id, ['content','question','answer']);
+    $card_arr = sqlReuslt_array($conn, 'card', 'id', $card_id, ['content','question','answer','date','tagged']);
     $card_content = $card_arr['content'];
     $card_question = $card_arr['question'];
     $card_answer = $card_arr['answer'];
+    $card_date = $card_arr['date'];
+    $card_tagged = $card_arr['tagged'];
 
     $card_choices = array();
     $sql_ = "SELECT * FROM `card_choice` WHERE `card_id` = '{$card_id}'";
@@ -152,6 +154,8 @@ while ($row = mysqli_fetch_array($result)) {
     $y['choices'] = $card_choices;
     $y['resources'] = $card_resources;
     $y['tags_info'] = $tags_info;
+    $y['date'] = $card_date;
+    $y['tagged'] = $card_tagged;
     $cards[] = $y;
 };
 

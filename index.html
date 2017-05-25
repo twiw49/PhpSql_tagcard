@@ -12,10 +12,11 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="bower_components/jquery-typeahead/dist/jquery.typeahead.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?version=2">
 </head>
 
 <body>
+  <div class="backimage"></div>
   <div class="loading_img" style="display:none;">
     <img src="css/gears.svg">
   </div>
@@ -30,50 +31,62 @@
       <hr style="margin:0">
       <!-- w_tag in with_tags -->
       <div class="title">Location</div>
-      <template v-for="w_tag in with_tags" v-cloak>
-        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Location'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
-          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+      <template v-for="w_tag in with_tags.filter(byCategory('Location'))" v-cloak>
+        <div>
+          <span class="form-group with_tag" v-if="w_tag.c_selected">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+          </span>
         </div>
       </template>
       <hr style="margin:0">
       <div class="title">Symptom</div>
-      <template v-for="w_tag in with_tags" v-cloak>
-        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Symptom'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
-          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+      <template v-for="w_tag in with_tags.filter(byCategory('Symptom'))" v-cloak>
+        <div>
+          <span class="form-group with_tag" v-if="w_tag.c_selected">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+          </span>
         </div>
       </template>
       <hr style="margin:0">
       <div class="title">Disease</div>
-      <template v-for="w_tag in with_tags" v-cloak>
-        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Disease'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
-          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+      <template v-for="w_tag in with_tags.filter(byCategory('Disease'))" v-cloak>
+        <div>
+          <span class="form-group with_tag" v-if="w_tag.c_selected">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+          </span>
         </div>
       </template>
       <hr style="margin:0">
       <div class="title">Risk</div>
-      <template v-for="w_tag in with_tags" v-cloak>
-        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Risk'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
-          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+      <template v-for="w_tag in with_tags.filter(byCategory('Risk'))" v-cloak>
+        <div>
+          <span class="form-group with_tag" v-if="w_tag.c_selected">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+          </span>
         </div>
       </template>
       <hr style="margin:0">
       <div class="title">Management</div>
-      <template v-for="w_tag in with_tags" v-cloak>
-        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Management'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
-          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+      <template v-for="w_tag in with_tags.filter(byCategory('Management'))" v-cloak>
+        <div>
+          <span class="form-group with_tag" v-if="w_tag.c_selected">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+          </span>
         </div>
       </template>
       <hr style="margin:0">
       <div class="title">Lab</div>
-      <template v-for="w_tag in with_tags" v-cloak>
-        <div class="form-group with_tag" v-if="w_tag.c_selected && w_tag.category=='Lab'">
-          <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ c_selected_tags[w_tag.raw_id] }} </div></label>
-          <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+      <template v-for="w_tag in with_tags.filter(byCategory('Lab'))" v-cloak>
+        <div>
+          <span class="form-group with_tag" v-if="w_tag.c_selected">
+            <label :for="w_tag.raw_id" :class="tagClass(w_tag)" @click="stopPropagate($event)"> {{ w_tag.name }} <div class="badge"> {{ w_tag.with_count }} </div></label>
+            <input type="checkbox" :id="w_tag.raw_id" :checked="w_tag.selected" :disabled="w_tag.query" @change="tagCheck(w_tag, $event)" @click="stopPropagate($event)">
+          </span>
         </div>
       </template>
       <hr style="margin:0">
@@ -84,8 +97,8 @@
     <div class="row">
       <div class="col-xs-12">
         <!-- c in cards / c_tag -->
-        <template v-for="c in cards">
-          <div class="card_panel" v-if="c.selected && c.showing">
+        <template v-for="(c,i) in cards">
+          <div class="card_panel" v-if="c.selected && c.showing" :id="makeId('card_panel',c.id)">
             <div class="c_tags_category">
               <li :class="{'filled' : c.tags_category.includes('Location')}" class="Location">Location</li>
               <li :class="{'filled' : c.tags_category.includes('Symptom')}" class="Symptom">Symptom</li>
@@ -95,26 +108,51 @@
               <li :class="{'filled' : c.tags_category.includes('Lab')}" class="Lab">Lab</li>
             </div>
             <!-- card content -->
-            <div class="card_content" :id="makeId('content',c.id)">
-              <textarea rows="10" v-text="c.content" class="form-control" v-if="c.editing==true"></textarea>
+            <div class="card_content" :id="makeId('content',c.id)" @click="moveTop(c,$event)">
+              <textarea rows="10" v-text="c.content" class="form-control" v-if="c.editing===true"></textarea>
               <div v-else>{{ c.content }}</div>
             </div>
             <hr style="margin-top:0;margin-bottom:1rem;">
             <!-- c_tag in c.tags_info -->
             <div class="card_tags">
-              <span class="card_tags" v-for="c_tag in c.tags_info">
-                  <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c)">
+              <span class="card_tags" v-for="c_tag in c.tags_info.filter(byCategory('Location'))">
+                  <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c,i)">
+                    <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ c_tag.name }}
+                  </a>
+              </span>
+              <span class="card_tags" v-for="c_tag in c.tags_info.filter(byCategory('Symptom'))">
+                  <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c,i)">
+                    <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ c_tag.name }}
+                  </a>
+              </span>
+              <span class="card_tags" v-for="c_tag in c.tags_info.filter(byCategory('Disease'))">
+                  <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c,i)">
+                    <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ c_tag.name }}
+                  </a>
+              </span>
+              <span class="card_tags" v-for="c_tag in c.tags_info.filter(byCategory('Risk'))">
+                  <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c,i)">
+                    <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ c_tag.name }}
+                  </a>
+              </span>
+              <span class="card_tags" v-for="c_tag in c.tags_info.filter(byCategory('Management'))">
+                  <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c,i)">
+                    <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ c_tag.name }}
+                  </a>
+              </span>
+              <span class="card_tags" v-for="c_tag in c.tags_info.filter(byCategory('Lab'))">
+                  <a class="link" :class="c_tag.category" @click="tagDelete(c_tag,c,i)">
                     <span class="glyphicon glyphicon-minus-sign" style="fontSize:1.1rem;"></span> {{ c_tag.name }}
                   </a>
               </span>
             </div>
             <!-- add tag -->
             <div class="add_tag form-group">
-              <form onsubmit="return false;" :key="makeId('select',c.id)">
+              <form onsubmit="return false;" :key="makeId('select',c.id)" @click="moveTop(c,$event)">
                 <div class="typeahead__container">
                   <div class="typeahead__field">
                     <span class="typeahead__query">
-                      <input :id="makeId('select',c.id)" placeholder="Add a tag" autocomplete="off" @focus.once="selectReady(c)">
+                      <input :id="makeId('select',c.id)" placeholder="Add a tag" autocomplete="off" @focus.once="selectReady(c,i)">
                     </span>
                   </div>
                 </div>
@@ -127,14 +165,14 @@
                 <template v-if="c.resources.length > 1">
                   <ol class="carousel-indicators">
                     <!-- c_rsc in c.resources -->
-                    <li v-for="c_rsc in c.resources" :data-target="makeId('#rsc',c.id)" :data-slide-to="Number(c_rsc.id.replace('rsc_', '')) - 1" :class="{'active': c_rsc.id=='rsc_1'}"></li>
+                    <li v-for="c_rsc in c.resources" :data-target="makeId('#rsc',c.id)" :data-slide-to="Number(c_rsc.id.replace('rsc_', '')) - 1" :class="{'active': c_rsc.id==='rsc_1'}"></li>
                   </ol>
                 </template>
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                   <!-- c_rsc in c.resources -->
-                  <div class="item" v-for="c_rsc in c.resources" :class="{'active': c_rsc.id=='rsc_1'}">
-                    <div class="carousel-caption" v-if="c_rsc.type == 'image'">
+                  <div class="item" v-for="c_rsc in c.resources" :class="{'active': c_rsc.id==='rsc_1'}">
+                    <div class="carousel-caption" v-if="c_rsc.type==='image'">
                       <p>{{ c_rsc.name }}</p>
                     </div>
                     <template v-if="c_rsc.type==='image'">
@@ -204,19 +242,18 @@
             </div>
             <!-- update buttons -->
             <div class="btn-group updateBtn">
-              <button class="btn btn-default" @click="editComplete(c, $event)" v-if="c.editing==true"><i class="glyphicon glyphicon-ok"></i></button>
+              <button class="btn btn-default" @click="editComplete(c,i,$event)" v-if="c.editing===true"><i class="glyphicon glyphicon-ok"></i></button>
               <button class="btn btn-default" @click="c.editing=true" v-else><i class="glyphicon glyphicon-edit"></i></button>
-              <button class="btn btn-default" @click="deleteCard(c, $event)"><i class="glyphicon glyphicon-trash"></i></button>
+              <button class="btn btn-default" @click="deleteCard(c,i,$event)"><i class="glyphicon glyphicon-trash"></i></button>
             </div>
           </div>
         </template>
-        <button type="button" class="btn btn-success" id="readmore" v-if="data && selected_cards_numb > groupNumb * 5" @click="readMore()" v-cloak>ReadMore</button>
       </div>
     </div>
   </div>
   <!-- footer -->
   <div class="footer">
-    <!-- tagRecommend() -->
+    <!-- loadTaggedTags() -->
     <form onsubmit="return false;" class="searchTagBox">
       <div class="typeahead__container">
         <div class="typeahead__field">
@@ -252,11 +289,11 @@
       <span class="glyphicon glyphicon-tags"></span>
     </a>
     <!-- Tag search -->
-    <a onclick="searchNav.tag()" class="searchTagBtn">
+    <a onclick="bottomNav.tag()" class="searchTagBtn">
       <span>태그검색</span>
     </a>
     <!-- Word search -->
-    <a onclick="searchNav.word()" class="searchWordBtn">
+    <a onclick="bottomNav.word()" class="searchWordBtn">
       <span>단어검색</span>
     </a>
   </div>
@@ -264,123 +301,91 @@
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/jquery-typeahead/dist/jquery.typeahead.min.js"></script>
   <script src="bower_components/vue/dist/vue.min.js"></script>
+  <script src="bower_components/lodash/dist/lodash.min.js"></script>
   <script>
+    loadAllCards();
+
     $(document).ready(function() {
-      tagRecommend();
+      loadTaggedTags();
+
       $('#sidenav').on('click', function() {
         sideNavController.close();
       })
+
+      $(document).on('scroll', _.debounce(function() {
+        if (document.body.scrollHeight < document.body.scrollTop + window.innerHeight + 2000) {
+          cardVue.readMore();
+        }
+      }, 100));
     });
 
-    var sideNavController = {
-      open: function() {
-        $("#sidenav").css("height","100vh");
-      },
-      close: function() {
-        $("#sidenav").css("height",0);
+    function dynamicSort(property) {
+      var sortOrder = 1;
+      if (property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+      }
+      return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
       }
     };
 
-    var searchNav = {
-      tag: function() {
-        if($(".tabs").css("display") == "none"){
-          $('.searchTagBox').hide();
-          $('.searchWordBox').hide();
-          $('.tabs').show();
-          $('.searchWordBtn').show();
-          $('.searchTagBtn').html('<span>태그검색</span>').css('flex-grow',1);
-        } else {
-          $('.tabs').hide();
-          $('.searchWordBtn').hide();
-          $('.searchWordBox').hide();
-          $('.searchTagBox').show();
-          $('.searchTagBtn').html('<span class="glyphicon glyphicon-arrow-left"></span>').css('flex-grow',0);
+    function dynamicSortMultiple() {
+      var props = arguments;
+      return function (obj1, obj2) {
+        var i = 0, result = 0, numberOfProperties = props.length;
+        /* try getting a different result from 0 (equal)
+         * as long as we have extra properties to compare
+         */
+        while (result === 0 && i < numberOfProperties) {
+            result = dynamicSort(props[i])(obj1, obj2);
+            i++;
         }
-        $('.searchTagBox input').focus().val('');
-      },
-      word: function() {
-        if($(".tabs").css("display") == "none"){
-          $('.tabs').show();
-          $('.searchTagBtn').show();
-          $('.searchTagBox').hide();
-          $('.searchWordBox').hide();
-          $('.searchWordBtn').html('<span>단어검색</span>').css('flex-grow',1);
-        } else {
-          $('.tabs').hide();
-          $('.searchTagBtn').hide();
-          $('.searchTagBox').hide();
-          $('.searchWordBox').show();
-          $('.searchWordBtn').html('<span class="glyphicon glyphicon-arrow-left"></span>').css('flex-grow',0);
-          $('.searchWordBox input').focus();
-          $('.searchWordBox input').keypress(function(event) {
-            if (event.which == 13){
-              searchData.word(this);
-            }
-          })
-          $('.searchWordBox span').click(function() {
-            var that = $('.searchWordBox input');
-            searchData.word(that);
-          })
-        }
-        $('.searchWordBox input').focus().val('');
+        return result;
       }
     };
 
-    var searchData = {
-      tag: function(q) {
-        var tag_name = q[0];
-        var tag_category = q[1];
-        var vars = {
-          type: 'tag',
-          tag_name: tag_name,
-          tag_category: tag_category
+    function byCategory(category) {
+      return function(cate, tag) {
+        return cate === tag.category;
+      }.bind(null, category);
+    };
+
+    function ajaxRequest(command, vars) {
+      var url = "sql/" + command + "_sql.php";
+      // ajaxRequest 함수가 실행될때마다, command, url, vars 값이 ajaxRequest function execution context 내에 정의됨
+      // ajaxRequst의 return 값은 ajax 함수이며,
+      // ajax 함수가 실행될 때, url과 vars 값을 ajax 함수의 execution context 내에서 찾을 수 없으므로
+      // closure를 통해 ajaxRequest function execution context로 접근함
+      return $.ajax({
+        type: "POST",
+        url: url,
+        data: vars,
+        dataType: 'json',
+        complete: function() {
+          $('.loading_img').hide();
         }
-        $.ajax({
-            type: "POST",
-            url: "sql/search_sql.php",
-            data: vars,
-            dataType: 'json',
-            complete: function() {
-              $('.loading_img').hide();
-            }
-          })
-          .done(function(data, message, xhr) {
-            processData(data, [data.query.raw_id]);
-            $('input').blur();
-          })
-          .fail(function(xhr) {
-            console.log(xhr.responseText);
-          })
-      },
-      word: function(that) {
-        var vars = {
-          type: 'card',
-          query: $(that).val()
-        }
-        $.ajax({
-            type: "POST",
-            url: "sql/search_sql.php",
-            data: vars,
-            dataType: 'json',
-            complete: function() {
-              $('.loading_img').hide();
-            }
-          })
-          .done(function(data, message, xhr) {
-            processData(data, []);
-            $('.loading_img').show();
-            $('.searchWordBox').hide();
-            $('.searchWordBtn').html('<span>단어검색</span>').css('flex-grow',1);
-            $('.searchTagBtn').show();
-            $(".tabs").show();
-          })
-          .fail(function(xhr) {
-            console.log(xhr.responseText);
-          })
-      }
+      })
+      .fail(function(a,b,c,) {
+        console.log(a);
+        console.log(b);
+        console.log(c);
+      })
+    };
+
+    function loadAllCards() {
+      ajaxRequest('search', {
+        type: 'card',
+        query: 'all'
+      })
+      .done(function(data, message, xhr) {
+        window.allCards = data;
+        console.log('All cards are loaded!');
+      })
     }
 
-    function tagRecommend() {
+    function loadTaggedTags() {
       $.typeahead({
         input: '.searchTagBox input',
         minLength: 1,
@@ -415,60 +420,140 @@
       });
     };
 
-    function processData(data, selected_tags) {
-      var q_tag = data.query.raw_id;
-
-      // data reset
-      data.with_tags = [];
-      data.c_selected_tags = {};
-
-      if (selected_tags) {
-        data.selected_tags = selected_tags;
+    var sideNavController = {
+      open: function() {
+        $("#sidenav").css("height","100vh");
+      },
+      close: function() {
+        $("#sidenav").css("height",0);
       }
+    };
+
+    var bottomNav = {
+      tag: function() {
+        if($(".tabs").css("display") === "none"){
+          $('.searchTagBox').hide();
+          $('.searchWordBox').hide();
+          $('.tabs').show();
+          $('.searchWordBtn').show();
+          $('.searchTagBtn').html('<span>태그검색</span>').css('flex-grow',1);
+        } else {
+          $('.tabs').hide();
+          $('.searchWordBtn').hide();
+          $('.searchWordBox').hide();
+          $('.searchTagBox').show();
+          $('.searchTagBtn').html('<span class="glyphicon glyphicon-arrow-left"></span>').css('flex-grow',0);
+        }
+        $('.searchTagBox input').focus().val('');
+      },
+      word: function() {
+        if($(".tabs").css("display") === "none"){
+          $('.tabs').show();
+          $('.searchTagBtn').show();
+          $('.searchTagBox').hide();
+          $('.searchWordBox').hide();
+          $('.searchWordBtn').html('<span>단어검색</span>').css('flex-grow',1);
+        } else {
+          $('.tabs').hide();
+          $('.searchTagBtn').hide();
+          $('.searchTagBox').hide();
+          $('.searchWordBox').show();
+          $('.searchWordBtn').html('<span class="glyphicon glyphicon-arrow-left"></span>').css('flex-grow',0);
+          $('.searchWordBox input').focus();
+          $('.searchWordBox input').keypress(function(event) {
+            if (event.which === 13){
+              searchData.word(this);
+            }
+          })
+          $('.searchWordBox span').click(function() {
+            var that = $('.searchWordBox input');
+            searchData.word(that);
+          })
+        }
+        $('.searchWordBox input').focus().val('');
+      }
+    };
+
+    var searchData = {
+      tag: function(q) {
+        ajaxRequest('search', {
+          type: 'tag',
+          tag_name: q[0],
+          tag_category: q[1]
+        })
+        .done(function(data) {
+          processData(data, [data.query.raw_id]);
+          $('input').blur();
+        })
+      },
+      word: function(that) {
+        ajaxRequest('search', {
+          type: 'card',
+          query: $(that).val()
+        })
+        .done(function(data) {
+          processData(data, []);
+          $('.loading_img').show();
+          $('.searchWordBox').hide();
+          $('.searchWordBtn').html('<span>단어검색</span>').css('flex-grow',1);
+          $('.searchTagBtn').show();
+          $(".tabs").show();
+        })
+      }
+    }
+
+    function processData(data, selected_tags) {
+      // 1. q_tag (검색창을 통해 입력된 값)
+      // 2. selected_tags (체크박스를 통해 선택된 태그들)
+      // 3. c_selected_tags (selected_tags에 의해 선택된 카드들에 태깅된 모든 태그들)
+      // 4. with_count (c_selected_tags의 태깅된 횟수들)
+
+      var q_tag = data.query.raw_id;
+      data.selected_tags = selected_tags || data.selected_tags;
+      data.groupNumb = data.groupNumb || 1;
 
       var w_tags_arr = [];
       var w_tags_raw_id = [];
       var c_selected_tags = {};
       var k = 0;
-      if (!data.groupNumb) {
-        data.groupNumb = 1;
-      }
-      for (var i = 0; i < data.cards.length; i++) {
+
+      data.cards.map(function(c) {
         var c_tags_raw_id = [];
         var c_tags_category = [];
-        var c = data.cards[i];
-        for (var j = 0; j < c.tags_info.length; j++) {
-          if (!w_tags_raw_id.includes(c.tags_info[j].raw_id)) {
-            w_tags_raw_id.push(c.tags_info[j].raw_id);
-            w_tags_arr.push(c.tags_info[j]);
+
+        c.tags_info.map(function(c_tag) {
+          if (w_tags_raw_id.indexOf(c_tag.raw_id) === -1) {
+            w_tags_raw_id.push(c_tag.raw_id);
+            w_tags_arr.push(c_tag);
           }
-          if (!c_tags_raw_id.includes(c.tags_info[j].raw_id)) {
-            c_tags_raw_id.push(c.tags_info[j].raw_id);
+          if (c_tags_raw_id.indexOf(c_tag.raw_id) === -1) {
+            c_tags_raw_id.push(c_tag.raw_id);
           }
-          if (!c_tags_category.includes(c.tags_info[j].category)) {
-            c_tags_category.push(c.tags_info[j].category);
+          if (c_tags_category.indexOf(c_tag.category) === -1) {
+            c_tags_category.push(c_tag.category);
           }
-        }
+        })
         c.tags_raw_id = c_tags_raw_id;
         c.tags_category = c_tags_category;
 
         // selected
         c.selected = true;
-        for (var j = 0; j < data.selected_tags.length; j++) {
-          if (!c.tags_raw_id.includes(data.selected_tags[j])) {
+        data.selected_tags.map(function(s_tag) {
+          if (!c.tags_raw_id.includes(s_tag)) {
             c.selected = false;
-            break;
+            return;
           }
-        }
+        })
+
+        // editing
+        c.editing = false;
+
         // c_selected_tags
         if (c.selected) {
-          for (var j = 0; j < c.tags_raw_id.length; j++) {
-            if (c.tags_raw_id[j] in c_selected_tags) {
-              c_selected_tags[c.tags_raw_id[j]] += 1;
-            } else {
-              c_selected_tags[c.tags_raw_id[j]] = 1;
-            }
-          }
+          c.tags_raw_id.map(function(item, index) {
+            c_selected_tags[item] = (item in c_selected_tags) ? c_selected_tags[item] + 1 : 1;
+          });
+
           // showing
           if (k < 5 * data.groupNumb) {
             c.showing = true;
@@ -479,34 +564,19 @@
         } else {
           c.showing = false;
         }
-        // editing
-        c.editing = false;
-      }
-      data.with_tags = w_tags_arr;
-      data.c_selected_tags = c_selected_tags;
+      })
 
       // with_tags_all에 property 부여하기
-      for (var i = 0; i < data.with_tags.length; i++) {
-        var w_tag = data.with_tags[i];
-        // 1. q_tag (검색창을 통해 입력된 값)
-        if (w_tag.raw_id == q_tag) {
-          w_tag.query = true;
-        } else {
-          w_tag.query = false;
-        }
-        // 2. selected_tags (체크박스를 통해 선택된 태그들의 이름을 배열에 저장한 값)
-        if (data.selected_tags.includes(w_tag.raw_id)) {
-          w_tag.selected = true;
-        } else {
-          w_tag.selected = false;
-        }
-        // 3. c_selected_tags
-        if (w_tag.raw_id in c_selected_tags) {
-          w_tag.c_selected = true;
-        } else {
-          w_tag.c_selected = false;
-        }
-      }
+      w_tags_arr.map(function(w_tag, index) {
+        w_tag.query = (w_tag.raw_id === q_tag) || false;
+        w_tag.selected = (data.selected_tags.includes(w_tag.raw_id)) || false;
+        w_tag.c_selected = (w_tag.raw_id in c_selected_tags) || false;
+        w_tag.with_count = (w_tag.raw_id in c_selected_tags) ? c_selected_tags[w_tag.raw_id] : 0;
+      });
+      w_tags_arr.sort(dynamicSortMultiple("-with_count","name"));
+
+      data.with_tags = w_tags_arr;
+      data.c_selected_tags = c_selected_tags;
 
       tagVue.data = data;
       tagVue.query = data.query;
@@ -519,18 +589,18 @@
       cardVue.cards = data.cards;
       cardVue.groupNumb = data.groupNumb;
 
-      tagRecommend();
+      loadTaggedTags();
     };
 
     var tagVue = new Vue({
       el: "#sidenav",
       data: {
-        data: '',
-        cards: '',
-        with_tags: '',
-        query: '',
-        selected_tags: '',
-        c_selected_tags: ''
+        data: {},
+        cards: [],
+        with_tags: [],
+        query: {},
+        selected_tags: [],
+        c_selected_tags: []
       },
       computed: {
         selected_tags_numb: function() {
@@ -543,13 +613,11 @@
           return Object.keys(this.c_selected_tags).length;
         },
         selected_cards_numb: function() {
-          var numb = 0;
-          for (var i = 0; i < this.cards.length; i++) {
-            if (this.cards[i].selected == true) {
-              numb++;
-            }
-          }
-          if (numb == 0) {
+          var numb = this.cards.reduce(function(prev,item) {
+            prev = (item.selected) ? prev + 1 : prev;
+            return prev;
+          },0);
+          if (numb === 0) {
             this.selected_tags = [];
           }
           return numb;
@@ -585,65 +653,37 @@
     var cardVue = new Vue({
       el: "#card_container",
       data: {
-        data: '',
-        cards: '',
+        data: {},
+        cards: [],
         groupNumb: 1
       },
-      computed: {
-        selected_cards_numb: function() {
-          var numb = 0;
-          for (var i = 0; i < this.cards.length; i++) {
-            if (this.cards[i].selected == true) {
-              numb++;
-            }
-          }
-          return numb;
-        }
-      },
       methods: {
+        moveTop: function(card, event) {
+          $('#card_panel_'+card.id)[0].scrollIntoView(true);
+        },
         showUntagged: function() {
-          $('.loading_img').show();
-          var vars = {
-            type: 'card',
-            query: 'untagged'
+          try {
+            var untaggedQuery = {name : 'Unagged Cards'};
+            var untaggedCards = allCards.cards.filter(function(x) {return x.tagged === '0'}).sort(function() { return 0.5 - Math.random() });
+            var untaggedData = {query: untaggedQuery, cards: untaggedCards};
+            processData(untaggedData,[]);
+            $(window).scrollTop(0);
           }
-          $.ajax({
-              type: "POST",
-              url: "sql/search_sql.php",
-              data: vars,
-              dataType: 'json',
-              complete: function() {
-                $('.loading_img').hide();
-              }
-            })
-            .done(function(data, message, xhr) {
-              processData(data, []);
-            })
-            .fail(function(xhr) {
-              console.log(xhr.responseText);
-            })
+          catch(err) {
+            console.log('You cards are not loaded. Please Click one more time!');
+          };
         },
         showTagged: function() {
-          $('.loading_img').show();
-          var vars = {
-            type: 'card',
-            query: 'tagged'
+          try {
+            var taggedQuery = {name : 'Tagged Cards'};
+            var taggedCards = allCards.cards.filter(function(x) {return x.tagged === '1'});
+            var taggedData = {query: taggedQuery, cards: taggedCards};
+            processData(taggedData,[]);
+            $(window).scrollTop(0);
           }
-          $.ajax({
-              type: "POST",
-              url: "sql/search_sql.php",
-              data: vars,
-              dataType: 'json',
-              complete: function() {
-                $('.loading_img').hide();
-              }
-            })
-            .done(function(data, message, xhr) {
-              processData(data, []);
-            })
-            .fail(function(xhr) {
-              console.log(xhr.responseText);
-            })
+          catch(err) {
+            console.log('You cards are not loaded. Please Click one more time!');
+          };
         },
         shuffleCards: function() {
           if (this.cards) {
@@ -671,114 +711,90 @@
           }
         },
         readMore: function() {
-          var start = this.groupNumb * 5;
-          var end = (this.groupNumb + 1) * 5;
-          var k = 0;
-          for (var i = start; i < this.selected_cards_numb; i++) {
-            if (k < 5) {
-              this.cards[i].showing = true;
-              k++;
-              continue;
+          if (this.cards.length > (this.groupNumb + 1) * 5) {
+            var start = this.groupNumb * 5;
+            var k = 0;
+            for (var i = start; i < this.cards.length; i++) {
+              if (k < 5) {
+                this.cards[i].showing = true;
+                k++;
+                continue;
+              }
+              break;
             }
-            break;
-          }
-          this.groupNumb++;
-          this.data.groupNumb = this.groupNumb;
+            this.groupNumb++;
+            this.data.groupNumb = this.groupNumb;
+          } return;
         },
         makeId: function(prefix, id) {
           return prefix + '_' + id;
         },
-        tagDelete: function(tag, card) {
-          var old_data = this.data;
+        tagDelete: function(tag, card, index) {
+          var data_self = this.data;
           var r = confirm('Do you want to remove "' + tag.name + '" tag from this case?');
           if (r) {
-            for (var i = 0; i < old_data.with_tags.length; i++) {
-              if (old_data.with_tags[i].id == tag.id) {
-                var id = old_data.with_tags[i].raw_id;
-                if (old_data.c_selected_tags[id] == 1) {
-                  old_data.with_tags.splice(i, 1);
+            for (var i = 0; i < data_self.with_tags.length; i++) {
+              if (data_self.with_tags[i].id === tag.id) {
+                var id = data_self.with_tags[i].raw_id;
+                if (data_self.c_selected_tags[id] === 1) {
+                  data_self.with_tags.splice(i, 1);
                 }
               }
             }
-            var vars = {
+            ajaxRequest('update', {
               q: 'tag_delete',
               tag_raw_id: tag.raw_id,
               card_id: card.id
-            };
-            $.ajax({
-                type: "POST",
-                url: "sql/update_sql.php",
-                data: vars
-              })
-              .done(function() {
-                for (var i = 0; i < old_data.cards.length; i++) {
-                  var c = old_data.cards[i];
-                  if (c.id == card.id) {
-                    for (var j = 0; j <c.tags_info.length; j++) {
-                      var t = c.tags_info[j];
-                      if (t.id == tag.id) {
-                        c.tags_info.splice(j,1);
-                      }
-                    }
-                  }
+            })
+            .done(function() {
+              var c = data_self.cards[index];
+              for (var j = 0; j <c.tags_info.length; j++) {
+                var t = c.tags_info[j];
+                if (t.id === tag.id) {
+                  c.tags_info.splice(j,1);
                 }
-                processData(old_data);
-              })
+                if (c.tags_info.length === 0) {
+                  c.tagged = '0';
+                }
+              }
+              processData(data_self);
+            })
           }
         },
-        editComplete: function(card, event) {
-          var old_data = this.data;
+        editComplete: function(card, index, event) {
+          var data_self = this.data;
           var card_content = $("#content_" + card.id + " textarea")[0].value;
           var r = confirm('Do you want to edit this case?');
           if (r) {
-            var vars = {
+            ajaxRequest('update', {
               q: 'card_edit',
               card_id: card.id,
               card_content: card_content
-            };
-            $.ajax({
-                type: "POST",
-                url: "sql/update_sql.php",
-                data: vars
-              })
-              .done(function() {
-                for (var i = 0; i < old_data.cards.length; i++) {
-                  var c = old_data.cards[i];
-                  if (c.id == card.id) {
-                    c.content = card_content;
-                  }
-                }
-                processData(old_data)
-              })
+            })
+            .done(function() {
+              var c = data_self.cards[index];
+              c.content = card_content;
+              processData(data_self)
+            })
           }
           card.editing = false;
         },
-        deleteCard: function(card, event) {
-          var old_data = this.data;
+        deleteCard: function(card, index, event) {
+          var data_self = this.data;
           var r = confirm('Do you want to remove this case?');
           if (r) {
-            var vars = {
+            ajaxRequest('update', {
               q: 'card_delete',
               card_id: card.id
-            };
-            $.ajax({
-                type: "POST",
-                url: "sql/update_sql.php",
-                data: vars
-              })
-              .done(function() {
-                for (var i = 0; i < old_data.cards.length; i++) {
-                  var c = old_data.cards[i];
-                  if (c.id == card.id) {
-                    old_data.cards.splice(i,1);
-                  }
-                }
-                processData(old_data)
-              })
+            })
+            .done(function() {
+              data_self.cards.splice(index,1);
+              processData(data_self)
+            })
           }
         },
-        selectReady: function(card) {
-          var old_data = this.data;
+        selectReady: function(card, index) {
+          var data_self = this.data;
           $.typeahead({
             input: '#select_' + card.id,
             minLength: 2,
@@ -845,47 +861,32 @@
               }
             },
             callback: {
-              onNavigateBefore: function (node, query, event) {
+              onNavigateBefore: function(node, query, event) {
                 event.preventInputChange = true;
               },
               onClick: function(node, a, item, event) {
                 var tag_name = this.item.display.split(' | ')[0];
                 var tag_category = this.item.group;
-                for (var i = 0; i < old_data.cards.length; i++) {
-                  var c = old_data.cards[i];
-                  if (card.id == c.id) {
-                    for (var j = 0; j < c.tags_info.length; j++) {
-                      var t = c.tags_info[j];
-                      if (t.name == tag_name && t.category == tag_category) {
-                        alert('"' + t.name + '" was already tagged!');
-                        return;
-                      }
-                    }
+                var c = data_self.cards[index];
+                c.tags_info.map(function(t) {
+                  if (t.name === tag_name && t.category === tag_category) {
+                    alert('"' + t.name + '" was already tagged!');
+                    return;
                   }
-                }
-                var vars = {
+                });
+                ajaxRequest('update', {
                   q: 'tag_add',
-                  // q_tag: old_data.query.id,
                   tag_name: tag_name,
                   card_id: card.id,
                   tag_category: tag_category
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "sql/update_sql.php",
-                    data: vars,
-                    dataType: 'json'
-                  })
-                  .done(function(tag_info) {
-                    $('#select_'+card.id).val('');
-                    for (var i = 0; i < old_data.cards.length; i++) {
-                      var c = old_data.cards[i];
-                      if (c.id == card.id) {
-                        c.tags_info.push(tag_info);
-                      }
-                    }
-                    processData(old_data);
-                  })
+                })
+                .done(function(tag_info) {
+                  $('#select_'+card.id).val('');
+                  var c = data_self.cards[index];
+                  c.tags_info.push(tag_info);
+                  c.tagged = c.tagged === '0' ? '1' : '0';
+                  processData(data_self);
+                })
               }
             }
           });
@@ -894,5 +895,4 @@
     });
   </script>
 </body>
-
 </html>
